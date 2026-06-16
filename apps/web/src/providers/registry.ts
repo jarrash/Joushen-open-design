@@ -10,13 +10,13 @@ import type {
   ImportGitHubDesignSystemResponse,
   ImportShadcnDesignSystemRequest,
   ImportShadcnDesignSystemResponse,
-  OpenDesignGithubLatestReleaseResponse,
+  JoushenStudioGithubLatestReleaseResponse,
   ImportLocalDesignSystemRequest,
   ImportLocalDesignSystemResponse,
   ReplaceProjectWorkingDirResponse,
   SocialShareRequest,
   SocialShareResponse,
-} from '@open-design/contracts';
+} from '@joushen-studio/contracts';
 import type {
   AgentInfo,
   AppVersionInfo,
@@ -64,9 +64,9 @@ import type {
 } from '../types';
 import type { ArtifactManifest } from '../artifacts/types';
 import {
-  isOpenDesignHostAvailable,
+  isJoushenStudioHostAvailable,
   openHostExternalUrl,
-} from '@open-design/host';
+} from '@joushen-studio/host';
 
 export const DEFAULT_DEPLOY_PROVIDER_ID = 'vercel-self';
 export const CLOUDFLARE_PAGES_PROVIDER_ID = 'cloudflare-pages';
@@ -899,11 +899,11 @@ export interface ConnectorActionResult {
 }
 
 function popupBlockedMessage(): string {
-  return 'Popup blocked. Allow popups for Open Design and try again.';
+  return 'Popup blocked. Allow popups for Joushen Studio and try again.';
 }
 
 export async function openExternalUrl(url: string): Promise<boolean> {
-  if (isOpenDesignHostAvailable()) {
+  if (isJoushenStudioHostAvailable()) {
     const opened = await openHostExternalUrl(url);
     if (opened.ok) return true;
   }
@@ -939,7 +939,7 @@ async function decodeConnectorError(resp: Response): Promise<string> {
 
 export async function connectConnector(connectorId: string): Promise<ConnectorActionResult> {
   let authWindow: Window | null = null;
-  const useExternalBrowser = isOpenDesignHostAvailable();
+  const useExternalBrowser = isJoushenStudioHostAvailable();
   try {
     if (!useExternalBrowser) {
       authWindow = window.open('about:blank', '_blank');
@@ -1214,7 +1214,7 @@ export async function fetchLatestGithubReleaseInfo(): Promise<LatestGithubReleas
   try {
     const resp = await fetch('/api/github/open-design/releases/latest');
     if (!resp.ok) return null;
-    const json = (await resp.json()) as Partial<OpenDesignGithubLatestReleaseResponse>;
+    const json = (await resp.json()) as Partial<JoushenStudioGithubLatestReleaseResponse>;
     if (typeof json.tag_name !== 'string' || typeof json.html_url !== 'string') return null;
     return {
       tagName: json.tag_name,
@@ -2099,17 +2099,17 @@ export async function replaceProjectWorkingDir(
 // editors on demand (PATH probe + macOS bundle scan), and the POST
 // endpoint spawns the chosen app with the project's resolvedDir.
 export async function fetchHostEditors(): Promise<
-  import('@open-design/contracts').HostEditorsResponse
+  import('@joushen-studio/contracts').HostEditorsResponse
 > {
   const resp = await fetch('/api/editors');
   if (!resp.ok) throw new Error(`GET /api/editors failed: ${resp.status}`);
-  return (await resp.json()) as import('@open-design/contracts').HostEditorsResponse;
+  return (await resp.json()) as import('@joushen-studio/contracts').HostEditorsResponse;
 }
 
 export async function openProjectInEditor(
   projectId: string,
-  editorId: import('@open-design/contracts').HostEditorId,
-): Promise<import('@open-design/contracts').OpenProjectInEditorResponse> {
+  editorId: import('@joushen-studio/contracts').HostEditorId,
+): Promise<import('@joushen-studio/contracts').OpenProjectInEditorResponse> {
   const resp = await fetch(
     `/api/projects/${encodeURIComponent(projectId)}/open-in`,
     {
@@ -2122,7 +2122,7 @@ export async function openProjectInEditor(
     const body = await readApiErrorBody(resp);
     throw new Error(body.message);
   }
-  return (await resp.json()) as import('@open-design/contracts').OpenProjectInEditorResponse;
+  return (await resp.json()) as import('@joushen-studio/contracts').OpenProjectInEditorResponse;
 }
 
 export async function fetchDesignSystemPreview(id: string): Promise<string | null> {

@@ -29,8 +29,8 @@ import type { Dict } from '../i18n/types';
 import { copyToClipboard } from '../lib/copy-to-clipboard';
 import { projectRawUrl } from '../providers/registry';
 import type { TodoItem } from '../runtime/todos';
-import type { AppliedPluginSnapshot, ChatSessionMode, WorkspaceContextItem } from '@open-design/contracts';
-import type { TrackingProjectKind } from '@open-design/contracts/analytics';
+import type { AppliedPluginSnapshot, ChatSessionMode, WorkspaceContextItem } from '@joushen-studio/contracts';
+import type { TrackingProjectKind } from '@joushen-studio/contracts/analytics';
 import {
   DESIGN_SYSTEM_WORKSPACE_DISPLAY_DESCRIPTION,
   DESIGN_SYSTEM_WORKSPACE_DISPLAY_TITLE,
@@ -474,11 +474,11 @@ interface Props {
   ) => Promise<{ message?: string; url?: string } | void> | { message?: string; url?: string } | void;
   activePluginActionPaths?: Set<string>;
   hiddenPluginActionPaths?: Set<string>;
-  // "Share to Open Design" button on each completed assistant message —
+  // "Share to Joushen Studio" button on each completed assistant message —
   // wired by ProjectView to handleSend with the bundled
   // `od-share-to-community` scenario's trigger prompt.
-  onShareToOpenDesign?: (assistantMessageId: string) => void;
-  shareToOpenDesignBusyMessageId?: string | null;
+  onShareToJoushenStudio?: (assistantMessageId: string) => void;
+  shareToJoushenStudioBusyMessageId?: string | null;
   forceStreamingMessageIds?: Set<string>;
   // Live-only streaming tool-input partials keyed by tool-use id. Threaded to
   // AssistantMessage so an in-flight Write/Edit can render its code in real
@@ -678,8 +678,8 @@ export function ChatPane({
   onRequestPluginFolderAgentAction,
   activePluginActionPaths,
   hiddenPluginActionPaths,
-  onShareToOpenDesign,
-  shareToOpenDesignBusyMessageId,
+  onShareToJoushenStudio,
+  shareToJoushenStudioBusyMessageId,
   forceStreamingMessageIds,
   liveToolInput,
   initialDraft,
@@ -786,14 +786,14 @@ export function ChatPane({
     onAssistantFeedback,
     onArtifactShare,
     onForkFromMessage,
-    onShareToOpenDesign,
+    onShareToJoushenStudio,
   });
   assistantCallbacksRef.current = {
     onContinueRemainingTasks,
     onAssistantFeedback,
     onArtifactShare,
     onForkFromMessage,
-    onShareToOpenDesign,
+    onShareToJoushenStudio,
   };
   // Featured design-toolbox follow-up rows on the assistant "next step" card.
   // The toolbox left the "+" menu, so these route straight into the composer
@@ -1934,8 +1934,8 @@ export function ChatPane({
                 onRequestPluginFolderAgentAction={onRequestPluginFolderAgentAction}
                 activePluginActionPaths={activePluginActionPaths}
                 hiddenPluginActionPaths={hiddenPluginActionPaths}
-                onShareToOpenDesign={onShareToOpenDesign}
-                shareToOpenDesignBusyMessageId={shareToOpenDesignBusyMessageId}
+                onShareToJoushenStudio={onShareToJoushenStudio}
+                shareToJoushenStudioBusyMessageId={shareToJoushenStudioBusyMessageId}
                 forceStreamingMessageIds={forceStreamingMessageIds}
                 lastAssistantId={lastAssistantId}
                 firstUserMessageId={firstUserMessageId}
@@ -2218,7 +2218,7 @@ interface AssistantCallbacks {
     | undefined;
   onArtifactShare: ((fileName: string) => void) | undefined;
   onForkFromMessage: ((message: ChatMessage) => void) | undefined;
-  onShareToOpenDesign: ((assistantMessageId: string) => void) | undefined;
+  onShareToJoushenStudio: ((assistantMessageId: string) => void) | undefined;
 }
 
 type ChatRenderItem = {
@@ -2261,8 +2261,8 @@ function ChatRows({
   onRequestPluginFolderAgentAction,
   activePluginActionPaths,
   hiddenPluginActionPaths,
-  onShareToOpenDesign,
-  shareToOpenDesignBusyMessageId,
+  onShareToJoushenStudio,
+  shareToJoushenStudioBusyMessageId,
   forceStreamingMessageIds,
   lastAssistantId,
   firstUserMessageId,
@@ -2301,8 +2301,8 @@ function ChatRows({
   onRequestPluginFolderAgentAction?: (relativePath: string, action: PluginFolderAgentAction) => void;
   activePluginActionPaths?: Set<string>;
   hiddenPluginActionPaths?: Set<string>;
-  onShareToOpenDesign?: (assistantMessageId: string) => void;
-  shareToOpenDesignBusyMessageId?: string | null;
+  onShareToJoushenStudio?: (assistantMessageId: string) => void;
+  shareToJoushenStudioBusyMessageId?: string | null;
   forceStreamingMessageIds?: Set<string>;
   lastAssistantId: string | undefined;
   firstUserMessageId: string | undefined;
@@ -2402,12 +2402,12 @@ function ChatRows({
         onRequestPluginFolderAgentAction={onRequestPluginFolderAgentAction}
         activePluginActionPaths={activePluginActionPaths}
         hiddenPluginActionPaths={hiddenPluginActionPaths}
-        onShareToOpenDesign={
-          onShareToOpenDesign
-            ? () => assistantCallbacksRef.current.onShareToOpenDesign?.(m.id)
+        onShareToJoushenStudio={
+          onShareToJoushenStudio
+            ? () => assistantCallbacksRef.current.onShareToJoushenStudio?.(m.id)
             : undefined
         }
-        shareToOpenDesignBusy={shareToOpenDesignBusyMessageId === m.id}
+        shareToJoushenStudioBusy={shareToJoushenStudioBusyMessageId === m.id}
         isLast={m.id === lastAssistantId}
         errorCardOwnerId={errorCardOwnerId}
         nextUserContent={nextUserContentByAssistantId.get(m.id)}
@@ -3129,7 +3129,7 @@ export function isAssistantMessageStreaming(
 
 export function buildRunErrorDiagnosticText(input: RunErrorDiagnosticInput): string {
   const lines = [
-    'Open Design run error diagnostics',
+    'Joushen Studio run error diagnostics',
     `trace_id: ${input.traceId ?? 'n/a'}`,
     `run_id: ${input.traceId ?? 'n/a'}`,
     `error_code: ${input.errorCode ?? 'n/a'}`,

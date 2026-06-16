@@ -14,8 +14,8 @@ import {
   type DesktopScreenshotResult,
   type DesktopStatusSnapshot,
   type SidecarStamp,
-} from "@open-design/sidecar-proto";
-import { createSidecarLaunchEnv, requestJsonIpc, resolveAppIpcPath } from "@open-design/sidecar";
+} from "@joushen-studio/sidecar-proto";
+import { createSidecarLaunchEnv, requestJsonIpc, resolveAppIpcPath } from "@joushen-studio/sidecar";
 import {
   collectProcessTreePids,
   createPackageManagerInvocation,
@@ -24,7 +24,7 @@ import {
   readLogTail,
   spawnBackgroundProcess,
   stopProcesses,
-} from "@open-design/platform";
+} from "@joushen-studio/platform";
 
 import type { ToolPackConfig } from "./config.js";
 import { copyBundledResourceTrees, linuxResources } from "./resources.js";
@@ -34,7 +34,7 @@ import { processWebSourcemaps } from "./web-sourcemaps.js";
 
 const execFileAsync = promisify(execFile);
 
-const PRODUCT_NAME = "Open Design";
+const PRODUCT_NAME = "Joushen Studio";
 const APP_IMAGE_PRODUCT_NAME = "Open-Design";
 const DESKTOP_LOG_ECHO_ENV = "OD_DESKTOP_LOG_ECHO";
 // The containerized build sets this to the standalone pnpm binary fetched by
@@ -47,22 +47,22 @@ const CONTAINER_NODE_VERSION = "24.14.1";
 const CONTAINER_TOOLS_PACK_CLI_PATH = "tools/pack/bin/tools-pack.mjs";
 
 export const INTERNAL_PACKAGES = [
-  { directory: "packages/components", name: "@open-design/components" },
-  { directory: "packages/contracts", name: "@open-design/contracts" },
-  { directory: "packages/registry-protocol", name: "@open-design/registry-protocol" },
-  { directory: "packages/launcher-proto", name: "@open-design/launcher-proto" },
-  { directory: "packages/sidecar-proto", name: "@open-design/sidecar-proto" },
-  { directory: "packages/sidecar", name: "@open-design/sidecar" },
-  { directory: "packages/platform", name: "@open-design/platform" },
-  { directory: "packages/download", name: "@open-design/download" },
-  { directory: "packages/host", name: "@open-design/host" },
-  { directory: "packages/agui-adapter", name: "@open-design/agui-adapter" },
-  { directory: "packages/plugin-runtime", name: "@open-design/plugin-runtime" },
-  { directory: "packages/diagnostics", name: "@open-design/diagnostics" },
-  { directory: "apps/daemon", name: "@open-design/daemon" },
-  { directory: "apps/web", name: "@open-design/web" },
-  { directory: "apps/desktop", name: "@open-design/desktop" },
-  { directory: "apps/packaged", name: "@open-design/packaged" },
+  { directory: "packages/components", name: "@joushen-studio/components" },
+  { directory: "packages/contracts", name: "@joushen-studio/contracts" },
+  { directory: "packages/registry-protocol", name: "@joushen-studio/registry-protocol" },
+  { directory: "packages/launcher-proto", name: "@joushen-studio/launcher-proto" },
+  { directory: "packages/sidecar-proto", name: "@joushen-studio/sidecar-proto" },
+  { directory: "packages/sidecar", name: "@joushen-studio/sidecar" },
+  { directory: "packages/platform", name: "@joushen-studio/platform" },
+  { directory: "packages/download", name: "@joushen-studio/download" },
+  { directory: "packages/host", name: "@joushen-studio/host" },
+  { directory: "packages/agui-adapter", name: "@joushen-studio/agui-adapter" },
+  { directory: "packages/plugin-runtime", name: "@joushen-studio/plugin-runtime" },
+  { directory: "packages/diagnostics", name: "@joushen-studio/diagnostics" },
+  { directory: "apps/daemon", name: "@joushen-studio/daemon" },
+  { directory: "apps/web", name: "@joushen-studio/web" },
+  { directory: "apps/desktop", name: "@joushen-studio/desktop" },
+  { directory: "apps/packaged", name: "@joushen-studio/packaged" },
 ] as const;
 
 export function sanitizeNamespace(value: string): string {
@@ -130,7 +130,7 @@ export function buildDockerArgs(
   //
   // Shell-interpolation safety for the inner `bash -lc` command:
   //   - config.namespace is sanitized at config-time by resolveNamespace() in
-  //     @open-design/sidecar-proto (restricted to namespace charset)
+  //     @joushen-studio/sidecar-proto (restricted to namespace charset)
   //   - config.to is enum-validated by resolveToolPackBuildOutput() in config.ts
   //     to one of "all" | "appimage" | "dir"
   //   - config.portable is a boolean
@@ -391,24 +391,24 @@ async function buildWorkspaceArtifacts(config: ToolPackConfig): Promise<void> {
   const webNextEnvPath = join(config.workspaceRoot, "apps", "web", "next-env.d.ts");
   const previousWebNextEnv = await readFile(webNextEnvPath, "utf8").catch(() => null);
 
-  await runPnpm(config, ["--filter", "@open-design/contracts", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/registry-protocol", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/sidecar-proto", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/launcher-proto", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/sidecar", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/platform", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/host", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/download", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/agui-adapter", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/plugin-runtime", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/download", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/host", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/diagnostics", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/components", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/daemon", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/contracts", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/registry-protocol", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/sidecar-proto", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/launcher-proto", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/sidecar", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/platform", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/host", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/download", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/agui-adapter", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/plugin-runtime", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/download", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/host", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/diagnostics", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/components", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/daemon", "build"]);
   try {
-    await runPnpm(config, ["--filter", "@open-design/web", "build"], { OD_WEB_OUTPUT_MODE: "server" });
-    await runPnpm(config, ["--filter", "@open-design/web", "build:sidecar"]);
+    await runPnpm(config, ["--filter", "@joushen-studio/web", "build"], { OD_WEB_OUTPUT_MODE: "server" });
+    await runPnpm(config, ["--filter", "@joushen-studio/web", "build:sidecar"]);
     // Inject chunk IDs + upload browser sourcemaps to PostHog, then strip
     // .map files before AppImage packaging. See
     // `tools/pack/src/web-sourcemaps.ts`.
@@ -420,8 +420,8 @@ async function buildWorkspaceArtifacts(config: ToolPackConfig): Promise<void> {
       await writeFile(webNextEnvPath, previousWebNextEnv, "utf8");
     }
   }
-  await runPnpm(config, ["--filter", "@open-design/desktop", "build"]);
-  await runPnpm(config, ["--filter", "@open-design/packaged", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/desktop", "build"]);
+  await runPnpm(config, ["--filter", "@joushen-studio/packaged", "build"]);
 }
 
 // --- Step 3: Tarball + resource helpers ---
@@ -497,7 +497,7 @@ async function writeAssembledApp(
     main: "main.cjs",
     dependencies,
     description: "Local-first design product: detects your installed code-agent CLI, runs design skills + design systems, streams artifacts into a sandboxed preview.",
-    author: "Open Design Team",
+    author: "Joushen Studio Team",
     repository: {
       type: "git",
       url: "https://github.com/nexu-io/open-design.git"
@@ -505,7 +505,7 @@ async function writeAssembledApp(
   };
   await writeFile(paths.assembledPackageJsonPath, `${JSON.stringify(packageJson, null, 2)}\n`, "utf8");
 
-  const mainStub = `"use strict";\nrequire("@open-design/packaged");\n`;
+  const mainStub = `"use strict";\nrequire("@joushen-studio/packaged");\n`;
   await writeFile(paths.assembledMainEntryPath, mainStub, "utf8");
 
   await writeFile(
@@ -571,8 +571,8 @@ async function writeLinuxBuilderConfig(config: ToolPackConfig, paths: LinuxPaths
       target,
       icon: linuxResources.icon,
       category: "Development",
-      synopsis: "Open Design",
-      maintainer: "Open Design Contributors",
+      synopsis: "Joushen Studio",
+      maintainer: "Joushen Studio Contributors",
     },
     nodeGypRebuild: false,
     npmRebuild: false,
@@ -1333,12 +1333,12 @@ export type LinuxCleanupResult = {
 
 // Paths resolved relative to the assembled app written during `tools-pack linux build`.
 // The headless entry lives at:
-//   <assembledAppRoot>/node_modules/@open-design/packaged/dist/headless.mjs
+//   <assembledAppRoot>/node_modules/@joushen-studio/packaged/dist/headless.mjs
 // The bundled Node binary lives at:
 //   <namespaceRoot>/resources/open-design/bin/node  (populated by copyResourceTree)
 
 function resolveHeadlessEntryPath(paths: LinuxPaths): string {
-  return join(paths.assembledAppRoot, "node_modules", "@open-design", "packaged", "dist", "headless.mjs");
+  return join(paths.assembledAppRoot, "node_modules", "@joushen-studio", "packaged", "dist", "headless.mjs");
 }
 
 function resolveHeadlessBundledNodePath(paths: LinuxPaths): string {
@@ -1437,7 +1437,7 @@ export async function installPackedLinuxHeadless(config: ToolPackConfig): Promis
   const dataDir = dirname(config.roots.runtime.namespaceBaseRoot);
   const script = [
     "#!/bin/sh",
-    `# Open Design headless launcher — namespace: ${config.namespace}`,
+    `# Joushen Studio headless launcher — namespace: ${config.namespace}`,
     `OD_PACKAGED_NAMESPACE=${JSON.stringify(config.namespace)} OD_DATA_DIR=${JSON.stringify(dataDir)} OD_RESOURCE_ROOT=${JSON.stringify(paths.resourceRoot)} exec ${JSON.stringify(nodePath)} ${JSON.stringify(entryPath)} "$@"`,
   ].join("\n") + "\n";
 

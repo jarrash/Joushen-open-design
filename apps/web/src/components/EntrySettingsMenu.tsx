@@ -9,7 +9,7 @@ import {
   OPEN_DESIGN_GITHUB_REPO_URL,
   type SocialShareRequest,
   type SocialShareResponse,
-} from '@open-design/contracts';
+} from '@joushen-studio/contracts';
 import {
   LOCALE_LABEL,
   LOCALES,
@@ -85,7 +85,7 @@ export function EntrySettingsMenu({
   const discordPresence = useDiscordPresence();
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [openDesignShare, setOpenDesignShare] = useState<SocialShareResponse | null>(null);
+  const [openDesignShare, setJoushenStudioShare] = useState<SocialShareResponse | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const langListRef = useRef<HTMLDivElement | null>(null);
@@ -108,7 +108,7 @@ export function EntrySettingsMenu({
       }),
     };
   }, [locale, t]);
-  const fallbackOpenDesignShare = useMemo(
+  const fallbackJoushenStudioShare = useMemo(
     () => buildSocialSharePayload(openDesignShareRequest),
     [openDesignShareRequest],
   );
@@ -160,13 +160,13 @@ export function EntrySettingsMenu({
   useEffect(() => {
     if (!open) return;
     let cancelled = false;
-    setOpenDesignShare(null);
+    setJoushenStudioShare(null);
     void createSocialSharePayload(openDesignShareRequest)
       .then((payload) => {
-        if (!cancelled) setOpenDesignShare(payload);
+        if (!cancelled) setJoushenStudioShare(payload);
       })
       .catch(() => {
-        if (!cancelled) setOpenDesignShare(null);
+        if (!cancelled) setJoushenStudioShare(null);
       });
     return () => {
       cancelled = true;
@@ -320,7 +320,7 @@ export function EntrySettingsMenu({
               <span>{t('socialShare.openDesignSection')}</span>
             </div>
             <SocialShareGrid
-              share={openDesignShare ?? fallbackOpenDesignShare}
+              share={openDesignShare ?? fallbackJoushenStudioShare}
               className="entry-settings-social-share"
               onShare={(platform) => {
                 trackSettingsPopoverClick(analytics.track, {

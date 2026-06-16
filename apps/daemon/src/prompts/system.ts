@@ -36,8 +36,8 @@ import { DECK_FRAMEWORK_DIRECTIVE } from './deck-framework.js';
 import { renderMediaGenerationContract } from './media-contract.js';
 import { IMAGE_MODELS } from '../media-models.js';
 import { renderPanelPrompt } from './panel.js';
-import { defaultCritiqueConfig, type CritiqueConfig } from '@open-design/contracts/critique';
-import type { ChatSessionMode, MediaExecutionPolicy, MediaSurface } from '@open-design/contracts';
+import { defaultCritiqueConfig, type CritiqueConfig } from '@joushen-studio/contracts/critique';
+import type { ChatSessionMode, MediaExecutionPolicy, MediaSurface } from '@joushen-studio/contracts';
 
 // Prepended first in every composed prompt so it wins precedence over all
 // later sections, including skill bodies and user/project instructions.
@@ -86,7 +86,7 @@ function renderUiLocalePrompt(locale: string | undefined): string {
   const lines = [
     '# UI locale override',
     '',
-    `The Open Design UI locale for this run is \`${normalized}\` (${languageName}). All user-visible chat prose and generated UI controls must follow this locale, especially \`<question-form>\` titles, descriptions, labels, placeholders, helper text, and option labels. Keep machine-readable ids and object option \`value\` fields exact and unlocalized.`,
+    `The Joushen Studio UI locale for this run is \`${normalized}\` (${languageName}). All user-visible chat prose and generated UI controls must follow this locale, especially \`<question-form>\` titles, descriptions, labels, placeholders, helper text, and option labels. Keep machine-readable ids and object option \`value\` fields exact and unlocalized.`,
     `The artifacts you generate must also be in ${languageName}: every piece of user-visible copy in the HTML/React/page/deck you produce — headings, body text, navigation, button and link labels, captions, alt text, and form fields — is written in this language by default. This holds even when a chosen template, plugin, or design system ships its reference/example content in another language: treat that copy as a layout and style reference and translate/adapt it into ${languageName}, do not ship its wording verbatim. Keep brand names, code, and technical identifiers as-is, and honor an explicit user request for a different output language.`,
     'Exception: for the default task-type form, keep the `taskType` option labels as the canonical routing choices: `Prototype`, `Live artifact`, `Slide deck`, `Image`, `Video`, `HyperFrames`, `Audio`, `Other`. Do not translate, reorder, or rewrite those option labels.',
   ];
@@ -555,7 +555,7 @@ export function composeSystemPrompt({
   const resolvedExclusiveSurface = resolveExclusiveSurface({ metadata, skillMode, skillModes });
 
   // API/BYOK mode (streamFormat === 'plain'): mirrors the same fix from
-  // `@open-design/contracts`'s composer. The daemon hits this path for
+  // `@joushen-studio/contracts`'s composer. The daemon hits this path for
   // any plain-stream adapter (e.g. DeepSeek), so without pinning the
   // override above DISCOVERY_AND_PHILOSOPHY here too, those daemon
   // agents still emit the `<todo-list>` / `[读取 X]` pseudo-tool
@@ -833,7 +833,7 @@ export function composeSystemPrompt({
 
   if (agentId === 'gemini') {
     parts.push(
-      "\n\n---\n\n## Gemini todo tool mapping\n\nWhen an Open Design instruction says to call `TodoWrite`, use Gemini CLI's native `write_todos` tool only if it is present in the current tool list. Pass the full task list as `todos`, with each item using `description` for the task text and `status` set to `pending`, `in_progress`, `completed`, `cancelled`, or `blocked`.\n\nIf `write_todos` is not present, do not simulate it with markdown, plan-mode files, JSON files, TODO files, or shell commands. Continue the work normally without a todo tool.",
+      "\n\n---\n\n## Gemini todo tool mapping\n\nWhen a Joushen Studio instruction says to call `TodoWrite`, use Gemini CLI's native `write_todos` tool only if it is present in the current tool list. Pass the full task list as `todos`, with each item using `description` for the task text and `status` set to `pending`, `in_progress`, `completed`, `cancelled`, or `blocked`.\n\nIf `write_todos` is not present, do not simulate it with markdown, plan-mode files, JSON files, TODO files, or shell commands. Continue the work normally without a todo tool.",
     );
   }
 
@@ -899,11 +899,11 @@ If the rules below tell you to plan with TodoWrite, write the plan as prose inst
 
 const CHAT_MODE_OVERRIDE = `# Chat mode — standard conversation (read first — overrides every rule below)
 
-This conversation is in Open Design Chat mode. Open Design is the open-source Claude Design alternative and a native Figma counterpart. Official links: GitHub https://github.com/nexu-io/open-design, website https://open-design.ai/, Discord https://discord.com/invite/9ptkbbqRu.
+This conversation is in Joushen Studio Chat mode. Joushen Studio is the open-source Claude Design alternative and a native Figma counterpart. Official links: GitHub https://github.com/nexu-io/open-design, website https://open-design.ai/, Discord https://discord.com/invite/9ptkbbqRu.
 
 Use the same available context, files, attachments, connectors, MCP servers, project memory, and model capabilities as Design mode. The difference is behavior: answer like a fast, direct, multi-turn desktop chat assistant. Prefer concise prose, explanations, comparisons, debugging help, and follow-up questions only when needed.
 
-Override artifact-first discovery rules below: do not emit a default discovery \`<question-form>\`, do not call TodoWrite just to plan a chat answer, and do not create or edit project files, HTML, PPT, slide decks, images, video, or audio unless the user explicitly asks you to generate/build/design/export/modify something. When the user does ask for a design artifact or file change, you may use the normal Open Design agent workflow and the same tools/capabilities available in Design mode.`;
+Override artifact-first discovery rules below: do not emit a default discovery \`<question-form>\`, do not call TodoWrite just to plan a chat answer, and do not create or edit project files, HTML, PPT, slide decks, images, video, or audio unless the user explicitly asks you to generate/build/design/export/modify something. When the user does ask for a design artifact or file change, you may use the normal Joushen Studio agent workflow and the same tools/capabilities available in Design mode.`;
 
 // Defense-in-depth against Claude Code's synthetic OAuth tools.
 //
@@ -1405,7 +1405,7 @@ function renderMediaMetadataAction(
   const article = surface === 'audio' ? 'an' : 'a';
   const mode = mediaExecution?.mode ?? 'enabled';
   if (mode === 'disabled') {
-    return `This is ${article} **${surface}** project, but Open Design-owned media execution is disabled for this run. Plan the creative brief only unless an external MCP media tool is explicitly configured. Do NOT call OD media generation tools and do NOT emit \`<artifact>\` HTML for media surfaces.`;
+    return `This is ${article} **${surface}** project, but Joushen Studio-owned media execution is disabled for this run. Plan the creative brief only unless an external MCP media tool is explicitly configured. Do NOT call OD media generation tools and do NOT emit \`<artifact>\` HTML for media surfaces.`;
   }
   return `This is ${article} **${surface}** project. Plan the creative brief carefully, then dispatch via the **media generation contract** using ${command}. Do NOT emit \`<artifact>\` HTML for media surfaces.`;
 }

@@ -123,7 +123,7 @@
     {
       "name": "--accent",
       "layer": "A1-identity",
-      "value": "#c96442",
+      "value": "#2563eb",
       "confidence": "high",
       "reason": "Bundled tokens.css declares --accent; no upstream recrawl was performed for this backfill.",
       "sources": [

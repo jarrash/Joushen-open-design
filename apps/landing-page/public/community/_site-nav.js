@@ -20,7 +20,7 @@
       <header class="nav" data-od-id="nav">
         <div class="container nav-inner">
           <a href="/zh/" class="brand">
-            <img class="brand-logo" src="/logo-lockup.svg" alt="Open Design" width="225" height="83" />
+            <img class="brand-logo" src="/logo-lockup.svg" alt="Joushen Studio" width="225" height="83" />
           </a>
           <button
             type="button"
@@ -39,7 +39,7 @@
                   产品<span class="dropdown-caret" aria-hidden="true">▾</span>
                 </a>
                 <ul class="nav-dropdown" aria-label="产品">
-                  <li><a href="/zh/"><span class="dropdown-name">Open Design</span><span class="dropdown-blurb">Agent 原生设计工作台：围绕 SKILL.md 工作流组织。</span></a></li>
+                  <li><a href="/zh/"><span class="dropdown-name">Joushen Studio</span><span class="dropdown-blurb">Agent 原生设计工作台：围绕 SKILL.md 工作流组织。</span></a></li>
                   <li><a href="/zh/html-anything/"><span class="dropdown-name">HTML Anything</span><span class="dropdown-blurb">Markdown / 数据变成可交付 HTML，由本地 Agent 完成。</span></a></li>
                   <li><a href="/zh/html-video/"><span class="dropdown-name">HTML Video</span><span class="dropdown-blurb">一个 prompt、文章或仓库，变成真实 MP4。</span></a></li>
                 </ul>
@@ -69,7 +69,7 @@
                   Agent<span class="dropdown-caret" aria-hidden="true">▾</span>
                 </a>
                 <ul class="nav-dropdown nav-dropdown-solution" aria-label="Agent">
-                  <li><a href="${AMR_URL}"><span class="dropdown-name">Open Design AMR</span><span class="dropdown-blurb">专业设计 Agent、零配置使用、自带 SOTA 模型与 Harness</span></a></li>
+                  <li><a href="${AMR_URL}"><span class="dropdown-name">Joushen Studio AMR</span><span class="dropdown-blurb">专业设计 Agent、零配置使用、自带 SOTA 模型与 Harness</span></a></li>
                   <li><a href="/zh/agents/codex-design/"><span class="dropdown-name">Codex</span></a></li>
                   <li><a href="/zh/agents/cursor-design/"><span class="dropdown-name">Cursor Agent</span></a></li>
                   <li><a href="/zh/agents/claude-code-design/"><span class="dropdown-name">Claude Code</span></a></li>
@@ -262,7 +262,7 @@
           <div class="sub-footer-col">
             <h5>产品</h5>
             <ul>
-              <li><a href="/zh/">Open Design</a></li>
+              <li><a href="/zh/">Joushen Studio</a></li>
               <li><a href="/zh/html-anything/">HTML Anything</a></li>
               <li><a href="/zh/html-video/">HTML Video</a></li>
             </ul>

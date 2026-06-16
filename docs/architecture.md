@@ -281,7 +281,7 @@ Safety:
   stays focused on design content.
 
 Request / response types: `ImportFolderRequest`, `ImportFolderResponse`
-in `@open-design/contracts`.
+in `@joushen-studio/contracts`.
 
 #### Desktop folder-import auth (PR #974)
 

@@ -1,7 +1,7 @@
 ---
-title: 'Open Design + Free APIs : THE BEST Open Alternative to Codex is FINALLY HERE!'
+title: 'Joushen Studio + Free APIs : THE BEST Open Alternative to Codex is FINALLY HERE!'
 youtubeId: w2_ZwhzB1g4
-summary: 'Open Design offers a local-first, open-source alternative to Claude Design, integrating with existing coding agents and featuring 19 composable skills and 71 design systems.'
+summary: 'Joushen Studio offers a local-first, open-source alternative to Claude Design, integrating with existing coding agents and featuring 19 composable skills and 71 design systems.'
 date: 2026-04-29
 category: Demo
 durationSeconds: 744

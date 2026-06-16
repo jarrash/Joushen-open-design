@@ -754,9 +754,9 @@ const webImportIsolationSkippedDirectories = new Set([
   "test-results",
 ]);
 const webImportIsolationForbiddenPackages = [
-  "@open-design/platform",
-  "@open-design/sidecar",
-  "@open-design/sidecar-proto",
+  "@joushen-studio/platform",
+  "@joushen-studio/sidecar",
+  "@joushen-studio/sidecar-proto",
 ];
 const webImportIsolationForbiddenDaemonRoots = [
   "apps/daemon/src",
@@ -860,7 +860,7 @@ function webImportIsolationViolationReason(fromRepositoryPath: string, specifier
   if (!resolvedPath) return null;
 
   if (webImportIsolationForbiddenDaemonRoots.some((root) => isPathOrDescendant(resolvedPath, root))) {
-    return "apps/web must use daemon HTTP APIs or @open-design/contracts instead of daemon private source";
+    return "apps/web must use daemon HTTP APIs or @joushen-studio/contracts instead of daemon private source";
   }
 
   if (webImportIsolationForbiddenPackageRoots.some((root) => isPathOrDescendant(resolvedPath, root))) {
@@ -1130,7 +1130,7 @@ function collectStylePolicyViolationsFromSource(repositoryPath: string, source: 
         filePath: repositoryPath,
         lineNumber: lineNumberForIndex(source, match.index ?? 0),
         match: match[0],
-        reason: "default Tailwind palette classes must use Open Design token utilities instead",
+        reason: "default Tailwind palette classes must use Joushen Studio token utilities instead",
       });
     }
   }
@@ -1147,7 +1147,7 @@ function collectStylePolicyViolationsFromSource(repositoryPath: string, source: 
           source,
           match.index,
           value,
-          "unregistered hardcoded UI colors must use Open Design tokens or an explicit allowlist entry",
+          "unregistered hardcoded UI colors must use Joushen Studio tokens or an explicit allowlist entry",
         );
       }
     } else {
@@ -1162,7 +1162,7 @@ function collectStylePolicyViolationsFromSource(repositoryPath: string, source: 
           source,
           match.index ?? 0,
           value,
-          "unregistered hardcoded UI colors must use Open Design tokens or an explicit allowlist entry",
+          "unregistered hardcoded UI colors must use Joushen Studio tokens or an explicit allowlist entry",
         );
       }
     }
@@ -1223,7 +1223,7 @@ async function checkStylePolicy(): Promise<boolean> {
     for (const violation of violations) {
       console.error(`- ${violation.filePath}:${violation.lineNumber} \`${violation.match}\` -> ${violation.reason}`);
     }
-    console.error("Use Open Design token utilities/CSS variables or add a narrow allowlist entry with a reason.");
+    console.error("Use Joushen Studio token utilities/CSS variables or add a narrow allowlist entry with a reason.");
     return false;
   }
 

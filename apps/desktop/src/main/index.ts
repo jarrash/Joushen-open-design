@@ -19,7 +19,7 @@ import {
   type RegisterDesktopAuthResult,
   type SidecarStamp,
   type WebStatusSnapshot,
-} from "@open-design/sidecar-proto";
+} from "@joushen-studio/sidecar-proto";
 import { dirname, join } from "node:path";
 
 import {
@@ -31,8 +31,8 @@ import {
   resolveRuntimeNamespaceRoot,
   type JsonIpcServerHandle,
   type SidecarRuntimeContext,
-} from "@open-design/sidecar";
-import { readProcessStamp } from "@open-design/platform";
+} from "@joushen-studio/sidecar";
+import { readProcessStamp } from "@joushen-studio/platform";
 
 import { createDesktopRuntime, type DesktopRuntime } from "./runtime.js";
 import { attachDesktopProcessErrorFilter } from "./uncaught-exception.js";

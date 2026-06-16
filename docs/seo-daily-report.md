@@ -88,7 +88,7 @@ From GitHub Actions:
 From a local checkout with secrets exported:
 
 ```bash
-pnpm --filter @open-design/landing-page exec tsx scripts/seo-daily-report.ts --dry-run
+pnpm --filter @joushen-studio/landing-page exec tsx scripts/seo-daily-report.ts --dry-run
 ```
 
 Remove `--dry-run` to post to Feishu.

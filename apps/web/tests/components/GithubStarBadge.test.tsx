@@ -2,7 +2,7 @@
 
 import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import type { OpenDesignGithubRepoResponse } from '@open-design/contracts';
+import type { JoushenStudioGithubRepoResponse } from '@joushen-studio/contracts';
 
 const originalFetch = globalThis.fetch;
 
@@ -104,7 +104,7 @@ describe('GithubStarBadge', () => {
         stargazers_count: 42137,
         fetchedAt: Date.parse('2026-05-22T00:00:00.000Z'),
         stale: false,
-      } satisfies OpenDesignGithubRepoResponse),
+      } satisfies JoushenStudioGithubRepoResponse),
     } satisfies Partial<Response>) as typeof fetch;
     const { GithubStarBadge } = await import('../../src/components/GithubStarBadge');
 

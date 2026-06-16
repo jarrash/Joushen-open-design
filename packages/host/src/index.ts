@@ -5,65 +5,65 @@ export const OPEN_DESIGN_HOST_CLIENT_TYPES = Object.freeze({
   DESKTOP: "desktop",
 } as const);
 
-export type OpenDesignHostClientType =
+export type JoushenStudioHostClientType =
   (typeof OPEN_DESIGN_HOST_CLIENT_TYPES)[keyof typeof OPEN_DESIGN_HOST_CLIENT_TYPES];
 
-export type OpenDesignHostClient = {
+export type JoushenStudioHostClient = {
   // BCP-47 locale string (e.g. "zh-CN", "pt-BR") the host process read from
   // the OS at startup. The renderer uses this so the packaged desktop app
   // can follow the OS language even when Chromium's built-in
   // `navigator.language` would have defaulted to en-US.
   osLocale?: string;
   platform?: string;
-  type: OpenDesignHostClientType;
+  type: JoushenStudioHostClientType;
 };
 
-export type OpenDesignHostFailure = {
+export type JoushenStudioHostFailure = {
   details?: unknown;
   ok: false;
   reason: string;
 };
 
-export type OpenDesignHostActionResult =
+export type JoushenStudioHostActionResult =
   | { ok: true }
-  | OpenDesignHostFailure;
+  | JoushenStudioHostFailure;
 
-export type OpenDesignHostProjectImportInit = {
+export type JoushenStudioHostProjectImportInit = {
   designSystemId?: string | null;
   name?: string;
   skillId?: string | null;
 };
 
-export type OpenDesignHostProjectImportSuccess = {
+export type JoushenStudioHostProjectImportSuccess = {
   conversationId: string;
   entryFile: string | null;
   ok: true;
   projectId: string;
 };
 
-export type OpenDesignHostProjectImportResult =
-  | OpenDesignHostProjectImportSuccess
+export type JoushenStudioHostProjectImportResult =
+  | JoushenStudioHostProjectImportSuccess
   | {
       canceled: true;
       ok: false;
     }
-  | OpenDesignHostFailure;
+  | JoushenStudioHostFailure;
 
-export type OpenDesignHostProjectReplaceWorkingDirSuccess = {
+export type JoushenStudioHostProjectReplaceWorkingDirSuccess = {
   baseDir: string;
   entryFile: string | null;
   ok: true;
 };
 
-export type OpenDesignHostProjectReplaceWorkingDirResult =
-  | OpenDesignHostProjectReplaceWorkingDirSuccess
+export type JoushenStudioHostProjectReplaceWorkingDirResult =
+  | JoushenStudioHostProjectReplaceWorkingDirSuccess
   | {
       canceled: true;
       ok: false;
     }
-  | OpenDesignHostFailure;
+  | JoushenStudioHostFailure;
 
-export type OpenDesignHostPickWorkingDirSuccess = {
+export type JoushenStudioHostPickWorkingDirSuccess = {
   baseDir: string;
   ok: true;
   // Single-use HMAC token (minted by the host main process for `baseDir`)
@@ -73,24 +73,24 @@ export type OpenDesignHostPickWorkingDirSuccess = {
   token: string;
 };
 
-export type OpenDesignHostPickWorkingDirResult =
-  | OpenDesignHostPickWorkingDirSuccess
+export type JoushenStudioHostPickWorkingDirResult =
+  | JoushenStudioHostPickWorkingDirSuccess
   | {
       canceled: true;
       ok: false;
     }
-  | OpenDesignHostFailure;
+  | JoushenStudioHostFailure;
 
-export type OpenDesignHostPdfPrintOptions = {
+export type JoushenStudioHostPdfPrintOptions = {
   deck?: boolean;
 };
 
-export type OpenDesignHostCaptureClip = { x: number; y: number; width: number; height: number };
-export type OpenDesignHostCaptureOptions = { clip?: OpenDesignHostCaptureClip };
-export type OpenDesignHostCaptureSuccess = { dataUrl: string; h: number; ok: true; w: number };
-export type OpenDesignHostCaptureResult = OpenDesignHostCaptureSuccess | OpenDesignHostFailure;
+export type JoushenStudioHostCaptureClip = { x: number; y: number; width: number; height: number };
+export type JoushenStudioHostCaptureOptions = { clip?: JoushenStudioHostCaptureClip };
+export type JoushenStudioHostCaptureSuccess = { dataUrl: string; h: number; ok: true; w: number };
+export type JoushenStudioHostCaptureResult = JoushenStudioHostCaptureSuccess | JoushenStudioHostFailure;
 
-export type OpenDesignHostBrowserClearDataOptions = {
+export type JoushenStudioHostBrowserClearDataOptions = {
   cookies?: boolean;
   storage?: boolean;
 };
@@ -103,10 +103,10 @@ export const OPEN_DESIGN_HOST_UPDATER_ACTIONS = Object.freeze({
   STATUS: "status",
 } as const);
 
-export type OpenDesignHostUpdaterAction =
+export type JoushenStudioHostUpdaterAction =
   (typeof OPEN_DESIGN_HOST_UPDATER_ACTIONS)[keyof typeof OPEN_DESIGN_HOST_UPDATER_ACTIONS];
-type OpenDesignHostUpdaterStatusAction = Exclude<
-  OpenDesignHostUpdaterAction,
+type JoushenStudioHostUpdaterStatusAction = Exclude<
+  JoushenStudioHostUpdaterAction,
   typeof OPEN_DESIGN_HOST_UPDATER_ACTIONS.QUIT
 >;
 
@@ -122,35 +122,35 @@ export const OPEN_DESIGN_HOST_UPDATER_STATES = Object.freeze({
   UNSUPPORTED: "unsupported",
 } as const);
 
-export type OpenDesignHostUpdaterState =
+export type JoushenStudioHostUpdaterState =
   (typeof OPEN_DESIGN_HOST_UPDATER_STATES)[keyof typeof OPEN_DESIGN_HOST_UPDATER_STATES];
 
-export type OpenDesignHostUpdaterMode = "js-incremental" | "package-launcher";
-export type OpenDesignHostUpdaterChannel = "beta" | "nightly" | "preview" | "stable";
+export type JoushenStudioHostUpdaterMode = "js-incremental" | "package-launcher";
+export type JoushenStudioHostUpdaterChannel = "beta" | "nightly" | "preview" | "stable";
 
-export type OpenDesignHostUpdaterActionOptions = {
+export type JoushenStudioHostUpdaterActionOptions = {
   payload?: Record<string, unknown>;
 };
 
-export type OpenDesignHostUpdaterCapabilitySet = {
+export type JoushenStudioHostUpdaterCapabilitySet = {
   canApplyInPlace: boolean;
   canDownload: boolean;
   canOpenInstaller: boolean;
   requiresManualInstall: boolean;
 };
 
-export type OpenDesignHostUpdaterPathSnapshot = {
+export type JoushenStudioHostUpdaterPathSnapshot = {
   downloadRoot?: string;
   manifestPath?: string;
 };
 
-export type OpenDesignHostUpdaterChecksumSnapshot = {
+export type JoushenStudioHostUpdaterChecksumSnapshot = {
   algorithm: "sha256" | "sha512";
   url?: string;
   value?: string;
 };
 
-export type OpenDesignHostUpdaterArtifactSnapshot = {
+export type JoushenStudioHostUpdaterArtifactSnapshot = {
   name?: string;
   platformKey?: string;
   size?: number;
@@ -158,18 +158,18 @@ export type OpenDesignHostUpdaterArtifactSnapshot = {
   url: string;
 };
 
-export type OpenDesignHostUpdaterProgressSnapshot = {
+export type JoushenStudioHostUpdaterProgressSnapshot = {
   receivedBytes: number;
   totalBytes?: number;
 };
 
-export type OpenDesignHostUpdaterErrorSnapshot = {
+export type JoushenStudioHostUpdaterErrorSnapshot = {
   code: string;
   details?: unknown;
   message: string;
 };
 
-export type OpenDesignHostUpdaterInstallResult = {
+export type JoushenStudioHostUpdaterInstallResult = {
   activeVersion?: string;
   artifactPath?: string;
   dryRun?: boolean;
@@ -180,11 +180,11 @@ export type OpenDesignHostUpdaterInstallResult = {
   path: string;
 };
 
-export type OpenDesignHostUpdaterReleaseSnapshot = {
+export type JoushenStudioHostUpdaterReleaseSnapshot = {
   arch: string;
-  artifact: OpenDesignHostUpdaterArtifactSnapshot;
-  checksum: OpenDesignHostUpdaterChecksumSnapshot;
-  channel: OpenDesignHostUpdaterChannel;
+  artifact: JoushenStudioHostUpdaterArtifactSnapshot;
+  checksum: JoushenStudioHostUpdaterChecksumSnapshot;
+  channel: JoushenStudioHostUpdaterChannel;
   downloadedAt: string;
   key: string;
   metadata?: Record<string, unknown>;
@@ -193,29 +193,29 @@ export type OpenDesignHostUpdaterReleaseSnapshot = {
   version: string;
 };
 
-export type OpenDesignHostUpdaterIncomingSnapshot = {
+export type JoushenStudioHostUpdaterIncomingSnapshot = {
   arch: string;
-  artifact: OpenDesignHostUpdaterArtifactSnapshot;
-  channel: OpenDesignHostUpdaterChannel;
+  artifact: JoushenStudioHostUpdaterArtifactSnapshot;
+  channel: JoushenStudioHostUpdaterChannel;
   key?: string;
   metadata?: Record<string, unknown>;
-  progress?: OpenDesignHostUpdaterProgressSnapshot;
+  progress?: JoushenStudioHostUpdaterProgressSnapshot;
   startedAt: string;
   version: string;
 };
 
-export type OpenDesignHostUpdaterCacheLifecycleTrigger = "cold-start" | "next-version-ready";
+export type JoushenStudioHostUpdaterCacheLifecycleTrigger = "cold-start" | "next-version-ready";
 
-export type OpenDesignHostUpdaterReleaseLifecycleState =
+export type JoushenStudioHostUpdaterReleaseLifecycleState =
   | "cleanup-deferred"
   | "cleanup-removed"
   | "deprecated"
   | "retained"
   | "unknown";
 
-export type OpenDesignHostUpdaterCacheLifecycleSummary = {
+export type JoushenStudioHostUpdaterCacheLifecycleSummary = {
   lastRunAt?: string;
-  lastTrigger?: OpenDesignHostUpdaterCacheLifecycleTrigger;
+  lastTrigger?: JoushenStudioHostUpdaterCacheLifecycleTrigger;
   platform: string;
   releases: {
     cleanupDeferred: number;
@@ -228,79 +228,79 @@ export type OpenDesignHostUpdaterCacheLifecycleSummary = {
   };
 };
 
-export type OpenDesignHostUpdaterCacheSnapshot = {
-  lifecycle?: OpenDesignHostUpdaterCacheLifecycleSummary;
+export type JoushenStudioHostUpdaterCacheSnapshot = {
+  lifecycle?: JoushenStudioHostUpdaterCacheLifecycleSummary;
 };
 
-export type OpenDesignHostUpdaterStatusSnapshot = {
-  active?: OpenDesignHostUpdaterReleaseSnapshot;
+export type JoushenStudioHostUpdaterStatusSnapshot = {
+  active?: JoushenStudioHostUpdaterReleaseSnapshot;
   arch: string;
-  artifact?: OpenDesignHostUpdaterArtifactSnapshot;
+  artifact?: JoushenStudioHostUpdaterArtifactSnapshot;
   artifactUrl?: string;
   availableVersion?: string;
-  cache?: OpenDesignHostUpdaterCacheSnapshot;
-  capabilities: OpenDesignHostUpdaterCapabilitySet;
-  channel: OpenDesignHostUpdaterChannel;
-  checksum?: OpenDesignHostUpdaterChecksumSnapshot;
+  cache?: JoushenStudioHostUpdaterCacheSnapshot;
+  capabilities: JoushenStudioHostUpdaterCapabilitySet;
+  channel: JoushenStudioHostUpdaterChannel;
+  checksum?: JoushenStudioHostUpdaterChecksumSnapshot;
   currentVersion: string;
   downloadPath?: string;
   enabled: boolean;
-  error?: OpenDesignHostUpdaterErrorSnapshot;
-  incoming?: OpenDesignHostUpdaterIncomingSnapshot;
-  installResult?: OpenDesignHostUpdaterInstallResult;
+  error?: JoushenStudioHostUpdaterErrorSnapshot;
+  incoming?: JoushenStudioHostUpdaterIncomingSnapshot;
+  installResult?: JoushenStudioHostUpdaterInstallResult;
   lastCheckedAt?: string;
   metadata?: Record<string, unknown>;
-  mode: OpenDesignHostUpdaterMode;
-  paths?: OpenDesignHostUpdaterPathSnapshot;
+  mode: JoushenStudioHostUpdaterMode;
+  paths?: JoushenStudioHostUpdaterPathSnapshot;
   platform: string;
-  progress?: OpenDesignHostUpdaterProgressSnapshot;
-  state: OpenDesignHostUpdaterState;
+  progress?: JoushenStudioHostUpdaterProgressSnapshot;
+  state: JoushenStudioHostUpdaterState;
   supported: boolean;
 };
 
-export type OpenDesignHostUpdaterResult =
-  | { ok: true; status: OpenDesignHostUpdaterStatusSnapshot }
-  | OpenDesignHostFailure;
+export type JoushenStudioHostUpdaterResult =
+  | { ok: true; status: JoushenStudioHostUpdaterStatusSnapshot }
+  | JoushenStudioHostFailure;
 
-export type OpenDesignHostUpdaterStatusListener = (status: OpenDesignHostUpdaterStatusSnapshot) => void;
+export type JoushenStudioHostUpdaterStatusListener = (status: JoushenStudioHostUpdaterStatusSnapshot) => void;
 
-export type OpenDesignHostBridge = {
+export type JoushenStudioHostBridge = {
   browser: {
-    clearData(options?: OpenDesignHostBrowserClearDataOptions): Promise<OpenDesignHostActionResult>;
+    clearData(options?: JoushenStudioHostBrowserClearDataOptions): Promise<JoushenStudioHostActionResult>;
   };
   capture: {
-    page(options?: OpenDesignHostCaptureOptions): Promise<OpenDesignHostCaptureResult>;
+    page(options?: JoushenStudioHostCaptureOptions): Promise<JoushenStudioHostCaptureResult>;
   };
-  client: OpenDesignHostClient;
+  client: JoushenStudioHostClient;
   pdf: {
-    print(html: string, nonce?: string, options?: OpenDesignHostPdfPrintOptions): Promise<OpenDesignHostActionResult>;
+    print(html: string, nonce?: string, options?: JoushenStudioHostPdfPrintOptions): Promise<JoushenStudioHostActionResult>;
   };
   pet: {
     setVisible(visible: boolean): void;
   };
   project: {
-    pickAndImport(init?: OpenDesignHostProjectImportInit): Promise<OpenDesignHostProjectImportResult>;
-    pickAndReplaceWorkingDir(projectId: string): Promise<OpenDesignHostProjectReplaceWorkingDirResult>;
+    pickAndImport(init?: JoushenStudioHostProjectImportInit): Promise<JoushenStudioHostProjectImportResult>;
+    pickAndReplaceWorkingDir(projectId: string): Promise<JoushenStudioHostProjectReplaceWorkingDirResult>;
     // Optional so older host builds still satisfy the bridge shape; callers
     // must feature-detect before invoking.
-    pickWorkingDir?(): Promise<OpenDesignHostPickWorkingDirResult>;
+    pickWorkingDir?(): Promise<JoushenStudioHostPickWorkingDirResult>;
   };
   shell: {
-    openExternal(url: string): Promise<OpenDesignHostActionResult>;
-    openPath(projectId: string): Promise<OpenDesignHostActionResult>;
+    openExternal(url: string): Promise<JoushenStudioHostActionResult>;
+    openPath(projectId: string): Promise<JoushenStudioHostActionResult>;
   };
   updater: {
-    check(options?: OpenDesignHostUpdaterActionOptions): Promise<OpenDesignHostUpdaterStatusSnapshot>;
-    download(options?: OpenDesignHostUpdaterActionOptions): Promise<OpenDesignHostUpdaterStatusSnapshot>;
-    install(options?: OpenDesignHostUpdaterActionOptions): Promise<OpenDesignHostUpdaterStatusSnapshot>;
-    quit(options?: OpenDesignHostUpdaterActionOptions): Promise<OpenDesignHostActionResult>;
-    status(options?: OpenDesignHostUpdaterActionOptions): Promise<OpenDesignHostUpdaterStatusSnapshot>;
-    subscribe(listener: OpenDesignHostUpdaterStatusListener): () => void;
+    check(options?: JoushenStudioHostUpdaterActionOptions): Promise<JoushenStudioHostUpdaterStatusSnapshot>;
+    download(options?: JoushenStudioHostUpdaterActionOptions): Promise<JoushenStudioHostUpdaterStatusSnapshot>;
+    install(options?: JoushenStudioHostUpdaterActionOptions): Promise<JoushenStudioHostUpdaterStatusSnapshot>;
+    quit(options?: JoushenStudioHostUpdaterActionOptions): Promise<JoushenStudioHostActionResult>;
+    status(options?: JoushenStudioHostUpdaterActionOptions): Promise<JoushenStudioHostUpdaterStatusSnapshot>;
+    subscribe(listener: JoushenStudioHostUpdaterStatusListener): () => void;
   };
   version: typeof OPEN_DESIGN_HOST_VERSION;
 };
 
-export type OpenDesignHostGlobalScope = Record<string, unknown> & {
+export type JoushenStudioHostGlobalScope = Record<string, unknown> & {
   window?: unknown;
 };
 
@@ -308,7 +308,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value != null && !Array.isArray(value);
 }
 
-function failure(reason: string, details?: unknown): OpenDesignHostFailure {
+function failure(reason: string, details?: unknown): JoushenStudioHostFailure {
   return {
     ...(details === undefined ? {} : { details }),
     ok: false,
@@ -320,7 +320,7 @@ function hasFunction(record: Record<string, unknown>, key: string): boolean {
   return typeof record[key] === "function";
 }
 
-export function isOpenDesignHostBridge(value: unknown): value is OpenDesignHostBridge {
+export function isJoushenStudioHostBridge(value: unknown): value is JoushenStudioHostBridge {
   if (!isRecord(value)) return false;
   if (value.version !== OPEN_DESIGN_HOST_VERSION) return false;
   const client = value.client;
@@ -373,7 +373,7 @@ export function isOpenDesignHostBridge(value: unknown): value is OpenDesignHostB
  * host-owned renderer contract. The adapter may internally call daemon APIs,
  * but only project identifiers cross the host bridge.
  */
-export function normalizeOpenDesignHostProjectImportResult(input: unknown): OpenDesignHostProjectImportResult {
+export function normalizeJoushenStudioHostProjectImportResult(input: unknown): JoushenStudioHostProjectImportResult {
   if (!isRecord(input)) {
     return failure("desktop import returned an invalid response", input);
   }
@@ -409,9 +409,9 @@ export function normalizeOpenDesignHostProjectImportResult(input: unknown): Open
   };
 }
 
-export function normalizeOpenDesignHostProjectReplaceWorkingDirResult(
+export function normalizeJoushenStudioHostProjectReplaceWorkingDirResult(
   input: unknown,
-): OpenDesignHostProjectReplaceWorkingDirResult {
+): JoushenStudioHostProjectReplaceWorkingDirResult {
   if (!isRecord(input)) {
     return failure("desktop working-dir replace returned an invalid response", input);
   }
@@ -436,9 +436,9 @@ export function normalizeOpenDesignHostProjectReplaceWorkingDirResult(
   return { baseDir, entryFile, ok: true };
 }
 
-export function normalizeOpenDesignHostPickWorkingDirResult(
+export function normalizeJoushenStudioHostPickWorkingDirResult(
   input: unknown,
-): OpenDesignHostPickWorkingDirResult {
+): JoushenStudioHostPickWorkingDirResult {
   if (!isRecord(input)) {
     return failure("desktop working-dir pick returned an invalid response", input);
   }
@@ -457,7 +457,7 @@ export function normalizeOpenDesignHostPickWorkingDirResult(
   return { baseDir, ok: true, token };
 }
 
-function candidateFromScope(scope: OpenDesignHostGlobalScope): unknown {
+function candidateFromScope(scope: JoushenStudioHostGlobalScope): unknown {
   if (OPEN_DESIGN_HOST_GLOBAL in scope) return scope[OPEN_DESIGN_HOST_GLOBAL];
   const windowValue = scope.window;
   if (isRecord(windowValue) && OPEN_DESIGN_HOST_GLOBAL in windowValue) {
@@ -466,26 +466,26 @@ function candidateFromScope(scope: OpenDesignHostGlobalScope): unknown {
   return undefined;
 }
 
-export function getOpenDesignHost(scope: OpenDesignHostGlobalScope = globalThis): OpenDesignHostBridge | null {
+export function getJoushenStudioHost(scope: JoushenStudioHostGlobalScope = globalThis): JoushenStudioHostBridge | null {
   const candidate = candidateFromScope(scope);
-  return isOpenDesignHostBridge(candidate) ? candidate : null;
+  return isJoushenStudioHostBridge(candidate) ? candidate : null;
 }
 
-export function isOpenDesignHostAvailable(scope: OpenDesignHostGlobalScope = globalThis): boolean {
-  return getOpenDesignHost(scope) != null;
+export function isJoushenStudioHostAvailable(scope: JoushenStudioHostGlobalScope = globalThis): boolean {
+  return getJoushenStudioHost(scope) != null;
 }
 
-export function detectOpenDesignHostClientType(scope: OpenDesignHostGlobalScope = globalThis): OpenDesignHostClientType | "web" {
-  return getOpenDesignHost(scope)?.client.type ?? "web";
+export function detectJoushenStudioHostClientType(scope: JoushenStudioHostGlobalScope = globalThis): JoushenStudioHostClientType | "web" {
+  return getJoushenStudioHost(scope)?.client.type ?? "web";
 }
 
-function unavailable(reason: string): OpenDesignHostFailure {
+function unavailable(reason: string): JoushenStudioHostFailure {
   return failure(reason);
 }
 
-export async function openHostExternalUrl(url: string, scope: OpenDesignHostGlobalScope = globalThis): Promise<OpenDesignHostActionResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+export async function openHostExternalUrl(url: string, scope: JoushenStudioHostGlobalScope = globalThis): Promise<JoushenStudioHostActionResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.shell.openExternal(url);
   } catch (error) {
@@ -493,9 +493,9 @@ export async function openHostExternalUrl(url: string, scope: OpenDesignHostGlob
   }
 }
 
-export async function openHostProjectPath(projectId: string, scope: OpenDesignHostGlobalScope = globalThis): Promise<OpenDesignHostActionResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+export async function openHostProjectPath(projectId: string, scope: JoushenStudioHostGlobalScope = globalThis): Promise<JoushenStudioHostActionResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.shell.openPath(projectId);
   } catch (error) {
@@ -504,11 +504,11 @@ export async function openHostProjectPath(projectId: string, scope: OpenDesignHo
 }
 
 export async function clearHostBrowserData(
-  options?: OpenDesignHostBrowserClearDataOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostActionResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  options?: JoushenStudioHostBrowserClearDataOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostActionResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.browser.clearData(options);
   } catch (error) {
@@ -517,11 +517,11 @@ export async function clearHostBrowserData(
 }
 
 export async function captureHostPage(
-  options?: OpenDesignHostCaptureOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostCaptureResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  options?: JoushenStudioHostCaptureOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostCaptureResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.capture.page(options);
   } catch (error) {
@@ -530,11 +530,11 @@ export async function captureHostPage(
 }
 
 export async function pickAndImportHostProject(
-  init?: OpenDesignHostProjectImportInit,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostProjectImportResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  init?: JoushenStudioHostProjectImportInit,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostProjectImportResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.project.pickAndImport(init);
   } catch (error) {
@@ -544,10 +544,10 @@ export async function pickAndImportHostProject(
 
 export async function pickAndReplaceHostProjectWorkingDir(
   projectId: string,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostProjectReplaceWorkingDirResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostProjectReplaceWorkingDirResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.project.pickAndReplaceWorkingDir(projectId);
   } catch (error) {
@@ -560,10 +560,10 @@ export async function pickAndReplaceHostProjectWorkingDir(
 // this to let the user choose a working directory before the project exists;
 // the token is later spent on POST /api/projects/:id/working-dir.
 export async function pickHostWorkingDir(
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostPickWorkingDirResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostPickWorkingDirResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   if (typeof host.project.pickWorkingDir !== "function") {
     return unavailable("host build does not support pickWorkingDir");
   }
@@ -577,11 +577,11 @@ export async function pickHostWorkingDir(
 export async function printHostPdf(
   html: string,
   nonce?: string,
-  options?: OpenDesignHostPdfPrintOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostActionResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  options?: JoushenStudioHostPdfPrintOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostActionResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.pdf.print(html, nonce, options);
   } catch (error) {
@@ -589,9 +589,9 @@ export async function printHostPdf(
   }
 }
 
-export function setHostPetVisible(visible: boolean, scope: OpenDesignHostGlobalScope = globalThis): OpenDesignHostActionResult {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+export function setHostPetVisible(visible: boolean, scope: JoushenStudioHostGlobalScope = globalThis): JoushenStudioHostActionResult {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     host.pet.setVisible(visible);
     return { ok: true };
@@ -601,12 +601,12 @@ export function setHostPetVisible(visible: boolean, scope: OpenDesignHostGlobalS
 }
 
 async function runHostUpdaterAction(
-  action: OpenDesignHostUpdaterStatusAction,
-  options?: OpenDesignHostUpdaterActionOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostUpdaterResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  action: JoushenStudioHostUpdaterStatusAction,
+  options?: JoushenStudioHostUpdaterActionOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostUpdaterResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return {
       ok: true,
@@ -618,39 +618,39 @@ async function runHostUpdaterAction(
 }
 
 export async function getHostUpdaterStatus(
-  options?: OpenDesignHostUpdaterActionOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostUpdaterResult> {
+  options?: JoushenStudioHostUpdaterActionOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostUpdaterResult> {
   return await runHostUpdaterAction(OPEN_DESIGN_HOST_UPDATER_ACTIONS.STATUS, options, scope);
 }
 
 export async function checkHostUpdater(
-  options?: OpenDesignHostUpdaterActionOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostUpdaterResult> {
+  options?: JoushenStudioHostUpdaterActionOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostUpdaterResult> {
   return await runHostUpdaterAction(OPEN_DESIGN_HOST_UPDATER_ACTIONS.CHECK, options, scope);
 }
 
 export async function downloadHostUpdater(
-  options?: OpenDesignHostUpdaterActionOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostUpdaterResult> {
+  options?: JoushenStudioHostUpdaterActionOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostUpdaterResult> {
   return await runHostUpdaterAction(OPEN_DESIGN_HOST_UPDATER_ACTIONS.DOWNLOAD, options, scope);
 }
 
 export async function installHostUpdater(
-  options?: OpenDesignHostUpdaterActionOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostUpdaterResult> {
+  options?: JoushenStudioHostUpdaterActionOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostUpdaterResult> {
   return await runHostUpdaterAction(OPEN_DESIGN_HOST_UPDATER_ACTIONS.INSTALL, options, scope);
 }
 
 export async function quitHostAfterUpdaterInstallerOpen(
-  options?: OpenDesignHostUpdaterActionOptions,
-  scope: OpenDesignHostGlobalScope = globalThis,
-): Promise<OpenDesignHostActionResult> {
-  const host = getOpenDesignHost(scope);
-  if (host == null) return unavailable("Open Design host is not available");
+  options?: JoushenStudioHostUpdaterActionOptions,
+  scope: JoushenStudioHostGlobalScope = globalThis,
+): Promise<JoushenStudioHostActionResult> {
+  const host = getJoushenStudioHost(scope);
+  if (host == null) return unavailable("Joushen Studio host is not available");
   try {
     return await host.updater.quit(options);
   } catch (error) {
@@ -659,10 +659,10 @@ export async function quitHostAfterUpdaterInstallerOpen(
 }
 
 export function subscribeHostUpdater(
-  listener: OpenDesignHostUpdaterStatusListener,
-  scope: OpenDesignHostGlobalScope = globalThis,
+  listener: JoushenStudioHostUpdaterStatusListener,
+  scope: JoushenStudioHostGlobalScope = globalThis,
 ): () => void {
-  const host = getOpenDesignHost(scope);
+  const host = getJoushenStudioHost(scope);
   if (host == null) return () => undefined;
   try {
     return host.updater.subscribe(listener);

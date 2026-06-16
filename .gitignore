@@ -6,7 +6,7 @@ out/
 .tmp/
 .DS_Store
 *.log
-/OpenDesign.exe
+/JoushenStudio.exe
 .vite
 .astro/
 .wrangler/

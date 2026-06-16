@@ -20,7 +20,7 @@ i18n:
       <li><strong>交接给 Claude Code。</strong>"构建它"按钮会在同一个浏览器标签页内把原型推进到可上线的生产代码。</li>
       </ul>
       <p>导出格式包括 Canva、PDF、PPTX、HTML 和独立 URL。定价是捆绑式的——Claude Pro 20 美元、Max 100 至 200 美元、Enterprise 则是常见的"联系我们"档位。它目前是面向付费 Claude 订阅用户的研究预览版。</p>
-      <p>如果你读过<a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">官方教程</a>，会发现 Anthropic 描述的工作流，正是 Open Design 所交付的那一套：一份需求、一个方向、一件成品、一次交接。差异藏在更下面一层。</p>
+      <p>如果你读过<a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">官方教程</a>，会发现 Anthropic 描述的工作流，正是 Joushen Studio 所交付的那一套：一份需求、一个方向、一件成品、一次交接。差异藏在更下面一层。</p>
       <h2>它在哪里把你锁住</h2>
       <p>Claude Design 带有四重值得开门见山指出的锁定,因为营销页面不会讲这些。</p>
       <p><strong>模型是固定的。</strong>每一次渲染都走 Claude。不是 Claude <em>或</em>某个你已经付过费的模型——只有 Claude。如果你的团队和 GPT、Gemini 或 DeepSeek 签了合同,或者你为了敏感项目在 Ollama 上自托管,那些工作流都无法迁移过来。Token 成本将永远跟着 Anthropic 的定价曲线走。</p>
@@ -33,7 +33,7 @@ i18n:
         <figcaption>默认托管:你的提示词、设计系统和代码库上下文都会被传到别人的服务器上。</figcaption>
       </figure>
       <h2>开源替代方案</h2>
-      <p><strong>Open Design</strong>(本站)是另一种押注。它不是 Claude Design 的克隆品——它是一个轻薄的 skill 层,把你已经在用的编程 agent 变成一台设计引擎。四个基本要素是 <a href="/blog/31-skills-72-systems-how-the-library-works/">skill、系统、适配器和守护进程</a>。每一个 skill 都是一个 <code>SKILL.md</code> 文件。每一个设计系统都是一个 <code>DESIGN.md</code> 文件。每一个 agent 适配器大约 80 行 TypeScript。</p>
+      <p><strong>Joushen Studio</strong>(本站)是另一种押注。它不是 Claude Design 的克隆品——它是一个轻薄的 skill 层,把你已经在用的编程 agent 变成一台设计引擎。四个基本要素是 <a href="/blog/31-skills-72-systems-how-the-library-works/">skill、系统、适配器和守护进程</a>。每一个 skill 都是一个 <code>SKILL.md</code> 文件。每一个设计系统都是一个 <code>DESIGN.md</code> 文件。每一个 agent 适配器大约 80 行 TypeScript。</p>
       <p>今天开箱即用的内容:</p>
       <ul>
       <li><strong>123 个 skill</strong>——演示文稿生成器、移动端原型、编辑风页面、Word/Excel/PPT、品牌探索</li>
@@ -43,7 +43,7 @@ i18n:
       <li><strong>默认 BYOK</strong>——粘贴任意 OpenAI 兼容的 <code>base_url</code> 和密钥,<a href="/blog/byok-design-workflow-claude-codex-qwen/">你的 token 直接发给模型提供商</a></li>
       <li><strong>Apache-2.0、无需注册、通过 <code>pnpm tools-dev</code> 运行</strong></li>
       </ul>
-      <p>这个心智模型是:Claude Design 是一个产品。Open Design 是一个层。</p>
+      <p>这个心智模型是:Claude Design 是一个产品。Joushen Studio 是一个层。</p>
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="三块黑色多面体置于一条带刻度的基线上,只有一块卡进了一个支架框中,其余两块松散地搁着,置于一块暖色调的编辑风研究图版上" />
         <figcaption>Claude Design 固定了模型。开源路线让你带上你已经在付费的那一个。</figcaption>
@@ -54,7 +54,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -110,10 +110,10 @@ i18n:
       </tr>
       </tbody>
       </table>
-      <p>诚实的总结:Claude Design 拥有最打磨过的单一产品体验。Open Design 用这种打磨过的单一产品表面,换来了一座库——更多 skill、更多系统、更多 agent,设计用来与你笔记本上已有的那个 agent 组合协作。</p>
+      <p>诚实的总结:Claude Design 拥有最打磨过的单一产品体验。Joushen Studio 用这种打磨过的单一产品表面,换来了一座库——更多 skill、更多系统、更多 agent,设计用来与你笔记本上已有的那个 agent 组合协作。</p>
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="三块薄薄的黑色板材以可见的间隙等距堆叠,如同一摞分层,刻度标记着这些间隙,顶上放着一片橄榄叶,置于一块暖色调的编辑风研究图版上" />
-        <figcaption>一个产品和一个层——Open Design 处在你的 agent 与设计工作之间。</figcaption>
+        <figcaption>一个产品和一个层——Joushen Studio 处在你的 agent 与设计工作之间。</figcaption>
       </figure>
       <h2>谁该选哪个</h2>
       <table>
@@ -134,23 +134,23 @@ i18n:
       </tr>
       <tr>
       <td>一名想要"免费版 Claude Design"的独立设计师</td>
-      <td><strong>Open Design。</strong>免费,而且你拥有这套工作流而非租用它——把它指向一个你已经在付费的模型,第一份演示文稿大约十分钟搞定。</td>
+      <td><strong>Joushen Studio。</strong>免费,而且你拥有这套工作流而非租用它——把它指向一个你已经在付费的模型,第一份演示文稿大约十分钟搞定。</td>
       </tr>
       <tr>
       <td>一名已经从终端驱动 Claude Code、Codex 或 Cursor 的设计工程师</td>
-      <td><strong>Open Design。</strong>你的 agent 就是设计引擎;skill 层在不引入新应用的情况下,补上品味与结构。</td>
+      <td><strong>Joushen Studio。</strong>你的 agent 就是设计引擎;skill 层在不引入新应用的情况下,补上品味与结构。</td>
       </tr>
       <tr>
       <td>任何需要 BYOK、项目进行中切换模型、或为敏感项目而仅本地运行的人</td>
-      <td><strong>Open Design。</strong><a href="/blog/byok-reality-check-5-things-that-break/">现实比营销说辞更粗糙</a>,但这份契约是唯一真正站得住脚的。</td>
+      <td><strong>Joushen Studio。</strong><a href="/blog/byok-reality-check-5-things-that-break/">现实比营销说辞更粗糙</a>,但这份契约是唯一真正站得住脚的。</td>
       </tr>
       <tr>
       <td>一名想要交付一个项目可以采纳的新设计 skill 的开源贡献者</td>
-      <td><strong>Open Design。</strong>放进一个文件夹,重启守护进程,提交 PR。</td>
+      <td><strong>Joushen Studio。</strong>放进一个文件夹,重启守护进程,提交 PR。</td>
       </tr>
       <tr>
       <td>一支正在标准化一套能熬过工具更替的可移植设计系统的团队</td>
-      <td><strong>Open Design。</strong><code>DESIGN.md</code> 文件比读取它的工具活得更久。</td>
+      <td><strong>Joushen Studio。</strong><code>DESIGN.md</code> 文件比读取它的工具活得更久。</td>
       </tr>
       </tbody>
       </table>
@@ -160,7 +160,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">试试开源工作流</a>。</p>
       <h2>延伸阅读</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">我们为什么把 Open Design 做成一个 skill 层,而不是一个产品</a>——"是层,不是产品"这一押注背后更长的宣言</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">我们为什么把 Joushen Studio 做成一个 skill 层,而不是一个产品</a>——"是层,不是产品"这一押注背后更长的宣言</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">BYOK 设计工作流——用你自己的密钥运行 Claude、Codex 或 Qwen</a>——选择你自己模型背后的成本账</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK 现实检验——会出问题的五件事</a>——开源路线今天实际会出哪些问题,以及对应的变通办法</li>
       </ul>
@@ -179,7 +179,7 @@ i18n:
       <li><strong>交接給 Claude Code。</strong>「build this」按鈕在同一個瀏覽器分頁裡把原型帶到可上線的程式碼。</li>
       </ul>
       <p>匯出格式包含 Canva、PDF、PPTX、HTML 以及獨立 URL。定價是綁定式的——Claude Pro 20 美元、Max 100 至 200 美元、Enterprise 則是慣常的「請洽詢」等級。它目前是面向付費 Claude 訂閱者的研究預覽版。</p>
-      <p>如果你讀過<a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">官方教學</a>，Anthropic 描述的工作流程跟 Open Design 提供的一模一樣：一份需求、一個方向、一件產物、一次交接。差異藏在下面一層。</p>
+      <p>如果你讀過<a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">官方教學</a>，Anthropic 描述的工作流程跟 Joushen Studio 提供的一模一樣：一份需求、一個方向、一件產物、一次交接。差異藏在下面一層。</p>
       <h2>它在哪裡把你鎖死</h2>
       <p>Claude Design 帶著四道值得先講清楚的鎖定，因為行銷頁面不會講。</p>
       <p><strong>模型是固定的。</strong>每一次渲染都走 Claude。不是 Claude <em>或</em>你已經付過費的某個模型——就只有 Claude。如果你的團隊跟 GPT、Gemini 或 DeepSeek 有合約，或者你為了敏感需求在 Ollama 上自架，那些工作流程都無法轉移。Token 成本永遠跟著 Anthropic 的定價曲線走。</p>
@@ -192,7 +192,7 @@ i18n:
         <figcaption>預設託管：你的提示詞、設計系統和程式碼庫上下文，都傳到別人的伺服器上。</figcaption>
       </figure>
       <h2>開源替代方案</h2>
-      <p><strong>Open Design</strong>（就是本站）是一個不同的賭注。它不是 Claude Design 的複製品——它是一層薄薄的 skill 層,把你已經在用的編碼 agent 變成一台設計引擎。四個基本元件是 <a href="/blog/31-skills-72-systems-how-the-library-works/">skills、systems、adapters 和 daemon</a>。每個 skill 都是一個 <code>SKILL.md</code> 檔案。每個設計系統都是一個 <code>DESIGN.md</code> 檔案。每個 agent adapter 大約 80 行 TypeScript。</p>
+      <p><strong>Joushen Studio</strong>（就是本站）是一個不同的賭注。它不是 Claude Design 的複製品——它是一層薄薄的 skill 層,把你已經在用的編碼 agent 變成一台設計引擎。四個基本元件是 <a href="/blog/31-skills-72-systems-how-the-library-works/">skills、systems、adapters 和 daemon</a>。每個 skill 都是一個 <code>SKILL.md</code> 檔案。每個設計系統都是一個 <code>DESIGN.md</code> 檔案。每個 agent adapter 大約 80 行 TypeScript。</p>
       <p>今天開箱即附的內容：</p>
       <ul>
       <li><strong>123 個 skills</strong>——投影片產生器、行動端 mockup、編輯式頁面、Word/Excel/PPT、品牌探索</li>
@@ -202,7 +202,7 @@ i18n:
       <li><strong>預設 BYOK</strong>——貼上任何 OpenAI 相容的 <code>base_url</code> 和金鑰,<a href="/blog/byok-design-workflow-claude-codex-qwen/">你的 token 直接走向供應商</a></li>
       <li><strong>Apache-2.0、免註冊、用 <code>pnpm tools-dev</code> 就能跑</strong></li>
       </ul>
-      <p>心智模型：Claude Design 是一個產品。Open Design 是一個層。</p>
+      <p>心智模型：Claude Design 是一個產品。Joushen Studio 是一個層。</p>
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="三個黑色多面體立於一條量好的基準線上，只有一個嵌進了支架框中，其餘的則鬆散擺放，置於暖色調的編輯式研究底版上" />
         <figcaption>Claude Design 把模型固定死。開源路線讓你帶上你已經在付費的那一個。</figcaption>
@@ -213,7 +213,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -269,10 +269,10 @@ i18n:
       </tr>
       </tbody>
       </table>
-      <p>誠實的總結：Claude Design 擁有最精緻的單一產品體驗。Open Design 用精緻的單一產品表層,換來一座資料庫——更多 skills、更多 systems、更多 agents,設計上就是要跟你筆電上已有的 agent 組合在一起。</p>
+      <p>誠實的總結：Claude Design 擁有最精緻的單一產品體驗。Joushen Studio 用精緻的單一產品表層,換來一座資料庫——更多 skills、更多 systems、更多 agents,設計上就是要跟你筆電上已有的 agent 組合在一起。</p>
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="三片薄薄的黑色板塊以可見的間隙等距堆疊，像一個分層堆疊，尺寸刻度標記著那些間隙，最上方放著一片橄欖葉，置於暖色調的編輯式研究底版上" />
-        <figcaption>一個產品和一個層——Open Design 坐落在你的 agent 與設計工作之間。</figcaption>
+        <figcaption>一個產品和一個層——Joushen Studio 坐落在你的 agent 與設計工作之間。</figcaption>
       </figure>
       <h2>誰該選哪一個</h2>
       <table>
@@ -293,23 +293,23 @@ i18n:
       </tr>
       <tr>
       <td>一個想要「免費版 Claude Design」的單人設計師</td>
-      <td><strong>Open Design。</strong>免費,而且你擁有這套工作流程而不是在租它——把它指向一個你已經在付費的模型,第一份投影片大約十分鐘搞定。</td>
+      <td><strong>Joushen Studio。</strong>免費,而且你擁有這套工作流程而不是在租它——把它指向一個你已經在付費的模型,第一份投影片大約十分鐘搞定。</td>
       </tr>
       <tr>
       <td>一個已經在終端機裡駕馭 Claude Code、Codex 或 Cursor 的設計工程師</td>
-      <td><strong>Open Design。</strong>你的 agent 就是設計引擎;skill 層在不引入新應用的情況下加進了品味與結構。</td>
+      <td><strong>Joushen Studio。</strong>你的 agent 就是設計引擎;skill 層在不引入新應用的情況下加進了品味與結構。</td>
       </tr>
       <tr>
       <td>任何需要 BYOK、需要在專案中途切換模型,或為敏感需求純本地運行的人</td>
-      <td><strong>Open Design。</strong><a href="/blog/byok-reality-check-5-things-that-break/">現實比行銷更粗糙</a>,但這份契約是唯一真正站得住腳的。</td>
+      <td><strong>Joushen Studio。</strong><a href="/blog/byok-reality-check-5-things-that-break/">現實比行銷更粗糙</a>,但這份契約是唯一真正站得住腳的。</td>
       </tr>
       <tr>
       <td>一個想要交付一個專案能採納的新設計 skill 的開源貢獻者</td>
-      <td><strong>Open Design。</strong>丟進一個資料夾、重啟 daemon、送出 PR。</td>
+      <td><strong>Joushen Studio。</strong>丟進一個資料夾、重啟 daemon、送出 PR。</td>
       </tr>
       <tr>
       <td>一個正在標準化一套能在工具更迭中存活的可攜設計系統的團隊</td>
-      <td><strong>Open Design。</strong><code>DESIGN.md</code> 檔案比讀取它的工具活得更久。</td>
+      <td><strong>Joushen Studio。</strong><code>DESIGN.md</code> 檔案比讀取它的工具活得更久。</td>
       </tr>
       </tbody>
       </table>
@@ -319,7 +319,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">試試這套開源工作流程</a>。</p>
       <h2>延伸閱讀</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">為什麼我們把 Open Design 做成一個 skill 層,而不是一個產品</a>——「是層,不是產品」這個賭注背後更長的宣言</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">為什麼我們把 Joushen Studio 做成一個 skill 層,而不是一個產品</a>——「是層,不是產品」這個賭注背後更長的宣言</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">BYOK 設計工作流程——用你自己的金鑰跑 Claude、Codex 或 Qwen</a>——選你自己模型背後的成本帳</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK 現實檢驗——五件會出問題的事</a>——開源路線今天實際會壞在哪裡,以及繞過去的辦法</li>
       </ul>
@@ -338,7 +338,7 @@ i18n:
       <li><strong>Claude Code への引き渡し。</strong>「これをビルドする」ボタンで、同じブラウザタブ内でプロトタイプを本番対応のコードへ。</li>
       </ul>
       <p>エクスポートには Canva、PDF、PPTX、HTML、スタンドアロン URL が含まれます。料金は抱き合わせ——Claude Pro が 20 ドル、Max が 100〜200 ドル、Enterprise はおなじみの問い合わせ制ティア。現在は有料の Claude サブスクライバー向けのリサーチプレビューです。</p>
-      <p><a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">公式チュートリアル</a>を読むと、Anthropic が説明するワークフローは Open Design が出しているものと同じです——ブリーフ、方向性、成果物、引き渡し。違いはひとつ下のレイヤーに存在します。</p>
+      <p><a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">公式チュートリアル</a>を読むと、Anthropic が説明するワークフローは Joushen Studio が出しているものと同じです——ブリーフ、方向性、成果物、引き渡し。違いはひとつ下のレイヤーに存在します。</p>
       <h2>どこであなたをロックインするのか</h2>
       <p>Claude Design には、最初に名指ししておく価値のあるロックインが 4 つあります。マーケティングページは語ってくれないからです。</p>
       <p><strong>モデルは固定。</strong>すべてのレンダリングは Claude を通ります。Claude <em>または</em>あなたがすでに支払い済みのモデル、ではなく——ただ Claude だけです。チームが GPT、Gemini、DeepSeek と契約していたり、機密性の高いブリーフのために Ollama でセルフホストしていたりするなら、そうしたワークフローは移行できません。トークンコストは永遠に Anthropic の価格曲線に乗ります。</p>
@@ -351,7 +351,7 @@ i18n:
         <figcaption>デフォルトでホスト型——あなたのプロンプト、デザインシステム、コードベースのコンテキストは、誰か他人のサーバーへ渡ります。</figcaption>
       </figure>
       <h2>オープンソースの代替</h2>
-      <p><strong>Open Design</strong>（このサイト）は別の賭けです。Claude Design のクローンではありません——あなたがすでに使っているコーディングエージェントをデザインエンジンに変える、薄いスキルレイヤーです。4 つのプリミティブは<a href="/blog/31-skills-72-systems-how-the-library-works/">スキル、システム、アダプター、そしてデーモン</a>です。すべてのスキルは <code>SKILL.md</code> ファイル。すべてのデザインシステムは <code>DESIGN.md</code> ファイル。すべてのエージェントアダプターは約 80 行の TypeScript です。</p>
+      <p><strong>Joushen Studio</strong>（このサイト）は別の賭けです。Claude Design のクローンではありません——あなたがすでに使っているコーディングエージェントをデザインエンジンに変える、薄いスキルレイヤーです。4 つのプリミティブは<a href="/blog/31-skills-72-systems-how-the-library-works/">スキル、システム、アダプター、そしてデーモン</a>です。すべてのスキルは <code>SKILL.md</code> ファイル。すべてのデザインシステムは <code>DESIGN.md</code> ファイル。すべてのエージェントアダプターは約 80 行の TypeScript です。</p>
       <p>今日、箱に入って出荷されるもの。</p>
       <ul>
       <li><strong>123 個のスキル</strong>——デッキジェネレーター、モバイルモックアップ、エディトリアルページ、Word/Excel/PPT、ブランド探索</li>
@@ -361,7 +361,7 @@ i18n:
       <li><strong>デフォルトで BYOK</strong>——任意の OpenAI 互換の <code>base_url</code> とキーを貼り付ければ、<a href="/blog/byok-design-workflow-claude-codex-qwen/">あなたのトークンはプロバイダーへ直行</a>します</li>
       <li><strong>Apache-2.0、サインアップ不要、<code>pnpm tools-dev</code> で動作</strong></li>
       </ul>
-      <p>メンタルモデル：Claude Design は製品。Open Design はレイヤー。</p>
+      <p>メンタルモデル：Claude Design は製品。Joushen Studio はレイヤー。</p>
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="計測された基準線の上に黒いファセットの多面体が 3 つ、1 つだけがブラケットフレームにはめ込まれ、残りはゆるく置かれている、暖色系のエディトリアルな習作プレート" />
         <figcaption>Claude Design はモデルを固定します。オープンな道は、あなたがすでに支払っているモデルを持ち込ませてくれます。</figcaption>
@@ -372,7 +372,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -428,10 +428,10 @@ i18n:
       </tr>
       </tbody>
       </table>
-      <p>率直なまとめ：Claude Design は最も洗練された単一製品の体験を持っています。Open Design はその洗練された単一製品の表面を、ライブラリと引き換えにします——より多くのスキル、より多くのシステム、より多くのエージェント、あなたのラップトップにすでにあるエージェントと組み合わせて使えるように設計されています。</p>
+      <p>率直なまとめ：Claude Design は最も洗練された単一製品の体験を持っています。Joushen Studio はその洗練された単一製品の表面を、ライブラリと引き換えにします——より多くのスキル、より多くのシステム、より多くのエージェント、あなたのラップトップにすでにあるエージェントと組み合わせて使えるように設計されています。</p>
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="薄い黒のスラブが 3 枚、レイヤースタックのように隙間を見せてアイソメトリックに積み重なり、隙間を寸法目盛りが示し、上にオリーブの葉、暖色系のエディトリアルな習作プレート" />
-        <figcaption>製品とレイヤー——Open Design はあなたのエージェントとデザイン作業の間に位置します。</figcaption>
+        <figcaption>製品とレイヤー——Joushen Studio はあなたのエージェントとデザイン作業の間に位置します。</figcaption>
       </figure>
       <h2>誰が何を選ぶべきか</h2>
       <table>
@@ -452,23 +452,23 @@ i18n:
       </tr>
       <tr>
       <td>「無料の Claude Design」が欲しいソロデザイナー</td>
-      <td><strong>Open Design。</strong>無料で、ワークフローを借りるのではなく所有できる——すでに支払っているモデルに向けて設定すれば、最初のデッキはおよそ 10 分。</td>
+      <td><strong>Joushen Studio。</strong>無料で、ワークフローを借りるのではなく所有できる——すでに支払っているモデルに向けて設定すれば、最初のデッキはおよそ 10 分。</td>
       </tr>
       <tr>
       <td>すでにターミナルから Claude Code、Codex、Cursor を動かしているデザインエンジニア</td>
-      <td><strong>Open Design。</strong>あなたのエージェントがデザインエンジン。スキルレイヤーは新しいアプリなしにセンスと構造を加えます。</td>
+      <td><strong>Joushen Studio。</strong>あなたのエージェントがデザインエンジン。スキルレイヤーは新しいアプリなしにセンスと構造を加えます。</td>
       </tr>
       <tr>
       <td>BYOK、プロジェクト途中でのモデル切り替え、機密ブリーフのためのローカル専用が必要な人</td>
-      <td><strong>Open Design。</strong><a href="/blog/byok-reality-check-5-things-that-break/">現実はマーケティングより荒削り</a>ですが、実際に守られる契約はこれだけです。</td>
+      <td><strong>Joushen Studio。</strong><a href="/blog/byok-reality-check-5-things-that-break/">現実はマーケティングより荒削り</a>ですが、実際に守られる契約はこれだけです。</td>
       </tr>
       <tr>
       <td>プロジェクトが採用できる新しいデザインスキルを出したいオープンソースの貢献者</td>
-      <td><strong>Open Design。</strong>フォルダを置き、デーモンを再起動し、PR を送る。</td>
+      <td><strong>Joushen Studio。</strong>フォルダを置き、デーモンを再起動し、PR を送る。</td>
       </tr>
       <tr>
       <td>ツールの入れ替わりを生き延びるポータブルなデザインシステムで標準化するチーム</td>
-      <td><strong>Open Design。</strong><code>DESIGN.md</code> ファイルは、それを読むツールより長生きします。</td>
+      <td><strong>Joushen Studio。</strong><code>DESIGN.md</code> ファイルは、それを読むツールより長生きします。</td>
       </tr>
       </tbody>
       </table>
@@ -478,7 +478,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">オープンソースのワークフローを試す</a>。</p>
       <h2>関連する読み物</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">なぜ私たちは Open Design を製品ではなくスキルレイヤーとして作ったのか</a>——「製品ではなくレイヤー」という賭けの背後にある、より長いマニフェスト</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">なぜ私たちは Joushen Studio を製品ではなくスキルレイヤーとして作ったのか</a>——「製品ではなくレイヤー」という賭けの背後にある、より長いマニフェスト</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">BYOK デザインワークフロー——自分のキーで Claude、Codex、Qwen を動かす</a>——自分のモデルを選ぶことの背後にあるコスト計算</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK の現実チェック——壊れる 5 つのこと</a>——オープンな道が今日実際に壊すもの、そしてその回避策</li>
       </ul>
@@ -497,7 +497,7 @@ i18n:
       <li><strong>Claude Code로의 핸드오프.</strong> "이것을 빌드하기" 버튼이 동일한 브라우저 탭에서 프로토타입을 프로덕션 준비 코드로 만듭니다.</li>
       </ul>
       <p>내보내기에는 Canva, PDF, PPTX, HTML, 독립형 URL이 포함됩니다. 가격은 번들로 제공됩니다 — Claude Pro는 $20, Max는 $100–$200, Enterprise는 일반적인 문의 티어입니다. 현재는 유료 Claude 구독자를 위한 리서치 프리뷰입니다.</p>
-      <p><a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">공식 튜토리얼</a>을 읽어 보면, Anthropic이 설명하는 워크플로는 Open Design이 제공하는 것과 동일합니다: 브리프, 방향, 산출물, 핸드오프. 차이는 한 레이어 아래에 있습니다.</p>
+      <p><a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">공식 튜토리얼</a>을 읽어 보면, Anthropic이 설명하는 워크플로는 Joushen Studio이 제공하는 것과 동일합니다: 브리프, 방향, 산출물, 핸드오프. 차이는 한 레이어 아래에 있습니다.</p>
       <h2>어디에서 당신을 묶어 두는가</h2>
       <p>Claude Design은 미리 짚어 둘 가치가 있는 네 가지 락인 요소를 안고 있습니다. 마케팅 페이지가 말해 주지 않기 때문입니다.</p>
       <p><strong>모델이 고정되어 있습니다.</strong> 모든 렌더링은 Claude를 거칩니다. Claude <em>또는</em> 당신이 이미 비용을 지불한 모델이 아니라 — 오직 Claude입니다. 당신의 팀이 GPT, Gemini, DeepSeek와 계약을 맺고 있거나, 민감한 브리프를 위해 Ollama로 자체 호스팅한다면, 그러한 워크플로는 옮겨지지 않습니다. 토큰 비용은 영원히 Anthropic의 가격 곡선을 따릅니다.</p>
@@ -510,7 +510,7 @@ i18n:
       <figcaption>기본적으로 호스팅됨: 당신의 프롬프트, 디자인 시스템, 코드베이스 컨텍스트가 다른 누군가의 서버로 이동합니다.</figcaption>
       </figure>
       <h2>오픈소스 대안</h2>
-      <p><strong>Open Design</strong>(이 사이트)은 다른 베팅입니다. Claude Design 클론이 아닙니다 — 이미 사용하고 있는 코딩 에이전트를 디자인 엔진으로 바꾸는 얇은 스킬 레이어입니다. 네 가지 프리미티브는 <a href="/blog/31-skills-72-systems-how-the-library-works/">스킬, 시스템, 어댑터, 그리고 데몬</a>입니다. 모든 스킬은 <code>SKILL.md</code> 파일입니다. 모든 디자인 시스템은 <code>DESIGN.md</code> 파일입니다. 모든 에이전트 어댑터는 약 80줄의 TypeScript입니다.</p>
+      <p><strong>Joushen Studio</strong>(이 사이트)은 다른 베팅입니다. Claude Design 클론이 아닙니다 — 이미 사용하고 있는 코딩 에이전트를 디자인 엔진으로 바꾸는 얇은 스킬 레이어입니다. 네 가지 프리미티브는 <a href="/blog/31-skills-72-systems-how-the-library-works/">스킬, 시스템, 어댑터, 그리고 데몬</a>입니다. 모든 스킬은 <code>SKILL.md</code> 파일입니다. 모든 디자인 시스템은 <code>DESIGN.md</code> 파일입니다. 모든 에이전트 어댑터는 약 80줄의 TypeScript입니다.</p>
       <p>오늘 기본 제공되는 것:</p>
       <ul>
       <li><strong>123 skills</strong> — 덱 생성기, 모바일 목업, 편집풍 페이지, Word/Excel/PPT, 브랜드 탐색</li>
@@ -520,7 +520,7 @@ i18n:
       <li><strong>기본값 BYOK</strong> — OpenAI 호환 <code>base_url</code>과 키를 붙여넣으면, <a href="/blog/byok-design-workflow-claude-codex-qwen/">당신의 토큰이 곧장 제공자에게 전달됩니다</a></li>
       <li><strong>Apache-2.0, 가입 불필요, <code>pnpm tools-dev</code>로 실행</strong></li>
       </ul>
-      <p>멘탈 모델: Claude Design은 제품입니다. Open Design은 레이어입니다.</p>
+      <p>멘탈 모델: Claude Design은 제품입니다. Joushen Studio은 레이어입니다.</p>
       <figure>
       <img src="/blog/plate-20-model-lock.webp" alt="측정된 베이스라인 위의 세 개의 검은 다면체, 하나만 브래킷 프레임에 끼워져 있고 나머지는 느슨하게 놓여 있는, 따뜻한 편집풍 스터디 플레이트 위에" />
       <figcaption>Claude Design은 모델을 고정합니다. 오픈 경로는 이미 비용을 지불하고 있는 모델을 가져올 수 있게 합니다.</figcaption>
@@ -531,7 +531,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -587,10 +587,10 @@ i18n:
       </tr>
       </tbody>
       </table>
-      <p>솔직한 요약: Claude Design은 가장 다듬어진 단일 제품 경험을 가지고 있습니다. Open Design은 다듬어진 단일 제품 표면을 라이브러리와 맞바꿉니다 — 더 많은 스킬, 더 많은 시스템, 더 많은 에이전트, 이미 노트북에 있는 에이전트와 조합되도록 설계되었습니다.</p>
+      <p>솔직한 요약: Claude Design은 가장 다듬어진 단일 제품 경험을 가지고 있습니다. Joushen Studio은 다듬어진 단일 제품 표면을 라이브러리와 맞바꿉니다 — 더 많은 스킬, 더 많은 시스템, 더 많은 에이전트, 이미 노트북에 있는 에이전트와 조합되도록 설계되었습니다.</p>
       <figure>
       <img src="/blog/plate-21-layer-stack.webp" alt="아이소메트릭으로 레이어 스택처럼 보이는 간격을 두고 쌓인 세 개의 얇은 검은 판, 간격을 표시하는 치수 눈금, 맨 위에 올리브 잎, 따뜻한 편집풍 스터디 플레이트 위에" />
-      <figcaption>제품과 레이어 — Open Design은 당신의 에이전트와 디자인 작업 사이에 자리합니다.</figcaption>
+      <figcaption>제품과 레이어 — Joushen Studio은 당신의 에이전트와 디자인 작업 사이에 자리합니다.</figcaption>
       </figure>
       <h2>누가 무엇을 선택해야 하는가</h2>
       <table>
@@ -611,23 +611,23 @@ i18n:
       </tr>
       <tr>
       <td>"무료 Claude Design"을 원하는 단독 디자이너</td>
-      <td><strong>Open Design.</strong> 무료이며, 워크플로를 임대하는 대신 소유합니다 — 이미 비용을 지불하는 모델을 가리키면 첫 덱은 약 10분이 걸립니다.</td>
+      <td><strong>Joushen Studio.</strong> 무료이며, 워크플로를 임대하는 대신 소유합니다 — 이미 비용을 지불하는 모델을 가리키면 첫 덱은 약 10분이 걸립니다.</td>
       </tr>
       <tr>
       <td>이미 터미널에서 Claude Code, Codex, Cursor를 구동하는 디자인 엔지니어</td>
-      <td><strong>Open Design.</strong> 당신의 에이전트가 디자인 엔진입니다. 스킬 레이어가 새 앱 없이 안목과 구조를 더합니다.</td>
+      <td><strong>Joushen Studio.</strong> 당신의 에이전트가 디자인 엔진입니다. 스킬 레이어가 새 앱 없이 안목과 구조를 더합니다.</td>
       </tr>
       <tr>
       <td>BYOK, 프로젝트 중간의 모델 선택, 또는 민감한 브리프를 위한 로컬 전용이 필요한 누구든</td>
-      <td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">현실은 마케팅보다 거칠지만</a>, 실제로 지켜지는 유일한 계약입니다.</td>
+      <td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">현실은 마케팅보다 거칠지만</a>, 실제로 지켜지는 유일한 계약입니다.</td>
       </tr>
       <tr>
       <td>프로젝트가 채택할 수 있는 새 디자인 스킬을 출시하고 싶은 오픈소스 기여자</td>
-      <td><strong>Open Design.</strong> 폴더를 넣고, 데몬을 재시작하고, PR을 보내세요.</td>
+      <td><strong>Joushen Studio.</strong> 폴더를 넣고, 데몬을 재시작하고, PR을 보내세요.</td>
       </tr>
       <tr>
       <td>도구 교체에서 살아남는 이식 가능한 디자인 시스템으로 표준화하려는 팀</td>
-      <td><strong>Open Design.</strong> <code>DESIGN.md</code> 파일은 그것을 읽는 도구보다 오래 갑니다.</td>
+      <td><strong>Joushen Studio.</strong> <code>DESIGN.md</code> 파일은 그것을 읽는 도구보다 오래 갑니다.</td>
       </tr>
       </tbody>
       </table>
@@ -637,7 +637,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">오픈소스 워크플로 시도하기</a>.</p>
       <h2>관련 읽을거리</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">우리가 Open Design을 제품이 아닌 스킬 레이어로 만든 이유</a> — "레이어, 제품 아님" 베팅 뒤에 있는 더 긴 선언문</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">우리가 Joushen Studio을 제품이 아닌 스킬 레이어로 만든 이유</a> — "레이어, 제품 아님" 베팅 뒤에 있는 더 긴 선언문</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">BYOK 디자인 워크플로 — 자신의 키로 Claude, Codex, Qwen 실행하기</a> — 자신의 모델을 고르는 것 뒤에 있는 비용 계산</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK 현실 점검 — 깨지는 다섯 가지</a> — 오픈 경로가 오늘 실제로 깨뜨리는 것, 그리고 우회법</li>
       </ul>
@@ -656,7 +656,7 @@ i18n:
       <li><strong>Übergabe an Claude Code.</strong> Der „Build this“-Button bringt den Prototyp in produktionsreifen Code – im selben Browser-Tab.</li>
       </ul>
       <p>Exporte umfassen Canva, PDF, PPTX, HTML und eigenständige URLs. Die Preisgestaltung ist gebündelt – Claude Pro für 20 $, Max für 100–200 $, Enterprise im üblichen „Ruf uns an“-Tarif. Derzeit ist es eine Research-Preview für zahlende Claude-Abonnenten.</p>
-      <p>Wenn du <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">das offizielle Tutorial</a> liest, ist der Workflow, den Anthropic beschreibt, derselbe, den Open Design ausliefert: ein Briefing, eine Richtung, ein Artefakt, eine Übergabe. Die Unterschiede liegen eine Ebene tiefer.</p>
+      <p>Wenn du <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">das offizielle Tutorial</a> liest, ist der Workflow, den Anthropic beschreibt, derselbe, den Joushen Studio ausliefert: ein Briefing, eine Richtung, ein Artefakt, eine Übergabe. Die Unterschiede liegen eine Ebene tiefer.</p>
       <h2>Wo es dich bindet</h2>
       <p>Claude Design bringt vier Arten von Lock-in mit sich, die es wert sind, vorab benannt zu werden, weil die Marketingseiten es nicht tun.</p>
       <p><strong>Das Modell ist fest.</strong> Jedes Rendering läuft über Claude. Nicht Claude <em>oder</em> ein Modell, für das du bereits bezahlt hast – nur Claude. Wenn dein Team einen Vertrag mit GPT, Gemini oder DeepSeek hat oder wenn du für sensible Briefings auf Ollama selbst hostest, lassen sich diese Workflows nicht übertragen. Die Token-Kosten richten sich für immer nach Anthropics Preiskurve.</p>
@@ -669,7 +669,7 @@ i18n:
         <figcaption>Standardmäßig gehostet: Deine Prompts, dein Designsystem und dein Codebasis-Kontext wandern auf die Server von jemand anderem.</figcaption>
       </figure>
       <h2>Die Open-Source-Alternative</h2>
-      <p><strong>Open Design</strong> (diese Seite) ist eine andere Wette. Es ist kein Claude-Design-Klon – es ist eine dünne Skill-Schicht, die den Coding-Agenten, den du ohnehin schon nutzt, in eine Design-Engine verwandelt. Die vier Primitive sind <a href="/blog/31-skills-72-systems-how-the-library-works/">Skills, Systems, Adapter und der Daemon</a>. Jeder Skill ist eine <code>SKILL.md</code>-Datei. Jedes Designsystem ist eine <code>DESIGN.md</code>-Datei. Jeder Agent-Adapter ist ~80 Zeilen TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (diese Seite) ist eine andere Wette. Es ist kein Claude-Design-Klon – es ist eine dünne Skill-Schicht, die den Coding-Agenten, den du ohnehin schon nutzt, in eine Design-Engine verwandelt. Die vier Primitive sind <a href="/blog/31-skills-72-systems-how-the-library-works/">Skills, Systems, Adapter und der Daemon</a>. Jeder Skill ist eine <code>SKILL.md</code>-Datei. Jedes Designsystem ist eine <code>DESIGN.md</code>-Datei. Jeder Agent-Adapter ist ~80 Zeilen TypeScript.</p>
       <p>Was heute ab Werk dabei ist:</p>
       <ul>
       <li><strong>123 skills</strong> – Deck-Generatoren, Mobile-Mockups, redaktionelle Seiten, Word/Excel/PPT, Markenexplorationen</li>
@@ -679,7 +679,7 @@ i18n:
       <li><strong>BYOK standardmäßig</strong> – füge eine beliebige OpenAI-kompatible <code>base_url</code> und einen Key ein, <a href="/blog/byok-design-workflow-claude-codex-qwen/">deine Tokens gehen direkt an den Anbieter</a></li>
       <li><strong>Apache-2.0, keine Anmeldung, läuft mit <code>pnpm tools-dev</code></strong></li>
       </ul>
-      <p>Das mentale Modell: Claude Design ist ein Produkt. Open Design ist eine Schicht.</p>
+      <p>Das mentale Modell: Claude Design ist ein Produkt. Joushen Studio ist eine Schicht.</p>
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Drei schwarze facettierte Polyeder auf einer abgemessenen Grundlinie, nur eines in einen Halterungsrahmen eingesetzt, während die anderen lose liegen, auf einer warmen, redaktionellen Studienplatte" />
         <figcaption>Claude Design legt das Modell fest. Der offene Weg lässt dich das mitbringen, für das du ohnehin schon bezahlst.</figcaption>
@@ -687,7 +687,7 @@ i18n:
       <h2>Im direkten Vergleich</h2>
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Lizenz</td><td>Proprietär</td><td>Apache-2.0</td></tr>
@@ -702,10 +702,10 @@ i18n:
       <tr><td>Datenpfad</td><td>Prompts → Anthropic</td><td>Prompts → dein gewählter Anbieter; nichts durch uns</td></tr>
       </tbody>
       </table>
-      <p>Die ehrliche Zusammenfassung: Claude Design bietet die ausgefeilteste Einzelprodukt-Erfahrung. Open Design tauscht die ausgefeilte Einzelprodukt-Oberfläche gegen eine Bibliothek – mehr Skills, mehr Systeme, mehr Agenten, darauf ausgelegt, sich mit dem Agenten zu kombinieren, der bereits auf deinem Laptop ist.</p>
+      <p>Die ehrliche Zusammenfassung: Claude Design bietet die ausgefeilteste Einzelprodukt-Erfahrung. Joushen Studio tauscht die ausgefeilte Einzelprodukt-Oberfläche gegen eine Bibliothek – mehr Skills, mehr Systeme, mehr Agenten, darauf ausgelegt, sich mit dem Agenten zu kombinieren, der bereits auf deinem Laptop ist.</p>
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Drei dünne schwarze Platten mit sichtbaren Lücken übereinandergestapelt wie ein Schichtstapel in isometrischer Darstellung, Maßstriche markieren die Lücken, ein Olivenblatt obenauf, auf einer warmen, redaktionellen Studienplatte" />
-        <figcaption>Ein Produkt und eine Schicht – Open Design sitzt zwischen deinem Agenten und der Designarbeit.</figcaption>
+        <figcaption>Ein Produkt und eine Schicht – Joushen Studio sitzt zwischen deinem Agenten und der Designarbeit.</figcaption>
       </figure>
       <h2>Wer was wählen sollte</h2>
       <table>
@@ -715,11 +715,11 @@ i18n:
       <tbody>
       <tr><td>Eine Solo-PM in einem Unternehmen, das bereits auf Claude Pro ist und vor dem Mittagessen einen Prototyp braucht</td><td><strong>Claude Design.</strong> Die 20 $/Monat sind versenkt; die Oberfläche ist wirklich schnell.</td></tr>
       <tr><td>Ein Enterprise-Designteam, bei dem Anthropic die Beschaffung bereits durchlaufen hat</td><td><strong>Claude Design.</strong> Du hast die Integrationskosten einmal bezahlt; nutze sie.</td></tr>
-      <tr><td>Eine Solo-Designerin, die „Claude Design, aber kostenlos“ will</td><td><strong>Open Design.</strong> Kostenlos, und du besitzt den Workflow, statt ihn zu mieten – richte ihn auf ein Modell aus, für das du ohnehin schon bezahlst, und das erste Deck dauert etwa zehn Minuten.</td></tr>
-      <tr><td>Ein Design-Engineer, der bereits Claude Code, Codex oder Cursor vom Terminal aus steuert</td><td><strong>Open Design.</strong> Dein Agent ist die Design-Engine; die Skill-Schicht ergänzt Geschmack und Struktur ohne eine neue App.</td></tr>
-      <tr><td>Jeder, der BYOK, Modellwahl mitten im Projekt oder rein lokales Arbeiten für sensible Briefings braucht</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Die Realität ist rauer als das Marketing</a>, aber der Vertrag ist der einzige, der tatsächlich hält.</td></tr>
-      <tr><td>Ein Open-Source-Beitragender, der einen neuen Design-Skill ausliefern will, den das Projekt übernehmen kann</td><td><strong>Open Design.</strong> Leg einen Ordner ab, starte den Daemon neu, schick den PR.</td></tr>
-      <tr><td>Ein Team, das sich auf ein portables Designsystem standardisiert, das den Tool-Wechsel überdauert</td><td><strong>Open Design.</strong> <code>DESIGN.md</code>-Dateien überleben das Tool, das sie liest.</td></tr>
+      <tr><td>Eine Solo-Designerin, die „Claude Design, aber kostenlos“ will</td><td><strong>Joushen Studio.</strong> Kostenlos, und du besitzt den Workflow, statt ihn zu mieten – richte ihn auf ein Modell aus, für das du ohnehin schon bezahlst, und das erste Deck dauert etwa zehn Minuten.</td></tr>
+      <tr><td>Ein Design-Engineer, der bereits Claude Code, Codex oder Cursor vom Terminal aus steuert</td><td><strong>Joushen Studio.</strong> Dein Agent ist die Design-Engine; die Skill-Schicht ergänzt Geschmack und Struktur ohne eine neue App.</td></tr>
+      <tr><td>Jeder, der BYOK, Modellwahl mitten im Projekt oder rein lokales Arbeiten für sensible Briefings braucht</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Die Realität ist rauer als das Marketing</a>, aber der Vertrag ist der einzige, der tatsächlich hält.</td></tr>
+      <tr><td>Ein Open-Source-Beitragender, der einen neuen Design-Skill ausliefern will, den das Projekt übernehmen kann</td><td><strong>Joushen Studio.</strong> Leg einen Ordner ab, starte den Daemon neu, schick den PR.</td></tr>
+      <tr><td>Ein Team, das sich auf ein portables Designsystem standardisiert, das den Tool-Wechsel überdauert</td><td><strong>Joushen Studio.</strong> <code>DESIGN.md</code>-Dateien überleben das Tool, das sie liest.</td></tr>
       </tbody>
       </table>
       <p>Die Dimension, die es für die meisten Teams entscheidet, ist nicht die Qualität. Es ist die Frage, ob du den Workflow lieber mieten oder besitzen möchtest.</p>
@@ -728,7 +728,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">Probier den Open-Source-Workflow aus</a>.</p>
       <h2>Weiterführende Lektüre</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Warum wir Open Design als Skill-Schicht gebaut haben, nicht als Produkt</a> – das längere Manifest hinter der „Schicht, nicht Produkt“-Wette</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Warum wir Joushen Studio als Skill-Schicht gebaut haben, nicht als Produkt</a> – das längere Manifest hinter der „Schicht, nicht Produkt“-Wette</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">BYOK-Design-Workflow – Claude, Codex oder Qwen mit deinem eigenen Key betreiben</a> – die Kostenrechnung hinter der Wahl deines eigenen Modells</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK-Realitätscheck – fünf Dinge, die kaputtgehen</a> – was der offene Weg heute tatsächlich kaputt macht und die Workarounds dazu</li>
       </ul>
@@ -753,7 +753,7 @@ i18n:
 
       <p>Les exports comprennent Canva, PDF, PPTX, HTML et des URL autonomes. La tarification est couplée — Claude Pro à 20 $, Max à 100–200 $, Enterprise au tarif habituel sur demande. C'est actuellement une preview de recherche pour les abonnés Claude payants.</p>
 
-      <p>Si vous lisez <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">le tutoriel officiel</a>, le workflow décrit par Anthropic est le même que celui livré par Open Design : un brief, une direction, un artefact, un passage de relais. Les différences se logent un cran plus bas.</p>
+      <p>Si vous lisez <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">le tutoriel officiel</a>, le workflow décrit par Anthropic est le même que celui livré par Joushen Studio : un brief, une direction, un artefact, un passage de relais. Les différences se logent un cran plus bas.</p>
 
       <h2>Là où il vous enferme</h2>
 
@@ -776,7 +776,7 @@ i18n:
 
       <h2>L'alternative open source</h2>
 
-      <p><strong>Open Design</strong> (ce site) est un pari différent. Ce n'est pas un clone de Claude Design — c'est une fine couche de skills qui transforme l'agent de codage que vous utilisez déjà en un moteur de design. Les quatre primitives sont <a href="/blog/31-skills-72-systems-how-the-library-works/">les skills, les systems, les adapters et le daemon</a>. Chaque skill est un fichier <code>SKILL.md</code>. Chaque design system est un fichier <code>DESIGN.md</code>. Chaque adaptateur d'agent fait environ 80 lignes de TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (ce site) est un pari différent. Ce n'est pas un clone de Claude Design — c'est une fine couche de skills qui transforme l'agent de codage que vous utilisez déjà en un moteur de design. Les quatre primitives sont <a href="/blog/31-skills-72-systems-how-the-library-works/">les skills, les systems, les adapters et le daemon</a>. Chaque skill est un fichier <code>SKILL.md</code>. Chaque design system est un fichier <code>DESIGN.md</code>. Chaque adaptateur d'agent fait environ 80 lignes de TypeScript.</p>
 
       <p>Ce qui est livré dans la boîte aujourd'hui :</p>
 
@@ -789,7 +789,7 @@ i18n:
       <li><strong>Apache-2.0, sans inscription, fonctionne avec <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>Le modèle mental : Claude Design est un produit. Open Design est une couche.</p>
+      <p>Le modèle mental : Claude Design est un produit. Joushen Studio est une couche.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Trois polyèdres noirs à facettes sur une ligne de base mesurée, un seul logé dans un cadre à équerre tandis que les autres reposent librement, sur une planche d'étude éditoriale aux tons chauds" />
@@ -800,7 +800,7 @@ i18n:
 
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Licence</td><td>Propriétaire</td><td>Apache-2.0</td></tr>
@@ -816,11 +816,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>Le résumé honnête : Claude Design offre l'expérience mono-produit la plus aboutie. Open Design échange cette surface mono-produit soignée contre une bibliothèque — plus de skills, plus de systems, plus d'agents, conçus pour se composer avec l'agent déjà présent sur votre ordinateur portable.</p>
+      <p>Le résumé honnête : Claude Design offre l'expérience mono-produit la plus aboutie. Joushen Studio échange cette surface mono-produit soignée contre une bibliothèque — plus de skills, plus de systems, plus d'agents, conçus pour se composer avec l'agent déjà présent sur votre ordinateur portable.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Trois fines dalles noires empilées avec des espaces visibles comme une pile de couches en isométrie, des repères de cote marquant les espaces, une feuille d'olivier au sommet, sur une planche d'étude éditoriale aux tons chauds" />
-        <figcaption>Un produit et une couche — Open Design se place entre votre agent et le travail de design.</figcaption>
+        <figcaption>Un produit et une couche — Joushen Studio se place entre votre agent et le travail de design.</figcaption>
       </figure>
 
       <h2>Qui devrait choisir quoi</h2>
@@ -832,11 +832,11 @@ i18n:
       <tbody>
       <tr><td>Un PM solo dans une entreprise déjà sur Claude Pro qui a besoin d'un prototype avant le déjeuner</td><td><strong>Claude Design.</strong> Les 20 $/mois sont déjà engagés ; l'interface est réellement rapide.</td></tr>
       <tr><td>Une équipe de design en entreprise où Anthropic a déjà passé les achats</td><td><strong>Claude Design.</strong> Vous avez payé le coût d'intégration une fois ; rentabilisez-le.</td></tr>
-      <tr><td>Un designer solo qui veut « Claude Design mais gratuit »</td><td><strong>Open Design.</strong> Gratuit, et vous possédez le workflow au lieu de le louer — pointez-le vers un modèle que vous payez déjà et le premier deck prend environ dix minutes.</td></tr>
-      <tr><td>Un design engineer qui pilote déjà Claude Code, Codex ou Cursor depuis le terminal</td><td><strong>Open Design.</strong> Votre agent est le moteur de design ; la couche de skills ajoute goût et structure sans nouvelle application.</td></tr>
-      <tr><td>Quiconque a besoin de BYOK, de choisir son modèle en cours de projet, ou du local-only pour des briefs sensibles</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">La réalité est plus rugueuse que le marketing</a>, mais le contrat est le seul qui tienne vraiment.</td></tr>
-      <tr><td>Un contributeur open source qui veut livrer un nouveau skill de design que le projet peut adopter</td><td><strong>Open Design.</strong> Déposez un dossier, redémarrez le daemon, envoyez la PR.</td></tr>
-      <tr><td>Une équipe qui standardise sur un design system portable qui survit au roulement des outils</td><td><strong>Open Design.</strong> Les fichiers <code>DESIGN.md</code> survivent à l'outil qui les lit.</td></tr>
+      <tr><td>Un designer solo qui veut « Claude Design mais gratuit »</td><td><strong>Joushen Studio.</strong> Gratuit, et vous possédez le workflow au lieu de le louer — pointez-le vers un modèle que vous payez déjà et le premier deck prend environ dix minutes.</td></tr>
+      <tr><td>Un design engineer qui pilote déjà Claude Code, Codex ou Cursor depuis le terminal</td><td><strong>Joushen Studio.</strong> Votre agent est le moteur de design ; la couche de skills ajoute goût et structure sans nouvelle application.</td></tr>
+      <tr><td>Quiconque a besoin de BYOK, de choisir son modèle en cours de projet, ou du local-only pour des briefs sensibles</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">La réalité est plus rugueuse que le marketing</a>, mais le contrat est le seul qui tienne vraiment.</td></tr>
+      <tr><td>Un contributeur open source qui veut livrer un nouveau skill de design que le projet peut adopter</td><td><strong>Joushen Studio.</strong> Déposez un dossier, redémarrez le daemon, envoyez la PR.</td></tr>
+      <tr><td>Une équipe qui standardise sur un design system portable qui survit au roulement des outils</td><td><strong>Joushen Studio.</strong> Les fichiers <code>DESIGN.md</code> survivent à l'outil qui les lit.</td></tr>
       </tbody>
       </table>
 
@@ -851,7 +851,7 @@ i18n:
       <h2>Lectures associées</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Pourquoi nous avons construit Open Design comme une couche de skills, pas comme un produit</a> — le manifeste plus long derrière le pari « une couche, pas un produit »</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Pourquoi nous avons construit Joushen Studio comme une couche de skills, pas comme un produit</a> — le manifeste plus long derrière le pari « une couche, pas un produit »</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Workflow de design BYOK — faites tourner Claude, Codex ou Qwen sur votre propre clé</a> — le calcul de coût derrière le choix de votre propre modèle</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK, vérification de la réalité — cinq choses qui cassent</a> — ce que la voie ouverte casse réellement aujourd'hui, et les contournements</li>
       </ul>
@@ -876,7 +876,7 @@ i18n:
 
       <p>Экспорт включает Canva, PDF, PPTX, HTML и автономные URL. Цена встроена в подписку — Claude Pro за $20, Max за $100–$200, Enterprise по обычному тарифу «свяжитесь с нами». Сейчас это исследовательское превью для платных подписчиков Claude.</p>
 
-      <p>Если вы прочитаете <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">официальное руководство</a>, рабочий процесс, который описывает Anthropic, тот же, что предлагает Open Design: бриф, направление, артефакт, передача. Различия живут одним слоем ниже.</p>
+      <p>Если вы прочитаете <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">официальное руководство</a>, рабочий процесс, который описывает Anthropic, тот же, что предлагает Joushen Studio: бриф, направление, артефакт, передача. Различия живут одним слоем ниже.</p>
 
       <h2>Где он привязывает вас к себе</h2>
 
@@ -899,7 +899,7 @@ i18n:
 
       <h2>Альтернатива с открытым исходным кодом</h2>
 
-      <p><strong>Open Design</strong> (этот сайт) — это другая ставка. Это не клон Claude Design — это тонкий слой скиллов, который превращает кодинг-агента, которым вы уже пользуетесь, в дизайн-движок. Четыре примитива — это <a href="/blog/31-skills-72-systems-how-the-library-works/">скиллы, системы, адаптеры и демон</a>. Каждый скилл — это файл <code>SKILL.md</code>. Каждая дизайн-система — это файл <code>DESIGN.md</code>. Каждый адаптер агента — это ~80 строк TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (этот сайт) — это другая ставка. Это не клон Claude Design — это тонкий слой скиллов, который превращает кодинг-агента, которым вы уже пользуетесь, в дизайн-движок. Четыре примитива — это <a href="/blog/31-skills-72-systems-how-the-library-works/">скиллы, системы, адаптеры и демон</a>. Каждый скилл — это файл <code>SKILL.md</code>. Каждая дизайн-система — это файл <code>DESIGN.md</code>. Каждый адаптер агента — это ~80 строк TypeScript.</p>
 
       <p>Что входит в комплект сегодня:</p>
 
@@ -912,7 +912,7 @@ i18n:
       <li><strong>Apache-2.0, без регистрации, запускается через <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>Ментальная модель: Claude Design — это продукт. Open Design — это слой.</p>
+      <p>Ментальная модель: Claude Design — это продукт. Joushen Studio — это слой.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Три чёрных гранёных многогранника на размеченной базовой линии, только один вставлен в рамку-держатель, остальные лежат свободно, на тёплой редакторской иллюстрации" />
@@ -926,7 +926,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -983,11 +983,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>Честное резюме: у Claude Design самый отполированный опыт единого продукта. Open Design меняет отполированную поверхность единого продукта на библиотеку — больше скиллов, больше систем, больше агентов, спроектированных так, чтобы компоноваться с агентом, который уже стоит на вашем ноутбуке.</p>
+      <p>Честное резюме: у Claude Design самый отполированный опыт единого продукта. Joushen Studio меняет отполированную поверхность единого продукта на библиотеку — больше скиллов, больше систем, больше агентов, спроектированных так, чтобы компоноваться с агентом, который уже стоит на вашем ноутбуке.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Три тонкие чёрные плиты, сложенные с видимыми зазорами как стек слоёв в изометрии, размерные риски отмечают зазоры, оливковый лист сверху, на тёплой редакторской иллюстрации" />
-        <figcaption>Продукт и слой — Open Design располагается между вашим агентом и дизайнерской работой.</figcaption>
+        <figcaption>Продукт и слой — Joushen Studio располагается между вашим агентом и дизайнерской работой.</figcaption>
       </figure>
 
       <h2>Кому что выбрать</h2>
@@ -1010,23 +1010,23 @@ i18n:
       </tr>
       <tr>
       <td>Дизайнер-одиночка, которому нужен «Claude Design, но бесплатно»</td>
-      <td><strong>Open Design.</strong> Бесплатно, и вы владеете рабочим процессом, а не арендуете его — направьте его на модель, за которую уже платите, и первая презентация займёт около десяти минут.</td>
+      <td><strong>Joushen Studio.</strong> Бесплатно, и вы владеете рабочим процессом, а не арендуете его — направьте его на модель, за которую уже платите, и первая презентация займёт около десяти минут.</td>
       </tr>
       <tr>
       <td>Дизайн-инженер, который уже управляет Claude Code, Codex или Cursor из терминала</td>
-      <td><strong>Open Design.</strong> Ваш агент — это дизайн-движок; слой скиллов добавляет вкус и структуру без нового приложения.</td>
+      <td><strong>Joushen Studio.</strong> Ваш агент — это дизайн-движок; слой скиллов добавляет вкус и структуру без нового приложения.</td>
       </tr>
       <tr>
       <td>Любой, кому нужен BYOK, выбор модели посреди проекта или работа только локально для конфиденциальных брифов</td>
-      <td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Реальность грубее маркетинга</a>, но это единственный контракт, который действительно соблюдается.</td>
+      <td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Реальность грубее маркетинга</a>, но это единственный контракт, который действительно соблюдается.</td>
       </tr>
       <tr>
       <td>Контрибьютор с открытым исходным кодом, который хочет выпустить новый дизайн-скилл, чтобы проект его принял</td>
-      <td><strong>Open Design.</strong> Закиньте папку, перезапустите демон, отправьте PR.</td>
+      <td><strong>Joushen Studio.</strong> Закиньте папку, перезапустите демон, отправьте PR.</td>
       </tr>
       <tr>
       <td>Команда, стандартизирующаяся на портативной дизайн-системе, которая переживёт смену инструментов</td>
-      <td><strong>Open Design.</strong> Файлы <code>DESIGN.md</code> переживают инструмент, который их читает.</td>
+      <td><strong>Joushen Studio.</strong> Файлы <code>DESIGN.md</code> переживают инструмент, который их читает.</td>
       </tr>
       </tbody>
       </table>
@@ -1042,7 +1042,7 @@ i18n:
       <h2>Что почитать ещё</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Почему мы построили Open Design как слой скиллов, а не как продукт</a> — более развёрнутый манифест за ставкой «слой, а не продукт»</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Почему мы построили Joushen Studio как слой скиллов, а не как продукт</a> — более развёрнутый манифест за ставкой «слой, а не продукт»</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Рабочий процесс дизайна на BYOK — запускайте Claude, Codex или Qwen на своём ключе</a> — расчёт затрат за выбором собственной модели</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">Проверка реальностью BYOK — пять вещей, которые ломаются</a> — что открытый путь действительно ломает сегодня и обходные пути</li>
       </ul>
@@ -1067,7 +1067,7 @@ i18n:
 
       <p>Las exportaciones incluyen Canva, PDF, PPTX, HTML y URL independientes. El precio viene incluido: Claude Pro a 20 dólares, Max a 100-200 dólares, Enterprise en el habitual nivel de «llámanos». Actualmente es una vista previa de investigación para suscriptores de pago de Claude.</p>
 
-      <p>Si lees <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">el tutorial oficial</a>, el flujo de trabajo que describe Anthropic es el mismo que ofrece Open Design: un encargo, una dirección, un artefacto, una entrega. Las diferencias están una capa más abajo.</p>
+      <p>Si lees <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">el tutorial oficial</a>, el flujo de trabajo que describe Anthropic es el mismo que ofrece Joushen Studio: un encargo, una dirección, un artefacto, una entrega. Las diferencias están una capa más abajo.</p>
 
       <h2>Dónde te ata</h2>
 
@@ -1090,7 +1090,7 @@ i18n:
 
       <h2>La alternativa de código abierto</h2>
 
-      <p><strong>Open Design</strong> (este sitio) es una apuesta diferente. No es un clon de Claude Design: es una fina capa de skills que convierte el agente de codificación que ya usas en un motor de diseño. Las cuatro primitivas son <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, sistemas, adaptadores y el daemon</a>. Cada skill es un archivo <code>SKILL.md</code>. Cada sistema de diseño es un archivo <code>DESIGN.md</code>. Cada adaptador de agente son unas 80 líneas de TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (este sitio) es una apuesta diferente. No es un clon de Claude Design: es una fina capa de skills que convierte el agente de codificación que ya usas en un motor de diseño. Las cuatro primitivas son <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, sistemas, adaptadores y el daemon</a>. Cada skill es un archivo <code>SKILL.md</code>. Cada sistema de diseño es un archivo <code>DESIGN.md</code>. Cada adaptador de agente son unas 80 líneas de TypeScript.</p>
 
       <p>Lo que viene incluido hoy:</p>
 
@@ -1103,7 +1103,7 @@ i18n:
       <li><strong>Apache-2.0, sin registro, se ejecuta con <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>El modelo mental: Claude Design es un producto. Open Design es una capa.</p>
+      <p>El modelo mental: Claude Design es un producto. Joushen Studio es una capa.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Tres poliedros negros facetados sobre una línea base medida, solo uno encajado en un marco de soporte mientras los otros quedan sueltos, sobre una lámina de estudio editorial cálida" />
@@ -1114,7 +1114,7 @@ i18n:
 
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Licencia</td><td>Propietaria</td><td>Apache-2.0</td></tr>
@@ -1130,11 +1130,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>El resumen honesto: Claude Design tiene la experiencia de producto único más pulida. Open Design cambia esa superficie de producto único pulida por una biblioteca: más skills, más sistemas, más agentes, diseñados para componerse con el agente que ya tienes en tu portátil.</p>
+      <p>El resumen honesto: Claude Design tiene la experiencia de producto único más pulida. Joushen Studio cambia esa superficie de producto único pulida por una biblioteca: más skills, más sistemas, más agentes, diseñados para componerse con el agente que ya tienes en tu portátil.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Tres losas negras finas apiladas con huecos visibles como una pila de capas en isométrico, marcas de dimensión señalando los huecos, una hoja de olivo encima, sobre una lámina de estudio editorial cálida" />
-        <figcaption>Un producto y una capa: Open Design se sitúa entre tu agente y el trabajo de diseño.</figcaption>
+        <figcaption>Un producto y una capa: Joushen Studio se sitúa entre tu agente y el trabajo de diseño.</figcaption>
       </figure>
 
       <h2>Quién debería elegir qué</h2>
@@ -1146,11 +1146,11 @@ i18n:
       <tbody>
       <tr><td>Un PM en solitario en una empresa que ya usa Claude Pro y necesita un prototipo antes del almuerzo</td><td><strong>Claude Design.</strong> Los 20 $/mes son un coste hundido; la interfaz es genuinamente rápida.</td></tr>
       <tr><td>Un equipo de diseño empresarial donde Anthropic ya pasó el proceso de compras</td><td><strong>Claude Design.</strong> Ya pagaste el coste de integración una vez; aprovéchalo.</td></tr>
-      <tr><td>Un diseñador en solitario que quiere «Claude Design pero gratis»</td><td><strong>Open Design.</strong> Gratis, y eres dueño del flujo de trabajo en lugar de alquilarlo: apúntalo a un modelo que ya pagas y la primera presentación lleva unos diez minutos.</td></tr>
-      <tr><td>Un ingeniero de diseño que ya maneja Claude Code, Codex o Cursor desde la terminal</td><td><strong>Open Design.</strong> Tu agente es el motor de diseño; la capa de skills aporta buen gusto y estructura sin una nueva app.</td></tr>
-      <tr><td>Cualquiera que necesite BYOK, elección de modelo a mitad de proyecto, o solo local para encargos sensibles</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">La realidad es más áspera que el marketing</a>, pero el contrato es el único que realmente se sostiene.</td></tr>
-      <tr><td>Un colaborador de código abierto que quiere lanzar una nueva skill de diseño que el proyecto pueda adoptar</td><td><strong>Open Design.</strong> Suelta una carpeta, reinicia el daemon, envía el PR.</td></tr>
-      <tr><td>Un equipo que estandariza sobre un sistema de diseño portátil que sobreviva al cambio de herramientas</td><td><strong>Open Design.</strong> Los archivos <code>DESIGN.md</code> sobreviven a la herramienta que los lee.</td></tr>
+      <tr><td>Un diseñador en solitario que quiere «Claude Design pero gratis»</td><td><strong>Joushen Studio.</strong> Gratis, y eres dueño del flujo de trabajo en lugar de alquilarlo: apúntalo a un modelo que ya pagas y la primera presentación lleva unos diez minutos.</td></tr>
+      <tr><td>Un ingeniero de diseño que ya maneja Claude Code, Codex o Cursor desde la terminal</td><td><strong>Joushen Studio.</strong> Tu agente es el motor de diseño; la capa de skills aporta buen gusto y estructura sin una nueva app.</td></tr>
+      <tr><td>Cualquiera que necesite BYOK, elección de modelo a mitad de proyecto, o solo local para encargos sensibles</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">La realidad es más áspera que el marketing</a>, pero el contrato es el único que realmente se sostiene.</td></tr>
+      <tr><td>Un colaborador de código abierto que quiere lanzar una nueva skill de diseño que el proyecto pueda adoptar</td><td><strong>Joushen Studio.</strong> Suelta una carpeta, reinicia el daemon, envía el PR.</td></tr>
+      <tr><td>Un equipo que estandariza sobre un sistema de diseño portátil que sobreviva al cambio de herramientas</td><td><strong>Joushen Studio.</strong> Los archivos <code>DESIGN.md</code> sobreviven a la herramienta que los lee.</td></tr>
       </tbody>
       </table>
 
@@ -1165,7 +1165,7 @@ i18n:
       <h2>Lecturas relacionadas</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Por qué construimos Open Design como una capa de skills, no como un producto</a>: el manifiesto más extenso detrás de la apuesta «capa, no producto»</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Por qué construimos Joushen Studio como una capa de skills, no como un producto</a>: el manifiesto más extenso detrás de la apuesta «capa, no producto»</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Flujo de trabajo de diseño BYOK: ejecuta Claude, Codex o Qwen con tu propia clave</a>: las matemáticas de coste detrás de elegir tu propio modelo</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">Comprobación de realidad de BYOK: cinco cosas que se rompen</a>: lo que el camino abierto realmente rompe hoy, y las soluciones alternativas</li>
       </ul>
@@ -1184,7 +1184,7 @@ i18n:
       <li><strong>Entrega para o Claude Code.</strong> O botão "build this" leva o protótipo a código pronto para produção na mesma aba do navegador.</li>
       </ul>
       <p>As exportações incluem Canva, PDF, PPTX, HTML e URLs autônomas. O preço é incluído no pacote — Claude Pro a US$ 20, Max a US$ 100–US$ 200, Enterprise no habitual nível "fale conosco". Atualmente é uma research preview para assinantes pagantes do Claude.</p>
-      <p>Se você ler <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">o tutorial oficial</a>, o fluxo de trabalho que a Anthropic descreve é o mesmo que o Open Design entrega: um brief, uma direção, um artefato, uma entrega. As diferenças vivem uma camada abaixo.</p>
+      <p>Se você ler <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">o tutorial oficial</a>, o fluxo de trabalho que a Anthropic descreve é o mesmo que o Joushen Studio entrega: um brief, uma direção, um artefato, uma entrega. As diferenças vivem uma camada abaixo.</p>
       <h2>Onde ele te prende</h2>
       <p>O Claude Design carrega quatro formas de aprisionamento que vale nomear de antemão, porque as páginas de marketing não o fazem.</p>
       <p><strong>O modelo é fixo.</strong> Toda renderização passa pelo Claude. Não pelo Claude <em>ou</em> por um modelo que você já pagou — apenas pelo Claude. Se o seu time tem um contrato com GPT, Gemini ou DeepSeek, ou se você roda em self-host no Ollama para briefs sensíveis, esses fluxos de trabalho não se transferem. O custo de tokens segue para sempre a curva de preços da Anthropic.</p>
@@ -1197,7 +1197,7 @@ i18n:
       <figcaption>Hospedado por padrão: seus prompts, design system e contexto da base de código viajam para os servidores de outra pessoa.</figcaption>
       </figure>
       <h2>A alternativa de código aberto</h2>
-      <p>O <strong>Open Design</strong> (este site) é uma aposta diferente. Não é um clone do Claude Design — é uma fina camada de skills que transforma o coding agent que você já usa em um motor de design. As quatro primitivas são <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, systems, adapters e o daemon</a>. Cada skill é um arquivo <code>SKILL.md</code>. Cada design system é um arquivo <code>DESIGN.md</code>. Cada adapter de agente tem ~80 linhas de TypeScript.</p>
+      <p>O <strong>Joushen Studio</strong> (este site) é uma aposta diferente. Não é um clone do Claude Design — é uma fina camada de skills que transforma o coding agent que você já usa em um motor de design. As quatro primitivas são <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, systems, adapters e o daemon</a>. Cada skill é um arquivo <code>SKILL.md</code>. Cada design system é um arquivo <code>DESIGN.md</code>. Cada adapter de agente tem ~80 linhas de TypeScript.</p>
       <p>O que já vem na caixa hoje:</p>
       <ul>
       <li><strong>123 skills</strong> — geradores de decks, mockups mobile, páginas editoriais, Word/Excel/PPT, explorações de marca</li>
@@ -1207,7 +1207,7 @@ i18n:
       <li><strong>BYOK por padrão</strong> — cole qualquer <code>base_url</code> e chave compatível com OpenAI, <a href="/blog/byok-design-workflow-claude-codex-qwen/">seus tokens vão direto para o provedor</a></li>
       <li><strong>Apache-2.0, sem cadastro, roda com <code>pnpm tools-dev</code></strong></li>
       </ul>
-      <p>O modelo mental: o Claude Design é um produto. O Open Design é uma camada.</p>
+      <p>O modelo mental: o Claude Design é um produto. O Joushen Studio é uma camada.</p>
       <figure>
       <img src="/blog/plate-20-model-lock.webp" alt="Três poliedros facetados pretos sobre uma linha de base medida, apenas um encaixado em uma moldura de suporte enquanto os outros estão soltos, em uma placa de estudo editorial em tom quente" />
       <figcaption>O Claude Design fixa o modelo. O caminho aberto deixa você trazer aquele que você já paga.</figcaption>
@@ -1218,7 +1218,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -1274,10 +1274,10 @@ i18n:
       </tr>
       </tbody>
       </table>
-      <p>O resumo honesto: o Claude Design tem a experiência de produto único mais polida. O Open Design troca a superfície polida de produto único por uma biblioteca — mais skills, mais systems, mais agentes, projetada para compor com o agente que já está no seu notebook.</p>
+      <p>O resumo honesto: o Claude Design tem a experiência de produto único mais polida. O Joushen Studio troca a superfície polida de produto único por uma biblioteca — mais skills, mais systems, mais agentes, projetada para compor com o agente que já está no seu notebook.</p>
       <figure>
       <img src="/blog/plate-21-layer-stack.webp" alt="Três finas lajes pretas empilhadas com lacunas visíveis como uma pilha de camadas em isométrico, marcações de dimensão indicando as lacunas, uma folha de oliveira no topo, em uma placa de estudo editorial em tom quente" />
-      <figcaption>Um produto e uma camada — o Open Design fica entre o seu agente e o trabalho de design.</figcaption>
+      <figcaption>Um produto e uma camada — o Joushen Studio fica entre o seu agente e o trabalho de design.</figcaption>
       </figure>
       <h2>Quem deve escolher o quê</h2>
       <table>
@@ -1298,23 +1298,23 @@ i18n:
       </tr>
       <tr>
       <td>Um designer solo que quer "Claude Design, mas de graça"</td>
-      <td><strong>Open Design.</strong> Grátis, e você é dono do fluxo de trabalho em vez de alugá-lo — aponte para um modelo que você já paga e o primeiro deck leva cerca de dez minutos.</td>
+      <td><strong>Joushen Studio.</strong> Grátis, e você é dono do fluxo de trabalho em vez de alugá-lo — aponte para um modelo que você já paga e o primeiro deck leva cerca de dez minutos.</td>
       </tr>
       <tr>
       <td>Um design engineer que já dirige Claude Code, Codex ou Cursor pelo terminal</td>
-      <td><strong>Open Design.</strong> Seu agente é o motor de design; a camada de skills adiciona bom gosto e estrutura sem um novo app.</td>
+      <td><strong>Joushen Studio.</strong> Seu agente é o motor de design; a camada de skills adiciona bom gosto e estrutura sem um novo app.</td>
       </tr>
       <tr>
       <td>Qualquer um que precise de BYOK, escolha de modelo no meio do projeto ou local-only para briefs sensíveis</td>
-      <td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">A realidade é mais áspera do que o marketing</a>, mas o contrato é o único que de fato se sustenta.</td>
+      <td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">A realidade é mais áspera do que o marketing</a>, mas o contrato é o único que de fato se sustenta.</td>
       </tr>
       <tr>
       <td>Um contribuidor de código aberto que quer entregar uma nova design skill que o projeto possa adotar</td>
-      <td><strong>Open Design.</strong> Solte uma pasta, reinicie o daemon, envie o PR.</td>
+      <td><strong>Joushen Studio.</strong> Solte uma pasta, reinicie o daemon, envie o PR.</td>
       </tr>
       <tr>
       <td>Um time que está padronizando em um design system portátil que sobreviva à rotatividade de ferramentas</td>
-      <td><strong>Open Design.</strong> Arquivos <code>DESIGN.md</code> sobrevivem à ferramenta que os lê.</td>
+      <td><strong>Joushen Studio.</strong> Arquivos <code>DESIGN.md</code> sobrevivem à ferramenta que os lê.</td>
       </tr>
       </tbody>
       </table>
@@ -1324,7 +1324,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">Experimente o fluxo de trabalho de código aberto</a>.</p>
       <h2>Leitura relacionada</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Por que construímos o Open Design como uma camada de skills, não como um produto</a> — o manifesto mais longo por trás da aposta "camada, não produto"</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Por que construímos o Joushen Studio como uma camada de skills, não como um produto</a> — o manifesto mais longo por trás da aposta "camada, não produto"</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Fluxo de trabalho de design BYOK — rode Claude, Codex ou Qwen com a sua própria chave</a> — a matemática de custo por trás de escolher seu próprio modelo</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">Checagem de realidade do BYOK — cinco coisas que quebram</a> — o que o caminho aberto de fato quebra hoje, e as soluções de contorno</li>
       </ul>
@@ -1343,7 +1343,7 @@ i18n:
       <li><strong>Handoff a Claude Code.</strong> Il pulsante "build this" porta il prototipo a codice pronto per la produzione nella stessa scheda del browser.</li>
       </ul>
       <p>Le esportazioni includono Canva, PDF, PPTX, HTML e URL autonomi. Il prezzo è abbinato — Claude Pro a $20, Max a $100–$200, Enterprise al solito livello call-us. Attualmente è una research preview per gli abbonati paganti di Claude.</p>
-      <p>Se leggi <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">il tutorial ufficiale</a>, il flusso di lavoro descritto da Anthropic è lo stesso che propone Open Design: un brief, una direzione, un artefatto, un handoff. Le differenze stanno uno strato più in basso.</p>
+      <p>Se leggi <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">il tutorial ufficiale</a>, il flusso di lavoro descritto da Anthropic è lo stesso che propone Joushen Studio: un brief, una direzione, un artefatto, un handoff. Le differenze stanno uno strato più in basso.</p>
       <h2>Dove ti vincola</h2>
       <p>Claude Design porta con sé quattro forme di lock-in che vale la pena nominare in apertura, perché le pagine di marketing non lo fanno.</p>
       <p><strong>Il modello è fisso.</strong> Ogni render passa attraverso Claude. Non Claude <em>o</em> un modello che hai già pagato — solo Claude. Se il tuo team ha un contratto con GPT, Gemini o DeepSeek, oppure se fai self-hosting su Ollama per brief sensibili, quei flussi di lavoro non si traducono. Il costo dei token resta agganciato per sempre alla curva di prezzo di Anthropic.</p>
@@ -1356,7 +1356,7 @@ i18n:
         <figcaption>In hosting per impostazione predefinita: i tuoi prompt, il design system e il contesto della codebase viaggiano verso i server di qualcun altro.</figcaption>
       </figure>
       <h2>L'alternativa open-source</h2>
-      <p><strong>Open Design</strong> (questo sito) è una scommessa diversa. Non è un clone di Claude Design — è un sottile strato di skill che trasforma il coding agent che già usi in un motore di design. Le quattro primitive sono <a href="/blog/31-skills-72-systems-how-the-library-works/">skill, sistemi, adapter e il daemon</a>. Ogni skill è un file <code>SKILL.md</code>. Ogni design system è un file <code>DESIGN.md</code>. Ogni adapter di agent è ~80 righe di TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (questo sito) è una scommessa diversa. Non è un clone di Claude Design — è un sottile strato di skill che trasforma il coding agent che già usi in un motore di design. Le quattro primitive sono <a href="/blog/31-skills-72-systems-how-the-library-works/">skill, sistemi, adapter e il daemon</a>. Ogni skill è un file <code>SKILL.md</code>. Ogni design system è un file <code>DESIGN.md</code>. Ogni adapter di agent è ~80 righe di TypeScript.</p>
       <p>Cosa arriva nella confezione oggi:</p>
       <ul>
       <li><strong>123 skills</strong> — generatori di deck, mockup mobile, pagine editoriali, Word/Excel/PPT, esplorazioni di brand</li>
@@ -1366,7 +1366,7 @@ i18n:
       <li><strong>BYOK per impostazione predefinita</strong> — incolla qualsiasi <code>base_url</code> e chiave compatibile con OpenAI, <a href="/blog/byok-design-workflow-claude-codex-qwen/">i tuoi token vanno direttamente al provider</a></li>
       <li><strong>Apache-2.0, nessuna registrazione, gira su <code>pnpm tools-dev</code></strong></li>
       </ul>
-      <p>Il modello mentale: Claude Design è un prodotto. Open Design è uno strato.</p>
+      <p>Il modello mentale: Claude Design è un prodotto. Joushen Studio è uno strato.</p>
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Tre poliedri sfaccettati neri su una linea di base misurata, solo uno incastrato in una cornice a staffa mentre gli altri stanno liberi, su una tavola di studio editoriale dai toni caldi" />
         <figcaption>Claude Design fissa il modello. La strada aperta ti lascia portare quello che già paghi.</figcaption>
@@ -1374,7 +1374,7 @@ i18n:
       <h2>Confronto fianco a fianco</h2>
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Licenza</td><td>Proprietaria</td><td>Apache-2.0</td></tr>
@@ -1389,10 +1389,10 @@ i18n:
       <tr><td>Percorso dei dati</td><td>Prompt → Anthropic</td><td>Prompt → il provider che scegli; nulla passa attraverso di noi</td></tr>
       </tbody>
       </table>
-      <p>Il riepilogo onesto: Claude Design ha l'esperienza a prodotto singolo più rifinita. Open Design scambia la superficie rifinita a prodotto singolo con una libreria — più skill, più sistemi, più agent, progettati per comporsi con l'agent che è già sul tuo laptop.</p>
+      <p>Il riepilogo onesto: Claude Design ha l'esperienza a prodotto singolo più rifinita. Joushen Studio scambia la superficie rifinita a prodotto singolo con una libreria — più skill, più sistemi, più agent, progettati per comporsi con l'agent che è già sul tuo laptop.</p>
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Tre lastre sottili nere impilate con spazi visibili come uno stack di strati in isometria, tacche dimensionali a segnare gli spazi, una foglia d'ulivo in cima, su una tavola di studio editoriale dai toni caldi" />
-        <figcaption>Un prodotto e uno strato — Open Design si colloca tra il tuo agent e il lavoro di design.</figcaption>
+        <figcaption>Un prodotto e uno strato — Joushen Studio si colloca tra il tuo agent e il lavoro di design.</figcaption>
       </figure>
       <h2>Chi dovrebbe scegliere cosa</h2>
       <table>
@@ -1402,11 +1402,11 @@ i18n:
       <tbody>
       <tr><td>Un PM in solitaria in un'azienda già su Claude Pro che ha bisogno di un prototipo prima di pranzo</td><td><strong>Claude Design.</strong> I $20/mese sono già spesi; l'interfaccia è davvero veloce.</td></tr>
       <tr><td>Un team di design enterprise dove Anthropic ha già superato l'ufficio acquisti</td><td><strong>Claude Design.</strong> Hai pagato il costo di integrazione una volta; sfruttalo.</td></tr>
-      <tr><td>Un designer in solitaria che vuole "Claude Design ma gratis"</td><td><strong>Open Design.</strong> Gratuito, e possiedi il flusso di lavoro invece di affittarlo — puntalo su un modello che già paghi e il primo deck richiede circa dieci minuti.</td></tr>
-      <tr><td>Un design engineer che già guida Claude Code, Codex o Cursor dal terminale</td><td><strong>Open Design.</strong> Il tuo agent è il motore di design; lo strato di skill aggiunge gusto e struttura senza una nuova app.</td></tr>
-      <tr><td>Chiunque abbia bisogno di BYOK, della scelta del modello a metà progetto o del solo-locale per brief sensibili</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">La realtà è più ruvida del marketing</a>, ma il contratto è l'unico che regge davvero.</td></tr>
-      <tr><td>Un contributor open-source che vuole pubblicare una nuova skill di design che il progetto possa adottare</td><td><strong>Open Design.</strong> Lascia una cartella, riavvia il daemon, invia la PR.</td></tr>
-      <tr><td>Un team che standardizza su un design system portabile che sopravvive al ricambio degli strumenti</td><td><strong>Open Design.</strong> I file <code>DESIGN.md</code> sopravvivono allo strumento che li legge.</td></tr>
+      <tr><td>Un designer in solitaria che vuole "Claude Design ma gratis"</td><td><strong>Joushen Studio.</strong> Gratuito, e possiedi il flusso di lavoro invece di affittarlo — puntalo su un modello che già paghi e il primo deck richiede circa dieci minuti.</td></tr>
+      <tr><td>Un design engineer che già guida Claude Code, Codex o Cursor dal terminale</td><td><strong>Joushen Studio.</strong> Il tuo agent è il motore di design; lo strato di skill aggiunge gusto e struttura senza una nuova app.</td></tr>
+      <tr><td>Chiunque abbia bisogno di BYOK, della scelta del modello a metà progetto o del solo-locale per brief sensibili</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">La realtà è più ruvida del marketing</a>, ma il contratto è l'unico che regge davvero.</td></tr>
+      <tr><td>Un contributor open-source che vuole pubblicare una nuova skill di design che il progetto possa adottare</td><td><strong>Joushen Studio.</strong> Lascia una cartella, riavvia il daemon, invia la PR.</td></tr>
+      <tr><td>Un team che standardizza su un design system portabile che sopravvive al ricambio degli strumenti</td><td><strong>Joushen Studio.</strong> I file <code>DESIGN.md</code> sopravvivono allo strumento che li legge.</td></tr>
       </tbody>
       </table>
       <p>La dimensione che decide per la maggior parte dei team non è la qualità. È se preferisci affittare il flusso di lavoro o possederlo.</p>
@@ -1415,7 +1415,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">Prova il flusso di lavoro open-source</a>.</p>
       <h2>Letture correlate</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Perché abbiamo costruito Open Design come uno strato di skill, non un prodotto</a> — il manifesto più lungo dietro la scommessa "uno strato, non un prodotto"</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Perché abbiamo costruito Joushen Studio come uno strato di skill, non un prodotto</a> — il manifesto più lungo dietro la scommessa "uno strato, non un prodotto"</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Flusso di lavoro di design BYOK — esegui Claude, Codex o Qwen sulla tua chiave</a> — i conti sui costi dietro la scelta del tuo modello</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK reality check — cinque cose che si rompono</a> — cosa rompe davvero oggi la strada aperta, e le soluzioni alternative</li>
       </ul>
@@ -1434,7 +1434,7 @@ i18n:
       <li><strong>Bàn giao cho Claude Code.</strong> Nút "build this" đưa nguyên mẫu đến mã sẵn sàng cho production trong cùng tab trình duyệt.</li>
       </ul>
       <p>Các định dạng xuất bao gồm Canva, PDF, PPTX, HTML, và URL độc lập. Giá được gói chung — Claude Pro với 20 đô-la, Max với 100–200 đô-la, Enterprise ở mức gọi-điện-cho-chúng-tôi thường lệ. Hiện nó là một bản xem trước nghiên cứu dành cho người đăng ký Claude trả phí.</p>
-      <p>Nếu bạn đọc <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">hướng dẫn chính thức</a>, quy trình mà Anthropic mô tả chính là quy trình mà Open Design cung cấp: một bản brief, một định hướng, một sản phẩm, một bàn giao. Khác biệt nằm ở tầng bên dưới.</p>
+      <p>Nếu bạn đọc <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">hướng dẫn chính thức</a>, quy trình mà Anthropic mô tả chính là quy trình mà Joushen Studio cung cấp: một bản brief, một định hướng, một sản phẩm, một bàn giao. Khác biệt nằm ở tầng bên dưới.</p>
       <h2>Nó khóa bạn ở đâu</h2>
       <p>Claude Design mang theo bốn kiểu khóa đáng được nêu rõ ngay từ đầu, vì các trang tiếp thị không làm điều đó.</p>
       <p><strong>Mô hình bị cố định.</strong> Mọi lần render đều đi qua Claude. Không phải Claude <em>hoặc</em> một mô hình mà bạn đã trả tiền — chỉ Claude. Nếu đội của bạn có hợp đồng với GPT, Gemini, hoặc DeepSeek, hoặc nếu bạn tự host trên Ollama cho những bản brief nhạy cảm, thì các quy trình đó không chuyển sang được. Chi phí token mãi mãi đi theo đường cong giá của Anthropic.</p>
@@ -1447,7 +1447,7 @@ i18n:
         <figcaption>Được host theo mặc định: prompt, hệ thống thiết kế, và bối cảnh codebase của bạn đi đến máy chủ của người khác.</figcaption>
       </figure>
       <h2>Giải pháp mã nguồn mở thay thế</h2>
-      <p><strong>Open Design</strong> (trang này) là một canh bạc khác. Nó không phải một bản sao của Claude Design — nó là một lớp skill mỏng biến tác tử lập trình mà bạn đã dùng thành một cỗ máy thiết kế. Bốn nguyên thể là <a href="/blog/31-skills-72-systems-how-the-library-works/">skill, hệ thống, adapter, và daemon</a>. Mỗi skill là một tệp <code>SKILL.md</code>. Mỗi hệ thống thiết kế là một tệp <code>DESIGN.md</code>. Mỗi adapter tác tử khoảng ~80 dòng TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (trang này) là một canh bạc khác. Nó không phải một bản sao của Claude Design — nó là một lớp skill mỏng biến tác tử lập trình mà bạn đã dùng thành một cỗ máy thiết kế. Bốn nguyên thể là <a href="/blog/31-skills-72-systems-how-the-library-works/">skill, hệ thống, adapter, và daemon</a>. Mỗi skill là một tệp <code>SKILL.md</code>. Mỗi hệ thống thiết kế là một tệp <code>DESIGN.md</code>. Mỗi adapter tác tử khoảng ~80 dòng TypeScript.</p>
       <p>Những gì có sẵn trong hộp hôm nay:</p>
       <ul>
       <li><strong>123 skills</strong> — bộ tạo deck, mockup di động, trang biên tập, Word/Excel/PPT, khám phá thương hiệu</li>
@@ -1457,7 +1457,7 @@ i18n:
       <li><strong>BYOK theo mặc định</strong> — dán bất kỳ <code>base_url</code> và khóa tương thích OpenAI nào, <a href="/blog/byok-design-workflow-claude-codex-qwen/">các token của bạn đi thẳng đến nhà cung cấp</a></li>
       <li><strong>Apache-2.0, không cần đăng ký, chạy trên <code>pnpm tools-dev</code></strong></li>
       </ul>
-      <p>Mô hình tư duy: Claude Design là một sản phẩm. Open Design là một lớp.</p>
+      <p>Mô hình tư duy: Claude Design là một sản phẩm. Joushen Studio là một lớp.</p>
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Ba khối đa diện đen nhiều mặt trên một đường nền được đo đạc, chỉ một khối được lắp vào khung ngoặc trong khi các khối khác nằm rời, trên một bản nghiên cứu kiểu biên tập tông ấm" />
         <figcaption>Claude Design cố định mô hình. Con đường mở cho phép bạn mang theo mô hình mà bạn đã trả tiền.</figcaption>
@@ -1468,7 +1468,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -1524,10 +1524,10 @@ i18n:
       </tr>
       </tbody>
       </table>
-      <p>Tóm tắt thẳng thắn: Claude Design có trải nghiệm sản phẩm-đơn-nhất được trau chuốt nhất. Open Design đánh đổi bề mặt sản phẩm-đơn-nhất trau chuốt để lấy một thư viện — nhiều skill hơn, nhiều hệ thống hơn, nhiều tác tử hơn, được thiết kế để kết hợp với tác tử đã có trên laptop của bạn.</p>
+      <p>Tóm tắt thẳng thắn: Claude Design có trải nghiệm sản phẩm-đơn-nhất được trau chuốt nhất. Joushen Studio đánh đổi bề mặt sản phẩm-đơn-nhất trau chuốt để lấy một thư viện — nhiều skill hơn, nhiều hệ thống hơn, nhiều tác tử hơn, được thiết kế để kết hợp với tác tử đã có trên laptop của bạn.</p>
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Ba phiến đen mỏng xếp chồng với khoảng hở thấy rõ như một ngăn xếp lớp ở góc nhìn isometric, các vạch kích thước đánh dấu các khoảng hở, một chiếc lá ô liu trên cùng, trên một bản nghiên cứu kiểu biên tập tông ấm" />
-        <figcaption>Một sản phẩm và một lớp — Open Design nằm giữa tác tử của bạn và công việc thiết kế.</figcaption>
+        <figcaption>Một sản phẩm và một lớp — Joushen Studio nằm giữa tác tử của bạn và công việc thiết kế.</figcaption>
       </figure>
       <h2>Ai nên chọn gì</h2>
       <table>
@@ -1548,23 +1548,23 @@ i18n:
       </tr>
       <tr>
       <td>Một nhà thiết kế đơn lẻ muốn "Claude Design nhưng miễn phí"</td>
-      <td><strong>Open Design.</strong> Miễn phí, và bạn sở hữu quy trình thay vì thuê nó — chỉ nó vào một mô hình bạn đã trả tiền và bản deck đầu tiên mất khoảng mười phút.</td>
+      <td><strong>Joushen Studio.</strong> Miễn phí, và bạn sở hữu quy trình thay vì thuê nó — chỉ nó vào một mô hình bạn đã trả tiền và bản deck đầu tiên mất khoảng mười phút.</td>
       </tr>
       <tr>
       <td>Một kỹ sư thiết kế đã điều khiển Claude Code, Codex, hoặc Cursor từ terminal</td>
-      <td><strong>Open Design.</strong> Tác tử của bạn là cỗ máy thiết kế; lớp skill thêm gu thẩm mỹ và cấu trúc mà không cần một ứng dụng mới.</td>
+      <td><strong>Joushen Studio.</strong> Tác tử của bạn là cỗ máy thiết kế; lớp skill thêm gu thẩm mỹ và cấu trúc mà không cần một ứng dụng mới.</td>
       </tr>
       <tr>
       <td>Bất kỳ ai cần BYOK, lựa chọn mô hình giữa chừng dự án, hoặc chỉ-cục-bộ cho những bản brief nhạy cảm</td>
-      <td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Thực tế gồ ghề hơn tiếp thị</a>, nhưng đây là cam kết duy nhất thực sự giữ vững.</td>
+      <td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Thực tế gồ ghề hơn tiếp thị</a>, nhưng đây là cam kết duy nhất thực sự giữ vững.</td>
       </tr>
       <tr>
       <td>Một người đóng góp mã nguồn mở muốn phát hành một skill thiết kế mới mà dự án có thể tiếp nhận</td>
-      <td><strong>Open Design.</strong> Thả một thư mục vào, khởi động lại daemon, gửi PR.</td>
+      <td><strong>Joushen Studio.</strong> Thả một thư mục vào, khởi động lại daemon, gửi PR.</td>
       </tr>
       <tr>
       <td>Một đội đang chuẩn hóa trên một hệ thống thiết kế di động sống sót qua sự thay đổi công cụ</td>
-      <td><strong>Open Design.</strong> Các tệp <code>DESIGN.md</code> sống lâu hơn công cụ đọc chúng.</td>
+      <td><strong>Joushen Studio.</strong> Các tệp <code>DESIGN.md</code> sống lâu hơn công cụ đọc chúng.</td>
       </tr>
       </tbody>
       </table>
@@ -1574,7 +1574,7 @@ i18n:
       <p><a href="https://github.com/nexu-io/open-design/releases">Thử quy trình mã nguồn mở</a>.</p>
       <h2>Đọc thêm</h2>
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Tại sao chúng tôi xây dựng Open Design như một lớp skill, không phải một sản phẩm</a> — bản tuyên ngôn dài hơn đằng sau canh bạc "lớp, không phải sản phẩm"</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Tại sao chúng tôi xây dựng Joushen Studio như một lớp skill, không phải một sản phẩm</a> — bản tuyên ngôn dài hơn đằng sau canh bạc "lớp, không phải sản phẩm"</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Quy trình thiết kế BYOK — chạy Claude, Codex, hoặc Qwen trên khóa của riêng bạn</a> — bài toán chi phí đằng sau việc chọn mô hình của riêng bạn</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">Kiểm chứng thực tế BYOK — năm thứ bị hỏng</a> — con đường mở thực sự làm hỏng điều gì hôm nay, và các cách khắc phục</li>
       </ul>
@@ -1599,7 +1599,7 @@ i18n:
 
       <p>Eksporty obejmują Canva, PDF, PPTX, HTML oraz samodzielne adresy URL. Cennik jest powiązany — Claude Pro za 20 dolarów, Max za 100–200 dolarów, Enterprise w zwykłym poziomie „skontaktuj się z nami”. Obecnie jest to podgląd badawczy dla płacących subskrybentów Claude.</p>
 
-      <p>Jeśli przeczytasz <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">oficjalny samouczek</a>, przepływ pracy opisywany przez Anthropic jest taki sam, jaki oferuje Open Design: brief, kierunek, artefakt, przekazanie. Różnice znajdują się o jedną warstwę niżej.</p>
+      <p>Jeśli przeczytasz <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">oficjalny samouczek</a>, przepływ pracy opisywany przez Anthropic jest taki sam, jaki oferuje Joushen Studio: brief, kierunek, artefakt, przekazanie. Różnice znajdują się o jedną warstwę niżej.</p>
 
       <h2>Gdzie cię uzależnia</h2>
 
@@ -1622,7 +1622,7 @@ i18n:
 
       <h2>Alternatywa otwartoźródłowa</h2>
 
-      <p><strong>Open Design</strong> (ta strona) to inny zakład. To nie klon Claude Design — to cienka warstwa umiejętności, która zamienia agenta kodującego, którego już używasz, w silnik projektowy. Czterema prymitywami są <a href="/blog/31-skills-72-systems-how-the-library-works/">skille, systemy, adaptery i daemon</a>. Każdy skill to plik <code>SKILL.md</code>. Każdy system projektowy to plik <code>DESIGN.md</code>. Każdy adapter agenta to około 80 linii TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (ta strona) to inny zakład. To nie klon Claude Design — to cienka warstwa umiejętności, która zamienia agenta kodującego, którego już używasz, w silnik projektowy. Czterema prymitywami są <a href="/blog/31-skills-72-systems-how-the-library-works/">skille, systemy, adaptery i daemon</a>. Każdy skill to plik <code>SKILL.md</code>. Każdy system projektowy to plik <code>DESIGN.md</code>. Każdy adapter agenta to około 80 linii TypeScript.</p>
 
       <p>Co jest w pudełku już dziś:</p>
 
@@ -1635,7 +1635,7 @@ i18n:
       <li><strong>Apache-2.0, bez rejestracji, działa na <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>Model myślowy: Claude Design to produkt. Open Design to warstwa.</p>
+      <p>Model myślowy: Claude Design to produkt. Joushen Studio to warstwa.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Trzy czarne fasetowane wielościany na wymierzonej linii bazowej, tylko jeden wpasowany w ramę uchwytu, podczas gdy pozostałe leżą luźno, na ciepłej, redakcyjnej planszy poglądowej" />
@@ -1646,7 +1646,7 @@ i18n:
 
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Licencja</td><td>Własnościowa</td><td>Apache-2.0</td></tr>
@@ -1662,11 +1662,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>Uczciwe podsumowanie: Claude Design oferuje najbardziej dopracowane doświadczenie pojedynczego produktu. Open Design wymienia dopracowaną powierzchnię pojedynczego produktu na bibliotekę — więcej skilli, więcej systemów, więcej agentów, zaprojektowaną tak, by komponować się z agentem już obecnym na twoim laptopie.</p>
+      <p>Uczciwe podsumowanie: Claude Design oferuje najbardziej dopracowane doświadczenie pojedynczego produktu. Joushen Studio wymienia dopracowaną powierzchnię pojedynczego produktu na bibliotekę — więcej skilli, więcej systemów, więcej agentów, zaprojektowaną tak, by komponować się z agentem już obecnym na twoim laptopie.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Trzy cienkie czarne płyty ułożone z widocznymi przerwami niczym stos warstw w rzucie izometrycznym, znaczniki wymiarów wyznaczają przerwy, liść oliwny na szczycie, na ciepłej, redakcyjnej planszy poglądowej" />
-        <figcaption>Produkt i warstwa — Open Design siedzi pomiędzy twoim agentem a pracą projektową.</figcaption>
+        <figcaption>Produkt i warstwa — Joushen Studio siedzi pomiędzy twoim agentem a pracą projektową.</figcaption>
       </figure>
 
       <h2>Kto co powinien wybrać</h2>
@@ -1678,11 +1678,11 @@ i18n:
       <tbody>
       <tr><td>Samodzielnym PM-em w firmie już na Claude Pro, który potrzebuje prototypu przed obiadem</td><td><strong>Claude Design.</strong> 20 dolarów miesięcznie to koszt już poniesiony; interfejs jest naprawdę szybki.</td></tr>
       <tr><td>Korporacyjnym zespołem projektowym, w którym Anthropic już przeszedł procurement</td><td><strong>Claude Design.</strong> Koszt integracji zapłaciłeś raz; wydaj go.</td></tr>
-      <tr><td>Samodzielnym projektantem, który chce „Claude Design, ale za darmo”</td><td><strong>Open Design.</strong> Za darmo, i to ty jesteś właścicielem przepływu pracy, zamiast go wynajmować — wskaż mu model, za który już płacisz, a pierwsza prezentacja zajmie około dziesięciu minut.</td></tr>
-      <tr><td>Inżynierem projektowym, który już steruje Claude Code, Codex lub Cursor z terminala</td><td><strong>Open Design.</strong> Twój agent jest silnikiem projektowym; warstwa umiejętności dodaje gust i strukturę bez nowej aplikacji.</td></tr>
-      <tr><td>Kimkolwiek, kto potrzebuje BYOK, wyboru modelu w trakcie projektu lub trybu wyłącznie lokalnego dla wrażliwych zleceń</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Rzeczywistość jest bardziej wyboista niż marketing</a>, ale to jedyny kontrakt, który naprawdę się trzyma.</td></tr>
-      <tr><td>Otwartoźródłowym kontrybutorem, który chce dostarczyć nowy skill projektowy, jaki projekt może przyjąć</td><td><strong>Open Design.</strong> Wrzuć folder, zrestartuj daemon, wyślij PR.</td></tr>
-      <tr><td>Zespołem standaryzującym się na przenośnym systemie projektowym, który przetrwa wymianę narzędzi</td><td><strong>Open Design.</strong> Pliki <code>DESIGN.md</code> przeżyją narzędzie, które je odczytuje.</td></tr>
+      <tr><td>Samodzielnym projektantem, który chce „Claude Design, ale za darmo”</td><td><strong>Joushen Studio.</strong> Za darmo, i to ty jesteś właścicielem przepływu pracy, zamiast go wynajmować — wskaż mu model, za który już płacisz, a pierwsza prezentacja zajmie około dziesięciu minut.</td></tr>
+      <tr><td>Inżynierem projektowym, który już steruje Claude Code, Codex lub Cursor z terminala</td><td><strong>Joushen Studio.</strong> Twój agent jest silnikiem projektowym; warstwa umiejętności dodaje gust i strukturę bez nowej aplikacji.</td></tr>
+      <tr><td>Kimkolwiek, kto potrzebuje BYOK, wyboru modelu w trakcie projektu lub trybu wyłącznie lokalnego dla wrażliwych zleceń</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Rzeczywistość jest bardziej wyboista niż marketing</a>, ale to jedyny kontrakt, który naprawdę się trzyma.</td></tr>
+      <tr><td>Otwartoźródłowym kontrybutorem, który chce dostarczyć nowy skill projektowy, jaki projekt może przyjąć</td><td><strong>Joushen Studio.</strong> Wrzuć folder, zrestartuj daemon, wyślij PR.</td></tr>
+      <tr><td>Zespołem standaryzującym się na przenośnym systemie projektowym, który przetrwa wymianę narzędzi</td><td><strong>Joushen Studio.</strong> Pliki <code>DESIGN.md</code> przeżyją narzędzie, które je odczytuje.</td></tr>
       </tbody>
       </table>
 
@@ -1697,7 +1697,7 @@ i18n:
       <h2>Powiązane lektury</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Dlaczego zbudowaliśmy Open Design jako warstwę umiejętności, a nie produkt</a> — dłuższy manifest stojący za zakładem „warstwa, nie produkt”</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Dlaczego zbudowaliśmy Joushen Studio jako warstwę umiejętności, a nie produkt</a> — dłuższy manifest stojący za zakładem „warstwa, nie produkt”</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Przepływ pracy projektowej BYOK — uruchom Claude, Codex lub Qwen na własnym kluczu</a> — matematyka kosztów stojąca za wyborem własnego modelu</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK — sprawdzian z rzeczywistością — pięć rzeczy, które się psują</a> — co otwarta droga naprawdę dziś psuje i jak to obejść</li>
       </ul>
@@ -1722,7 +1722,7 @@ i18n:
 
       <p>Ekspor mencakup Canva, PDF, PPTX, HTML, dan URL mandiri. Harganya dibundel — Claude Pro $20, Max $100–$200, Enterprise di tier "hubungi-kami" yang biasa. Saat ini ia adalah research preview untuk pelanggan Claude berbayar.</p>
 
-      <p>Jika Anda membaca <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">tutorial resmi</a>, alur kerja yang Anthropic gambarkan adalah alur yang sama dengan yang dirilis Open Design: sebuah brief, sebuah arah, sebuah artefak, sebuah serah-terima. Perbedaannya berada satu lapisan di bawah.</p>
+      <p>Jika Anda membaca <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">tutorial resmi</a>, alur kerja yang Anthropic gambarkan adalah alur yang sama dengan yang dirilis Joushen Studio: sebuah brief, sebuah arah, sebuah artefak, sebuah serah-terima. Perbedaannya berada satu lapisan di bawah.</p>
 
       <h2>Di mana ia mengunci Anda</h2>
 
@@ -1745,7 +1745,7 @@ i18n:
 
       <h2>Alternatif open-source-nya</h2>
 
-      <p><strong>Open Design</strong> (situs ini) adalah taruhan yang berbeda. Ia bukan klona Claude Design — ia adalah lapisan skill tipis yang mengubah coding agent yang sudah Anda pakai menjadi sebuah mesin desain. Empat primitifnya adalah <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, systems, adapters, dan daemon</a>. Setiap skill adalah sebuah file <code>SKILL.md</code>. Setiap design system adalah sebuah file <code>DESIGN.md</code>. Setiap agent adapter adalah ~80 baris TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (situs ini) adalah taruhan yang berbeda. Ia bukan klona Claude Design — ia adalah lapisan skill tipis yang mengubah coding agent yang sudah Anda pakai menjadi sebuah mesin desain. Empat primitifnya adalah <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, systems, adapters, dan daemon</a>. Setiap skill adalah sebuah file <code>SKILL.md</code>. Setiap design system adalah sebuah file <code>DESIGN.md</code>. Setiap agent adapter adalah ~80 baris TypeScript.</p>
 
       <p>Apa yang dirilis dalam paket hari ini:</p>
 
@@ -1758,7 +1758,7 @@ i18n:
       <li><strong>Apache-2.0, tanpa pendaftaran, berjalan di <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>Model mentalnya: Claude Design adalah sebuah produk. Open Design adalah sebuah lapisan.</p>
+      <p>Model mentalnya: Claude Design adalah sebuah produk. Joushen Studio adalah sebuah lapisan.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Tiga polihedron berfaset hitam pada garis dasar terukur, hanya satu yang terpasang ke bingkai braket sementara yang lain duduk lepas, di atas plat studi editorial bernuansa hangat" />
@@ -1769,7 +1769,7 @@ i18n:
 
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Lisensi</td><td>Proprietary</td><td>Apache-2.0</td></tr>
@@ -1785,11 +1785,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>Ringkasan jujurnya: Claude Design punya pengalaman produk-tunggal yang paling halus. Open Design menukar permukaan produk-tunggal yang halus itu dengan sebuah pustaka — lebih banyak skill, lebih banyak system, lebih banyak agent, dirancang untuk dipadukan dengan agent yang sudah ada di laptop Anda.</p>
+      <p>Ringkasan jujurnya: Claude Design punya pengalaman produk-tunggal yang paling halus. Joushen Studio menukar permukaan produk-tunggal yang halus itu dengan sebuah pustaka — lebih banyak skill, lebih banyak system, lebih banyak agent, dirancang untuk dipadukan dengan agent yang sudah ada di laptop Anda.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Tiga lempeng hitam tipis ditumpuk dengan celah terlihat seperti tumpukan lapisan secara isometrik, garis dimensi menandai celahnya, sehelai daun zaitun di atasnya, di atas plat studi editorial bernuansa hangat" />
-        <figcaption>Sebuah produk dan sebuah lapisan — Open Design duduk di antara agent Anda dan pekerjaan desainnya.</figcaption>
+        <figcaption>Sebuah produk dan sebuah lapisan — Joushen Studio duduk di antara agent Anda dan pekerjaan desainnya.</figcaption>
       </figure>
 
       <h2>Siapa sebaiknya memilih apa</h2>
@@ -1801,11 +1801,11 @@ i18n:
       <tbody>
       <tr><td>Seorang PM solo di perusahaan yang sudah memakai Claude Pro dan butuh prototipe sebelum makan siang</td><td><strong>Claude Design.</strong> Biaya $20/bulan sudah terlanjur; antarmukanya benar-benar cepat.</td></tr>
       <tr><td>Sebuah tim desain enterprise di mana Anthropic sudah lolos procurement</td><td><strong>Claude Design.</strong> Anda sudah membayar biaya integrasinya sekali; manfaatkan.</td></tr>
-      <tr><td>Seorang desainer solo yang ingin "Claude Design tapi gratis"</td><td><strong>Open Design.</strong> Gratis, dan Anda memiliki alur kerjanya alih-alih menyewanya — arahkan ke model yang sudah Anda bayar dan deck pertama memakan waktu sekitar sepuluh menit.</td></tr>
-      <tr><td>Seorang design engineer yang sudah mengendalikan Claude Code, Codex, atau Cursor dari terminal</td><td><strong>Open Design.</strong> Agent Anda adalah mesin desainnya; lapisan skill menambahkan selera dan struktur tanpa aplikasi baru.</td></tr>
-      <tr><td>Siapa pun yang butuh BYOK, pemilihan model di tengah proyek, atau lokal-saja untuk brief sensitif</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Kenyataannya lebih kasar daripada pemasarannya</a>, tetapi kontraknya adalah satu-satunya yang benar-benar berlaku.</td></tr>
-      <tr><td>Seorang kontributor open-source yang ingin merilis skill desain baru yang bisa diadopsi proyek</td><td><strong>Open Design.</strong> Letakkan sebuah folder, restart daemon-nya, kirim PR.</td></tr>
-      <tr><td>Sebuah tim yang menstandarkan sebuah design system portabel yang bertahan dari pergantian alat</td><td><strong>Open Design.</strong> File <code>DESIGN.md</code> berumur lebih panjang daripada alat yang membacanya.</td></tr>
+      <tr><td>Seorang desainer solo yang ingin "Claude Design tapi gratis"</td><td><strong>Joushen Studio.</strong> Gratis, dan Anda memiliki alur kerjanya alih-alih menyewanya — arahkan ke model yang sudah Anda bayar dan deck pertama memakan waktu sekitar sepuluh menit.</td></tr>
+      <tr><td>Seorang design engineer yang sudah mengendalikan Claude Code, Codex, atau Cursor dari terminal</td><td><strong>Joushen Studio.</strong> Agent Anda adalah mesin desainnya; lapisan skill menambahkan selera dan struktur tanpa aplikasi baru.</td></tr>
+      <tr><td>Siapa pun yang butuh BYOK, pemilihan model di tengah proyek, atau lokal-saja untuk brief sensitif</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Kenyataannya lebih kasar daripada pemasarannya</a>, tetapi kontraknya adalah satu-satunya yang benar-benar berlaku.</td></tr>
+      <tr><td>Seorang kontributor open-source yang ingin merilis skill desain baru yang bisa diadopsi proyek</td><td><strong>Joushen Studio.</strong> Letakkan sebuah folder, restart daemon-nya, kirim PR.</td></tr>
+      <tr><td>Sebuah tim yang menstandarkan sebuah design system portabel yang bertahan dari pergantian alat</td><td><strong>Joushen Studio.</strong> File <code>DESIGN.md</code> berumur lebih panjang daripada alat yang membacanya.</td></tr>
       </tbody>
       </table>
 
@@ -1820,7 +1820,7 @@ i18n:
       <h2>Bacaan terkait</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Mengapa kami membangun Open Design sebagai lapisan skill, bukan sebuah produk</a> — manifesto yang lebih panjang di balik taruhan "lapisan, bukan produk"</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Mengapa kami membangun Joushen Studio sebagai lapisan skill, bukan sebuah produk</a> — manifesto yang lebih panjang di balik taruhan "lapisan, bukan produk"</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Alur kerja desain BYOK — jalankan Claude, Codex, atau Qwen dengan kunci Anda sendiri</a> — matematika biaya di balik memilih model Anda sendiri</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">Pemeriksaan realitas BYOK — lima hal yang rusak</a> — apa yang sebenarnya rusak hari ini di jalur terbuka, dan solusi sementaranya</li>
       </ul>
@@ -1845,7 +1845,7 @@ i18n:
 
       <p>Exports omvatten Canva, PDF, PPTX, HTML en losstaande URL's. De prijsstelling is gebundeld — Claude Pro voor $20, Max voor $100–$200, Enterprise in de gebruikelijke neem-contact-op-laag. Het is momenteel een research preview voor betalende Claude-abonnees.</p>
 
-      <p>Als je <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">de officiële tutorial</a> leest, is de workflow die Anthropic beschrijft dezelfde die Open Design levert: een briefing, een richting, een artefact, een overdracht. De verschillen zitten een laag dieper.</p>
+      <p>Als je <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">de officiële tutorial</a> leest, is de workflow die Anthropic beschrijft dezelfde die Joushen Studio levert: een briefing, een richting, een artefact, een overdracht. De verschillen zitten een laag dieper.</p>
 
       <h2>Waar het je vastzet</h2>
 
@@ -1868,7 +1868,7 @@ i18n:
 
       <h2>Het open-source alternatief</h2>
 
-      <p><strong>Open Design</strong> (deze site) is een andere weddenschap. Het is geen kloon van Claude Design — het is een dunne skill-laag die de coding agent die je al gebruikt verandert in een designengine. De vier primitieven zijn <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, systems, adapters en de daemon</a>. Elke skill is een <code>SKILL.md</code>-bestand. Elk design system is een <code>DESIGN.md</code>-bestand. Elke agent-adapter is ~80 regels TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (deze site) is een andere weddenschap. Het is geen kloon van Claude Design — het is een dunne skill-laag die de coding agent die je al gebruikt verandert in een designengine. De vier primitieven zijn <a href="/blog/31-skills-72-systems-how-the-library-works/">skills, systems, adapters en de daemon</a>. Elke skill is een <code>SKILL.md</code>-bestand. Elk design system is een <code>DESIGN.md</code>-bestand. Elke agent-adapter is ~80 regels TypeScript.</p>
 
       <p>Wat er vandaag standaard meekomt:</p>
 
@@ -1881,7 +1881,7 @@ i18n:
       <li><strong>Apache-2.0, geen aanmelding, draait op <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>Het mentale model: Claude Design is een product. Open Design is een laag.</p>
+      <p>Het mentale model: Claude Design is een product. Joushen Studio is een laag.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Drie zwarte gefacetteerde veelvlakken op een gemeten basislijn, slechts één in een beugelframe geschoven terwijl de andere los zitten, op een warme redactionele studieplaat" />
@@ -1892,7 +1892,7 @@ i18n:
 
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Licentie</td><td>Propriëtair</td><td>Apache-2.0</td></tr>
@@ -1908,11 +1908,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>De eerlijke samenvatting: Claude Design heeft de meest gepolijste enkelvoudige-productervaring. Open Design ruilt het gepolijste enkelvoudige-productoppervlak in voor een bibliotheek — meer skills, meer systems, meer agents, ontworpen om te combineren met de agent die al op jouw laptop staat.</p>
+      <p>De eerlijke samenvatting: Claude Design heeft de meest gepolijste enkelvoudige-productervaring. Joushen Studio ruilt het gepolijste enkelvoudige-productoppervlak in voor een bibliotheek — meer skills, meer systems, meer agents, ontworpen om te combineren met de agent die al op jouw laptop staat.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Drie dunne zwarte platen gestapeld met zichtbare tussenruimtes als een laagstapel in isometrie, maatstreepjes die de tussenruimtes markeren, een olijfblad bovenop, op een warme redactionele studieplaat" />
-        <figcaption>Een product en een laag — Open Design zit tussen jouw agent en het designwerk.</figcaption>
+        <figcaption>Een product en een laag — Joushen Studio zit tussen jouw agent en het designwerk.</figcaption>
       </figure>
 
       <h2>Wie zou wat moeten kiezen</h2>
@@ -1924,11 +1924,11 @@ i18n:
       <tbody>
       <tr><td>Een solo-PM bij een bedrijf dat al op Claude Pro zit en vóór de lunch een prototype nodig heeft</td><td><strong>Claude Design.</strong> De $20/maand is al uitgegeven; de interface is echt snel.</td></tr>
       <tr><td>Een enterprise-designteam waar Anthropic de inkoop al heeft goedgekeurd</td><td><strong>Claude Design.</strong> Je hebt de integratiekosten één keer betaald; benut ze.</td></tr>
-      <tr><td>Een solo-ontwerper die "Claude Design maar gratis" wil</td><td><strong>Open Design.</strong> Gratis, en je bezit de workflow in plaats van hem te huren — richt het op een model waarvoor je al betaalt en het eerste deck duurt ongeveer tien minuten.</td></tr>
-      <tr><td>Een design engineer die Claude Code, Codex of Cursor al vanuit de terminal aanstuurt</td><td><strong>Open Design.</strong> Jouw agent is de designengine; de skill-laag voegt smaak en structuur toe zonder een nieuwe app.</td></tr>
-      <tr><td>Iedereen die BYOK, modelkeuze midden in een project of alleen-lokaal voor gevoelige briefings nodig heeft</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">De realiteit is ruwer dan de marketing</a>, maar het contract is het enige dat ook echt standhoudt.</td></tr>
-      <tr><td>Een open-source-bijdrager die een nieuwe design-skill wil leveren die het project kan overnemen</td><td><strong>Open Design.</strong> Plaats een map, herstart de daemon, stuur de PR.</td></tr>
-      <tr><td>Een team dat standaardiseert op een draagbaar design system dat tool-verloop overleeft</td><td><strong>Open Design.</strong> <code>DESIGN.md</code>-bestanden overleven de tool die ze leest.</td></tr>
+      <tr><td>Een solo-ontwerper die "Claude Design maar gratis" wil</td><td><strong>Joushen Studio.</strong> Gratis, en je bezit de workflow in plaats van hem te huren — richt het op een model waarvoor je al betaalt en het eerste deck duurt ongeveer tien minuten.</td></tr>
+      <tr><td>Een design engineer die Claude Code, Codex of Cursor al vanuit de terminal aanstuurt</td><td><strong>Joushen Studio.</strong> Jouw agent is de designengine; de skill-laag voegt smaak en structuur toe zonder een nieuwe app.</td></tr>
+      <tr><td>Iedereen die BYOK, modelkeuze midden in een project of alleen-lokaal voor gevoelige briefings nodig heeft</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">De realiteit is ruwer dan de marketing</a>, maar het contract is het enige dat ook echt standhoudt.</td></tr>
+      <tr><td>Een open-source-bijdrager die een nieuwe design-skill wil leveren die het project kan overnemen</td><td><strong>Joushen Studio.</strong> Plaats een map, herstart de daemon, stuur de PR.</td></tr>
+      <tr><td>Een team dat standaardiseert op een draagbaar design system dat tool-verloop overleeft</td><td><strong>Joushen Studio.</strong> <code>DESIGN.md</code>-bestanden overleven de tool die ze leest.</td></tr>
       </tbody>
       </table>
 
@@ -1943,7 +1943,7 @@ i18n:
       <h2>Verwante leesstof</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Waarom we Open Design hebben gebouwd als een skill-laag, niet als een product</a> — het langere manifest achter de weddenschap "laag, geen product"</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Waarom we Joushen Studio hebben gebouwd als een skill-laag, niet als een product</a> — het langere manifest achter de weddenschap "laag, geen product"</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">BYOK design-workflow — draai Claude, Codex of Qwen op je eigen sleutel</a> — het kostenplaatje achter het kiezen van je eigen model</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK reality check — vijf dingen die kapotgaan</a> — wat het open pad vandaag echt breekt, en de workarounds</li>
       </ul>
@@ -1968,7 +1968,7 @@ i18n:
 
       <p>تشمل صيغ التصدير Canva وPDF وPPTX وHTML وعناوين URL مستقلة. التسعير مجمّع — Claude Pro بسعر 20 دولارًا، وMax بسعر 100–200 دولار، وEnterprise ضمن الفئة المعتادة «اتصل بنا». وهي حاليًا معاينة بحثية لمشتركي Claude المدفوعين.</p>
 
-      <p>إذا قرأت <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">الدليل الرسمي</a>، فإن سير العمل الذي تصفه Anthropic هو نفسه الذي تطرحه Open Design: موجز، ثم توجّه، ثم منتَج، ثم تسليم. الفروقات تكمن في طبقة أسفل.</p>
+      <p>إذا قرأت <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">الدليل الرسمي</a>، فإن سير العمل الذي تصفه Anthropic هو نفسه الذي تطرحه Joushen Studio: موجز، ثم توجّه، ثم منتَج، ثم تسليم. الفروقات تكمن في طبقة أسفل.</p>
 
       <h2>أين تقيّدك</h2>
 
@@ -1991,7 +1991,7 @@ i18n:
 
       <h2>البديل مفتوح المصدر</h2>
 
-      <p><strong>Open Design</strong> (هذا الموقع) رهان مختلف. إنها ليست نسخة مقلَّدة من Claude Design — بل طبقة مهارات رفيعة تحوّل وكيل البرمجة الذي تستخدمه أصلًا إلى محرك تصميم. العناصر الأولية الأربعة هي <a href="/blog/31-skills-72-systems-how-the-library-works/">المهارات والأنظمة والمحوّلات والخادم الخفي (daemon)</a>. كل مهارة هي ملف <code>SKILL.md</code>. كل نظام تصميم هو ملف <code>DESIGN.md</code>. كل محوّل وكيل هو نحو 80 سطرًا من TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (هذا الموقع) رهان مختلف. إنها ليست نسخة مقلَّدة من Claude Design — بل طبقة مهارات رفيعة تحوّل وكيل البرمجة الذي تستخدمه أصلًا إلى محرك تصميم. العناصر الأولية الأربعة هي <a href="/blog/31-skills-72-systems-how-the-library-works/">المهارات والأنظمة والمحوّلات والخادم الخفي (daemon)</a>. كل مهارة هي ملف <code>SKILL.md</code>. كل نظام تصميم هو ملف <code>DESIGN.md</code>. كل محوّل وكيل هو نحو 80 سطرًا من TypeScript.</p>
 
       <p>ما يأتي جاهزًا داخل العلبة اليوم:</p>
 
@@ -2004,7 +2004,7 @@ i18n:
       <li><strong>Apache-2.0، بلا تسجيل، يعمل عبر <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>النموذج الذهني: Claude Design منتج. Open Design طبقة.</p>
+      <p>النموذج الذهني: Claude Design منتج. Joushen Studio طبقة.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="ثلاثة مجسّمات سوداء متعددة الأوجه على خط أساس مقاس، واحد منها فقط مثبَّت داخل إطار حاضن بينما يجلس الآخران بحرّية، على لوحة دراسة تحريرية بلون دافئ" />
@@ -2018,7 +2018,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -2075,11 +2075,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>الخلاصة الصادقة: تمتلك Claude Design التجربة الأكثر صقلًا كمنتج واحد. أما Open Design فتقايض السطح المصقول لمنتج واحد بمكتبة — مهارات أكثر، وأنظمة أكثر، ووكلاء أكثر، مصمَّمة لتتركّب مع الوكيل الموجود أصلًا على حاسوبك المحمول.</p>
+      <p>الخلاصة الصادقة: تمتلك Claude Design التجربة الأكثر صقلًا كمنتج واحد. أما Joushen Studio فتقايض السطح المصقول لمنتج واحد بمكتبة — مهارات أكثر، وأنظمة أكثر، ووكلاء أكثر، مصمَّمة لتتركّب مع الوكيل الموجود أصلًا على حاسوبك المحمول.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="ثلاثة ألواح سوداء رفيعة مكدّسة بفجوات ظاهرة مثل حزمة طبقات بإسقاط متساوي القياس (isometric)، مع علامات أبعاد تحدّد الفجوات، وورقة زيتون في الأعلى، على لوحة دراسة تحريرية بلون دافئ" />
-        <figcaption>منتج وطبقة — تقع Open Design بين وكيلك وأعمال التصميم.</figcaption>
+        <figcaption>منتج وطبقة — تقع Joushen Studio بين وكيلك وأعمال التصميم.</figcaption>
       </figure>
 
       <h2>من ينبغي أن يختار ماذا</h2>
@@ -2102,23 +2102,23 @@ i18n:
       </tr>
       <tr>
       <td>مصمّم منفرد يريد «Claude Design لكن بالمجان»</td>
-      <td><strong>Open Design.</strong> مجاني، وأنت تملك سير العمل بدل استئجاره — وجّهه إلى نموذج تدفع ثمنه أصلًا، وأول عرض تقديمي يستغرق نحو عشر دقائق.</td>
+      <td><strong>Joushen Studio.</strong> مجاني، وأنت تملك سير العمل بدل استئجاره — وجّهه إلى نموذج تدفع ثمنه أصلًا، وأول عرض تقديمي يستغرق نحو عشر دقائق.</td>
       </tr>
       <tr>
       <td>مهندس تصميم يقود أصلًا Claude Code أو Codex أو Cursor من الطرفية</td>
-      <td><strong>Open Design.</strong> وكيلك هو محرك التصميم؛ وطبقة المهارات تضيف الذوق والبنية دون تطبيق جديد.</td>
+      <td><strong>Joushen Studio.</strong> وكيلك هو محرك التصميم؛ وطبقة المهارات تضيف الذوق والبنية دون تطبيق جديد.</td>
       </tr>
       <tr>
       <td>أي شخص يحتاج إلى BYOK، أو اختيار النموذج في منتصف المشروع، أو العمل محليًا فقط للمهام الحساسة</td>
-      <td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">الواقع أكثر وعورة من التسويق</a>، لكن العقد هو الوحيد الذي يصمد فعليًا.</td>
+      <td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">الواقع أكثر وعورة من التسويق</a>، لكن العقد هو الوحيد الذي يصمد فعليًا.</td>
       </tr>
       <tr>
       <td>مساهم مفتوح المصدر يريد طرح مهارة تصميم جديدة يمكن للمشروع تبنّيها</td>
-      <td><strong>Open Design.</strong> أسقط مجلدًا، أعد تشغيل الخادم الخفي (daemon)، أرسل طلب السحب (PR).</td>
+      <td><strong>Joushen Studio.</strong> أسقط مجلدًا، أعد تشغيل الخادم الخفي (daemon)، أرسل طلب السحب (PR).</td>
       </tr>
       <tr>
       <td>فريق يوحّد معاييره على نظام تصميم قابل للنقل يصمد أمام تبدّل الأدوات</td>
-      <td><strong>Open Design.</strong> ملفات <code>DESIGN.md</code> تعمّر أطول من الأداة التي تقرأها.</td>
+      <td><strong>Joushen Studio.</strong> ملفات <code>DESIGN.md</code> تعمّر أطول من الأداة التي تقرأها.</td>
       </tr>
       </tbody>
       </table>
@@ -2134,7 +2134,7 @@ i18n:
       <h2>قراءات ذات صلة</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">لماذا بنينا Open Design كطبقة مهارات، لا كمنتج</a> — البيان الأطول وراء رهان «طبقة، لا منتج»</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">لماذا بنينا Joushen Studio كطبقة مهارات، لا كمنتج</a> — البيان الأطول وراء رهان «طبقة، لا منتج»</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">سير عمل تصميم BYOK — شغّل Claude أو Codex أو Qwen على مفتاحك الخاص</a> — حسابات التكلفة وراء اختيار نموذجك بنفسك</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">فحص واقع BYOK — خمسة أشياء تتعطّل</a> — ما الذي يتعطّل فعلًا في المسار المفتوح اليوم، والحلول البديلة</li>
       </ul>
@@ -2159,7 +2159,7 @@ i18n:
 
       <p>Dışa aktarmalar arasında Canva, PDF, PPTX, HTML ve bağımsız URL'ler bulunur. Fiyatlandırma paketlidir — Claude Pro 20 dolar, Max 100–200 dolar, Enterprise her zamanki bizi-arayın katmanında. Şu anda ücretli Claude abonelerine yönelik bir araştırma önizlemesidir.</p>
 
-      <p><a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">Resmi eğitimi</a> okursanız, Anthropic'in anlattığı iş akışı, Open Design'ın sunduğunun aynısıdır: bir brief, bir yön, bir çıktı, bir teslim. Farklar bir katman aşağıda yaşar.</p>
+      <p><a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">Resmi eğitimi</a> okursanız, Anthropic'in anlattığı iş akışı, Joushen Studio'ın sunduğunun aynısıdır: bir brief, bir yön, bir çıktı, bir teslim. Farklar bir katman aşağıda yaşar.</p>
 
       <h2>Sizi nerede kıstırıyor</h2>
 
@@ -2182,7 +2182,7 @@ i18n:
 
       <h2>Açık kaynak alternatifi</h2>
 
-      <p><strong>Open Design</strong> (bu site) farklı bir bahistir. Bir Claude Design klonu değildir — zaten kullandığınız kodlama ajanını bir tasarım motoruna dönüştüren ince bir skill katmanıdır. Dört temel öğe şunlardır: <a href="/blog/31-skills-72-systems-how-the-library-works/">skill'ler, sistemler, adaptörler ve daemon</a>. Her skill bir <code>SKILL.md</code> dosyasıdır. Her tasarım sistemi bir <code>DESIGN.md</code> dosyasıdır. Her ajan adaptörü ~80 satır TypeScript'tir.</p>
+      <p><strong>Joushen Studio</strong> (bu site) farklı bir bahistir. Bir Claude Design klonu değildir — zaten kullandığınız kodlama ajanını bir tasarım motoruna dönüştüren ince bir skill katmanıdır. Dört temel öğe şunlardır: <a href="/blog/31-skills-72-systems-how-the-library-works/">skill'ler, sistemler, adaptörler ve daemon</a>. Her skill bir <code>SKILL.md</code> dosyasıdır. Her tasarım sistemi bir <code>DESIGN.md</code> dosyasıdır. Her ajan adaptörü ~80 satır TypeScript'tir.</p>
 
       <p>Bugün kutudan çıkanlar:</p>
 
@@ -2195,7 +2195,7 @@ i18n:
       <li><strong>Apache-2.0, kayıt yok, <code>pnpm tools-dev</code> ile çalışır</strong></li>
       </ul>
 
-      <p>Zihinsel model: Claude Design bir üründür. Open Design bir katmandır.</p>
+      <p>Zihinsel model: Claude Design bir üründür. Joushen Studio bir katmandır.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Sıcak, editöryel bir çalışma plakası üzerinde, ölçülü bir temel hat üzerinde üç siyah, çok yüzeyli çokyüzlü; yalnızca biri bir braket çerçevesine yerleştirilmiş, diğerleri serbest duruyor" />
@@ -2209,7 +2209,7 @@ i18n:
       <tr>
       <th></th>
       <th><strong>Claude Design</strong></th>
-      <th><strong>Open Design</strong></th>
+      <th><strong>Joushen Studio</strong></th>
       </tr>
       </thead>
       <tbody>
@@ -2266,11 +2266,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>Dürüst özet: Claude Design, en cilalı tek ürün deneyimine sahiptir. Open Design, cilalı tek ürün yüzeyini bir kütüphane karşılığında takas eder — daha fazla skill, daha fazla sistem, daha fazla ajan; zaten dizüstü bilgisayarınızdaki ajanla birleşecek şekilde tasarlanmıştır.</p>
+      <p>Dürüst özet: Claude Design, en cilalı tek ürün deneyimine sahiptir. Joushen Studio, cilalı tek ürün yüzeyini bir kütüphane karşılığında takas eder — daha fazla skill, daha fazla sistem, daha fazla ajan; zaten dizüstü bilgisayarınızdaki ajanla birleşecek şekilde tasarlanmıştır.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Sıcak, editöryel bir çalışma plakası üzerinde, izometrik olarak görünür boşluklarla bir katman yığını gibi üst üste dizilmiş üç ince siyah levha; boşlukları işaretleyen boyut çentikleri ve en üstte bir zeytin yaprağı" />
-        <figcaption>Bir ürün ve bir katman — Open Design, ajanınızla tasarım işi arasında durur.</figcaption>
+        <figcaption>Bir ürün ve bir katman — Joushen Studio, ajanınızla tasarım işi arasında durur.</figcaption>
       </figure>
 
       <h2>Kim neyi seçmeli</h2>
@@ -2293,23 +2293,23 @@ i18n:
       </tr>
       <tr>
       <td>"Claude Design ama ücretsiz" isteyen tek başına çalışan bir tasarımcıysanız</td>
-      <td><strong>Open Design.</strong> Ücretsiz ve iş akışını kiralamak yerine ona sahip olursunuz — onu zaten parasını ödediğiniz bir modele yönlendirin ve ilk sunum yaklaşık on dakika alsın.</td>
+      <td><strong>Joushen Studio.</strong> Ücretsiz ve iş akışını kiralamak yerine ona sahip olursunuz — onu zaten parasını ödediğiniz bir modele yönlendirin ve ilk sunum yaklaşık on dakika alsın.</td>
       </tr>
       <tr>
       <td>Zaten Claude Code, Codex veya Cursor'ı terminalden çalıştıran bir tasarım mühendisiyseniz</td>
-      <td><strong>Open Design.</strong> Ajanınız tasarım motorudur; skill katmanı, yeni bir uygulama olmadan zevk ve yapı ekler.</td>
+      <td><strong>Joushen Studio.</strong> Ajanınız tasarım motorudur; skill katmanı, yeni bir uygulama olmadan zevk ve yapı ekler.</td>
       </tr>
       <tr>
       <td>BYOK, proje ortasında model seçimi veya hassas brief'ler için yalnızca yerel çalışmaya ihtiyaç duyan herhangi biriyseniz</td>
-      <td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Gerçeklik pazarlamadan daha zorludur</a>, ama gerçekten geçerli olan tek sözleşme budur.</td>
+      <td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Gerçeklik pazarlamadan daha zorludur</a>, ama gerçekten geçerli olan tek sözleşme budur.</td>
       </tr>
       <tr>
       <td>Projenin benimseyebileceği yeni bir tasarım skill'i sunmak isteyen bir açık kaynak katkı sağlayıcısıysanız</td>
-      <td><strong>Open Design.</strong> Bir klasör bırakın, daemon'ı yeniden başlatın, PR'ı gönderin.</td>
+      <td><strong>Joushen Studio.</strong> Bir klasör bırakın, daemon'ı yeniden başlatın, PR'ı gönderin.</td>
       </tr>
       <tr>
       <td>Araç değişimine dayanan taşınabilir bir tasarım sistemi üzerinde standartlaşan bir ekipseniz</td>
-      <td><strong>Open Design.</strong> <code>DESIGN.md</code> dosyaları, onları okuyan araçtan daha uzun yaşar.</td>
+      <td><strong>Joushen Studio.</strong> <code>DESIGN.md</code> dosyaları, onları okuyan araçtan daha uzun yaşar.</td>
       </tr>
       </tbody>
       </table>
@@ -2325,7 +2325,7 @@ i18n:
       <h2>İlgili okumalar</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Open Design'ı neden bir ürün değil, bir skill katmanı olarak inşa ettik</a> — "ürün değil, katman" bahsinin arkasındaki daha uzun manifesto</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Joushen Studio'ı neden bir ürün değil, bir skill katmanı olarak inşa ettik</a> — "ürün değil, katman" bahsinin arkasındaki daha uzun manifesto</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">BYOK tasarım iş akışı — Claude, Codex veya Qwen'i kendi anahtarınızla çalıştırın</a> — kendi modelinizi seçmenin arkasındaki maliyet matematiği</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">BYOK gerçeklik kontrolü — bozulan beş şey</a> — açık yolun bugün gerçekte neyi bozduğu ve geçici çözümler</li>
       </ul>
@@ -2350,7 +2350,7 @@ i18n:
 
       <p>Експорт включає Canva, PDF, PPTX, HTML та окремі URL-адреси. Ціноутворення зібране в пакети — Claude Pro за $20, Max за $100–$200, Enterprise на звичному рівні «зателефонуйте нам». Наразі це дослідницький превʼю для платних підписників Claude.</p>
 
-      <p>Якщо ви прочитаєте <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">офіційний посібник</a>, то робочий процес, який описує Anthropic, такий самий, як той, що пропонує Open Design: завдання, напрямок, артефакт, передача. Відмінності живуть на один шар нижче.</p>
+      <p>Якщо ви прочитаєте <a href="https://support.claude.com/en/articles/14604416-get-started-with-claude-design">офіційний посібник</a>, то робочий процес, який описує Anthropic, такий самий, як той, що пропонує Joushen Studio: завдання, напрямок, артефакт, передача. Відмінності живуть на один шар нижче.</p>
 
       <h2>Де він прив'язує вас до себе</h2>
 
@@ -2373,7 +2373,7 @@ i18n:
 
       <h2>Альтернатива з відкритим кодом</h2>
 
-      <p><strong>Open Design</strong> (цей сайт) — це інша ставка. Це не клон Claude Design — це тонкий шар навичок, який перетворює кодувальний агент, яким ви вже користуєтесь, на дизайн-рушій. Чотири примітиви — це <a href="/blog/31-skills-72-systems-how-the-library-works/">навички, системи, адаптери та демон</a>. Кожна навичка — це файл <code>SKILL.md</code>. Кожна дизайн-система — це файл <code>DESIGN.md</code>. Кожен адаптер агента — це ~80 рядків TypeScript.</p>
+      <p><strong>Joushen Studio</strong> (цей сайт) — це інша ставка. Це не клон Claude Design — це тонкий шар навичок, який перетворює кодувальний агент, яким ви вже користуєтесь, на дизайн-рушій. Чотири примітиви — це <a href="/blog/31-skills-72-systems-how-the-library-works/">навички, системи, адаптери та демон</a>. Кожна навичка — це файл <code>SKILL.md</code>. Кожна дизайн-система — це файл <code>DESIGN.md</code>. Кожен адаптер агента — це ~80 рядків TypeScript.</p>
 
       <p>Що постачається в коробці сьогодні:</p>
 
@@ -2386,7 +2386,7 @@ i18n:
       <li><strong>Apache-2.0, без реєстрації, запускається через <code>pnpm tools-dev</code></strong></li>
       </ul>
 
-      <p>Ментальна модель: Claude Design — це продукт. Open Design — це шар.</p>
+      <p>Ментальна модель: Claude Design — це продукт. Joushen Studio — це шар.</p>
 
       <figure>
         <img src="/blog/plate-20-model-lock.webp" alt="Три чорні грановані багатогранники на виміряній базовій лінії, лише один вставлений у скобу-рамку, тоді як інші лежать вільно, на теплій редакційній планшетній ілюстрації" />
@@ -2397,7 +2397,7 @@ i18n:
 
       <table>
       <thead>
-      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Open Design</strong></th></tr>
+      <tr><th></th><th><strong>Claude Design</strong></th><th><strong>Joushen Studio</strong></th></tr>
       </thead>
       <tbody>
       <tr><td>Ліцензія</td><td>Пропрієтарна</td><td>Apache-2.0</td></tr>
@@ -2413,11 +2413,11 @@ i18n:
       </tbody>
       </table>
 
-      <p>Чесне резюме: Claude Design має найвідшліфованіший досвід єдиного продукту. Open Design обмінює відшліфовану поверхню єдиного продукту на бібліотеку — більше навичок, більше систем, більше агентів, спроєктованих так, щоб компонуватися з агентом, який уже є на вашому ноутбуці.</p>
+      <p>Чесне резюме: Claude Design має найвідшліфованіший досвід єдиного продукту. Joushen Studio обмінює відшліфовану поверхню єдиного продукту на бібліотеку — більше навичок, більше систем, більше агентів, спроєктованих так, щоб компонуватися з агентом, який уже є на вашому ноутбуці.</p>
 
       <figure>
         <img src="/blog/plate-21-layer-stack.webp" alt="Три тонкі чорні плити, складені з помітними зазорами, наче стек шарів в ізометрії, мітки розмірів позначають зазори, оливкове листя зверху, на теплій редакційній планшетній ілюстрації" />
-        <figcaption>Продукт і шар — Open Design розташований між вашим агентом і дизайнерською роботою.</figcaption>
+        <figcaption>Продукт і шар — Joushen Studio розташований між вашим агентом і дизайнерською роботою.</figcaption>
       </figure>
 
       <h2>Кому що варто обрати</h2>
@@ -2429,11 +2429,11 @@ i18n:
       <tbody>
       <tr><td>PM-одинак у компанії, яка вже на Claude Pro, і вам потрібен прототип до обіду</td><td><strong>Claude Design.</strong> $20 на місяць вже витрачені; інтерфейс справді швидкий.</td></tr>
       <tr><td>Корпоративна дизайн-команда, де Anthropic уже пройшов процедуру закупівель</td><td><strong>Claude Design.</strong> Ви вже одного разу заплатили вартість інтеграції; використовуйте її.</td></tr>
-      <tr><td>Дизайнер-одинак, який хоче «Claude Design, але безкоштовно»</td><td><strong>Open Design.</strong> Безкоштовно, і ви володієте робочим процесом, а не орендуєте його — спрямуйте його на модель, за яку вже платите, і перша презентація займе близько десяти хвилин.</td></tr>
-      <tr><td>Дизайн-інженер, який уже керує Claude Code, Codex чи Cursor з терміналу</td><td><strong>Open Design.</strong> Ваш агент — це дизайн-рушій; шар навичок додає смак і структуру без нового застосунку.</td></tr>
-      <tr><td>Будь-хто, кому потрібен BYOK, вибір моделі посеред проєкту або суто локальна робота для чутливих завдань</td><td><strong>Open Design.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Реальність грубіша за маркетинг</a>, але це єдиний контракт, який справді витримує.</td></tr>
-      <tr><td>Контриб'ютор з відкритим кодом, який хоче випустити нову дизайн-навичку, що проєкт може прийняти</td><td><strong>Open Design.</strong> Киньте теку, перезапустіть демон, надішліть PR.</td></tr>
-      <tr><td>Команда, яка стандартизується на портативній дизайн-системі, що переживає зміну інструментів</td><td><strong>Open Design.</strong> Файли <code>DESIGN.md</code> переживають інструмент, який їх читає.</td></tr>
+      <tr><td>Дизайнер-одинак, який хоче «Claude Design, але безкоштовно»</td><td><strong>Joushen Studio.</strong> Безкоштовно, і ви володієте робочим процесом, а не орендуєте його — спрямуйте його на модель, за яку вже платите, і перша презентація займе близько десяти хвилин.</td></tr>
+      <tr><td>Дизайн-інженер, який уже керує Claude Code, Codex чи Cursor з терміналу</td><td><strong>Joushen Studio.</strong> Ваш агент — це дизайн-рушій; шар навичок додає смак і структуру без нового застосунку.</td></tr>
+      <tr><td>Будь-хто, кому потрібен BYOK, вибір моделі посеред проєкту або суто локальна робота для чутливих завдань</td><td><strong>Joushen Studio.</strong> <a href="/blog/byok-reality-check-5-things-that-break/">Реальність грубіша за маркетинг</a>, але це єдиний контракт, який справді витримує.</td></tr>
+      <tr><td>Контриб'ютор з відкритим кодом, який хоче випустити нову дизайн-навичку, що проєкт може прийняти</td><td><strong>Joushen Studio.</strong> Киньте теку, перезапустіть демон, надішліть PR.</td></tr>
+      <tr><td>Команда, яка стандартизується на портативній дизайн-системі, що переживає зміну інструментів</td><td><strong>Joushen Studio.</strong> Файли <code>DESIGN.md</code> переживають інструмент, який їх читає.</td></tr>
       </tbody>
       </table>
 
@@ -2448,7 +2448,7 @@ i18n:
       <h2>Дотичне читання</h2>
 
       <ul>
-      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Чому ми побудували Open Design як шар навичок, а не продукт</a> — довший маніфест за ставкою «шар, а не продукт»</li>
+      <li><a href="/blog/why-we-built-open-design-as-a-skill-layer/">Чому ми побудували Joushen Studio як шар навичок, а не продукт</a> — довший маніфест за ставкою «шар, а не продукт»</li>
       <li><a href="/blog/byok-design-workflow-claude-codex-qwen/">Дизайн-процес BYOK — запускайте Claude, Codex чи Qwen на власному ключі</a> — математика витрат за вибором власної моделі</li>
       <li><a href="/blog/byok-reality-check-5-things-that-break/">Перевірка реальності BYOK — п'ять речей, що ламаються</a> — що відкритий шлях насправді ламає сьогодні та обхідні шляхи</li>
       </ul>
@@ -2469,7 +2469,7 @@ It does four things well:
 
 Exports include Canva, PDF, PPTX, HTML, and standalone URLs. Pricing is bundled — Claude Pro at $20, Max at $100–$200, Enterprise at the usual call-us tier. It's currently a research preview for paying Claude subscribers.
 
-If you read [the official tutorial](https://support.claude.com/en/articles/14604416-get-started-with-claude-design), the workflow Anthropic describes is the same one Open Design ships: a brief, a direction, an artifact, a handoff. The differences live one layer down.
+If you read [the official tutorial](https://support.claude.com/en/articles/14604416-get-started-with-claude-design), the workflow Anthropic describes is the same one Joushen Studio ships: a brief, a direction, an artifact, a handoff. The differences live one layer down.
 
 ## Where it locks you in
 
@@ -2492,7 +2492,7 @@ None of these are bugs in Claude Design. They are the shape of a hosted product.
 
 ## The open-source alternative
 
-**Open Design** (this site) is a different bet. It's not a Claude Design clone — it's a thin skill layer that turns the coding agent you already use into a design engine. The four primitives are [skills, systems, adapters, and the daemon](/blog/31-skills-72-systems-how-the-library-works/). Every skill is a `SKILL.md` file. Every design system is a `DESIGN.md` file. Every agent adapter is ~80 lines of TypeScript.
+**Joushen Studio** (this site) is a different bet. It's not a Claude Design clone — it's a thin skill layer that turns the coding agent you already use into a design engine. The four primitives are [skills, systems, adapters, and the daemon](/blog/31-skills-72-systems-how-the-library-works/). Every skill is a `SKILL.md` file. Every design system is a `DESIGN.md` file. Every agent adapter is ~80 lines of TypeScript.
 
 What ships in the box today:
 
@@ -2503,7 +2503,7 @@ What ships in the box today:
 - **BYOK by default** — paste any OpenAI-compatible `base_url` and key, [your tokens go straight to the provider](/blog/byok-design-workflow-claude-codex-qwen/)
 - **Apache-2.0, no signup, runs on `pnpm tools-dev`**
 
-The mental model: Claude Design is a product. Open Design is a layer.
+The mental model: Claude Design is a product. Joushen Studio is a layer.
 
 <figure>
   <img src="/blog/plate-20-model-lock.webp" alt="Three black faceted polyhedra on a measured baseline, only one slotted into a bracket frame while the others sit loose, on a warm editorial study plate" />
@@ -2512,7 +2512,7 @@ The mental model: Claude Design is a product. Open Design is a layer.
 
 ## Side-by-side
 
-| | **Claude Design** | **Open Design** |
+| | **Claude Design** | **Joushen Studio** |
 |---|---|---|
 | License | Proprietary | Apache-2.0 |
 | Runtime | Hosted (Anthropic) | Local daemon (`pnpm tools-dev`) + optional Vercel deploy |
@@ -2525,11 +2525,11 @@ The mental model: Claude Design is a product. Open Design is a layer.
 | Self-hostable | No | Yes (laptop or Vercel) |
 | Data path | Prompts → Anthropic | Prompts → your chosen provider; nothing through us |
 
-The honest summary: Claude Design has the most polished single-product experience. Open Design trades the polished single-product surface for a library — more skills, more systems, more agents, designed to compose with the agent already on your laptop.
+The honest summary: Claude Design has the most polished single-product experience. Joushen Studio trades the polished single-product surface for a library — more skills, more systems, more agents, designed to compose with the agent already on your laptop.
 
 <figure>
   <img src="/blog/plate-21-layer-stack.webp" alt="Three thin black slabs stacked with visible gaps like a layer stack in isometric, dimension ticks marking the gaps, an olive leaf on top, on a warm editorial study plate" />
-  <figcaption>A product and a layer — Open Design sits between your agent and the design work.</figcaption>
+  <figcaption>A product and a layer — Joushen Studio sits between your agent and the design work.</figcaption>
 </figure>
 
 ## Who should pick what
@@ -2538,11 +2538,11 @@ The honest summary: Claude Design has the most polished single-product experienc
 |---|---|
 | A solo PM at a company already on Claude Pro who needs a prototype before lunch | **Claude Design.** The $20/month is sunk; the interface is genuinely fast. |
 | An enterprise design team where Anthropic already cleared procurement | **Claude Design.** You've paid the integration cost once; spend it. |
-| A solo designer who wants "Claude Design but free" | **Open Design.** Free, and you own the workflow instead of renting it — point it at a model you already pay for and the first deck takes about ten minutes. |
-| A design engineer who already drives Claude Code, Codex, or Cursor from the terminal | **Open Design.** Your agent is the design engine; the skill layer adds taste and structure without a new app. |
-| Anyone who needs BYOK, model choice mid-project, or local-only for sensitive briefs | **Open Design.** [The reality is rougher than the marketing](/blog/byok-reality-check-5-things-that-break/), but the contract is the only one that actually holds. |
-| An open-source contributor who wants to ship a new design skill the project can adopt | **Open Design.** Drop a folder, restart the daemon, send the PR. |
-| A team standardising on a portable design system that survives tool churn | **Open Design.** `DESIGN.md` files outlive the tool that reads them. |
+| A solo designer who wants "Claude Design but free" | **Joushen Studio.** Free, and you own the workflow instead of renting it — point it at a model you already pay for and the first deck takes about ten minutes. |
+| A design engineer who already drives Claude Code, Codex, or Cursor from the terminal | **Joushen Studio.** Your agent is the design engine; the skill layer adds taste and structure without a new app. |
+| Anyone who needs BYOK, model choice mid-project, or local-only for sensitive briefs | **Joushen Studio.** [The reality is rougher than the marketing](/blog/byok-reality-check-5-things-that-break/), but the contract is the only one that actually holds. |
+| An open-source contributor who wants to ship a new design skill the project can adopt | **Joushen Studio.** Drop a folder, restart the daemon, send the PR. |
+| A team standardising on a portable design system that survives tool churn | **Joushen Studio.** `DESIGN.md` files outlive the tool that reads them. |
 
 The dimension that decides it for most teams isn't quality. It's whether you'd rather rent the workflow or own it.
 
@@ -2554,6 +2554,6 @@ If you want to see what owning the workflow feels like before you spend a Pro su
 
 ## Related reading
 
-- [Why we built Open Design as a skill layer, not a product](/blog/why-we-built-open-design-as-a-skill-layer/) — the longer manifesto behind the "layer, not product" bet
+- [Why we built Joushen Studio as a skill layer, not a product](/blog/why-we-built-open-design-as-a-skill-layer/) — the longer manifesto behind the "layer, not product" bet
 - [BYOK design workflow — run Claude, Codex, or Qwen on your own key](/blog/byok-design-workflow-claude-codex-qwen/) — the cost math behind picking your own model
 - [BYOK reality check — five things that break](/blog/byok-reality-check-5-things-that-break/) — what the open path actually breaks today, and the workarounds

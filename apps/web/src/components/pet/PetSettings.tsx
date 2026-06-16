@@ -41,7 +41,7 @@ interface Props {
 // Curated palette so the customize swatch row stays compact and on-brand
 // without forcing a full color picker. The first entry mirrors --accent.
 const ACCENT_SWATCHES = [
-  '#c96442',
+  '#2563eb',
   '#2348b8',
   '#1f7a3a',
   '#6c3aa6',
@@ -273,7 +273,7 @@ export function PetSettings({ cfg, setCfg }: Props) {
 
   // Opening the dedicated "Import Codex sprite" picker forces the atlas
   // path even if the dimensions don't quite match — useful for users
-  // who've resized or recompressed a hatched pet outside Open Design.
+  // who've resized or recompressed a hatched pet outside Joushen Studio.
   async function handleAtlasFile(file: File | undefined) {
     if (!file) return;
     setUploadError(null);
@@ -405,7 +405,7 @@ export function PetSettings({ cfg, setCfg }: Props) {
       '4. Run the deterministic scripts (extract / compose / validate / contact-sheet / videos).',
       '5. Package the result into ${CODEX_HOME:-$HOME/.codex}/pets/<pet-name>/ with pet.json + spritesheet.webp.',
       '',
-      'When the spritesheet is saved, tell me the absolute path so I can import it into Open Design via Settings → Pets → Import Codex sprite.',
+      'When the spritesheet is saved, tell me the absolute path so I can import it into Joushen Studio via Settings → Pets → Import Codex sprite.',
     ].join('\n');
   }, [hatchConcept]);
 

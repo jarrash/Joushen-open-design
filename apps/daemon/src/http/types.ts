@@ -1,4 +1,4 @@
-import type { ApiError } from '@open-design/contracts';
+import type { ApiError } from '@joushen-studio/contracts';
 
 export type Result<T, E = ApiError> =
   | { ok: true; value: T }

@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, Dispatch, SetStateAction } from 'react';
-import { Button, VisuallyHidden } from '@open-design/components';
-import { validateBaseUrl } from '@open-design/contracts/api/connectionTest';
+import { Button, VisuallyHidden } from '@joushen-studio/components';
+import { validateBaseUrl } from '@joushen-studio/contracts/api/connectionTest';
 import {
   agentIdToTracking,
   byokProtocolToTracking,
   executionModeToTracking,
   settingsSectionToTracking,
-} from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
 import { useAnalytics } from '../analytics/provider';
 import {
   amrHandoffDeviceId,
@@ -617,7 +617,7 @@ function cleanAgentVersionLabel(
 }
 
 function displayAgentName(agent: Pick<AgentInfo, 'id' | 'name'>): string {
-  return agent.id === 'amr' ? 'Open Design AMR' : agent.name;
+  return agent.id === 'amr' ? 'Joushen Studio AMR' : agent.name;
 }
 
 const AGENT_CLI_ENV_FIELDS = [
@@ -6500,7 +6500,7 @@ function MediaProvidersSection({
 // Important: every snippet uses absolute paths to the daemon's current
 // Node-compatible runtime and built cli.js, fetched at runtime. macOS
 // and Linux ship a system /usr/bin/od (octal-dump) that shadows any
-// `od` we might add to PATH, and most Open Design users run from
+// `od` we might add to PATH, and most Joushen Studio users run from
 // source where `od` is not installed globally. The installer panel
 // must NOT reference bare `od`.
 type McpClientId =

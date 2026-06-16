@@ -3,12 +3,12 @@ import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import path from 'node:path';
 
-import { createCommandInvocation } from '@open-design/platform';
+import { createCommandInvocation } from '@joushen-studio/platform';
 import type {
   AmrEntryAttribution,
   TrackingAmrEntrySource,
   TrackingPageName,
-} from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
 
 import { resolveAgentLaunch } from '../runtimes/launch.js';
 import { spawnEnvForAgent } from '../runtimes/env.js';
@@ -494,7 +494,7 @@ export function parseVelaLoginAttribution(input: unknown): AmrEntryAttribution |
   ) {
     return null;
   }
-  const odDeviceId = sanitizeOpenDesignDeviceId(value.odDeviceId);
+  const odDeviceId = sanitizeJoushenStudioDeviceId(value.odDeviceId);
   return {
     entryId: value.entryId,
     sourceProduct: value.sourceProduct,
@@ -579,7 +579,7 @@ export function parseAmrOnboardingProfileAnalyticsPayload(
   const sourceDetail = raw.sourceDetail;
   const entryOccurredAt = raw.entryOccurredAt;
   const profileOccurredAt = raw.profileOccurredAt;
-  const odDeviceId = sanitizeOpenDesignDeviceId(raw.odDeviceId);
+  const odDeviceId = sanitizeJoushenStudioDeviceId(raw.odDeviceId);
   const odRole = sanitizeOptionalProfileValue(raw.odRole);
   const odOrgSize = sanitizeOptionalProfileValue(raw.odOrgSize);
   const odSource = sanitizeOptionalProfileValue(raw.odSource);
@@ -661,7 +661,7 @@ function sanitizeOptionalProfileList(
   return cleaned.length > 0 ? cleaned : undefined;
 }
 
-function sanitizeOpenDesignDeviceId(value: unknown): string | null {
+function sanitizeJoushenStudioDeviceId(value: unknown): string | null {
   if (typeof value !== 'string') return null;
   const trimmed = value.trim();
   if (!trimmed || trimmed.length > OD_DEVICE_ID_MAX_LENGTH) return null;

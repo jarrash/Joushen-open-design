@@ -1,5 +1,5 @@
 {
-  "name": "open-design",
+  "name": "joushen-studio",
   "version": "0.10.2",
   "private": true,
   "packageManager": "pnpm@10.33.2",
@@ -27,11 +27,11 @@
     "typecheck": "pnpm -r --workspace-concurrency=4 --if-present run typecheck && tsc -p scripts/tsconfig.json --noEmit"
   },
   "devDependencies": {
-    "@open-design/components": "workspace:*",
-    "@open-design/daemon": "workspace:*",
-    "@open-design/tools-dev": "workspace:*",
-    "@open-design/tools-pack": "workspace:*",
-    "@open-design/tools-serve": "workspace:*",
+    "@joushen-studio/components": "workspace:*",
+    "@joushen-studio/daemon": "workspace:*",
+    "@joushen-studio/tools-dev": "workspace:*",
+    "@joushen-studio/tools-pack": "workspace:*",
+    "@joushen-studio/tools-serve": "workspace:*",
     "@types/node": "20.19.39",
     "tsx": "4.22.3",
     "typescript": "5.9.3"

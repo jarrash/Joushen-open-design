@@ -6,7 +6,7 @@ import { promisify } from "node:util";
 import {
   LAUNCHER_SCHEMA_VERSION,
   resolveLauncherVersionPaths,
-} from "@open-design/launcher-proto";
+} from "@joushen-studio/launcher-proto";
 
 import { hashJson, hashPath, type ToolPackCache } from "../cache.js";
 import type { ToolPackConfig } from "../config.js";
@@ -26,7 +26,7 @@ export type WinLauncherPayloadManifest = {
   channel: string;
   entry: {
     cwd: "payload";
-    executable: "payload/Open Design.exe";
+    executable: "payload/Joushen Studio.exe";
   };
   namespace: string;
   payloadRoot: "payload";
@@ -44,7 +44,7 @@ export function buildWinLauncherPayloadManifest(input: {
     channel: input.channel,
     entry: {
       cwd: "payload",
-      executable: "payload/Open Design.exe",
+      executable: "payload/Joushen Studio.exe",
     },
     namespace: input.namespace,
     payloadRoot: "payload",

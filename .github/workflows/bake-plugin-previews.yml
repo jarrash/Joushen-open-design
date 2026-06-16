@@ -52,8 +52,8 @@ jobs:
       - name: Build daemon + tools
         run: |
           pnpm --filter "./packages/**" build
-          pnpm --filter @open-design/daemon build
-          pnpm --filter @open-design/tools-dev build
+          pnpm --filter @joushen-studio/daemon build
+          pnpm --filter @joushen-studio/tools-dev build
 
       - name: Start daemon
         run: |

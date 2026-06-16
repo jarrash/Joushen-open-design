@@ -557,12 +557,12 @@ jobs:
             const subject = run.head_commit?.message?.split('\n')[0] || run.display_title || 'unknown';
             const repoName = `${owner}/${repo}`;
             const title = isTest
-              ? '[TEST] Open Design Main CI alert'
+              ? '[TEST] Joushen Studio Main CI alert'
               : run.name === 'ui-extended-main'
               ? (run.conclusion === 'cancelled'
-                  ? 'Open Design Main UI regression stopped after failures'
-                  : 'Open Design Main UI regression failed')
-              : 'Open Design Main CI failed';
+                  ? 'Joushen Studio Main UI regression stopped after failures'
+                  : 'Joushen Studio Main UI regression failed')
+              : 'Joushen Studio Main CI failed';
 
             const body = {
               msg_type: 'interactive',

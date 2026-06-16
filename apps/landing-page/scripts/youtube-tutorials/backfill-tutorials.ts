@@ -12,7 +12,7 @@
  */
 import { readFile } from 'node:fs/promises';
 import {
-  isAboutOpenDesign,
+  isAboutJoushenStudio,
   readExistingSlugs,
   readExistingVideoIds,
   writeTutorial,
@@ -84,13 +84,13 @@ async function main(): Promise<void> {
 
   // Relevance gate: titles alone produce false positives (lookalike products,
   // tool roundups that only mention OD in passing). Confirm each is actually
-  // about Open Design before generating.
+  // about Joushen Studio before generating.
   let fresh = notDup;
   if (!noGate) {
-    const verdicts = await mapPool(notDup, 4, async (v) => ({ v, ok: await isAboutOpenDesign(v) }));
+    const verdicts = await mapPool(notDup, 4, async (v) => ({ v, ok: await isAboutJoushenStudio(v) }));
     fresh = verdicts.filter((r) => r.ok).map((r) => r.v);
     for (const r of verdicts.filter((r) => !r.ok)) {
-      console.log(`  - rejected (not Open Design): ${r.v.videoId} | ${r.v.author} | ${r.v.title}`);
+      console.log(`  - rejected (not Joushen Studio): ${r.v.videoId} | ${r.v.author} | ${r.v.title}`);
     }
     console.log(`Gate: ${fresh.length} kept, ${notDup.length - fresh.length} rejected`);
   }

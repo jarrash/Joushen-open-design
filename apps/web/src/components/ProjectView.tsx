@@ -35,7 +35,7 @@ import {
   streamViaDaemon,
 } from '../providers/daemon';
 import { fetchElevenLabsVoiceOptions } from '../providers/elevenlabs-voices';
-import { normalizeCustomReason } from '@open-design/contracts/analytics';
+import { normalizeCustomReason } from '@joushen-studio/contracts/analytics';
 import {
   deletePreviewComment,
   fetchConnectorStatuses,
@@ -60,18 +60,18 @@ import {
   type AudioVoiceOption,
   type MemorySystemPromptResponse,
   type ResearchOptions,
-} from '@open-design/contracts';
+} from '@joushen-studio/contracts';
 import {
   anonymizeArtifactId,
   artifactKindToTracking,
   projectKindToTracking,
-} from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
 import type {
   TrackingArtifactKind,
   TrackingDesignSystemApplyTargetKind,
   TrackingDesignSystemOrigin,
   TrackingDesignSystemStatusValue,
-} from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
 import { useAnalytics } from '../analytics/provider';
 import {
   trackArtifactHeaderClick,
@@ -129,7 +129,7 @@ import {
   type SaveMessageOptions,
   waitGeneratedPluginShareTask,
 } from '../state/projects';
-import type { AppliedPluginSnapshot, ChatAnalyticsEntryFrom, ChatSessionMode, InstalledPluginRecord, WorkspaceContextItem } from '@open-design/contracts';
+import type { AppliedPluginSnapshot, ChatAnalyticsEntryFrom, ChatSessionMode, InstalledPluginRecord, WorkspaceContextItem } from '@joushen-studio/contracts';
 import type {
   AgentEvent,
   AgentInfo,
@@ -452,7 +452,7 @@ function historyWithWorkspaceContext(
     '',
     '',
     '<active-workspace-context>',
-    'Open Design selected the currently focused workspace tab as the default context for this turn.',
+    'Joushen Studio selected the currently focused workspace tab as the default context for this turn.',
     ...items.map((item, index) => {
       const details = [
         item.path ? `path: ${item.path}` : null,
@@ -4524,31 +4524,31 @@ export function ProjectView({
     ],
   );
 
-  // "Share to Open Design" — kicks off the bundled `od-share-to-community`
+  // "Share to Joushen Studio" — kicks off the bundled `od-share-to-community`
   // scenario in the active conversation. We just inject the trigger prompt
   // through the standard chat-send path; the agent then loads SKILL.md and
   // drives the rest. Keep this preparing state alive for the resulting chat
   // run so the action reads as async packaging instead of instant sharing.
-  const [shareToOpenDesignBusyMessageId, setShareToOpenDesignBusyMessageId] = useState<string | null>(null);
-  const shareToOpenDesignBusyMessageIdRef = useRef<string | null>(null);
+  const [shareToJoushenStudioBusyMessageId, setShareToJoushenStudioBusyMessageId] = useState<string | null>(null);
+  const shareToJoushenStudioBusyMessageIdRef = useRef<string | null>(null);
   useEffect(() => {
-    if (!shareToOpenDesignBusyMessageIdRef.current || currentConversationBusy) return;
-    shareToOpenDesignBusyMessageIdRef.current = null;
-    setShareToOpenDesignBusyMessageId(null);
+    if (!shareToJoushenStudioBusyMessageIdRef.current || currentConversationBusy) return;
+    shareToJoushenStudioBusyMessageIdRef.current = null;
+    setShareToJoushenStudioBusyMessageId(null);
   }, [currentConversationBusy]);
-  const handleShareToOpenDesign = useCallback((assistantMessageId: string) => {
-    if (currentConversationActionDisabled || shareToOpenDesignBusyMessageIdRef.current) return;
-    shareToOpenDesignBusyMessageIdRef.current = assistantMessageId;
-    setShareToOpenDesignBusyMessageId(assistantMessageId);
+  const handleShareToJoushenStudio = useCallback((assistantMessageId: string) => {
+    if (currentConversationActionDisabled || shareToJoushenStudioBusyMessageIdRef.current) return;
+    shareToJoushenStudioBusyMessageIdRef.current = assistantMessageId;
+    setShareToJoushenStudioBusyMessageId(assistantMessageId);
     void Promise.resolve(handleSend(SHARE_TO_COMMUNITY_PROMPT, [], []))
       .then((started) => {
         if (started) return;
-        shareToOpenDesignBusyMessageIdRef.current = null;
-        setShareToOpenDesignBusyMessageId(null);
+        shareToJoushenStudioBusyMessageIdRef.current = null;
+        setShareToJoushenStudioBusyMessageId(null);
       })
       .catch(() => {
-        shareToOpenDesignBusyMessageIdRef.current = null;
-        setShareToOpenDesignBusyMessageId(null);
+        shareToJoushenStudioBusyMessageIdRef.current = null;
+        setShareToJoushenStudioBusyMessageId(null);
       });
   }, [currentConversationActionDisabled, handleSend]);
 
@@ -5726,8 +5726,8 @@ export function ProjectView({
               onRequestPluginFolderAgentAction={handlePluginFolderAgentAction}
               activePluginActionPaths={activePluginActionPaths}
               hiddenPluginActionPaths={hiddenAssistantPluginActionPaths}
-              onShareToOpenDesign={handleShareToOpenDesign}
-              shareToOpenDesignBusyMessageId={shareToOpenDesignBusyMessageId}
+              onShareToJoushenStudio={handleShareToJoushenStudio}
+              shareToJoushenStudioBusyMessageId={shareToJoushenStudioBusyMessageId}
               forceStreamingMessageIds={forceStreamingPluginMessageIds}
               initialDraft={chatInitialDraft}
               onOpenQuestions={openQuestionsTab}
@@ -6247,7 +6247,7 @@ function latestDesignSystemActivityEvents(messages: ChatMessage[]): AgentEvent[]
 }
 
 function pluginWorkflowTitle(action: PluginFolderAgentAction): string {
-  return action === 'publish' ? 'Publish repo' : 'Open Design PR';
+  return action === 'publish' ? 'Publish repo' : 'Joushen Studio PR';
 }
 
 function pluginWorkflowCliCommand(action: PluginFolderAgentAction, relativePath: string): string {
@@ -6266,7 +6266,7 @@ function pluginWorkflowPlannedSteps(action: PluginFolderAgentAction): string[] {
     ];
   }
   return [
-    'Ensure the Open Design fork exists',
+    'Ensure the Joushen Studio fork exists',
     'Clone the fork and prepare a branch',
     'Copy the plugin into plugins/community',
     'Push the branch and open the PR form',

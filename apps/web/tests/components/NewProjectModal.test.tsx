@@ -3,12 +3,12 @@
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('@open-design/host', () => ({
-  isOpenDesignHostAvailable: () => true,
+vi.mock('@joushen-studio/host', () => ({
+  isJoushenStudioHostAvailable: () => true,
   pickAndImportHostProject: vi.fn(),
 }));
 
-import { pickAndImportHostProject } from '@open-design/host';
+import { pickAndImportHostProject } from '@joushen-studio/host';
 import { NewProjectModal } from '../../src/components/NewProjectModal';
 import type {
   DesignSystemSummary,

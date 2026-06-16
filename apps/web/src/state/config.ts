@@ -1,4 +1,4 @@
-import type { AppConfigPrefs } from '@open-design/contracts';
+import type { AppConfigPrefs } from '@joushen-studio/contracts';
 import { MEDIA_PROVIDERS } from '../media/models';
 import { isOpenAICompatible } from '../providers/openai-compatible';
 import type {
@@ -43,7 +43,7 @@ export const DEFAULT_PET: PetConfig = {
   custom: {
     name: 'Buddy',
     glyph: '🦄',
-    accent: '#c96442',
+    accent: '#2563eb',
     greeting: 'Hi! I am here whenever you need me.',
   },
 };

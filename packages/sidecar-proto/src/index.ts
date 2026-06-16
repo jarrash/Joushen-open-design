@@ -67,7 +67,7 @@ export const SIDECAR_DEFAULTS = Object.freeze({
   windowsPipePrefix: "open-design",
 } as const);
 
-export const OPEN_DESIGN_PRODUCT_NAME = "Open Design";
+export const OPEN_DESIGN_PRODUCT_NAME = "Joushen Studio";
 
 export function resolveWindowsReleaseNamespaceToken(value: string): string {
   return value.replace(/[^A-Za-z0-9._-]+/g, "-");
@@ -451,7 +451,7 @@ export type SidecarStamp = {
 export type SidecarStampInput = Partial<Record<(typeof SIDECAR_STAMP_FIELDS)[number], unknown>>;
 export type SidecarStampCriteria = Partial<SidecarStamp>;
 
-export type OpenDesignSidecarContract = {
+export type JoushenStudioSidecarContract = {
   appKeys: typeof APP_KEYS;
   defaults: typeof SIDECAR_DEFAULTS;
   env: typeof SIDECAR_RUNTIME_ENV;
@@ -736,4 +736,4 @@ export const OPEN_DESIGN_SIDECAR_CONTRACT = Object.freeze({
   updateChannels: DESKTOP_UPDATE_CHANNELS,
   updateModes: DESKTOP_UPDATE_MODES,
   updateStates: DESKTOP_UPDATE_STATES,
-} as const satisfies OpenDesignSidecarContract);
+} as const satisfies JoushenStudioSidecarContract);

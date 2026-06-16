@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { DesktopExportPdfInput, DesktopExportPdfResult } from '@open-design/sidecar-proto';
+import type { DesktopExportPdfInput, DesktopExportPdfResult } from '@joushen-studio/sidecar-proto';
 import express from 'express';
 import multer from 'multer';
 import JSZip from 'jszip';
@@ -12,11 +12,11 @@ import os from 'node:os';
 import net from 'node:net';
 import {
   defaultScenarioPluginIdForProjectMetadata,
-  type OpenDesignDiscordPresenceResponse,
-  type OpenDesignGithubLatestReleaseResponse,
-  type OpenDesignGithubRepoResponse,
+  type JoushenStudioDiscordPresenceResponse,
+  type JoushenStudioGithubLatestReleaseResponse,
+  type JoushenStudioGithubRepoResponse,
   PLUGIN_SHARE_ACTION_PLUGIN_IDS,
-} from '@open-design/contracts';
+} from '@joushen-studio/contracts';
 import {
   composeSystemPrompt,
   renderCodexImagegenOverride,
@@ -72,8 +72,8 @@ import {
 } from './browser-use-diagnostics.js';
 
 export { resolveProjectRoot };
-import { createCommandInvocation } from '@open-design/platform';
-import { SIDECAR_DEFAULTS, SIDECAR_ENV } from '@open-design/sidecar-proto';
+import { createCommandInvocation } from '@joushen-studio/platform';
+import { SIDECAR_DEFAULTS, SIDECAR_ENV } from '@joushen-studio/sidecar-proto';
 import {
   buildLiveArtifactsMcpServersForAgent,
   checkPromptArgvBudget,
@@ -288,7 +288,7 @@ import {
   projectKindToTracking,
   sessionModeToTracking,
   type ObservabilityEventRequest,
-} from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
 import {
   mergeNoProxyWithLoopbackDefaults,
   redactSecrets,
@@ -372,7 +372,7 @@ import {
 } from './routines.js';
 import { buildMcpInstallPayload } from './mcp-install-info.js';
 import { createDiagnosticsExportHandler } from './diagnostics-export.js';
-import { DIAGNOSTICS_EXPORT_PATH } from '@open-design/diagnostics';
+import { DIAGNOSTICS_EXPORT_PATH } from '@joushen-studio/diagnostics';
 import {
   buildProjectArchive,
   buildBatchArchive,
@@ -538,14 +538,14 @@ import {
   isLocalSameOrigin,
 } from './origin-validation.js';
 
-/** @typedef {import('@open-design/contracts').ApiErrorCode} ApiErrorCode */
-/** @typedef {import('@open-design/contracts').ApiError} ApiError */
-/** @typedef {import('@open-design/contracts').ApiErrorResponse} ApiErrorResponse */
-/** @typedef {import('@open-design/contracts').ChatRequest} ChatRequest */
-/** @typedef {import('@open-design/contracts').ChatSseEvent} ChatSseEvent */
-/** @typedef {import('@open-design/contracts').ProxyStreamRequest} ProxyStreamRequest */
-/** @typedef {import('@open-design/contracts').ProxySseEvent} ProxySseEvent */
-/** @typedef {import('@open-design/contracts').ProjectConversationCreatedSsePayload} ProjectConversationCreatedSsePayload */
+/** @typedef {import('@joushen-studio/contracts').ApiErrorCode} ApiErrorCode */
+/** @typedef {import('@joushen-studio/contracts').ApiError} ApiError */
+/** @typedef {import('@joushen-studio/contracts').ApiErrorResponse} ApiErrorResponse */
+/** @typedef {import('@joushen-studio/contracts').ChatRequest} ChatRequest */
+/** @typedef {import('@joushen-studio/contracts').ChatSseEvent} ChatSseEvent */
+/** @typedef {import('@joushen-studio/contracts').ProxyStreamRequest} ProxyStreamRequest */
+/** @typedef {import('@joushen-studio/contracts').ProxySseEvent} ProxySseEvent */
+/** @typedef {import('@joushen-studio/contracts').ProjectConversationCreatedSsePayload} ProjectConversationCreatedSsePayload */
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1781,7 +1781,7 @@ export function createAgentRuntimeToolPrompt(
     '',
     `- Daemon URL: \`${daemonUrl}\` (also available as \`OD_DAEMON_URL\`).`,
     '- `OD_NODE_BIN` is the absolute path to the Node-compatible runtime that started the daemon; packaged desktop installs provide this even when the user has no system `node` on PATH.',
-    '- `OD_BIN` is the absolute path to the Open Design CLI script. On POSIX shells run wrappers with `"$OD_NODE_BIN" "$OD_BIN" tools ...`; do not call bare `od`, which may resolve to the system octal-dump command on Unix-like systems.',
+    '- `OD_BIN` is the absolute path to the Joushen Studio CLI script. On POSIX shells run wrappers with `"$OD_NODE_BIN" "$OD_BIN" tools ...`; do not call bare `od`, which may resolve to the system octal-dump command on Unix-like systems.',
     '- On PowerShell use `& $env:OD_NODE_BIN $env:OD_BIN tools ...`; on cmd.exe use `"%OD_NODE_BIN%" "%OD_BIN%" tools ...`.',
     tokenLine,
     '- Prefer project wrapper commands through `OD_NODE_BIN` + `OD_BIN` over raw HTTP. The wrappers read these environment values automatically.',
@@ -1978,7 +1978,7 @@ function renderRunContextPrompt(selection, metadata) {
   if (Array.isArray(context.workspaceItems) && context.workspaceItems.length > 0) {
     lines.push('### Active workspace context');
     lines.push(
-      'The user did not manually choose this context; Open Design selected the currently focused workspace tab. Use it as the default target for phrases like "this", "current", "the browser", "the terminal", or "that file" unless the user says otherwise. Use project-relative paths exactly when reading or editing project files.',
+      'The user did not manually choose this context; Joushen Studio selected the currently focused workspace tab. Use it as the default target for phrases like "this", "current", "the browser", "the terminal", or "that file" unless the user says otherwise. Use project-relative paths exactly when reading or editing project files.',
     );
     lines.push(formatWorkspaceContextList(context.workspaceItems));
     const toolHints = renderWorkspaceContextToolHints(context.workspaceItems);
@@ -2218,7 +2218,7 @@ function githubRepoNameFromPluginName(name) {
 
 const PLUGIN_SHARE_ACTION_LABELS = {
   'publish-github': 'Publish to GitHub',
-  'contribute-open-design': 'Contribute to Open Design',
+  'contribute-open-design': 'Contribute to Joushen Studio',
 };
 
 const USER_PLUGIN_SOURCE_KINDS = new Set([
@@ -2265,10 +2265,10 @@ function renderPluginSharePrompt({ action, sourcePlugin, stagedPath }) {
   const title = sourcePlugin.title || sourcePlugin.id;
   if (action === 'publish-github') {
     return [
-      `Publish the local Open Design plugin "${title}" as a new public GitHub repository.`,
+      `Publish the local Joushen Studio plugin "${title}" as a new public GitHub repository.`,
       '',
       `The plugin source files have been copied into this project at \`${stagedPath}\`.`,
-      'Use the local daemon share endpoint so the publish flow runs through Open Design\'s validated GitHub path:',
+      'Use the local daemon share endpoint so the publish flow runs through Joushen Studio\'s validated GitHub path:',
       '',
       '```bash',
       `curl -sS -X POST "$OD_DAEMON_URL/api/projects/$OD_PROJECT_ID/plugins/publish-github" \\`,
@@ -2282,10 +2282,10 @@ function renderPluginSharePrompt({ action, sourcePlugin, stagedPath }) {
     ].join('\n');
   }
   return [
-    `Open a pull request to add the local Open Design plugin "${title}" to the Open Design repository.`,
+    `Open a pull request to add the local Joushen Studio plugin "${title}" to the Joushen Studio repository.`,
     '',
     `The plugin source files have been copied into this project at \`${stagedPath}\`.`,
-    'Use the local daemon share endpoint so the contribution flow runs through Open Design\'s validated GitHub path:',
+    'Use the local daemon share endpoint so the contribution flow runs through Joushen Studio\'s validated GitHub path:',
     '',
     '```bash',
     `curl -sS -X POST "$OD_DAEMON_URL/api/projects/$OD_PROJECT_ID/plugins/contribute-open-design" \\`,
@@ -2498,7 +2498,7 @@ export function upsertSkillPluginCandidateAssistantMessage(db, run, candidate) {
   upsertMessage(db, run.conversationId, {
     id: messageId,
     role: 'assistant',
-    content: `Open Design found reusable skill material that can become a plugin: ${candidate.title}`,
+    content: `Joushen Studio found reusable skill material that can become a plugin: ${candidate.title}`,
     agentId: run.agentId ?? undefined,
     events: [{
       kind: 'plugin_candidate',
@@ -3283,7 +3283,7 @@ function renderOAuthResultPage(opts) {
   const title = ok ? 'Connected' : 'Authorization failed';
   const heading = ok ? '✅ Connected' : '⚠️ Authorization failed';
   const body = ok
-    ? `Your MCP server <code>${escapeHtml(opts.serverId ?? '')}</code> is now connected. You can close this tab and return to Open Design.`
+    ? `Your MCP server <code>${escapeHtml(opts.serverId ?? '')}</code> is now connected. You can close this tab and return to Joushen Studio.`
     : escapeHtml(opts.message ?? 'Authorization could not be completed.');
   const accent = ok ? '#1a7f37' : '#cf222e';
   const payload = ok
@@ -3293,7 +3293,7 @@ function renderOAuthResultPage(opts) {
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>${escapeHtml(title)} — Open Design</title>
+<title>${escapeHtml(title)} — Joushen Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root { color-scheme: light dark; }
@@ -3406,7 +3406,7 @@ let openDesignGithubLatestReleaseInflight = null;
 let openDesignDiscordPresenceCache = null;
 let openDesignDiscordPresenceInflight = null;
 
-async function readOpenDesignGithubRepoStats() {
+async function readJoushenStudioGithubRepoStats() {
   const now = Date.now();
   if (
     openDesignGithubRepoCache &&
@@ -3459,7 +3459,7 @@ async function readOpenDesignGithubRepoStats() {
   return openDesignGithubRepoInflight;
 }
 
-async function readOpenDesignLatestReleaseInfo() {
+async function readJoushenStudioLatestReleaseInfo() {
   const now = Date.now();
   if (
     openDesignGithubLatestReleaseCache &&
@@ -3512,7 +3512,7 @@ async function readOpenDesignLatestReleaseInfo() {
   return openDesignGithubLatestReleaseInflight;
 }
 
-async function readOpenDesignDiscordPresence() {
+async function readJoushenStudioDiscordPresence() {
   const now = Date.now();
   if (
     openDesignDiscordPresenceCache &&
@@ -4997,8 +4997,8 @@ export async function startServer({
 
   app.get('/api/github/open-design', async (_req, res) => {
     try {
-      const stats = await readOpenDesignGithubRepoStats();
-      const payload = /** @type {OpenDesignGithubRepoResponse} */ ({
+      const stats = await readJoushenStudioGithubRepoStats();
+      const payload = /** @type {JoushenStudioGithubRepoResponse} */ ({
         repo: 'nexu-io/open-design',
         stargazers_count: stats.stargazersCount,
         fetchedAt: stats.fetchedAt,
@@ -5014,8 +5014,8 @@ export async function startServer({
 
   app.get('/api/github/open-design/releases/latest', async (_req, res) => {
     try {
-      const release = await readOpenDesignLatestReleaseInfo();
-      const payload = /** @type {OpenDesignGithubLatestReleaseResponse} */ ({
+      const release = await readJoushenStudioLatestReleaseInfo();
+      const payload = /** @type {JoushenStudioGithubLatestReleaseResponse} */ ({
         repo: 'nexu-io/open-design',
         tag_name: release.tagName,
         html_url: release.htmlUrl,
@@ -5032,8 +5032,8 @@ export async function startServer({
 
   app.get('/api/community/discord', async (_req, res) => {
     try {
-      const presence = await readOpenDesignDiscordPresence();
-      const payload = /** @type {OpenDesignDiscordPresenceResponse} */ ({
+      const presence = await readJoushenStudioDiscordPresence();
+      const payload = /** @type {JoushenStudioDiscordPresenceResponse} */ ({
         inviteCode: OPEN_DESIGN_DISCORD_INVITE_CODE,
         inviteUrl: OPEN_DESIGN_DISCORD_INVITE_URL,
         onlineCount: presence.onlineCount,
@@ -5962,7 +5962,7 @@ export async function startServer({
     try {
       dbDeleteProject(db, req.params.id);
       await removeProjectDir(PROJECTS_DIR, req.params.id).catch(() => {});
-      /** @type {import('@open-design/contracts').OkResponse} */
+      /** @type {import('@joushen-studio/contracts').OkResponse} */
       const body = { ok: true };
       res.json(body);
     } catch (err) {
@@ -6680,7 +6680,7 @@ export async function startServer({
       try { const project = getProject(db, req.params.id); if (!project) return sendApiError(res, 404, 'PROJECT_NOT_FOUND', 'project not found'); const body = req.body && typeof req.body === 'object' ? req.body : {}; const relativePath = normalizeProjectPluginFolderPath(body.path); const projectRoot = resolveProjectDir(PROJECTS_DIR, req.params.id, project.metadata); const folder = await resolveProjectChildDirectory(projectRoot, relativePath); const warnings = []; const log = []; let plugin = null; let message = 'Install finished.'; for await (const ev of installPlugin(db, { source: folder, roots: PLUGIN_REGISTRY_ROOTS })) { if (ev.message) log.push(ev.message); if (Array.isArray(ev.warnings)) warnings.splice(0, warnings.length, ...ev.warnings); if (ev.kind === 'success') { plugin = ev.plugin; message = `Installed ${ev.plugin.title}.`; break; } if (ev.kind === 'error') { message = ev.message; break; } } res.status(plugin ? 200 : 400).json({ ok: Boolean(plugin), plugin, warnings, message, log }); } catch (err) { const code = err && err.code; const status = code === 'ENOENT' || code === 'ENOTDIR' ? 404 : 400; sendApiError(res, status, status === 404 ? 'PLUGIN_FOLDER_NOT_FOUND' : 'BAD_REQUEST', String(err?.message || err)); }
     },
     handleProjectPluginCli: async (req, res, action) => {
-      try { const project = getProject(db, req.params.id); if (!project) return sendApiError(res, 404, 'PROJECT_NOT_FOUND', 'project not found'); const body = req.body && typeof req.body === 'object' ? req.body : {}; const relativePath = normalizeProjectPluginFolderPath(body.path); const projectRoot = resolveProjectDir(PROJECTS_DIR, req.params.id, project.metadata); const folder = await resolveProjectChildDirectory(projectRoot, relativePath); const subcommand = action === 'publish-github' ? 'publish-repo' : 'open-design-pr'; const timeout = action === 'publish-github' ? 240_000 : 300_000; const result = await execCommandViaLoginShell(OD_NODE_BIN, [OD_BIN, 'plugin', subcommand, folder, '--json'], { timeout }); const payload = result.stdout ? JSON.parse(result.stdout) : null; if (!result.ok || !payload?.ok) return res.status(500).json({ ok: false, code: payload?.error?.label || (action === 'publish-github' ? 'publish-repo-failed' : 'open-design-pr-failed'), message: payload?.error?.stderr || payload?.error?.stdout || (action === 'publish-github' ? 'GitHub repo publish failed.' : 'Open Design PR creation failed.'), log: payload?.steps?.map((step) => step.stderr || step.stdout || step.command).filter(Boolean) ?? [result.stderr || result.stdout || `${subcommand} failed`] }); res.json({ ok: true, message: action === 'publish-github' ? (payload.repoUrl ? `Published plugin to ${payload.repoUrl}.` : 'Published plugin to GitHub.') : (payload.prUrl ? `Opened Open Design PR flow at ${payload.prUrl}.` : 'Opened Open Design PR flow.'), ...(payload.repoUrl ? { url: payload.repoUrl } : {}), ...(payload.prUrl ? { url: payload.prUrl } : {}), log: payload.steps?.map((step) => step.stderr || step.stdout || step.command).filter(Boolean) ?? [] }); } catch (err) { res.status(400).json({ ok: false, message: String(err?.message || err), log: [] }); }
+      try { const project = getProject(db, req.params.id); if (!project) return sendApiError(res, 404, 'PROJECT_NOT_FOUND', 'project not found'); const body = req.body && typeof req.body === 'object' ? req.body : {}; const relativePath = normalizeProjectPluginFolderPath(body.path); const projectRoot = resolveProjectDir(PROJECTS_DIR, req.params.id, project.metadata); const folder = await resolveProjectChildDirectory(projectRoot, relativePath); const subcommand = action === 'publish-github' ? 'publish-repo' : 'open-design-pr'; const timeout = action === 'publish-github' ? 240_000 : 300_000; const result = await execCommandViaLoginShell(OD_NODE_BIN, [OD_BIN, 'plugin', subcommand, folder, '--json'], { timeout }); const payload = result.stdout ? JSON.parse(result.stdout) : null; if (!result.ok || !payload?.ok) return res.status(500).json({ ok: false, code: payload?.error?.label || (action === 'publish-github' ? 'publish-repo-failed' : 'open-design-pr-failed'), message: payload?.error?.stderr || payload?.error?.stdout || (action === 'publish-github' ? 'GitHub repo publish failed.' : 'Joushen Studio PR creation failed.'), log: payload?.steps?.map((step) => step.stderr || step.stdout || step.command).filter(Boolean) ?? [result.stderr || result.stdout || `${subcommand} failed`] }); res.json({ ok: true, message: action === 'publish-github' ? (payload.repoUrl ? `Published plugin to ${payload.repoUrl}.` : 'Published plugin to GitHub.') : (payload.prUrl ? `Opened Joushen Studio PR flow at ${payload.prUrl}.` : 'Opened Joushen Studio PR flow.'), ...(payload.repoUrl ? { url: payload.repoUrl } : {}), ...(payload.prUrl ? { url: payload.prUrl } : {}), log: payload.steps?.map((step) => step.stderr || step.stdout || step.command).filter(Boolean) ?? [] }); } catch (err) { res.status(400).json({ ok: false, message: String(err?.message || err), log: [] }); }
     },
     handleCandidateDraft: async (req, res) => {
       if (!isLocalSameOrigin(req, resolvedPort)) return res.status(403).json({ error: 'cross-origin request rejected' });
@@ -6740,7 +6740,7 @@ export async function startServer({
     type ScenarioEntry = {
       id: string;
       taskKind: 'new-generation' | 'figma-migration' | 'code-migration' | 'tune-collab';
-      pipeline: NonNullable<NonNullable<import('@open-design/contracts').PluginManifest['od']>['pipeline']>;
+      pipeline: NonNullable<NonNullable<import('@joushen-studio/contracts').PluginManifest['od']>['pipeline']>;
     };
     const byTaskKind = new Map<ScenarioEntry['taskKind'], ScenarioEntry>();
     try {
@@ -7537,7 +7537,7 @@ export async function startServer({
             // skip files that vanished mid-flight
           }
         }
-        /** @type {import('@open-design/contracts').UploadProjectFilesResponse} */
+        /** @type {import('@joushen-studio/contracts').UploadProjectFilesResponse} */
         const body = { files: out };
         res.json(body);
       } catch (err) {
@@ -7968,7 +7968,7 @@ export async function startServer({
         const stages = snap?.pipeline?.stages ?? [];
         if (stages.length > 0) {
           const { loadAtomBodies } = await import('./plugins/atom-bodies.js');
-          const { renderActiveStageBlock } = await import('@open-design/contracts');
+          const { renderActiveStageBlock } = await import('@joushen-studio/contracts');
           const blocks = [];
           for (const stage of stages) {
             const bodies = await loadAtomBodies(db, stage.atoms ?? []);
@@ -9041,7 +9041,7 @@ export async function startServer({
     });
 
     // External MCP servers configured by the user in Settings → External MCP.
-    // Open Design relays them to the agent so the model can call those tools.
+    // Joushen Studio relays them to the agent so the model can call those tools.
     // Two delivery shapes today:
     //   - Claude Code: write a `.mcp.json` into the project cwd. Claude Code
     //     auto-loads that file at spawn (same format the CLI accepts via
@@ -11150,7 +11150,7 @@ export async function startServer({
       systemPrompt: [
         renderOrbitTemplateSystemPrompt(template),
         systemPrompt,
-        'You are Orbit, an autonomous activity-summary agent inside Open Design.',
+        'You are Orbit, an autonomous activity-summary agent inside Joushen Studio.',
         'You must discover connectors and connector tools yourself through the OD CLI; the daemon has not chosen tools for you.',
         'You must create and register a Live Artifact as the final deliverable. Do not merely describe what you would do.',
         'Do not ask follow-up questions, do not emit <question-form>, and do not wait for user input. This run is unattended; pick reasonable defaults and complete the artifact.',
@@ -11437,7 +11437,7 @@ export async function startServer({
         // Linking is best-effort here; in-memory run still carries the id.
       }
     }
-    /** @type {import('@open-design/contracts').ChatRunCreateResponse} */
+    /** @type {import('@joushen-studio/contracts').ChatRunCreateResponse} */
     const body = {
       runId: run.id,
       // Surface the bound conversation/message so MCP / SDK callers
@@ -11961,7 +11961,7 @@ export async function startServer({
   app.get('/api/runs', (req, res) => {
     const { projectId, conversationId, status } = req.query;
     const runs = design.runs.list({ projectId, conversationId, status });
-    /** @type {import('@open-design/contracts').ChatRunListResponse} */
+    /** @type {import('@joushen-studio/contracts').ChatRunListResponse} */
     const body = { runs: runs.map(design.runs.statusBody) };
     res.json(body);
   });
@@ -11988,7 +11988,7 @@ export async function startServer({
   app.get('/api/runs/:id/agui', async (req, res) => {
     const run = design.runs.get(req.params.id);
     if (!run) return sendApiError(res, 404, 'NOT_FOUND', 'run not found');
-    const { encodeOdEventForAgui } = await import('@open-design/agui-adapter');
+    const { encodeOdEventForAgui } = await import('@joushen-studio/agui-adapter');
     const sse = createSseResponse(res);
     const lastEventId = Number(req.get('Last-Event-ID') || req.query.after || 0);
     const emitMapped = (record) => {
@@ -12031,7 +12031,7 @@ export async function startServer({
     const run = design.runs.get(req.params.id);
     if (!run) return sendApiError(res, 404, 'NOT_FOUND', 'run not found');
     const status = await design.runs.cancel(run);
-    /** @type {import('@open-design/contracts').ChatRunCancelResponse} */
+    /** @type {import('@joushen-studio/contracts').ChatRunCancelResponse} */
     const body = { ok: true, run: status };
     res.json(body);
   });
@@ -12623,7 +12623,7 @@ function assembleExample(templateHtml, slidesHtml, title) {
     .replace('<!-- SLIDES_HERE -->', slidesHtml)
     .replace(
       /<title>.*?<\/title>/,
-      `<title>${title} | Open Design Example</title>`,
+      `<title>${title} | Joushen Studio Example</title>`,
     );
 }
 

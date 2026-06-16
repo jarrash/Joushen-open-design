@@ -14,7 +14,7 @@ jobs:
     if: github.repository == 'nexu-io/open-design'
     runs-on: ubuntu-latest
     steps:
-      - name: Generate Open Design bot token
+      - name: Generate Joushen Studio bot token
         id: open-design-bot-token
         uses: actions/create-github-app-token@v2
         with:
@@ -35,7 +35,7 @@ jobs:
           # the git history.
           filename: github-metrics.svg
 
-          # Auth: use the Open Design GitHub App for follow-up metrics
+          # Auth: use the Joushen Studio GitHub App for follow-up metrics
           # that need private repository API access, but do not grant write
           # permissions because this workflow publishes to R2 instead of git.
           token: ${{ steps.open-design-bot-token.outputs.token }}

@@ -7,49 +7,49 @@ import { resolveWinInstallIdentity } from "../src/win/identity.js";
 describe("resolveWinInstallIdentity", () => {
   it("keeps the default namespace on the canonical Windows display name", () => {
     expect(resolveWinInstallIdentity({ namespace: "default" })).toMatchObject({
-      displayName: "Open Design",
-      shortcutName: "Open Design.lnk",
-      uninstallerName: "Uninstall Open Design.exe",
+      displayName: "Joushen Studio",
+      shortcutName: "Joushen Studio.lnk",
+      uninstallerName: "Uninstall Joushen Studio.exe",
     });
   });
 
   it("uses the canonical Windows display name for stable release namespaces", () => {
     expect(resolveWinInstallIdentity({ namespace: "release-stable-win" })).toMatchObject({
-      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Open Design.exe",
-      displayName: "Open Design",
-      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Open Design-release-stable-win",
-      shortcutName: "Open Design.lnk",
-      uninstallerName: "Uninstall Open Design.exe",
+      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Joushen Studio.exe",
+      displayName: "Joushen Studio",
+      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Joushen Studio-release-stable-win",
+      shortcutName: "Joushen Studio.lnk",
+      uninstallerName: "Uninstall Joushen Studio.exe",
     });
   });
 
   it("uses first-class beta display identity for beta release namespaces", () => {
     expect(resolveWinInstallIdentity({ namespace: "release-beta-win" })).toMatchObject({
-      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Open Design Beta.exe",
-      displayName: "Open Design Beta",
-      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Open Design-release-beta-win",
-      shortcutName: "Open Design Beta.lnk",
-      uninstallerName: "Uninstall Open Design Beta.exe",
+      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Joushen Studio Beta.exe",
+      displayName: "Joushen Studio Beta",
+      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Joushen Studio-release-beta-win",
+      shortcutName: "Joushen Studio Beta.lnk",
+      uninstallerName: "Uninstall Joushen Studio Beta.exe",
     });
   });
 
   it("keeps non-release beta-like namespaces isolated from the real beta channel identity", () => {
     expect(resolveWinInstallIdentity({ namespace: "beta-local-flow" })).toMatchObject({
-      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Open Design beta-local-flow.exe",
-      displayName: "Open Design beta-local-flow",
-      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Open Design-beta-local-flow",
-      shortcutName: "Open Design beta-local-flow.lnk",
-      uninstallerName: "Uninstall Open Design beta-local-flow.exe",
+      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Joushen Studio beta-local-flow.exe",
+      displayName: "Joushen Studio beta-local-flow",
+      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Joushen Studio-beta-local-flow",
+      shortcutName: "Joushen Studio beta-local-flow.lnk",
+      uninstallerName: "Uninstall Joushen Studio beta-local-flow.exe",
     });
   });
 
   it("uses first-class preview display identity for preview release namespaces", () => {
     expect(resolveWinInstallIdentity({ namespace: "release-preview-win" })).toMatchObject({
-      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Open Design Preview.exe",
-      displayName: "Open Design Preview",
-      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Open Design-release-preview-win",
-      shortcutName: "Open Design Preview.lnk",
-      uninstallerName: "Uninstall Open Design Preview.exe",
+      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Joushen Studio Preview.exe",
+      displayName: "Joushen Studio Preview",
+      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Joushen Studio-release-preview-win",
+      shortcutName: "Joushen Studio Preview.lnk",
+      uninstallerName: "Uninstall Joushen Studio Preview.exe",
     });
   });
 
@@ -58,15 +58,15 @@ describe("resolveWinInstallIdentity", () => {
       appVersion: "0.8.0.nightly.2",
       namespace: "release-stable-win",
     })).toMatchObject({
-      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Open Design Nightly.exe",
-      displayName: "Open Design Nightly",
-      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Open Design-release-stable-win",
-      shortcutName: "Open Design Nightly.lnk",
-      uninstallerName: "Uninstall Open Design Nightly.exe",
+      appPathsKey: "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\Joushen Studio Nightly.exe",
+      displayName: "Joushen Studio Nightly",
+      registryKey: "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Joushen Studio-release-stable-win",
+      shortcutName: "Joushen Studio Nightly.lnk",
+      uninstallerName: "Uninstall Joushen Studio Nightly.exe",
     });
     expect(resolveWinInstallIdentity({ namespace: "release-nightly-win" })).toMatchObject({
-      displayName: "Open Design Nightly",
-      shortcutName: "Open Design Nightly.lnk",
+      displayName: "Joushen Studio Nightly",
+      shortcutName: "Joushen Studio Nightly.lnk",
     });
   });
 

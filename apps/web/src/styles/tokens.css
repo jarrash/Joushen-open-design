@@ -1,5 +1,5 @@
 /* ============================================================
-   Open Design — neutral product workspace
+   Joushen Studio — neutral product workspace
    ============================================================ */
 :root {
   /* Surface palette — neutral app chrome that does not bias generated artifacts.
@@ -24,12 +24,12 @@
   --text-soft: #989590;
   --text-faint: #b3b0a8;
 
-  /* Accent — Open Design action color for app chrome only. */
-  --accent: #c96442;
-  --accent-strong: #b45a3b;
-  --accent-soft: #f5d8cb;
-  --accent-tint: #fbeee5;
-  --accent-hover: #b45a3b;
+  /* Accent — Joushen Studio action color for app chrome only. */
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --accent-soft: #cfe0ff;
+  --accent-tint: #eef4ff;
+  --accent-hover: #1d4ed8;
 
   /* Semantic accent tints used by tool / status pills. */
   --green: #1f7a3a;
@@ -75,13 +75,14 @@
   --dur-exit: 140ms;
 
   /* "Active option" indicator color, intentionally separate from --accent
-     (brand orange used by primary CTAs like Create / Save). Use --selected
+     (brand blue used by primary CTAs like Create / Save). Use --selected
      for "this option is the one currently picked" affordances — selected
      fidelity card, focused input ring, active filter pill — so a primary
      CTA and a selected state can coexist on the same screen without
-     competing. --selected-soft is the 16% tint for outer rings / fills. */
-  --selected: #2563eb;
-  --selected-soft: rgba(37, 99, 235, 0.16);
+     competing. Indigo keeps it distinct from the blue accent. --selected-soft
+     is the 16% tint for outer rings / fills. */
+  --selected: #7c3aed;
+  --selected-soft: rgba(124, 58, 237, 0.16);
 
   --serif: 'Source Serif Pro', 'Source Serif 4', 'Iowan Old Style', 'Apple Garamond', Georgia, 'Times New Roman', serif;
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei UI', 'Noto Sans', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -118,11 +119,11 @@
   --text-soft: #6e6b65;
   --text-faint: #4e4b46;
 
-  --accent: #d97a56;
-  --accent-strong: #e8896a;
-  --accent-soft: #3d2318;
-  --accent-tint: #2e1a12;
-  --accent-hover: #e8896a;
+  --accent: #5b8cff;
+  --accent-strong: #7aa2ff;
+  --accent-soft: #16233f;
+  --accent-tint: #101a30;
+  --accent-hover: #7aa2ff;
 
   --green: #4caf72;
   --green-bg: #0f2a18;
@@ -171,11 +172,11 @@
     --text-soft: #6e6b65;
     --text-faint: #4e4b46;
 
-    --accent: #d97a56;
-    --accent-strong: #e8896a;
-    --accent-soft: #3d2318;
-    --accent-tint: #2e1a12;
-    --accent-hover: #e8896a;
+    --accent: #5b8cff;
+    --accent-strong: #7aa2ff;
+    --accent-soft: #16233f;
+    --accent-tint: #101a30;
+    --accent-hover: #7aa2ff;
 
     --green: #4caf72;
     --green-bg: #0f2a18;

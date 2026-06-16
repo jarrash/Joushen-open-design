@@ -46,7 +46,7 @@ const VISUAL_CLI_AGENTS = [
 
 const VISUAL_AMR_AGENT = {
   id: 'amr',
-  name: 'Open Design AMR',
+  name: 'Joushen Studio AMR',
   bin: 'vela',
   available: true,
   version: '0.1.0',
@@ -73,7 +73,7 @@ test('[P2] captures the onboarding runtime selection surface', async ({ page }) 
   await expect(
     page.getByRole('heading', { name: /Choose a runtime|选择运行方式/i }),
   ).toBeVisible();
-  await expect(page.getByText(/Open Design AMR/i)).toBeVisible();
+  await expect(page.getByText(/Joushen Studio AMR/i)).toBeVisible();
   await expect(
     page
       .locator('.onboarding-view__amr-cloud-card .onboarding-view__model-picker')

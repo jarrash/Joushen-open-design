@@ -65,7 +65,7 @@
     },
     {
       "name": "--accent",
-      "value": "#c96442",
+      "value": "#2563eb",
       "layer": "A1-identity",
       "source": "tokens.css:43"
     },

@@ -10,8 +10,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import type { ConnectorDetail } from '@open-design/contracts';
-import type { OpenDesignHostProjectImportSuccess } from '@open-design/host';
+import type { ConnectorDetail } from '@joushen-studio/contracts';
+import type { JoushenStudioHostProjectImportSuccess } from '@joushen-studio/host';
 import { modalOverlay, modalContent } from '../motion';
 import type {
   DesignSystemSummary,
@@ -45,7 +45,7 @@ interface Props {
     file: File,
   ) => Promise<ImportClaudeDesignOutcome | void> | ImportClaudeDesignOutcome | void;
   onImportFolder?: (baseDir: string) => Promise<void> | void;
-  onImportFolderResponse?: (response: OpenDesignHostProjectImportSuccess) => Promise<void> | void;
+  onImportFolderResponse?: (response: JoushenStudioHostProjectImportSuccess) => Promise<void> | void;
   onOpenConnectorsTab?: () => void;
   onClose: () => void;
   initialTab?: CreateTab;

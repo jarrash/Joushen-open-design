@@ -1,4 +1,4 @@
-// Content fixtures for the "Use Open Design everywhere" guide modal.
+// Content fixtures for the "Use Joushen Studio everywhere" guide modal.
 //
 // Kept as a plain data module (no React imports) so the same source
 // feeds both the modal UI and the agent-handoff markdown blob in
@@ -40,9 +40,9 @@ export const GUIDE_SECTIONS: GuideSection[] = [
   {
     id: 'overview',
     tabLabel: 'Overview',
-    heading: 'Open Design works wherever your agent works',
+    heading: 'Joushen Studio works wherever your agent works',
     intro:
-      'Open Design is more than a window — it is a local privileged daemon ' +
+      'Joushen Studio is more than a window — it is a local privileged daemon ' +
       "(`od`) plus a Skills + Design-Systems + Atoms registry. Once it's " +
       'running on your machine, any code agent (Claude Code, Codex, Cursor, ' +
       'OpenCode/openclaw, Hermes, your own script) can drive generations, ' +
@@ -50,9 +50,9 @@ export const GUIDE_SECTIONS: GuideSection[] = [
       'interchangeable surfaces.',
     bullets: [
       'CLI — `od <command>` for headless scripts, CI, and shell automation.',
-      'MCP server — wires Open Design as a Model Context Protocol server so any MCP-capable agent can list skills, run scenarios, and read artifacts.',
+      'MCP server — wires Joushen Studio as a Model Context Protocol server so any MCP-capable agent can list skills, run scenarios, and read artifacts.',
       'HTTP API — `http://127.0.0.1:7456/api/*` REST + SSE endpoints; the same surface the web UI uses.',
-      'Skills — drop-in `SKILL.md` packs (Claude-compatible) that any agent already on your PATH can invoke without Open Design at all.',
+      'Skills — drop-in `SKILL.md` packs (Claude-compatible) that any agent already on your PATH can invoke without Joushen Studio at all.',
       'Standard artifacts — seed real HTML projects from Skills, bundled default plugins, and community plugin examples before the daemon starts.',
     ],
     snippets: [
@@ -72,7 +72,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
         body:
           'pnpm seed:test-projects --offline --data-dir ./.od \\\n' +
           '  --decks 2 --webs 2 --default-plugins 3 --community-plugins 3\n' +
-          '# Then start Open Design in the shell you normally use for dev:\n' +
+          '# Then start Joushen Studio in the shell you normally use for dev:\n' +
           'pnpm tools-dev',
       },
     ],
@@ -83,7 +83,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
   {
     id: 'cli',
     tabLabel: 'CLI · od',
-    heading: 'Drive Open Design from any shell',
+    heading: 'Drive Joushen Studio from any shell',
     intro:
       'The `od` bin ships with the daemon and is the same binary used by ' +
       'Claude Code / Codex when they run a generation. Most subcommands are ' +
@@ -115,7 +115,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
         body:
           'corepack enable\n' +
           'pnpm install\n' +
-          'pnpm --filter @open-design/daemon build\n' +
+          'pnpm --filter @joushen-studio/daemon build\n' +
           '\n' +
           'export OD_NODE_BIN="${OD_NODE_BIN:-/opt/homebrew/opt/node@24/bin/node}"\n' +
           'export OD_BIN="$PWD/apps/daemon/dist/cli.js"\n' +
@@ -195,11 +195,11 @@ export const GUIDE_SECTIONS: GuideSection[] = [
   {
     id: 'mcp',
     tabLabel: 'MCP server',
-    heading: 'Expose Open Design as an MCP server to any coding agent',
+    heading: 'Expose Joushen Studio as an MCP server to any coding agent',
     intro:
-      'Open Design ships with a Model Context Protocol server (`od mcp`) ' +
+      'Joushen Studio ships with a Model Context Protocol server (`od mcp`) ' +
       'that lets any MCP-capable client — Cursor, Claude Code, Antigravity, ' +
-      'VS Code Copilot Chat, openclaw, hermes — discover Open Design tools ' +
+      'VS Code Copilot Chat, openclaw, hermes — discover Joushen Studio tools ' +
       '(list skills, render previews, generate media, run plugins) without ' +
       'shelling out manually. The daemon publishes a ready-to-paste install ' +
       'snippet via `GET /api/mcp/install-info` for each major client.',
@@ -236,7 +236,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
       },
     ],
     footer:
-      'In the Open Design app, open Settings → Integrations to copy a ' +
+      'In the Joushen Studio app, open Settings → Integrations to copy a ' +
       'client-specific install command (Cursor, Claude Code, Antigravity, ' +
       'VS Code) instead of editing JSON by hand.',
   },
@@ -248,7 +248,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
       'The local daemon serves an HTTP API at `http://127.0.0.1:7456` (port ' +
       'configurable). Every endpoint the web UI calls is also fair game for ' +
       'your scripts. Streaming endpoints (chat turns, project runs) emit ' +
-      'Server-Sent Events with the contract types in `@open-design/contracts`.',
+      'Server-Sent Events with the contract types in `@joushen-studio/contracts`.',
     bullets: [
       '`GET /api/health` — daemon liveness.',
       '`GET /api/skills` and `GET /api/design-systems` — available registries.',
@@ -287,18 +287,18 @@ export const GUIDE_SECTIONS: GuideSection[] = [
     ],
     footer:
       'Pure TypeScript types for every request/response live in ' +
-      '`@open-design/contracts` — import them in your script for full ' +
+      '`@joushen-studio/contracts` — import them in your script for full ' +
       'autocomplete without wiring a generator.',
   },
   {
     id: 'skills',
     tabLabel: 'Skills & headless',
-    heading: 'Drop-in Skills for any agent — even without Open Design running',
+    heading: 'Drop-in Skills for any agent — even without Joushen Studio running',
     intro:
       'A Skill is a directory with a Claude-compatible `SKILL.md` ' +
-      '(YAML front-matter + body). Open Design extends the format with the ' +
+      '(YAML front-matter + body). Joushen Studio extends the format with the ' +
       '`od:` namespace (`mode`, `preview`, `design_system`, `inputs`, …) so ' +
-      'the same artifact can be used both inside Open Design and by a vanilla ' +
+      'the same artifact can be used both inside Joushen Studio and by a vanilla ' +
       'agent like Claude Code, Codex, openclaw, or hermes. Discovery follows ' +
       'a precedence chain so projects can override their own skills.',
     bullets: [
@@ -310,7 +310,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
     ],
     snippets: [
       {
-        label: 'Minimal SKILL.md (Claude-compatible front matter + Open Design extras)',
+        label: 'Minimal SKILL.md (Claude-compatible front matter + Joushen Studio extras)',
         language: 'yaml',
         body:
           '---\n' +
@@ -350,7 +350,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
           'pnpm seed:test-projects --offline --data-dir ./.od \\\n' +
           '  --decks 2 --webs 2 \\\n' +
           '  --default-plugins 3 --community-plugins 3\n' +
-          '# Shell 1: start Open Design after ingesting.\n' +
+          '# Shell 1: start Joushen Studio after ingesting.\n' +
           'pnpm tools-dev\n' +
           '# Shell 2: inspect the produced projects.\n' +
           'od project list --json --daemon-url http://127.0.0.1:7456',

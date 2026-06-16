@@ -24,14 +24,14 @@ import {
   downloadCopyAndClear,
   type ManagedDownloadChecksum,
   type ManagedDownloadProgress,
-} from "@open-design/download";
+} from "@joushen-studio/download";
 import {
   LAUNCHER_SCHEMA_VERSION,
   buildLauncherAfterQuitArgs,
   resolveLauncherVersionPaths,
   validateLauncherRuntimeDescriptor,
   type LauncherRuntimeDescriptor,
-} from "@open-design/launcher-proto";
+} from "@joushen-studio/launcher-proto";
 import {
   DESKTOP_UPDATE_CHANNELS,
   DESKTOP_UPDATE_MODES,
@@ -50,7 +50,7 @@ import {
   type DesktopUpdateStatusSnapshot,
   type DesktopUpdateState,
   type SidecarSource,
-} from "@open-design/sidecar-proto";
+} from "@joushen-studio/sidecar-proto";
 
 import {
   markInstallerObservationOpenFailed,
@@ -726,7 +726,7 @@ async function ensureOwnedUpdateRoot(
           ok: false,
           error: createError(
             "update-root-not-owned",
-            `update root is not empty and has no Open Design updater ownership marker: ${realRoot}`,
+            `update root is not empty and has no Joushen Studio updater ownership marker: ${realRoot}`,
           ),
         };
       }

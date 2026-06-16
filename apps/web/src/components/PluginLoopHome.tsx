@@ -4,7 +4,7 @@ import type {
   ChatSessionMode,
   InstalledPluginRecord,
   ProjectMetadata,
-} from '@open-design/contracts';
+} from '@joushen-studio/contracts';
 import {
   applyPlugin,
   listPlugins,

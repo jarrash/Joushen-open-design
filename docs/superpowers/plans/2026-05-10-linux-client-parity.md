@@ -123,10 +123,10 @@ Use the focused checks below after Linux packaged-client changes:
 
 ```bash
 corepack pnpm guard
-corepack pnpm --filter @open-design/tools-pack test -- linux.test.ts
-corepack pnpm --filter @open-design/tools-pack typecheck
-corepack pnpm --filter @open-design/e2e test -- tests/linux-helpers.test.ts tests/packaged-smoke-workflow.test.ts
-corepack pnpm --filter @open-design/e2e typecheck
+corepack pnpm --filter @joushen-studio/tools-pack test -- linux.test.ts
+corepack pnpm --filter @joushen-studio/tools-pack typecheck
+corepack pnpm --filter @joushen-studio/e2e test -- tests/linux-helpers.test.ts tests/packaged-smoke-workflow.test.ts
+corepack pnpm --filter @joushen-studio/e2e typecheck
 git diff --check
 ```
 

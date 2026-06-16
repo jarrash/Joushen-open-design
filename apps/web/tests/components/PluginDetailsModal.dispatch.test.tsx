@@ -10,7 +10,7 @@
 
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import type { InstalledPluginRecord } from '@open-design/contracts';
+import type { InstalledPluginRecord } from '@joushen-studio/contracts';
 
 import { PluginDetailsModal } from '../../src/components/PluginDetailsModal';
 import { PluginMetaSections } from '../../src/components/plugin-details/PluginMetaSections';
@@ -374,7 +374,7 @@ describe('PluginDetailsModal common metadata coverage', () => {
     expect(html).not.toContain('plugin-meta-sections__heading');
   });
 
-  it('routes official plugin author and source links to the Open Design repo', () => {
+  it('routes official plugin author and source links to the Joushen Studio repo', () => {
     const html = render(
       pluginWithMeta({
         id: 'official-link-meta',

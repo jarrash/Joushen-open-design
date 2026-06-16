@@ -25,8 +25,8 @@ import {
   type ChatSessionMode,
   type ConnectorDetail,
   type InstalledPluginRecord,
-} from '@open-design/contracts';
-import type { OpenDesignHostProjectImportSuccess } from '@open-design/host';
+} from '@joushen-studio/contracts';
+import type { JoushenStudioHostProjectImportSuccess } from '@joushen-studio/host';
 import type { DesignSystemGenerateSnapshot } from './DesignSystemFlow';
 import { useAnalytics } from '../analytics/provider';
 import {
@@ -62,8 +62,8 @@ import type {
   TrackingOnboardingCompletionResult,
   TrackingOnboardingCompletionType,
   TrackingCliProviderId,
-} from '@open-design/contracts/analytics';
-import { agentIdToTracking } from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
+import { agentIdToTracking } from '@joushen-studio/contracts/analytics';
 import { useT } from '../i18n';
 import { navigate, useRoute } from '../router';
 import type {
@@ -184,7 +184,7 @@ const ONBOARDING_DROPDOWN_OPEN_EVENT = 'open-design:onboarding-dropdown-open';
 // `display` based on `--compact-topbar` breakpoint (900px).
 
 // Default scenario plugin for each project kind/intent. The mapping
-// lives in `@open-design/contracts` so the daemon's `/api/projects`
+// lives in `@joushen-studio/contracts` so the daemon's `/api/projects`
 // and `/api/runs` fallbacks resolve to the same plugin id when no
 // `pluginId` is on the request body — plan §3.3 of
 // `specs/current/plugin-driven-flow-plan.md`.
@@ -346,7 +346,7 @@ interface Props {
     file: File,
   ) => Promise<ImportClaudeDesignOutcome | void> | ImportClaudeDesignOutcome | void;
   onImportFolder?: (baseDir: string) => Promise<void> | void;
-  onImportFolderResponse?: (response: OpenDesignHostProjectImportSuccess) => Promise<void> | void;
+  onImportFolderResponse?: (response: JoushenStudioHostProjectImportSuccess) => Promise<void> | void;
   onOpenProject: (id: string) => void;
   onOpenLiveArtifact: (projectId: string, artifactId: string) => void;
   onDeleteProject: (id: string) => Promise<boolean | void> | boolean | void;
@@ -359,7 +359,7 @@ interface Props {
   // accept a `renderDesignSystemCreation` renderer. Guided creation stays
   // reachable from the standalone `design-system-create` route and the
   // Design Systems tab; do not re-thread an onboarding renderer here.
-  onOpenDesignSystem?: (id: string) => void;
+  onJoushenStudioSystem?: (id: string) => void;
   onDesignSystemsRefresh?: () => Promise<void> | void;
   onPersistComposioKey: (composio: AppConfig['composio']) => Promise<void> | void;
   onOpenSettings: (section?: EntrySettingsSection) => void;
@@ -451,7 +451,7 @@ export function EntryShell({
   onRenameProject,
   onChangeDefaultDesignSystem,
   onCreateDesignSystem,
-  onOpenDesignSystem,
+  onJoushenStudioSystem,
   onDesignSystemsRefresh,
   onPersistComposioKey,
   onOpenSettings,
@@ -865,7 +865,7 @@ export function EntryShell({
                     selectedId={defaultDesignSystemId}
                     onSelect={onChangeDefaultDesignSystem}
                     onCreate={onCreateDesignSystem}
-                    onOpenSystem={onOpenDesignSystem}
+                    onOpenSystem={onJoushenStudioSystem}
                     onSystemsRefresh={onDesignSystemsRefresh}
                     onPreview={(id) => setPreviewSystemId(id)}
                   />

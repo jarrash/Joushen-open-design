@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import type { OpenDesignHostUpdaterStatusSnapshot } from '@open-design/host';
+import type { JoushenStudioHostUpdaterStatusSnapshot } from '@joushen-studio/host';
 
 import { Icon } from './Icon';
 import { popoverIn } from '../motion';
@@ -101,7 +101,7 @@ export function UpdaterPopup() {
 
   useEffect(() => {
     let mounted = true;
-    const applyStatus = (status: OpenDesignHostUpdaterStatusSnapshot) => {
+    const applyStatus = (status: JoushenStudioHostUpdaterStatusSnapshot) => {
       if (!mounted) return;
       setModel(deriveUpdaterModel(status, { hostAvailable: true }));
     };

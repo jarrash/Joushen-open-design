@@ -12,8 +12,8 @@ import {
   deriveConfigureGlobals,
   projectKindToTracking,
   fidelityToTracking,
-} from '@open-design/contracts/analytics';
-import type { AmrModelsResponse, ChatSessionMode } from '@open-design/contracts';
+} from '@joushen-studio/contracts/analytics';
+import type { AmrModelsResponse, ChatSessionMode } from '@joushen-studio/contracts';
 import { EntryView } from './components/EntryView';
 import type { IntegrationTab } from './components/IntegrationsView';
 import { MarketplaceView } from './components/MarketplaceView';
@@ -98,7 +98,7 @@ import type {
   PluginShareAction,
   PluginShareProjectOutcome,
 } from './state/projects';
-import type { OpenDesignHostProjectImportSuccess } from '@open-design/host';
+import type { JoushenStudioHostProjectImportSuccess } from '@joushen-studio/host';
 import { useI18n } from './i18n';
 import { liveArtifactTabId } from './types';
 import type {
@@ -340,7 +340,7 @@ function AppInner() {
   // Observability marker. `apps/web/src/observability/white-screen.ts`
   // keys its "app actually mounted" success condition on this attribute
   // because the dynamic-import loading shell (`<div class="od-loading-shell">
-  // Loading Open Design…</div>`) is itself >MIN_VISIBLE_TEXT and would
+  // Loading Joushen Studio…</div>`) is itself >MIN_VISIBLE_TEXT and would
   // otherwise be mistaken for a real mount. Survives subsequent render
   // crashes — once App has mounted at least once, it's no longer a white
   // screen (subsequent failures show up as `$exception`).
@@ -1581,7 +1581,7 @@ function AppInner() {
   // atomically. The renderer never sees the path, token, or daemon DTO;
   // it receives host-owned project identifiers and refreshes project state
   // through the normal daemon API.
-  const handleImportFolderResponse = useCallback(async (result: OpenDesignHostProjectImportSuccess) => {
+  const handleImportFolderResponse = useCallback(async (result: JoushenStudioHostProjectImportSuccess) => {
     rememberLocalProject(result.projectId);
     const project = await getProject(result.projectId);
     if (project != null) {
@@ -2141,7 +2141,7 @@ function AppInner() {
         onRenameProject={handleRenameProject}
         onChangeDefaultDesignSystem={handleChangeDefaultDesignSystem}
         onCreateDesignSystem={() => navigate({ kind: 'design-system-create' })}
-        onOpenDesignSystem={(id: string) => navigate({ kind: 'design-system-detail', designSystemId: id })}
+        onJoushenStudioSystem={(id: string) => navigate({ kind: 'design-system-detail', designSystemId: id })}
         onDesignSystemsRefresh={refreshDesignSystems}
         onPersistComposioKey={handleConfigPersistComposioKey}
         onOpenSettings={openSettings}

@@ -9,13 +9,13 @@ import {
   OPEN_DESIGN_HOST_VERSION,
   clearHostBrowserData,
   checkHostUpdater,
-  detectOpenDesignHostClientType,
+  detectJoushenStudioHostClientType,
   getHostUpdaterStatus,
-  getOpenDesignHost,
+  getJoushenStudioHost,
   installHostUpdater,
-  isOpenDesignHostAvailable,
-  isOpenDesignHostBridge,
-  normalizeOpenDesignHostProjectImportResult,
+  isJoushenStudioHostAvailable,
+  isJoushenStudioHostBridge,
+  normalizeJoushenStudioHostProjectImportResult,
   openHostExternalUrl,
   pickAndImportHostProject,
   printHostPdf,
@@ -24,7 +24,7 @@ import {
   setHostPetVisible,
   subscribeHostUpdater,
 } from "../src/index.js";
-import { createMockOpenDesignHost, installMockOpenDesignHost } from "../src/testing.js";
+import { createMockJoushenStudioHost, installMockJoushenStudioHost } from "../src/testing.js";
 
 const hostRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 
@@ -50,58 +50,58 @@ describe("open-design host contract", () => {
       ...pkg.devDependencies,
       ...pkg.optionalDependencies,
       ...pkg.peerDependencies,
-    }).not.toHaveProperty("@open-design/contracts");
+    }).not.toHaveProperty("@joushen-studio/contracts");
 
     const offenders = filesUnder(join(hostRoot, "src")).filter((path) =>
-      readFileSync(path, "utf8").includes("@open-design/contracts"),
+      readFileSync(path, "utf8").includes("@joushen-studio/contracts"),
     );
     expect(offenders).toEqual([]);
   });
 
   it("recognizes the canonical bridge shape", () => {
-    const host = createMockOpenDesignHost();
-    expect(isOpenDesignHostBridge(host)).toBe(true);
+    const host = createMockJoushenStudioHost();
+    expect(isJoushenStudioHostBridge(host)).toBe(true);
     expect(host.version).toBe(OPEN_DESIGN_HOST_VERSION);
   });
 
   it("rejects legacy or incomplete bridge shapes", () => {
-    expect(isOpenDesignHostBridge({ version: OPEN_DESIGN_HOST_VERSION })).toBe(false);
-    expect(isOpenDesignHostBridge({ ...createMockOpenDesignHost(), version: 1 })).toBe(false);
-    expect(isOpenDesignHostBridge({
-      ...createMockOpenDesignHost(),
+    expect(isJoushenStudioHostBridge({ version: OPEN_DESIGN_HOST_VERSION })).toBe(false);
+    expect(isJoushenStudioHostBridge({ ...createMockJoushenStudioHost(), version: 1 })).toBe(false);
+    expect(isJoushenStudioHostBridge({
+      ...createMockJoushenStudioHost(),
       browser: {},
     })).toBe(false);
-    expect(isOpenDesignHostBridge({
-      ...createMockOpenDesignHost(),
+    expect(isJoushenStudioHostBridge({
+      ...createMockJoushenStudioHost(),
       capture: {},
     })).toBe(false);
-    expect(isOpenDesignHostBridge({
-      ...createMockOpenDesignHost(),
+    expect(isJoushenStudioHostBridge({
+      ...createMockJoushenStudioHost(),
       shell: { openExternal: async () => ({ ok: true }) },
     })).toBe(false);
-    expect(isOpenDesignHostBridge({
-      ...createMockOpenDesignHost(),
-      updater: { status: async () => createMockOpenDesignHost().updater.status() },
+    expect(isJoushenStudioHostBridge({
+      ...createMockJoushenStudioHost(),
+      updater: { status: async () => createMockJoushenStudioHost().updater.status() },
     })).toBe(false);
   });
 
   it("reads the bridge through the package-owned global accessor", () => {
     const scope: Record<string, unknown> = {};
-    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockOpenDesignHost();
-    expect(getOpenDesignHost(scope)?.client.type).toBe("desktop");
-    expect(isOpenDesignHostAvailable(scope)).toBe(true);
-    expect(detectOpenDesignHostClientType(scope)).toBe("desktop");
+    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockJoushenStudioHost();
+    expect(getJoushenStudioHost(scope)?.client.type).toBe("desktop");
+    expect(isJoushenStudioHostAvailable(scope)).toBe(true);
+    expect(detectJoushenStudioHostClientType(scope)).toBe("desktop");
   });
 
   it("falls back to web when no host is installed", () => {
-    expect(getOpenDesignHost({})).toBeNull();
-    expect(isOpenDesignHostAvailable({})).toBe(false);
-    expect(detectOpenDesignHostClientType({})).toBe("web");
+    expect(getJoushenStudioHost({})).toBeNull();
+    expect(isJoushenStudioHostAvailable({})).toBe(false);
+    expect(detectJoushenStudioHostClientType({})).toBe("web");
   });
 
   it("wraps host action throws into structured failures", async () => {
     const scope: Record<string, unknown> = {};
-    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockOpenDesignHost({
+    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockJoushenStudioHost({
       shell: {
         openPath: vi.fn(async () => {
           throw new Error("failed");
@@ -116,7 +116,7 @@ describe("open-design host contract", () => {
   });
 
   it("normalizes privileged project-import results into host-owned identifiers", () => {
-    const result = normalizeOpenDesignHostProjectImportResult({
+    const result = normalizeJoushenStudioHostProjectImportResult({
       ok: true,
       response: {
         project: {
@@ -139,7 +139,7 @@ describe("open-design host contract", () => {
   });
 
   it("accepts imported folders with no detected entry file", () => {
-    const result = normalizeOpenDesignHostProjectImportResult({
+    const result = normalizeJoushenStudioHostProjectImportResult({
       ok: true,
       response: {
         project: {
@@ -162,11 +162,11 @@ describe("open-design host contract", () => {
   });
 
   it("preserves canceled and structured failure project-import results", () => {
-    expect(normalizeOpenDesignHostProjectImportResult({ canceled: true, ok: false })).toEqual({
+    expect(normalizeJoushenStudioHostProjectImportResult({ canceled: true, ok: false })).toEqual({
       canceled: true,
       ok: false,
     });
-    expect(normalizeOpenDesignHostProjectImportResult({
+    expect(normalizeJoushenStudioHostProjectImportResult({
       ok: false,
       reason: "daemon returned HTTP 500",
       details: { code: "boom" },
@@ -178,7 +178,7 @@ describe("open-design host contract", () => {
   });
 
   it("rejects malformed successful project-import results before they reach web callers", () => {
-    expect(normalizeOpenDesignHostProjectImportResult({
+    expect(normalizeJoushenStudioHostProjectImportResult({
       ok: true,
       response: {
         project: { id: "project-1" },
@@ -207,7 +207,7 @@ describe("open-design host contract", () => {
     const print = vi.fn(async () => ({ ok: true as const }));
     const setVisible = vi.fn();
     const scope: Record<string, unknown> = {};
-    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockOpenDesignHost({
+    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockJoushenStudioHost({
       browser: { clearData },
       shell: { openExternal, openPath },
       project: { pickAndImport },
@@ -245,7 +245,7 @@ describe("open-design host contract", () => {
       },
       channel: "beta" as const,
       currentVersion: "1.0.0-beta.0",
-      downloadPath: "/tmp/Open Design Beta.dmg",
+      downloadPath: "/tmp/Joushen Studio Beta.dmg",
       enabled: true,
       mode: "package-launcher" as const,
       platform: "darwin",
@@ -259,7 +259,7 @@ describe("open-design host contract", () => {
     const unsubscribe = vi.fn();
     const subscribe = vi.fn(() => unsubscribe);
     const scope: Record<string, unknown> = {};
-    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockOpenDesignHost({
+    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockJoushenStudioHost({
       updater: { check, install, quit, status: statusFn, subscribe },
     });
 
@@ -290,7 +290,7 @@ describe("open-design host contract", () => {
 
   it("wraps updater action throws into structured failures", async () => {
     const scope: Record<string, unknown> = {};
-    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockOpenDesignHost({
+    scope[OPEN_DESIGN_HOST_GLOBAL] = createMockJoushenStudioHost({
       updater: {
         check: vi.fn(async () => {
           throw new Error("updater failed");
@@ -306,9 +306,9 @@ describe("open-design host contract", () => {
 
   it("installs and restores test hosts without exposing callers to the global key", () => {
     const scope: Record<string, unknown> = {};
-    const restore = installMockOpenDesignHost({ scope });
-    expect(getOpenDesignHost(scope)).not.toBeNull();
+    const restore = installMockJoushenStudioHost({ scope });
+    expect(getJoushenStudioHost(scope)).not.toBeNull();
     restore();
-    expect(getOpenDesignHost(scope)).toBeNull();
+    expect(getJoushenStudioHost(scope)).toBeNull();
   });
 });
