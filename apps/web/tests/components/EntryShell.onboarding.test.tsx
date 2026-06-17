@@ -287,8 +287,8 @@ describe('EntryShell settings menu', () => {
   });
 });
 
-describe('EntryShell onboarding Open Design AMR runtime', () => {
-  it('does not auto-select Open Design AMR when the AMR runtime is unavailable', async () => {
+describe('EntryShell onboarding Joushen Studio AMR runtime', () => {
+  it('does not auto-select Joushen Studio AMR when the AMR runtime is unavailable', async () => {
     globalThis.fetch = vi.fn(async () =>
       jsonResponse({ loggedIn: false, profile: 'prod', user: null, configPath: '/x' }),
     ) as typeof fetch;
@@ -297,7 +297,7 @@ describe('EntryShell onboarding Open Design AMR runtime', () => {
       onRefreshAgents: vi.fn(() => [cliAgent()]),
     });
 
-    expect(screen.queryByRole('button', { name: /Open Design AMR/i })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Joushen Studio AMR/i })).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: /Local coding agent/i }));
 
     await waitFor(() => {
@@ -307,13 +307,13 @@ describe('EntryShell onboarding Open Design AMR runtime', () => {
     expect(screen.queryByText('Sign in to continue')).toBeNull();
   });
 
-  it('shows Open Design AMR as the recommended default when AMR is available', async () => {
+  it('shows Joushen Studio AMR as the recommended default when AMR is available', async () => {
     globalThis.fetch = vi.fn(async () =>
       jsonResponse({ loggedIn: false, profile: 'prod', user: null, configPath: '/x' }),
     ) as typeof fetch;
     const props = renderOnboarding();
 
-    const amrCloud = screen.getByRole('button', { name: /Open Design AMR/i });
+    const amrCloud = screen.getByRole('button', { name: /Joushen Studio AMR/i });
     expect(amrCloud.getAttribute('aria-pressed')).toBe('true');
     expect(amrCloud.textContent).toContain('Officially recommended');
     expect(amrCloud.textContent).toContain('No deploy needed');
@@ -461,7 +461,7 @@ describe('EntryShell onboarding Open Design AMR runtime', () => {
     // AMR selected but signed out: the CTA is "Sign in to continue" and carries
     // the AMR gate tooltip. It stays clickable (starts login), so not aria-disabled.
     const signIn = await screen.findByRole('button', { name: /Sign in to continue/i });
-    expect(signIn.getAttribute('data-tooltip')).toMatch(/Open Design AMR/i);
+    expect(signIn.getAttribute('data-tooltip')).toMatch(/Joushen Studio AMR/i);
     expect(signIn.getAttribute('aria-disabled')).not.toBe('true');
 
     // Switch to Local with no committed agent: Continue is gated (aria-disabled)
@@ -606,7 +606,7 @@ describe('EntryShell onboarding Open Design AMR runtime', () => {
     });
   });
 
-  it('continues normally when Open Design AMR is signed in', async () => {
+  it('continues normally when Joushen Studio AMR is signed in', async () => {
     globalThis.fetch = vi.fn(async () =>
       jsonResponse({
         loggedIn: true,
@@ -1187,12 +1187,12 @@ describe('EntryShell onboarding Open Design AMR runtime', () => {
     expect(skeleton).toBeTruthy();
     // The brand identity is known up-front and rendered solid; only the
     // probe-dependent details shimmer.
-    expect(skeleton?.textContent).toContain('Open Design AMR');
+    expect(skeleton?.textContent).toContain('Joushen Studio AMR');
     expect(skeleton?.getAttribute('aria-busy')).toBe('true');
     expect(skeleton?.querySelectorAll('.onboarding-view__skeleton-line--benefit').length).toBe(4);
     expect(skeleton?.querySelector('.onboarding-view__skeleton-model-bar')).toBeTruthy();
     // The real, selectable AMR card is not present while detecting.
-    expect(screen.queryByRole('button', { name: /Open Design AMR/i })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Joushen Studio AMR/i })).toBeNull();
     // Alternatives remain available throughout detection.
     expect(screen.getByRole('button', { name: /Local coding agent/i })).toBeTruthy();
   });
@@ -1203,7 +1203,7 @@ describe('EntryShell onboarding Open Design AMR runtime', () => {
     ) as typeof fetch;
     renderOnboarding({ agentsLoading: false });
 
-    expect(screen.getByRole('button', { name: /Open Design AMR/i })).toBeTruthy();
+    expect(screen.getByRole('button', { name: /Joushen Studio AMR/i })).toBeTruthy();
     expect(document.querySelector('.onboarding-view__card--skeleton')).toBeNull();
   });
 

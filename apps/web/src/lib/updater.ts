@@ -4,16 +4,16 @@ import {
   downloadHostUpdater,
   getHostUpdaterStatus,
   installHostUpdater,
-  isOpenDesignHostAvailable,
+  isJoushenStudioHostAvailable,
   quitHostAfterUpdaterInstallerOpen,
   subscribeHostUpdater,
-  type OpenDesignHostActionResult,
-  type OpenDesignHostFailure,
-  type OpenDesignHostUpdaterActionOptions,
-  type OpenDesignHostUpdaterResult,
-  type OpenDesignHostUpdaterStatusListener,
-  type OpenDesignHostUpdaterStatusSnapshot,
-} from '@open-design/host';
+  type JoushenStudioHostActionResult,
+  type JoushenStudioHostFailure,
+  type JoushenStudioHostUpdaterActionOptions,
+  type JoushenStudioHostUpdaterResult,
+  type JoushenStudioHostUpdaterStatusListener,
+  type JoushenStudioHostUpdaterStatusSnapshot,
+} from '@joushen-studio/host';
 
 export type UpdaterEnvironment = 'desktop' | 'web';
 
@@ -24,8 +24,8 @@ export type UpdaterDownloadProgress = {
 };
 
 export type UpdaterActionResult =
-  | { ok: true; model: UpdaterModel; status: OpenDesignHostUpdaterStatusSnapshot }
-  | OpenDesignHostFailure;
+  | { ok: true; model: UpdaterModel; status: JoushenStudioHostUpdaterStatusSnapshot }
+  | JoushenStudioHostFailure;
 
 export type UpdaterModel = {
   availableVersion: string | null;
@@ -46,11 +46,11 @@ export type UpdaterModel = {
   upToDate: boolean;
   shouldShowControl: boolean;
   shouldPrompt: boolean;
-  status: OpenDesignHostUpdaterStatusSnapshot | null;
+  status: JoushenStudioHostUpdaterStatusSnapshot | null;
   supported: boolean;
 };
 
-function modelFromHostResult(result: OpenDesignHostUpdaterResult): UpdaterActionResult {
+function modelFromHostResult(result: JoushenStudioHostUpdaterResult): UpdaterActionResult {
   if (!result.ok) return result;
   return {
     ok: true,
@@ -65,7 +65,7 @@ function clampPercent(value: number): number {
 }
 
 function downloadProgressFromStatus(
-  status: OpenDesignHostUpdaterStatusSnapshot | null,
+  status: JoushenStudioHostUpdaterStatusSnapshot | null,
 ): UpdaterDownloadProgress | null {
   if (status == null) return null;
   if (status.state !== OPEN_DESIGN_HOST_UPDATER_STATES.DOWNLOADING) return null;
@@ -85,10 +85,10 @@ function downloadProgressFromStatus(
 }
 
 export function deriveUpdaterModel(
-  status: OpenDesignHostUpdaterStatusSnapshot | null,
+  status: JoushenStudioHostUpdaterStatusSnapshot | null,
   options: { hostAvailable?: boolean } = {},
 ): UpdaterModel {
-  const hostAvailable = options.hostAvailable ?? isOpenDesignHostAvailable();
+  const hostAvailable = options.hostAvailable ?? isJoushenStudioHostAvailable();
   const environment: UpdaterEnvironment = hostAvailable ? 'desktop' : 'web';
   const state = status?.state;
   const busy =
@@ -148,28 +148,28 @@ export function deriveUpdaterModel(
   };
 }
 
-export async function readUpdaterStatus(options?: OpenDesignHostUpdaterActionOptions): Promise<UpdaterActionResult> {
+export async function readUpdaterStatus(options?: JoushenStudioHostUpdaterActionOptions): Promise<UpdaterActionResult> {
   return modelFromHostResult(await getHostUpdaterStatus(options));
 }
 
-export async function checkForUpdaterUpdate(options?: OpenDesignHostUpdaterActionOptions): Promise<UpdaterActionResult> {
+export async function checkForUpdaterUpdate(options?: JoushenStudioHostUpdaterActionOptions): Promise<UpdaterActionResult> {
   return modelFromHostResult(await checkHostUpdater(options));
 }
 
-export async function downloadUpdaterUpdate(options?: OpenDesignHostUpdaterActionOptions): Promise<UpdaterActionResult> {
+export async function downloadUpdaterUpdate(options?: JoushenStudioHostUpdaterActionOptions): Promise<UpdaterActionResult> {
   return modelFromHostResult(await downloadHostUpdater(options));
 }
 
-export async function openUpdaterInstaller(options?: OpenDesignHostUpdaterActionOptions): Promise<UpdaterActionResult> {
+export async function openUpdaterInstaller(options?: JoushenStudioHostUpdaterActionOptions): Promise<UpdaterActionResult> {
   return modelFromHostResult(await installHostUpdater(options));
 }
 
 export async function quitAfterUpdaterInstallerOpen(
-  options?: OpenDesignHostUpdaterActionOptions,
-): Promise<OpenDesignHostActionResult> {
+  options?: JoushenStudioHostUpdaterActionOptions,
+): Promise<JoushenStudioHostActionResult> {
   return await quitHostAfterUpdaterInstallerOpen(options);
 }
 
-export function subscribeToUpdaterStatus(listener: OpenDesignHostUpdaterStatusListener): () => void {
+export function subscribeToUpdaterStatus(listener: JoushenStudioHostUpdaterStatusListener): () => void {
   return subscribeHostUpdater(listener);
 }

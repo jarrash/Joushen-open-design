@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import type { OpenDesignHostUpdaterStatusSnapshot } from '@open-design/host';
-import { installMockOpenDesignHost } from '@open-design/host/testing';
+import type { JoushenStudioHostUpdaterStatusSnapshot } from '@joushen-studio/host';
+import { installMockJoushenStudioHost } from '@joushen-studio/host/testing';
 
 import {
   checkForUpdaterUpdate,
@@ -12,14 +12,14 @@ import {
   readUpdaterStatus,
 } from '../../src/lib/updater';
 
-function downloadedStatus(overrides: Partial<OpenDesignHostUpdaterStatusSnapshot> = {}): OpenDesignHostUpdaterStatusSnapshot {
+function downloadedStatus(overrides: Partial<JoushenStudioHostUpdaterStatusSnapshot> = {}): JoushenStudioHostUpdaterStatusSnapshot {
   return {
     arch: 'arm64',
     artifact: {
-      name: 'Open Design Beta.dmg',
+      name: 'Joushen Studio Beta.dmg',
       platformKey: 'macAppleSilicon',
       type: 'dmg',
-      url: 'https://fixture.test/Open Design Beta.dmg',
+      url: 'https://fixture.test/Joushen Studio Beta.dmg',
     },
     availableVersion: '1.2.3-beta.4',
     capabilities: {
@@ -30,7 +30,7 @@ function downloadedStatus(overrides: Partial<OpenDesignHostUpdaterStatusSnapshot
     },
     channel: 'beta',
     currentVersion: '1.2.3-beta.3',
-    downloadPath: '/tmp/open-design-updater/Open Design Beta.dmg',
+    downloadPath: '/tmp/open-design-updater/Joushen Studio Beta.dmg',
     enabled: true,
     mode: 'package-launcher',
     platform: 'darwin',
@@ -109,10 +109,10 @@ describe('web updater model', () => {
         incoming: {
           arch: 'arm64',
           artifact: {
-            name: 'Open Design Beta 1.2.3-beta.5.dmg',
+            name: 'Joushen Studio Beta 1.2.3-beta.5.dmg',
             platformKey: 'macAppleSilicon',
             type: 'dmg',
-            url: 'https://fixture.test/Open Design Beta 1.2.3-beta.5.dmg',
+            url: 'https://fixture.test/Joushen Studio Beta 1.2.3-beta.5.dmg',
           },
           channel: 'beta',
           key: '1.2.3-beta.5-mac-arm64',
@@ -140,7 +140,7 @@ describe('web updater model', () => {
         installResult: {
           dryRun: true,
           openedAt: '2026-05-19T00:00:00.000Z',
-          path: '/tmp/open-design-updater/Open Design Beta.dmg',
+          path: '/tmp/open-design-updater/Joushen Studio Beta.dmg',
         },
       }),
       { hostAvailable: true },
@@ -163,11 +163,11 @@ describe('web updater model', () => {
       installResult: {
         dryRun: true,
         openedAt: '2026-05-19T00:00:00.000Z',
-        path: status.downloadPath ?? '/tmp/open-design-updater/Open Design Beta.dmg',
+        path: status.downloadPath ?? '/tmp/open-design-updater/Joushen Studio Beta.dmg',
       },
     }));
     const quit = vi.fn(async () => ({ ok: true as const }));
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           check,

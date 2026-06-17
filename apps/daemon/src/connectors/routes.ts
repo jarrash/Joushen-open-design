@@ -293,7 +293,7 @@ function renderConnectorConnectedHtml(connectorId: string): string {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>${connectorLabelHtml} connected · Open Design</title>
+    <title>${connectorLabelHtml} connected · Joushen Studio</title>
     <style>
       :root {
         --bg: #faf9f7;
@@ -305,9 +305,9 @@ function renderConnectorConnectedHtml(connectorId: string): string {
         --text-strong: #0d0c0a;
         --text-muted: #74716b;
         --text-soft: #989590;
-        --accent: #c96442;
-        --accent-hover: #b45a3b;
-        --accent-tint: #fbeee5;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --accent-tint: #eef4ff;
         --green: #1f7a3a;
         --green-bg: #e8f7ee;
         --green-border: #c6ead2;
@@ -357,7 +357,7 @@ function renderConnectorConnectedHtml(connectorId: string): string {
         height: 24px;
         border-radius: 50%;
         color: var(--accent);
-        background: linear-gradient(135deg, #fbeee5 0%, #f5d8cb 100%);
+        background: linear-gradient(135deg, #eef4ff 0%, #cfe0ff 100%);
         font-family: var(--serif);
         font-size: 11px;
         font-weight: 700;
@@ -446,9 +446,9 @@ function renderConnectorConnectedHtml(connectorId: string): string {
   </head>
   <body>
     <main aria-labelledby="callback-title">
-      <div class="chrome" aria-label="Open Design">
+      <div class="chrome" aria-label="Joushen Studio">
         <span class="brand-mark" aria-hidden="true">OD</span>
-        <span class="brand-title">Open Design</span>
+        <span class="brand-title">Joushen Studio</span>
       </div>
       <section class="content">
         <div class="status-icon" aria-hidden="true">
@@ -458,7 +458,7 @@ function renderConnectorConnectedHtml(connectorId: string): string {
         </div>
         <div>
           <h1 id="callback-title">${connectorLabelHtml} connected</h1>
-          <p>Your connector is ready to use in Open Design.</p>
+          <p>Your connector is ready to use in Joushen Studio.</p>
         </div>
         <div class="summary" role="status">
           <span class="summary-label">
@@ -480,7 +480,7 @@ function renderConnectorConnectedHtml(connectorId: string): string {
         const hint = document.getElementById('auto-close-hint');
         function showManualCloseHint() {
           closeButton.textContent = 'Close this tab manually';
-          hint.textContent = 'Your browser blocked automatic closing. You can close this tab and return to Open Design.';
+          hint.textContent = 'Your browser blocked automatic closing. You can close this tab and return to Joushen Studio.';
         }
         function hasLiveOpener() {
           try {
@@ -513,10 +513,10 @@ function renderConnectorConnectedHtml(connectorId: string): string {
             window.opener.postMessage(message, '*');
             window.setTimeout(requestClose, 900);
           } else {
-            hint.textContent = 'You can close this tab and return to Open Design.';
+            hint.textContent = 'You can close this tab and return to Joushen Studio.';
           }
         } catch {
-          hint.textContent = 'You can close this tab and return to Open Design.';
+          hint.textContent = 'You can close this tab and return to Joushen Studio.';
         }
         closeButton.addEventListener('click', requestClose);
       })();

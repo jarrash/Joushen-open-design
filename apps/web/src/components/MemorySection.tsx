@@ -6,7 +6,7 @@ import {
   useState,
   type CSSProperties,
 } from 'react';
-import { Button } from '@open-design/components';
+import { Button } from '@joushen-studio/components';
 import { Icon, type IconName } from './Icon';
 import { ConnectorLogo, useResolvedTheme } from './ConnectorLogo';
 import { useT } from '../i18n';
@@ -30,7 +30,7 @@ import type {
   MemoryTreeNode,
   MemorySuggestion,
   MemoryType,
-} from '@open-design/contracts';
+} from '@joushen-studio/contracts';
 import {
   connectConnector,
   fetchConnectorStatuses,
@@ -373,8 +373,8 @@ function describeExtractionFailure(record: MemoryExtractionRecord): FriendlyExtr
   const haystack = `${parsed.message} ${parsed.code} ${record.error}`.toLowerCase();
   const source =
     record.kind === 'connector'
-      ? 'Connected apps were read, but OpenDesign could not turn that context into memory.'
-      : 'OpenDesign could not run memory extraction for this chat.';
+      ? 'Connected apps were read, but JoushenStudio could not turn that context into memory.'
+      : 'JoushenStudio could not run memory extraction for this chat.';
 
   if (
     parsed.status === 401
@@ -1251,7 +1251,7 @@ export function MemorySection({
       } else if (!result.attemptedLLM) {
         setConnectorError(
           describeConnectorReadIssue(result)
-          ?? 'No memory suggestions found. OpenDesign could not read useful content from the selected app yet.',
+          ?? 'No memory suggestions found. JoushenStudio could not read useful content from the selected app yet.',
         );
       } else {
         setConnectorStatus(
@@ -1875,7 +1875,7 @@ export function MemorySection({
             <div>
               <h4>Learn from chats</h4>
               <p className="hint">
-                OpenDesign can learn preferences and project facts from future
+                JoushenStudio can learn preferences and project facts from future
                 chat turns.
               </p>
             </div>
@@ -1929,7 +1929,7 @@ export function MemorySection({
               <div>
                 <h4>Choose sources</h4>
                 <p className="hint">
-                  Select connected apps first. OpenDesign only scans the apps you choose.
+                  Select connected apps first. JoushenStudio only scans the apps you choose.
                 </p>
               </div>
               <span className="memory-source-badge">

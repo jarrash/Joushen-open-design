@@ -12,9 +12,9 @@ import {
 import { createPortal, flushSync } from 'react-dom';
 import {
   clearHostBrowserData,
-  isOpenDesignHostAvailable,
-} from '@open-design/host';
-import type { TrackingReferenceBoardCategory } from '@open-design/contracts/analytics';
+  isJoushenStudioHostAvailable,
+} from '@joushen-studio/host';
+import type { TrackingReferenceBoardCategory } from '@joushen-studio/contracts/analytics';
 import { useAnalytics } from '../analytics/provider';
 import {
   trackReferenceBoardClick,
@@ -627,7 +627,7 @@ export function browserUsePrompt(action: BrowserUseAction, context: BrowserUsePr
   return [
     '@agent-browser',
     '',
-    'Use the selected Open Design Browser tab as the bound target.',
+    'Use the selected Joushen Studio Browser tab as the bound target.',
     'Browser tab context:',
     `- tab: ${tabLabel}`,
     `- title: ${title}`,
@@ -706,7 +706,7 @@ export function DesignBrowserPanel({
   sendDisabled = false,
 }: DesignBrowserPanelProps) {
   const t = useT();
-  const desktopHostAvailable = isOpenDesignHostAvailable();
+  const desktopHostAvailable = isJoushenStudioHostAvailable();
   const initialState = initialBrowserState(initialUrl, initialTitle);
   // `loadUrl` is the navigation target bound to the <webview>/<iframe> `src`.
   // It changes ONLY on user-initiated navigation. `currentUrl` is the committed
@@ -2673,7 +2673,7 @@ function DesignBrowserStart({
     <div className="db-start">
       <div className="db-start-hero">
         <div className="db-start-hero-copy">
-          <div className="db-kicker">Open Design browser</div>
+          <div className="db-kicker">Joushen Studio browser</div>
           <h2>Reference Board</h2>
           <p className="db-start-sub">
             A curated set of references across inspiration, real product UI,

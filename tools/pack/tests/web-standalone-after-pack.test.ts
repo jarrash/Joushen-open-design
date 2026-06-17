@@ -41,9 +41,9 @@ async function writePnpmLinkedPackage(standaloneRoot: string, packageName: strin
 }
 
 async function writeRootWebPackage(resourcesRoot: string): Promise<void> {
-  const webPackageRoot = join(resourcesRoot, "app", "node_modules", "@open-design", "web");
+  const webPackageRoot = join(resourcesRoot, "app", "node_modules", "@joushen-studio", "web");
   await mkdir(join(webPackageRoot, "dist", "sidecar"), { recursive: true });
-  await writeFile(join(webPackageRoot, "package.json"), "{\"name\":\"@open-design/web\"}\n", "utf8");
+  await writeFile(join(webPackageRoot, "package.json"), "{\"name\":\"@joushen-studio/web\"}\n", "utf8");
   await writeFile(join(webPackageRoot, "dist", "sidecar", "index.js"), "module.exports = {};\n", "utf8");
 }
 
@@ -112,9 +112,9 @@ async function runFixture(options: {
   const platformName = options.platformName ?? "win32";
   const appOutDir = join(root, "builder", platformName === "darwin" ? "mac-arm64" : "win-unpacked");
   const resourcesRoot = platformName === "darwin"
-    ? join(appOutDir, "Open Design.app", "Contents", "Resources")
+    ? join(appOutDir, "Joushen Studio.app", "Contents", "Resources")
     : join(appOutDir, "resources");
-  const appPath = join(appOutDir, "Open Design.app");
+  const appPath = join(appOutDir, "Joushen Studio.app");
   const auditReportPath = join(root, "audit.json");
   const configPath = join(root, "config.json");
   const oldConfigEnv = process.env[CONFIG_ENV];
@@ -130,7 +130,7 @@ async function runFixture(options: {
     await writeFile(join(electronFrameworkRoot, "Versions", "A", "Electron Framework"), "binary\n", "utf8");
     await writeFile(join(electronFrameworkRoot, "Versions", "Current", "Electron Framework"), "binary\n", "utf8");
     await mkdir(join(frameworksRoot, "ReactiveObjC.framework"), { recursive: true });
-    await mkdir(join(frameworksRoot, "Open Design Helper.app"), { recursive: true });
+    await mkdir(join(frameworksRoot, "Joushen Studio Helper.app"), { recursive: true });
   }
   if (options.omitRootWebPackage !== true) {
     await writeRootWebPackage(resourcesRoot);
@@ -165,7 +165,7 @@ async function runFixture(options: {
     await runWebStandaloneAfterPack({
       appOutDir,
       electronPlatformName: platformName,
-      packager: { appInfo: { productFilename: "Open Design" } },
+      packager: { appInfo: { productFilename: "Joushen Studio" } },
     });
   } catch (error) {
     await rm(root, { force: true, recursive: true });
@@ -323,15 +323,15 @@ describe("web standalone afterPack hook", () => {
         expect.arrayContaining([
           expect.stringMatching(/Electron Framework\.framework\/Versions\/Current$/),
           expect.stringMatching(/ReactiveObjC\.framework$/),
-          expect.stringMatching(/Open Design Helper\.app$/),
-          expect.stringMatching(/Open Design\.app$/),
+          expect.stringMatching(/Joushen Studio Helper\.app$/),
+          expect.stringMatching(/Joushen Studio\.app$/),
         ]),
       );
       expect(signedTargets).not.toContainEqual(expect.stringMatching(/Electron Framework\.framework$/));
       await expect(
         readlink(join(
           fixture.appOutDir,
-          "Open Design.app",
+          "Joushen Studio.app",
           "Contents",
           "Frameworks",
           "Electron Framework.framework",
@@ -342,7 +342,7 @@ describe("web standalone afterPack hook", () => {
       await expect(
         readlink(join(
           fixture.appOutDir,
-          "Open Design.app",
+          "Joushen Studio.app",
           "Contents",
           "Frameworks",
           "Electron Framework.framework",
@@ -352,7 +352,7 @@ describe("web standalone afterPack hook", () => {
       await expect(
         readlink(join(
           fixture.appOutDir,
-          "Open Design.app",
+          "Joushen Studio.app",
           "Contents",
           "Frameworks",
           "Electron Framework.framework",

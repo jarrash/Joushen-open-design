@@ -1,4 +1,4 @@
-export interface OpenDesignDiscordPresenceResponse {
+export interface JoushenStudioDiscordPresenceResponse {
   inviteCode: string;
   inviteUrl: string;
   onlineCount: number;

@@ -27,7 +27,7 @@ import type {
   PluginPipeline,
   PluginPipelineStageEvent,
   PipelineStage,
-} from '@open-design/contracts';
+} from '@joushen-studio/contracts';
 import {
   buildPipelineStageCompletedEvent,
   buildPipelineStageStartedEvent,

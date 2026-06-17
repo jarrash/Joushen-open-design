@@ -26,7 +26,7 @@ import {
   type TrackingFeedbackReasonCode,
   type TrackingFeedbackRatingWithNone,
   type TrackingProjectKind,
-} from "@open-design/contracts/analytics";
+} from "@joushen-studio/contracts/analytics";
 import {
   splitOnQuestionForms,
   stripTrailingOpenQuestionForm,
@@ -198,7 +198,7 @@ function SkillPluginCandidateCard({
         { action },
       );
       setNotice({
-        message: `Open Design contribution task started for ${data?.path ?? "the draft"}.`,
+        message: `Joushen Studio contribution task started for ${data?.path ?? "the draft"}.`,
       });
     } catch (err) {
       setNotice({ message: err instanceof Error ? err.message : String(err) });
@@ -277,11 +277,11 @@ interface Props {
   ) => Promise<{ message?: string; url?: string } | void> | { message?: string; url?: string } | void;
   activePluginActionPaths?: Set<string>;
   hiddenPluginActionPaths?: Set<string>;
-  // Click handler for the post-completion "Share to Open Design" submission
+  // Click handler for the post-completion "Share to Joushen Studio" submission
   // action. ProjectView wires this to handleSend with the bundled
   // `od-share-to-community` trigger prompt.
-  onShareToOpenDesign?: () => void;
-  shareToOpenDesignBusy?: boolean;
+  onShareToJoushenStudio?: () => void;
+  shareToJoushenStudioBusy?: boolean;
   // True only for the most recent assistant message.
   isLast?: boolean;
   // Assistant message id whose run-failure error is rendered as ChatPane's
@@ -344,7 +344,7 @@ const ASSISTANT_MESSAGE_COMPARED_PROPS: Array<keyof Props> = [
   'errorCardOwnerId',
   'nextUserContent',
   'forking',
-  'shareToOpenDesignBusy',
+  'shareToJoushenStudioBusy',
   'suppressDirectionForms',
   'hasDesignSystemContext',
   // Memoized + stable from ChatPane; compared so a late skill-list load
@@ -397,8 +397,8 @@ function AssistantMessageImpl({
   onRequestPluginFolderAgentAction,
   activePluginActionPaths = new Set(),
   hiddenPluginActionPaths = new Set(),
-  onShareToOpenDesign,
-  shareToOpenDesignBusy = false,
+  onShareToJoushenStudio,
+  shareToJoushenStudioBusy = false,
   isLast,
   errorCardOwnerId = null,
   nextUserContent,
@@ -574,9 +574,9 @@ function AssistantMessageImpl({
     hasEmptyResponse ||
     !!copyMarkdown ||
     canFork;
-  const canShowOpenDesignSubmission = !!onShareToOpenDesign && showFeedback && runSucceeded;
-  const showOpenDesignSubmission =
-    canShowOpenDesignSubmission && (!!isLast || shareToOpenDesignBusy);
+  const canShowJoushenStudioSubmission = !!onShareToJoushenStudio && showFeedback && runSucceeded;
+  const showJoushenStudioSubmission =
+    canShowJoushenStudioSubmission && (!!isLast || shareToJoushenStudioBusy);
   // "Next step" only makes sense once there is a deliverable to act on. Anchor
   // the whole card (toolbox cascade + Share + Contribute) on a previewable HTML
   // artifact — produced this turn or earlier in the project. A pure
@@ -587,7 +587,7 @@ function AssistantMessageImpl({
     !!projectId &&
     runSucceeded &&
     !!nextStepArtifactName &&
-    ((!!isLast && !!onToolboxAction) || showOpenDesignSubmission);
+    ((!!isLast && !!onToolboxAction) || showJoushenStudioSubmission);
   // Pre-output vs working: before any real content (text / thinking / tools /
   // files) the footer shimmers "Preparing…"; the moment content lands it
   // flips to "Working". The elapsed clock stays anchored to the persisted run
@@ -797,8 +797,8 @@ function AssistantMessageImpl({
             onDownload={isLast && nextStepArtifactName ? onArtifactDownload : undefined}
             skills={isLast ? nextStepSkills : undefined}
             toolboxSkillNames={isLast ? toolboxSkillNames : undefined}
-            onShareToOpenDesign={showOpenDesignSubmission ? onShareToOpenDesign : undefined}
-            shareToOpenDesignBusy={shareToOpenDesignBusy}
+            onShareToJoushenStudio={showJoushenStudioSubmission ? onShareToJoushenStudio : undefined}
+            shareToJoushenStudioBusy={shareToJoushenStudioBusy}
           />
         ) : null}
       </div>
@@ -1781,7 +1781,7 @@ function PluginActionPanel({
                   <span>
                     {actionBusy && busyKey === `contribute:${folder.path}`
                       ? "Sending..."
-                      : "Open Design PR"}
+                      : "Joushen Studio PR"}
                   </span>
                 </button>
                 {onRequestOpenFile ? (
@@ -1877,7 +1877,7 @@ function pathMatchesFolderFileBasename(
 }
 
 function hasPluginFinalActionHint(content: string): boolean {
-  return /\b(Add to My plugins|Open Design PR|Publish repo|plugin publish|ready to publish|ready to add)\b/i.test(
+  return /\b(Add to My plugins|Joushen Studio PR|Publish repo|plugin publish|ready to publish|ready to add)\b/i.test(
     content,
   );
 }

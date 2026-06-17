@@ -8,7 +8,7 @@
  * Key brand decisions encoded here:
  *   - Parchment (#f5f4ed) as page canvas — never pure white
  *   - Ivory (#faf9f5) for elevated card surfaces
- *   - Terracotta (#c96442) as the single brand accent — earthy, un-tech
+ *   - Terracotta (#2563eb) as the single brand accent — earthy, un-tech
  *   - All grays carry a yellow-brown undertone — no cool blue-grays
  *   - Serif for headings, sans for UI — the typographic identity split
  *   - Ring-based depth (0 0 0 1px) instead of traditional drop shadows
@@ -40,7 +40,7 @@
   /* ─── Accent ──────────────────────────────────────────────────────
    * Terracotta Brand — the only chromatic element on most screens.
    * Used for primary CTA buttons and highest-signal brand moments only. */
-  --accent: #c96442;
+  --accent: #2563eb;
   --accent-on: #faf9f5;      /* Ivory — fg when terracotta is the bg */
   --accent-hover: color-mix(in oklab, var(--accent), black 8%);
   --accent-active: color-mix(in oklab, var(--accent), black 14%);

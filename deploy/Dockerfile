@@ -33,9 +33,9 @@ RUN corepack enable && \
     pnpm install --frozen-lockfile
 
 COPY apps ./apps
-RUN pnpm --filter @open-design/daemon build && \
-    pnpm --filter @open-design/web build && \
-    pnpm --filter @open-design/daemon deploy --legacy --prod /app/deploy/daemon && \
+RUN pnpm --filter @joushen-studio/daemon build && \
+    pnpm --filter @joushen-studio/web build && \
+    pnpm --filter @joushen-studio/daemon deploy --legacy --prod /app/deploy/daemon && \
     pnpm store prune && \
     rm -rf \
       /root/.cache \

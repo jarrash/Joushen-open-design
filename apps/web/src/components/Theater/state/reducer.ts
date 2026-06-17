@@ -6,7 +6,7 @@ import type {
   ParserWarningKind,
   RoundDecision,
   ShipStatus,
-} from '@open-design/contracts/critique';
+} from '@joushen-studio/contracts/critique';
 
 /**
  * Synthetic reducer action the host hooks (`useCritiqueStream`,

@@ -611,7 +611,7 @@ body::before {
   font-size: 18px;
 }
 /*
- * Combined brand lockup — the glyph + "Open Design" wordmark as a single
+ * Combined brand lockup — the glyph + "Joushen Studio" wordmark as a single
  * SVG (`/logo-lockup.svg`, viewBox 225×83). Sized by height so the glyph
  * keeps roughly its previous 44px optical weight while the wordmark sets
  * its own width. Replaces the old `.brand-mark` glyph + `.brand-name`
@@ -2757,7 +2757,7 @@ section.tight { padding: 90px 0; }
  * bone/paper palette; no dark panels.
  */
 /* ---------- Labs product-window showcase ----------
- * The Open Design deck editor rendered as a static window, sitting on a
+ * The Joushen Studio deck editor rendered as a static window, sitting on a
  * full-bleed canvas (`heroImage`). The mode Dock floats over the window's
  * lower edge and swaps the deck preview (`.la-slide img`). All chrome below
  * is purely presentational (SSR/no-JS). */
@@ -4218,7 +4218,7 @@ section.tight { padding: 90px 0; }
   background: url('/cta-bg.webp?v=2') center / cover no-repeat;
   z-index: 0;
 }
-/* Open Design Home window floating over the mural, centered in the lower half;
+/* Joushen Studio Home window floating over the mural, centered in the lower half;
    its bottom is clipped by the block's overflow:hidden (matching the comp). */
 .cta-window {
   position: absolute;
@@ -4383,7 +4383,7 @@ section.tight { padding: 90px 0; }
   letter-spacing: -0.022em;
   color: var(--ink);
   margin: 0 0 16px;
-  /* CJK titles ("Open Design 订阅") must wrap at the space, never inside the
+  /* CJK titles ("Joushen Studio 订阅") must wrap at the space, never inside the
      CJK word; balance keeps the two lines visually even. */
   word-break: keep-all;
   text-wrap: balance;
@@ -4846,7 +4846,7 @@ footer .container {
 /* ---------- footer masthead ----------
  *
  * Masthead sign-off under the footer link columns: a container-filling
- * two-tone "Open Design." wordmark. One class contract shared by
+ * two-tone "Joushen Studio." wordmark. One class contract shared by
  * `site-footer.astro` and the homepage footer in `page.tsx`.
  */
 .foot-masthead {
@@ -4857,7 +4857,7 @@ footer .container {
   font-weight: 800;
   /* Fills the 964px column at the 1440px design width and degrades fluidly.
      The lower bound follows the viewport (10.4vw) rather than a fixed 52px
-     floor: "Open Design." is ~5.75em wide here, so the old 52px floor rendered
+     floor: "Joushen Studio." is ~5.75em wide here, so the old 52px floor rendered
      ~299px and overflowed the padded mobile footer box (100vw - 48px ≈ 272px on
      a 320px phone), where the page's global overflow-x:hidden clipped it.
      10.4vw always satisfies 10.4vw·5.75 ≤ 100vw-48, so the sign-off fits at

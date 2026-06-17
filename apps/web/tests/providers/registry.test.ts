@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { installMockOpenDesignHost } from '@open-design/host/testing';
+import { installMockJoushenStudioHost } from '@joushen-studio/host/testing';
 
 import {
   cancelConnectorAuthorization,
@@ -645,7 +645,7 @@ describe('connectConnector', () => {
     vi.stubGlobal('window', {
       open,
     } as unknown as Window & typeof globalThis);
-    const restoreHost = installMockOpenDesignHost({
+    const restoreHost = installMockJoushenStudioHost({
       host: { shell: { openExternal } },
     });
     const fetchMock = vi.fn(async (url: string) => {
@@ -681,7 +681,7 @@ describe('connectConnector', () => {
     vi.stubGlobal('window', {
       open,
     } as unknown as Window & typeof globalThis);
-    const restoreHost = installMockOpenDesignHost({
+    const restoreHost = installMockJoushenStudioHost({
       host: { shell: { openExternal } },
     });
     const fetchMock = vi.fn(async (url: string) => {
@@ -703,7 +703,7 @@ describe('connectConnector', () => {
       await expect(connectConnector('github')).resolves.toEqual({
         connector: { id: 'github', name: 'GitHub', status: 'available', tools: [] },
         auth: { kind: 'redirect_required', redirectUrl: 'https://example.com/oauth' },
-        error: 'Popup blocked. Allow popups for Open Design and try again.',
+        error: 'Popup blocked. Allow popups for Joushen Studio and try again.',
       });
     } finally {
       restoreHost();

@@ -108,7 +108,7 @@ describe("packaged smoke workflow", () => {
 
     expect(job).toContain("runs-on: windows-latest");
     expect(job).toContain("needs.change_scopes.outputs.tools_pack_tests_required == 'true'");
-    expect(job).toContain("pnpm --filter @open-design/tools-pack exec vitest run tests/launcher-payload.test.ts");
+    expect(job).toContain("pnpm --filter @joushen-studio/tools-pack exec vitest run tests/launcher-payload.test.ts");
     expect(validate).toContain("windows_tools_pack_payload_tests");
   });
 
@@ -558,7 +558,7 @@ describe("packaged smoke workflow", () => {
           {
         artifacts: {
           dmg: {
-            url: "https://releases.open-design.ai/beta/versions/1.2.3-beta.3.unsigned/Open Design Beta.dmg",
+            url: "https://releases.open-design.ai/beta/versions/1.2.3-beta.3.unsigned/Joushen Studio Beta.dmg",
           },
         },
         channel: "beta",
@@ -642,7 +642,7 @@ describe("packaged smoke workflow", () => {
           {
         artifacts: {
           dmg: {
-            url: "https://releases.open-design.ai/beta/versions/1.2.3-beta.4.unsigned/Open Design Beta.dmg",
+            url: "https://releases.open-design.ai/beta/versions/1.2.3-beta.4.unsigned/Joushen Studio Beta.dmg",
           },
         },
         channel: "beta",
@@ -726,7 +726,7 @@ describe("packaged smoke workflow", () => {
           {
         artifacts: {
           dmg: {
-            url: "https://releases.open-design.ai/beta/versions/1.2.3-beta.4.unsigned/Open Design Beta.dmg",
+            url: "https://releases.open-design.ai/beta/versions/1.2.3-beta.4.unsigned/Joushen Studio Beta.dmg",
           },
         },
         channel: "beta",
@@ -1157,8 +1157,8 @@ function stableNightlyMetadataFixture(baseVersion: string, nightlyVersion: strin
       mac: {
         arch: "arm64",
         artifacts: {
-          dmg: artifact("Open Design.dmg"),
-          zip: artifact("Open Design-mac-arm64.zip"),
+          dmg: artifact("Joushen Studio.dmg"),
+          zip: artifact("Joushen Studio-mac-arm64.zip"),
         },
         enabled: true,
         signed: true,
@@ -1166,8 +1166,8 @@ function stableNightlyMetadataFixture(baseVersion: string, nightlyVersion: strin
       macIntel: {
         arch: "x64",
         artifacts: {
-          dmg: artifact("Open Design Intel.dmg"),
-          zip: artifact("Open Design-mac-x64.zip"),
+          dmg: artifact("Joushen Studio Intel.dmg"),
+          zip: artifact("Joushen Studio-mac-x64.zip"),
         },
         enabled: true,
         signed: true,
@@ -1175,7 +1175,7 @@ function stableNightlyMetadataFixture(baseVersion: string, nightlyVersion: strin
       win: {
         arch: "x64",
         artifacts: {
-          installer: artifact("Open Design Setup.exe"),
+          installer: artifact("Joushen Studio Setup.exe"),
         },
         enabled: true,
       },

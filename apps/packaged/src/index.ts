@@ -4,15 +4,15 @@ import {
   SIDECAR_MODES,
   SIDECAR_SOURCES,
   type SidecarStamp,
-} from "@open-design/sidecar-proto";
-import { parseLauncherAfterQuitArgs } from "@open-design/launcher-proto";
+} from "@joushen-studio/sidecar-proto";
+import { parseLauncherAfterQuitArgs } from "@joushen-studio/launcher-proto";
 import {
   bootstrapSidecarRuntime,
   createSidecarLaunchEnv,
   resolveAppIpcPath,
-} from "@open-design/sidecar";
-import { applyOsLocaleSwitch, createSplashWindow } from "@open-design/desktop/main";
-import { readProcessStamp } from "@open-design/platform";
+} from "@joushen-studio/sidecar";
+import { applyOsLocaleSwitch, createSplashWindow } from "@joushen-studio/desktop/main";
+import { readProcessStamp } from "@joushen-studio/platform";
 import { join } from "node:path";
 import { app, dialog } from "electron";
 
@@ -153,7 +153,7 @@ async function main(): Promise<void> {
   });
   registerOdProtocol(sidecars.web.url ?? "http://127.0.0.1:0");
 
-  const { runDesktopMain } = await import("@open-design/desktop/main");
+  const { runDesktopMain } = await import("@joushen-studio/desktop/main");
   await runDesktopMain(runtime, {
     splashWindow: splash.window,
     splashStartedAt: splash.startedAt,

@@ -22,7 +22,7 @@ import {
   agentIdToTracking,
   byokProtocolToTracking,
   modelIdForTracking,
-} from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
 import { useAnalytics } from '../analytics/provider';
 import {
   amrHandoffDeviceId,
@@ -131,7 +131,7 @@ function markAmrReminderSeen(): void {
 }
 
 function displayAgentName(agent: Pick<AgentInfo, 'id' | 'name'>): string {
-  return agent.id === 'amr' ? 'Open Design AMR' : agent.name;
+  return agent.id === 'amr' ? 'Joushen Studio AMR' : agent.name;
 }
 
 function displayAgentChipName(agent: Pick<AgentInfo, 'id' | 'name'>): string {

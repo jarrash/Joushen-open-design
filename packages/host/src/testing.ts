@@ -1,29 +1,29 @@
 import {
   OPEN_DESIGN_HOST_GLOBAL,
   OPEN_DESIGN_HOST_VERSION,
-  type OpenDesignHostBridge,
-  type OpenDesignHostGlobalScope,
-  type OpenDesignHostUpdaterStatusSnapshot,
+  type JoushenStudioHostBridge,
+  type JoushenStudioHostGlobalScope,
+  type JoushenStudioHostUpdaterStatusSnapshot,
 } from "./index.js";
 
-export type MockOpenDesignHost = Partial<Omit<OpenDesignHostBridge, "capture" | "client" | "pdf" | "pet" | "project" | "shell" | "updater">> & {
-  browser?: Partial<OpenDesignHostBridge["browser"]>;
-  capture?: Partial<OpenDesignHostBridge["capture"]>;
-  client?: Partial<OpenDesignHostBridge["client"]>;
-  pdf?: Partial<OpenDesignHostBridge["pdf"]>;
-  pet?: Partial<OpenDesignHostBridge["pet"]>;
-  project?: Partial<OpenDesignHostBridge["project"]>;
-  shell?: Partial<OpenDesignHostBridge["shell"]>;
-  updater?: Partial<OpenDesignHostBridge["updater"]>;
+export type MockJoushenStudioHost = Partial<Omit<JoushenStudioHostBridge, "capture" | "client" | "pdf" | "pet" | "project" | "shell" | "updater">> & {
+  browser?: Partial<JoushenStudioHostBridge["browser"]>;
+  capture?: Partial<JoushenStudioHostBridge["capture"]>;
+  client?: Partial<JoushenStudioHostBridge["client"]>;
+  pdf?: Partial<JoushenStudioHostBridge["pdf"]>;
+  pet?: Partial<JoushenStudioHostBridge["pet"]>;
+  project?: Partial<JoushenStudioHostBridge["project"]>;
+  shell?: Partial<JoushenStudioHostBridge["shell"]>;
+  updater?: Partial<JoushenStudioHostBridge["updater"]>;
 };
 
-export type MockOpenDesignHostOptions = {
-  host?: MockOpenDesignHost;
-  scope?: OpenDesignHostGlobalScope;
+export type MockJoushenStudioHostOptions = {
+  host?: MockJoushenStudioHost;
+  scope?: JoushenStudioHostGlobalScope;
 };
 
-function defaultHost(): OpenDesignHostBridge {
-  const updaterStatus: OpenDesignHostUpdaterStatusSnapshot = {
+function defaultHost(): JoushenStudioHostBridge {
+  const updaterStatus: JoushenStudioHostUpdaterStatusSnapshot = {
     arch: "arm64",
     capabilities: {
       canApplyInPlace: false,
@@ -85,7 +85,7 @@ function defaultHost(): OpenDesignHostBridge {
   };
 }
 
-export function createMockOpenDesignHost(overrides: MockOpenDesignHost = {}): OpenDesignHostBridge {
+export function createMockJoushenStudioHost(overrides: MockJoushenStudioHost = {}): JoushenStudioHostBridge {
   const base = defaultHost();
   return {
     ...base,
@@ -101,14 +101,14 @@ export function createMockOpenDesignHost(overrides: MockOpenDesignHost = {}): Op
   };
 }
 
-export function installMockOpenDesignHost(options: MockOpenDesignHostOptions = {}): () => void {
-  const scope = (options.scope ?? globalThis) as OpenDesignHostGlobalScope;
-  const host = createMockOpenDesignHost(options.host);
+export function installMockJoushenStudioHost(options: MockJoushenStudioHostOptions = {}): () => void {
+  const scope = (options.scope ?? globalThis) as JoushenStudioHostGlobalScope;
+  const host = createMockJoushenStudioHost(options.host);
   const windowValue = scope.window;
   const targets = [
     scope,
     ...(typeof windowValue === "object" && windowValue != null && windowValue !== scope
-      ? [windowValue as OpenDesignHostGlobalScope]
+      ? [windowValue as JoushenStudioHostGlobalScope]
       : []),
   ];
   const previous = targets.map((target) => ({

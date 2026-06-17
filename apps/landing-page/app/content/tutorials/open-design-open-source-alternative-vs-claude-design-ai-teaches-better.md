@@ -1,7 +1,7 @@
 ---
 title: 'Forget Claude Design: Use This Open-Source Framework Instead'
 youtubeId: p_UeIz3VKfw
-summary: 'Open Design offers a local-first, open-source alternative to Claude Design, enabling AI-driven UI/UX prototyping with 72 brand design systems and 31 composable skills.'
+summary: 'Joushen Studio offers a local-first, open-source alternative to Claude Design, enabling AI-driven UI/UX prototyping with 72 brand design systems and 31 composable skills.'
 date: 2026-05-03
 category: Tutorial
 durationSeconds: 537

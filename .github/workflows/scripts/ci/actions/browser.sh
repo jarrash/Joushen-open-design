@@ -35,9 +35,9 @@ export OD_E2E_NAMESPACE="ci-browser-${GITHUB_RUN_ID:-local}-${GITHUB_RUN_ATTEMPT
 
 # shellcheck disable=SC2086
 ci_gate_timed_step "playwright-install" pnpm -C e2e exec playwright install $playwright_flags
-ci_gate_timed_step "daemon-build" pnpm --filter @open-design/daemon build
-ci_gate_timed_step "desktop-build" pnpm --filter @open-design/desktop build
-ci_gate_timed_step "web-build-sidecar" pnpm --filter @open-design/web build:sidecar
-ci_gate_timed_step "e2e-vitest" pnpm --filter @open-design/e2e test
+ci_gate_timed_step "daemon-build" pnpm --filter @joushen-studio/daemon build
+ci_gate_timed_step "desktop-build" pnpm --filter @joushen-studio/desktop build
+ci_gate_timed_step "web-build-sidecar" pnpm --filter @joushen-studio/web build:sidecar
+ci_gate_timed_step "e2e-vitest" pnpm --filter @joushen-studio/e2e test
 ci_gate_timed_step "playwright-clean" pnpm -C e2e exec tsx scripts/playwright.ts clean
 ci_gate_timed_step "playwright-critical" pnpm -C e2e run test:ui:critical

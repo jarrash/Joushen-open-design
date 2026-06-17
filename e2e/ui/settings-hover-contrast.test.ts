@@ -21,7 +21,7 @@ async function openSettings(page: Page, theme: Theme) {
       key: STORAGE_KEY,
       value: {
         theme,
-        accentColor: '#c96442',
+        accentColor: '#2563eb',
         mode: 'daemon',
         onboardingCompleted: true,
         agentId: null,

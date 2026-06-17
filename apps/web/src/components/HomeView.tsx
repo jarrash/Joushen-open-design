@@ -8,7 +8,7 @@
 // textarea can live centered in the hero.
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { Dialog, DialogFooter, DialogTitle } from '@open-design/components';
+import { Dialog, DialogFooter, DialogTitle } from '@joushen-studio/components';
 import type {
   ApplyResult,
   ChatSessionMode,
@@ -18,9 +18,9 @@ import type {
   InstalledPluginRecord,
   ProjectKind,
   AudioVoiceOption,
-} from '@open-design/contracts';
-import { DEFAULT_UNSELECTED_SCENARIO_PLUGIN_ID } from '@open-design/contracts';
-import { projectKindToTracking } from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts';
+import { DEFAULT_UNSELECTED_SCENARIO_PLUGIN_ID } from '@joushen-studio/contracts';
+import { projectKindToTracking } from '@joushen-studio/contracts/analytics';
 import { useAnalytics } from '../analytics/provider';
 import {
   trackCommunityGalleryClick,
@@ -53,7 +53,7 @@ import {
   useAIHubMixImageModels,
 } from '../media/aihubmix-image-models';
 import { openFolderDialog, fetchRecentLinkedDirs, pushRecentLinkedDir } from '../providers/registry';
-import { isOpenDesignHostAvailable, pickHostWorkingDir } from '@open-design/host';
+import { isJoushenStudioHostAvailable, pickHostWorkingDir } from '@joushen-studio/host';
 import type {
   DesignSystemSummary,
   Project,
@@ -184,9 +184,9 @@ interface PendingPluginUseHandoff {
 }
 
 const AUTHORING_DEFAULT_SCENARIO_INPUTS = {
-  artifactKind: 'Open Design plugin',
-  audience: 'Open Design plugin authors',
-  topic: 'packaging a reusable workflow as an Open Design plugin',
+  artifactKind: 'Joushen Studio plugin',
+  audience: 'Joushen Studio plugin authors',
+  topic: 'packaging a reusable workflow as a Joushen Studio plugin',
 };
 
 
@@ -1093,7 +1093,7 @@ export function HomeView({
   async function handlePickWorkingDir() {
     // On desktop the working-dir POST is gated behind a host-minted token, so
     // pick through the host bridge to capture { baseDir, token } together.
-    if (isOpenDesignHostAvailable()) {
+    if (isJoushenStudioHostAvailable()) {
       const result = await pickHostWorkingDir();
       if (result.ok) {
         setWorkingDir(result.baseDir);
@@ -1112,7 +1112,7 @@ export function HomeView({
       // auth gate and surface as a confusing late create-time failure.
       // Surface the host error instead and keep the existing working dir.
       setError(
-        `Couldn't open the folder picker (${'reason' in result ? result.reason : 'host unavailable'}). Please update Open Design and try again.`,
+        `Couldn't open the folder picker (${'reason' in result ? result.reason : 'host unavailable'}). Please update Joushen Studio and try again.`,
       );
       return;
     }

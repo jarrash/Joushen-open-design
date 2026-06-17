@@ -9,7 +9,7 @@ created: '2026-06-08'
 
 ### Problem Statement
 
-Packaged Open Design needs a hidden desktop Develop menu for AMR testing.
+Packaged Joushen Studio needs a hidden desktop Develop menu for AMR testing.
 Testers should be able to switch the packaged runtime's AMR Environment
 Profile among `local`, `test`, and `prod` while reusing the same bundled Vela
 / AMR CLI binary.
@@ -26,7 +26,7 @@ Profile among `local`, `test`, and `prod` while reusing the same bundled Vela
 ### Non-Goals
 
 - Do not change the AMR CLI binary selection model.
-- Do not redefine Open Design release channels as AMR environments.
+- Do not redefine Joushen Studio release channels as AMR environments.
 - Do not change AMR account login semantics.
 - Do not add mock or placeholder profile behavior.
 
@@ -458,14 +458,14 @@ Depends on: Step 1, Step 2, Step 3
   from `apps/daemon`: passed.
 - `pnpm exec vitest run -c vitest.config.ts tests/main/amr-environment-profile-menu.test.ts`
   from `apps/desktop`: passed.
-- `pnpm --filter @open-design/daemon typecheck`: passed.
-- `pnpm --filter @open-design/desktop typecheck`: passed.
+- `pnpm --filter @joushen-studio/daemon typecheck`: passed.
+- `pnpm --filter @joushen-studio/desktop typecheck`: passed.
 - `pnpm typecheck`: passed.
 - `pnpm guard`: failed on the pre-existing `tools/pr/` top-level tools
   allowlist violation. The initial sandbox run also failed before checks with
   `listen EPERM` from `tsx`; the elevated rerun reached repository checks and
   failed only on `tools/pr/`.
-- An accidental broad `pnpm --filter @open-design/daemon test --
+- An accidental broad `pnpm --filter @joushen-studio/daemon test --
   tests/runtimes/resolve-model.test.ts` run invoked the wider daemon suite and
   reported unrelated existing failures/timeouts; focused daemon coverage above
   passed with the direct Vitest command.

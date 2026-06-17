@@ -3,13 +3,13 @@
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import type { OpenDesignHostUpdaterStatusListener, OpenDesignHostUpdaterStatusSnapshot } from '@open-design/host';
-import { installMockOpenDesignHost } from '@open-design/host/testing';
+import type { JoushenStudioHostUpdaterStatusListener, JoushenStudioHostUpdaterStatusSnapshot } from '@joushen-studio/host';
+import { installMockJoushenStudioHost } from '@joushen-studio/host/testing';
 
 import { UpdaterPopup } from '../../src/components/UpdaterPopup';
 import { I18nProvider } from '../../src/i18n';
 
-function idleStatus(): OpenDesignHostUpdaterStatusSnapshot {
+function idleStatus(): JoushenStudioHostUpdaterStatusSnapshot {
   return {
     arch: 'arm64',
     capabilities: {
@@ -28,17 +28,17 @@ function idleStatus(): OpenDesignHostUpdaterStatusSnapshot {
   };
 }
 
-function downloadedStatus(overrides: Partial<OpenDesignHostUpdaterStatusSnapshot> = {}): OpenDesignHostUpdaterStatusSnapshot {
+function downloadedStatus(overrides: Partial<JoushenStudioHostUpdaterStatusSnapshot> = {}): JoushenStudioHostUpdaterStatusSnapshot {
   return {
     ...idleStatus(),
     availableVersion: '1.2.3-beta.4',
-    downloadPath: '/tmp/open-design-updater/Open Design Beta.dmg',
+    downloadPath: '/tmp/open-design-updater/Joushen Studio Beta.dmg',
     state: 'downloaded',
     ...overrides,
   };
 }
 
-function payloadDownloadedStatus(overrides: Partial<OpenDesignHostUpdaterStatusSnapshot> = {}): OpenDesignHostUpdaterStatusSnapshot {
+function payloadDownloadedStatus(overrides: Partial<JoushenStudioHostUpdaterStatusSnapshot> = {}): JoushenStudioHostUpdaterStatusSnapshot {
   return downloadedStatus({
     artifact: {
       name: 'open-design-1.2.3-beta.4-mac-arm64-payload.zip',
@@ -81,7 +81,7 @@ describe('UpdaterPopup', () => {
         state: 'error',
       }),
     ]) {
-      restoreHost = installMockOpenDesignHost({
+      restoreHost = installMockJoushenStudioHost({
         host: {
           updater: {
             status: vi.fn(async () => status),
@@ -103,7 +103,7 @@ describe('UpdaterPopup', () => {
   });
 
   it('shows only the ready indicator until the user opens the install prompt', async () => {
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           status: vi.fn(async () => downloadedStatus()),
@@ -120,12 +120,12 @@ describe('UpdaterPopup', () => {
     fireEvent.click(button);
 
     expect(await screen.findByRole('dialog', { name: 'Update ready' })).toBeTruthy();
-    expect(screen.getByText('Open Design 1.2.3-beta.4 is ready. Open Design will close and open the installer.')).toBeTruthy();
+    expect(screen.getByText('Joushen Studio 1.2.3-beta.4 is ready. Joushen Studio will close and open the installer.')).toBeTruthy();
     expect(screen.getByTestId('updater-install-button').textContent).toBe('Install update');
   });
 
   it('uses localized ready prompt copy from the app i18n provider', async () => {
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           status: vi.fn(async () => downloadedStatus()),
@@ -143,11 +143,11 @@ describe('UpdaterPopup', () => {
 
     expect(await screen.findByRole('dialog', { name: '更新已就绪' })).toBeTruthy();
     expect(screen.getByTestId('updater-install-button').textContent).toBe('安装更新');
-    expect(screen.getByText('Open Design 1.2.3-beta.4 已就绪。Open Design 会关闭并打开安装器。')).toBeTruthy();
+    expect(screen.getByText('Joushen Studio 1.2.3-beta.4 已就绪。Joushen Studio 会关闭并打开安装器。')).toBeTruthy();
   });
 
   it('uses install-and-restart copy for payload updates', async () => {
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           status: vi.fn(async () => payloadDownloadedStatus()),
@@ -167,11 +167,11 @@ describe('UpdaterPopup', () => {
 
     expect(await screen.findByRole('dialog', { name: '更新已就绪' })).toBeTruthy();
     expect(screen.getByTestId('updater-install-button').textContent).toBe('安装并重启');
-    expect(screen.getByText('Open Design 1.2.3-beta.4 已就绪。Open Design 会关闭并自动重启。')).toBeTruthy();
+    expect(screen.getByText('Joushen Studio 1.2.3-beta.4 已就绪。Joushen Studio 会关闭并自动重启。')).toBeTruthy();
   });
 
   it('dismisses the confirmation prompt before installation starts', async () => {
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           status: vi.fn(async () => downloadedStatus()),
@@ -193,12 +193,12 @@ describe('UpdaterPopup', () => {
 
   it('keeps the prompt in handoff loading after opening the installer', async () => {
     let status = downloadedStatus();
-    let resolveInstall: (status: OpenDesignHostUpdaterStatusSnapshot) => void = () => undefined;
-    const install = vi.fn(() => new Promise<OpenDesignHostUpdaterStatusSnapshot>((resolve) => {
+    let resolveInstall: (status: JoushenStudioHostUpdaterStatusSnapshot) => void = () => undefined;
+    const install = vi.fn(() => new Promise<JoushenStudioHostUpdaterStatusSnapshot>((resolve) => {
       resolveInstall = resolve;
     }));
     const quit = vi.fn(async () => ({ ok: true as const }));
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           install,
@@ -223,7 +223,7 @@ describe('UpdaterPopup', () => {
         installResult: {
           dryRun: true,
           openedAt: '2026-05-19T00:00:00.000Z',
-          path: '/tmp/open-design-updater/Open Design Beta.dmg',
+          path: '/tmp/open-design-updater/Joushen Studio Beta.dmg',
         },
       });
       resolveInstall(status);
@@ -243,11 +243,11 @@ describe('UpdaterPopup', () => {
       installResult: {
         dryRun: true,
         openedAt: '2026-05-19T00:00:00.000Z',
-        path: '/tmp/open-design-updater/Open Design Beta.dmg',
+        path: '/tmp/open-design-updater/Joushen Studio Beta.dmg',
       },
     }));
     const quit = vi.fn(async () => ({ ok: true as const }));
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           install,
@@ -300,7 +300,7 @@ describe('UpdaterPopup', () => {
       },
       state: 'error',
     }));
-    restoreHost = installMockOpenDesignHost({
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           install,
@@ -322,8 +322,8 @@ describe('UpdaterPopup', () => {
   });
 
   it('reacts to updater subscription events by showing the ready indicator only', async () => {
-    const listeners = new Set<OpenDesignHostUpdaterStatusListener>();
-    restoreHost = installMockOpenDesignHost({
+    const listeners = new Set<JoushenStudioHostUpdaterStatusListener>();
+    restoreHost = installMockJoushenStudioHost({
       host: {
         updater: {
           status: vi.fn(async () => idleStatus()),

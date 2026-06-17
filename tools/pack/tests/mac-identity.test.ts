@@ -47,10 +47,10 @@ describe("resolveMacInstallIdentity", () => {
   it("keeps stable builds on the canonical mac identity", () => {
     expect(resolveMacInstallIdentity(makeConfig("/work", "release-stable"))).toMatchObject({
       appId: "io.open-design.desktop",
-      installerTitle: "Open Design",
-      productName: "Open Design",
-      publicAppBundleName: "Open Design.app",
-      systemAppBundleName: "Open Design.app",
+      installerTitle: "Joushen Studio",
+      productName: "Joushen Studio",
+      publicAppBundleName: "Joushen Studio.app",
+      systemAppBundleName: "Joushen Studio.app",
     });
   });
 
@@ -59,13 +59,13 @@ describe("resolveMacInstallIdentity", () => {
 
     expect(resolveMacInstallIdentity(config)).toEqual({
       appId: "io.open-design.desktop.beta",
-      executableName: "Open Design Beta",
-      installerTitle: "Open Design Beta",
-      productName: "Open Design Beta",
-      publicAppBundleName: "Open Design Beta.app",
-      systemAppBundleName: "Open Design Beta.app",
+      executableName: "Joushen Studio Beta",
+      installerTitle: "Joushen Studio Beta",
+      productName: "Joushen Studio Beta",
+      publicAppBundleName: "Joushen Studio Beta.app",
+      systemAppBundleName: "Joushen Studio Beta.app",
     });
-    expect(resolveMacPaths(config).appPath).toMatch(/Open Design Beta\.app$/);
+    expect(resolveMacPaths(config).appPath).toMatch(/Joushen Studio Beta\.app$/);
   });
 
   it("uses first-class preview app identity for preview release namespaces", () => {
@@ -73,13 +73,13 @@ describe("resolveMacInstallIdentity", () => {
 
     expect(resolveMacInstallIdentity(config)).toEqual({
       appId: "io.open-design.desktop.preview",
-      executableName: "Open Design Preview",
-      installerTitle: "Open Design Preview",
-      productName: "Open Design Preview",
-      publicAppBundleName: "Open Design Preview.app",
-      systemAppBundleName: "Open Design Preview.app",
+      executableName: "Joushen Studio Preview",
+      installerTitle: "Joushen Studio Preview",
+      productName: "Joushen Studio Preview",
+      publicAppBundleName: "Joushen Studio Preview.app",
+      systemAppBundleName: "Joushen Studio Preview.app",
     });
-    expect(resolveMacPaths(config).appPath).toMatch(/Open Design Preview\.app$/);
+    expect(resolveMacPaths(config).appPath).toMatch(/Joushen Studio Preview\.app$/);
   });
 
   it("uses first-class nightly app identity for nightly release versions and namespaces", () => {
@@ -91,16 +91,16 @@ describe("resolveMacInstallIdentity", () => {
 
     expect(resolveMacInstallIdentity(nightlyVersionConfig)).toEqual({
       appId: "io.open-design.desktop.nightly",
-      executableName: "Open Design Nightly",
-      installerTitle: "Open Design Nightly",
-      productName: "Open Design Nightly",
-      publicAppBundleName: "Open Design Nightly.app",
-      systemAppBundleName: "Open Design Nightly.app",
+      executableName: "Joushen Studio Nightly",
+      installerTitle: "Joushen Studio Nightly",
+      productName: "Joushen Studio Nightly",
+      publicAppBundleName: "Joushen Studio Nightly.app",
+      systemAppBundleName: "Joushen Studio Nightly.app",
     });
-    expect(resolveMacPaths(nightlyVersionConfig).appPath).toMatch(/Open Design Nightly\.app$/);
+    expect(resolveMacPaths(nightlyVersionConfig).appPath).toMatch(/Joushen Studio Nightly\.app$/);
     expect(resolveMacInstallIdentity(nightlyNamespaceConfig)).toMatchObject({
-      productName: "Open Design Nightly",
-      publicAppBundleName: "Open Design Nightly.app",
+      productName: "Joushen Studio Nightly",
+      publicAppBundleName: "Joushen Studio Nightly.app",
     });
   });
 });

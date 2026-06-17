@@ -47,7 +47,7 @@ function parseArgs(argv: string[]): Args {
 async function fetchOnce(url: string): Promise<{ status: number; body: string }> {
   const res = await fetchWithRetry(url, {
     redirect: 'manual',
-    headers: { 'user-agent': 'OpenDesignBlogIndexingBot/1.0' },
+    headers: { 'user-agent': 'JoushenStudioBlogIndexingBot/1.0' },
   });
   return { status: res.status, body: await res.text() };
 }

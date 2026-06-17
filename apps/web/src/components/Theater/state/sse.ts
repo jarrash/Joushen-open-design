@@ -4,7 +4,7 @@ import {
   type CritiqueSseEvent,
   type CritiqueSseEventName,
   type PanelEvent,
-} from '@open-design/contracts/critique';
+} from '@joushen-studio/contracts/critique';
 
 import type { CritiqueAction } from './reducer';
 

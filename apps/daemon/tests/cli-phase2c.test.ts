@@ -7,8 +7,8 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import url from 'node:url';
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
-import { createJsonIpcServer } from '@open-design/sidecar';
-import { SIDECAR_ENV, SIDECAR_MESSAGES, normalizeDaemonSidecarMessage } from '@open-design/sidecar-proto';
+import { createJsonIpcServer } from '@joushen-studio/sidecar';
+import { SIDECAR_ENV, SIDECAR_MESSAGES, normalizeDaemonSidecarMessage } from '@joushen-studio/sidecar-proto';
 
 import { createAgentRuntimeEnv, startServer } from '../src/server.js';
 import { resetDesktopAuthForTests, setDesktopAuthSecret } from '../src/desktop-auth.js';

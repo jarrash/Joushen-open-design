@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
 describe("desktop preload host boundary", () => {
-  it("exposes the canonical Open Design host global and diagnostics bridge", () => {
+  it("exposes the canonical Joushen Studio host global and diagnostics bridge", () => {
     const here = dirname(fileURLToPath(import.meta.url));
     const source = readFileSync(join(here, "../../src/main/preload.cts"), "utf8");
     const exposedGlobals = Array.from(source.matchAll(/contextBridge\.exposeInMainWorld\(([^,\n]+)/g))
@@ -17,7 +17,7 @@ describe("desktop preload host boundary", () => {
     expect(runtimeRequires).toEqual(["'electron'"]);
     expect(source).toContain("OPEN_DESIGN_HOST_GLOBAL");
     expect(source).toContain("exportDiagnostics");
-    expect(source).toContain("satisfies OpenDesignHostBridge");
+    expect(source).toContain("satisfies JoushenStudioHostBridge");
     expect(source).toContain("browser");
     expect(source).toContain("browser:clear-data");
     expect(source).toContain("updater");
@@ -33,7 +33,7 @@ describe("desktop preload host boundary", () => {
     expect(source).toContain("od:app-config-changed");
     expect(source).toContain("open-design:app-config-changed");
     expect(source).toContain("window.dispatchEvent(new CustomEvent(APP_CONFIG_CHANGED_EVENT))");
-    expect(source).not.toContain("@open-design/contracts");
+    expect(source).not.toContain("@joushen-studio/contracts");
     expect(source).not.toContain("exposeInMainWorld('electronAPI'");
     expect(source).not.toContain('exposeInMainWorld("__odDesktop"');
     expect(source).not.toContain("exposeInMainWorld('__odDesktop'");

@@ -1,7 +1,7 @@
 import { dirname } from "node:path";
 
-import { removeFile, writeJsonFile } from "@open-design/sidecar";
-import type { SidecarStamp } from "@open-design/sidecar-proto";
+import { removeFile, writeJsonFile } from "@joushen-studio/sidecar";
+import type { SidecarStamp } from "@joushen-studio/sidecar-proto";
 
 import type { PackagedNamespacePaths } from "./paths.js";
 

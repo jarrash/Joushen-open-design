@@ -1,8 +1,8 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
-import { Dialog, DialogDescription, DialogFooter, DialogTitle } from '@open-design/components';
-import { createTabToTracking } from '@open-design/contracts/analytics';
-import { isOpenDesignHostAvailable, pickHostWorkingDir } from '@open-design/host';
-import type { OpenDesignHostProjectImportSuccess } from '@open-design/host';
+import { Dialog, DialogDescription, DialogFooter, DialogTitle } from '@joushen-studio/components';
+import { createTabToTracking } from '@joushen-studio/contracts/analytics';
+import { isJoushenStudioHostAvailable, pickHostWorkingDir } from '@joushen-studio/host';
+import type { JoushenStudioHostProjectImportSuccess } from '@joushen-studio/host';
 import { useAnalytics } from '../analytics/provider';
 import {
   trackDesignSystemApplyResult,
@@ -10,12 +10,12 @@ import {
   trackNewProjectModalSurfaceView,
   trackNewProjectModalTabClick,
 } from '../analytics/events';
-import type { ConnectorDetail } from '@open-design/contracts';
+import type { ConnectorDetail } from '@joushen-studio/contracts';
 import type {
   TrackingDesignSystemApplyTargetKind,
   TrackingDesignSystemOrigin,
   TrackingDesignSystemStatusValue,
-} from '@open-design/contracts/analytics';
+} from '@joushen-studio/contracts/analytics';
 
 import { useT } from '../i18n';
 import type { Dict } from '../i18n/types';
@@ -144,7 +144,7 @@ interface Props {
   // never sees the path or the HMAC token; it only receives the
   // host-owned project identifiers and forwards them here so App-level
   // state can refresh through the daemon API.
-  onImportFolderResponse?: (response: OpenDesignHostProjectImportSuccess) => Promise<void> | void;
+  onImportFolderResponse?: (response: JoushenStudioHostProjectImportSuccess) => Promise<void> | void;
   mediaProviders?: Record<string, MediaProviderCredentials>;
   connectors?: ConnectorDetail[];
   connectorsLoading?: boolean;
@@ -729,7 +729,7 @@ export function NewProjectPanel({
     setWorkingDirPicking(true);
     setWorkingDirError(null);
     try {
-      if (isOpenDesignHostAvailable()) {
+      if (isJoushenStudioHostAvailable()) {
         const result = await pickHostWorkingDir();
         if (result.ok) {
           setWorkingDir(result.baseDir);
@@ -738,7 +738,7 @@ export function NewProjectPanel({
         }
         if ('canceled' in result && result.canceled) return;
         setWorkingDirError({
-          message: `Couldn't open the folder picker (${'reason' in result ? result.reason : 'host unavailable'}). Please update Open Design and try again.`,
+          message: `Couldn't open the folder picker (${'reason' in result ? result.reason : 'host unavailable'}). Please update Joushen Studio and try again.`,
         });
         return;
       }
@@ -1481,12 +1481,12 @@ function HighFidelityArt() {
       <rect x="6" y="8" width="34" height="6" rx="2" fill="#1a1916" />
       <rect x="6" y="20" width="46" height="4" rx="2" fill="#74716b" />
       <rect x="6" y="28" width="42" height="4" rx="2" fill="#b3b0a8" />
-      <rect x="6" y="40" width="22" height="9" rx="2" fill="#c96442" />
-      <rect x="64" y="8" width="50" height="54" rx="4" fill="#fbeee5" />
-      <rect x="70" y="14" width="38" height="4" rx="2" fill="#c96442" />
+      <rect x="6" y="40" width="22" height="9" rx="2" fill="#2563eb" />
+      <rect x="64" y="8" width="50" height="54" rx="4" fill="#eef4ff" />
+      <rect x="70" y="14" width="38" height="4" rx="2" fill="#2563eb" />
       <rect x="70" y="22" width="32" height="3" rx="1.5" fill="#74716b" />
       <rect x="70" y="29" width="36" height="3" rx="1.5" fill="#b3b0a8" />
-      <rect x="70" y="36" width="20" height="6" rx="2" fill="#c96442" />
+      <rect x="70" y="36" width="20" height="6" rx="2" fill="#2563eb" />
     </svg>
   );
 }

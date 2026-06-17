@@ -1,5 +1,5 @@
 import type { Express } from 'express';
-import type { AutomationProposalStatus } from '@open-design/contracts';
+import type { AutomationProposalStatus } from '@joushen-studio/contracts';
 
 import {
   applyAutomationProposal,

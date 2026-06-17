@@ -114,11 +114,11 @@ describe("release workflows", () => {
     expect(winLifecycle).toContain("removedLauncherNamespaceRoot");
     expect(buildWin).toContain('Measure-Step "validate launcher payload artifact"');
     expect(buildWin).toContain('Measure-Step "validate launcher payload update fixture"');
-    expect(buildWin).toContain('Test-JsonString $manifest.entry.executable "entry.executable" "payload/Open Design.exe"');
+    expect(buildWin).toContain('Test-JsonString $manifest.entry.executable "entry.executable" "payload/Joushen Studio.exe"');
     for (const workspaceBuild of [winApp, macWorkspace, linuxPack]) {
-      const sidecarProtoBuild = 'await runPnpm(config, ["--filter", "@open-design/sidecar-proto", "build"])';
-      const launcherProtoBuild = 'await runPnpm(config, ["--filter", "@open-design/launcher-proto", "build"])';
-      const sidecarBuild = 'await runPnpm(config, ["--filter", "@open-design/sidecar", "build"])';
+      const sidecarProtoBuild = 'await runPnpm(config, ["--filter", "@joushen-studio/sidecar-proto", "build"])';
+      const launcherProtoBuild = 'await runPnpm(config, ["--filter", "@joushen-studio/launcher-proto", "build"])';
+      const sidecarBuild = 'await runPnpm(config, ["--filter", "@joushen-studio/sidecar", "build"])';
       expect(workspaceBuild).toContain(launcherProtoBuild);
       expect(workspaceBuild.indexOf(sidecarProtoBuild)).toBeLessThan(workspaceBuild.indexOf(launcherProtoBuild));
       expect(workspaceBuild.indexOf(launcherProtoBuild)).toBeLessThan(workspaceBuild.indexOf(sidecarBuild));

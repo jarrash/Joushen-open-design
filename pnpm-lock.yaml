@@ -20,19 +20,19 @@ importers:
 
   .:
     devDependencies:
-      '@open-design/components':
+      '@joushen-studio/components':
         specifier: workspace:*
         version: link:packages/components
-      '@open-design/daemon':
+      '@joushen-studio/daemon':
         specifier: workspace:*
         version: link:apps/daemon
-      '@open-design/tools-dev':
+      '@joushen-studio/tools-dev':
         specifier: workspace:*
         version: link:tools/dev
-      '@open-design/tools-pack':
+      '@joushen-studio/tools-pack':
         specifier: workspace:*
         version: link:tools/pack
-      '@open-design/tools-serve':
+      '@joushen-studio/tools-serve':
         specifier: workspace:*
         version: link:tools/serve
       '@types/node':
@@ -47,33 +47,33 @@ importers:
 
   apps/daemon:
     dependencies:
+      '@joushen-studio/agui-adapter':
+        specifier: workspace:*
+        version: link:../../packages/agui-adapter
+      '@joushen-studio/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
+      '@joushen-studio/diagnostics':
+        specifier: workspace:*
+        version: link:../../packages/diagnostics
+      '@joushen-studio/platform':
+        specifier: workspace:*
+        version: link:../../packages/platform
+      '@joushen-studio/plugin-runtime':
+        specifier: workspace:*
+        version: link:../../packages/plugin-runtime
+      '@joushen-studio/registry-protocol':
+        specifier: workspace:*
+        version: link:../../packages/registry-protocol
+      '@joushen-studio/sidecar':
+        specifier: workspace:*
+        version: link:../../packages/sidecar
+      '@joushen-studio/sidecar-proto':
+        specifier: workspace:*
+        version: link:../../packages/sidecar-proto
       '@modelcontextprotocol/sdk':
         specifier: 1.29.0
         version: 1.29.0(zod@4.4.2)
-      '@open-design/agui-adapter':
-        specifier: workspace:*
-        version: link:../../packages/agui-adapter
-      '@open-design/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@open-design/diagnostics':
-        specifier: workspace:*
-        version: link:../../packages/diagnostics
-      '@open-design/platform':
-        specifier: workspace:*
-        version: link:../../packages/platform
-      '@open-design/plugin-runtime':
-        specifier: workspace:*
-        version: link:../../packages/plugin-runtime
-      '@open-design/registry-protocol':
-        specifier: workspace:*
-        version: link:../../packages/registry-protocol
-      '@open-design/sidecar':
-        specifier: workspace:*
-        version: link:../../packages/sidecar
-      '@open-design/sidecar-proto':
-        specifier: workspace:*
-        version: link:../../packages/sidecar-proto
       '@opentelemetry/api':
         specifier: 1.9.1
         version: 1.9.1
@@ -135,25 +135,25 @@ importers:
 
   apps/desktop:
     dependencies:
-      '@open-design/diagnostics':
+      '@joushen-studio/diagnostics':
         specifier: workspace:*
         version: link:../../packages/diagnostics
-      '@open-design/download':
+      '@joushen-studio/download':
         specifier: workspace:*
         version: link:../../packages/download
-      '@open-design/host':
+      '@joushen-studio/host':
         specifier: workspace:*
         version: link:../../packages/host
-      '@open-design/launcher-proto':
+      '@joushen-studio/launcher-proto':
         specifier: workspace:*
         version: link:../../packages/launcher-proto
-      '@open-design/platform':
+      '@joushen-studio/platform':
         specifier: workspace:*
         version: link:../../packages/platform
-      '@open-design/sidecar':
+      '@joushen-studio/sidecar':
         specifier: workspace:*
         version: link:../../packages/sidecar
-      '@open-design/sidecar-proto':
+      '@joushen-studio/sidecar-proto':
         specifier: workspace:*
         version: link:../../packages/sidecar-proto
     devDependencies:
@@ -233,25 +233,25 @@ importers:
 
   apps/packaged:
     dependencies:
-      '@open-design/daemon':
+      '@joushen-studio/daemon':
         specifier: workspace:*
         version: link:../daemon
-      '@open-design/desktop':
+      '@joushen-studio/desktop':
         specifier: workspace:*
         version: link:../desktop
-      '@open-design/launcher-proto':
+      '@joushen-studio/launcher-proto':
         specifier: workspace:*
         version: link:../../packages/launcher-proto
-      '@open-design/platform':
+      '@joushen-studio/platform':
         specifier: workspace:*
         version: link:../../packages/platform
-      '@open-design/sidecar':
+      '@joushen-studio/sidecar':
         specifier: workspace:*
         version: link:../../packages/sidecar
-      '@open-design/sidecar-proto':
+      '@joushen-studio/sidecar-proto':
         specifier: workspace:*
         version: link:../../packages/sidecar-proto
-      '@open-design/web':
+      '@joushen-studio/web':
         specifier: workspace:*
         version: link:../web
     devDependencies:
@@ -288,30 +288,30 @@ importers:
       '@formkit/auto-animate':
         specifier: 0.9.0
         version: 0.9.0
+      '@joushen-studio/components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      '@joushen-studio/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
+      '@joushen-studio/host':
+        specifier: workspace:*
+        version: link:../../packages/host
+      '@joushen-studio/platform':
+        specifier: workspace:*
+        version: link:../../packages/platform
+      '@joushen-studio/sidecar':
+        specifier: workspace:*
+        version: link:../../packages/sidecar
+      '@joushen-studio/sidecar-proto':
+        specifier: workspace:*
+        version: link:../../packages/sidecar-proto
       '@lexical/react':
         specifier: 0.36.2
         version: 0.36.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yjs@13.6.31)
       '@lexical/utils':
         specifier: 0.36.2
         version: 0.36.2
-      '@open-design/components':
-        specifier: workspace:*
-        version: link:../../packages/components
-      '@open-design/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@open-design/host':
-        specifier: workspace:*
-        version: link:../../packages/host
-      '@open-design/platform':
-        specifier: workspace:*
-        version: link:../../packages/platform
-      '@open-design/sidecar':
-        specifier: workspace:*
-        version: link:../../packages/sidecar
-      '@open-design/sidecar-proto':
-        specifier: workspace:*
-        version: link:../../packages/sidecar-proto
       '@xterm/addon-fit':
         specifier: 0.10.0
         version: 0.10.0(@xterm/xterm@5.5.0)
@@ -385,7 +385,7 @@ importers:
       '@aws-sdk/client-s3':
         specifier: 3.1050.0
         version: 3.1050.0
-      '@open-design/contracts':
+      '@joushen-studio/contracts':
         specifier: workspace:*
         version: link:../packages/contracts
       '@playwright/test':
@@ -415,7 +415,7 @@ importers:
 
   packages/agui-adapter:
     dependencies:
-      '@open-design/contracts':
+      '@joushen-studio/contracts':
         specifier: workspace:*
         version: link:../contracts
     devDependencies:
@@ -499,7 +499,7 @@ importers:
 
   packages/download:
     dependencies:
-      '@open-design/platform':
+      '@joushen-studio/platform':
         specifier: workspace:*
         version: link:../platform
     devDependencies:
@@ -533,7 +533,7 @@ importers:
 
   packages/launcher-proto:
     dependencies:
-      '@open-design/sidecar-proto':
+      '@joushen-studio/sidecar-proto':
         specifier: workspace:*
         version: link:../sidecar-proto
     devDependencies:
@@ -586,7 +586,7 @@ importers:
 
   packages/plugin-runtime:
     dependencies:
-      '@open-design/contracts':
+      '@joushen-studio/contracts':
         specifier: workspace:*
         version: link:../contracts
       zod:
@@ -654,13 +654,13 @@ importers:
 
   tools/dev:
     dependencies:
-      '@open-design/platform':
+      '@joushen-studio/platform':
         specifier: workspace:*
         version: link:../../packages/platform
-      '@open-design/sidecar':
+      '@joushen-studio/sidecar':
         specifier: workspace:*
         version: link:../../packages/sidecar
-      '@open-design/sidecar-proto':
+      '@joushen-studio/sidecar-proto':
         specifier: workspace:*
         version: link:../../packages/sidecar-proto
       cac:
@@ -688,16 +688,16 @@ importers:
       '@electron/rebuild':
         specifier: 4.0.4
         version: 4.0.4
-      '@open-design/launcher-proto':
+      '@joushen-studio/launcher-proto':
         specifier: workspace:*
         version: link:../../packages/launcher-proto
-      '@open-design/platform':
+      '@joushen-studio/platform':
         specifier: workspace:*
         version: link:../../packages/platform
-      '@open-design/sidecar':
+      '@joushen-studio/sidecar':
         specifier: workspace:*
         version: link:../../packages/sidecar
-      '@open-design/sidecar-proto':
+      '@joushen-studio/sidecar-proto':
         specifier: workspace:*
         version: link:../../packages/sidecar-proto
       cac:

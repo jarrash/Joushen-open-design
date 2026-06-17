@@ -135,7 +135,7 @@
     },
     {
       "name": "--accent",
-      "value": "#c96442",
+      "value": "#2563eb",
       "type": "color",
       "layer": "A1-identity",
       "confidence": "high",

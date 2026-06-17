@@ -14,13 +14,13 @@ import {
   type DaemonStatusSnapshot,
   type SidecarStamp,
   type WebStatusSnapshot,
-} from "@open-design/sidecar-proto";
+} from "@joushen-studio/sidecar-proto";
 import {
   createSidecarLaunchEnv,
   requestJsonIpc,
   resolveAppIpcPath,
   type SidecarRuntimeContext,
-} from "@open-design/sidecar";
+} from "@joushen-studio/sidecar";
 import {
   createProcessStampArgs,
   mergeProxyAwareEnv,
@@ -28,7 +28,7 @@ import {
   stopProcesses,
   waitForProcessExit,
   wellKnownUserToolchainBins,
-} from "@open-design/platform";
+} from "@joushen-studio/platform";
 
 import type { PackagedWebOutputMode } from "./config.js";
 import type { PackagedNamespacePaths } from "./paths.js";
@@ -237,7 +237,7 @@ function extractPort(url: string): string {
 // reach even when the inherited PATH from launchd / a desktop launcher is
 // stripped down to nothing. The user-toolchain portion of the search list
 // (Homebrew, npm globals, nvm/fnm/mise, cargo, ...) lives in
-// @open-design/platform's wellKnownUserToolchainBins so the daemon
+// @joushen-studio/platform's wellKnownUserToolchainBins so the daemon
 // resolver and this PATH builder cannot drift again. See issue #442.
 const PACKAGED_POSIX_SYSTEM_BINS = ["/usr/bin", "/bin", "/usr/sbin", "/sbin"] as const;
 
@@ -474,7 +474,7 @@ export async function startPackagedSidecars(
   try {
     const daemon = await spawnSidecarChild({
       app: APP_KEYS.DAEMON,
-      entryPath: options.daemonSidecarEntry ?? resolveSidecarEntry("@open-design/daemon", "sidecar"),
+      entryPath: options.daemonSidecarEntry ?? resolveSidecarEntry("@joushen-studio/daemon", "sidecar"),
       env: buildPackagedDaemonSpawnEnv(paths, {
         appVersion: options.appVersion,
         amrProfile: options.amrProfile,
@@ -505,7 +505,7 @@ export async function startPackagedSidecars(
 
     const web = await spawnSidecarChild({
       app: APP_KEYS.WEB,
-      entryPath: options.webSidecarEntry ?? resolveSidecarEntry("@open-design/web", "sidecar"),
+      entryPath: options.webSidecarEntry ?? resolveSidecarEntry("@joushen-studio/web", "sidecar"),
       env: {
         [SIDECAR_ENV.DAEMON_PORT]: extractPort(daemonStatus.url),
         [SIDECAR_ENV.WEB_PORT]: "0",

@@ -10,7 +10,7 @@
 
 {{EXPECTED}}
 
-### Open Design version
+### Joushen Studio version
 
 {{OD_VERSION}}
 

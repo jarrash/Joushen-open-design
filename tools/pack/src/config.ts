@@ -6,8 +6,8 @@ import path from "node:path";
 import {
   OPEN_DESIGN_SIDECAR_CONTRACT,
   SIDECAR_DEFAULTS,
-} from "@open-design/sidecar-proto";
-import { resolveNamespace } from "@open-design/sidecar";
+} from "@joushen-studio/sidecar-proto";
+import { resolveNamespace } from "@joushen-studio/sidecar";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -103,7 +103,7 @@ export type ToolPackConfig = {
    */
   posthogCliApiKey?: string;
   /**
-   * PostHog project ID (e.g. `420348` for the official Open Design project)
+   * PostHog project ID (e.g. `420348` for the official Joushen Studio project)
    * used by `@posthog/cli sourcemap upload`. Sourced from
    * `POSTHOG_CLI_PROJECT_ID` (or the alias `POSTHOG_PROJECT_ID`) in CI.
    * Required for upload to be attempted; missing → strip-only path.

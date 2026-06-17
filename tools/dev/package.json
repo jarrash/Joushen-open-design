@@ -1,5 +1,5 @@
 {
-  "name": "@open-design/tools-dev",
+  "name": "@joushen-studio/tools-dev",
   "version": "0.10.2",
   "private": true,
   "type": "module",
@@ -13,9 +13,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@open-design/platform": "workspace:*",
-    "@open-design/sidecar": "workspace:*",
-    "@open-design/sidecar-proto": "workspace:*",
+    "@joushen-studio/platform": "workspace:*",
+    "@joushen-studio/sidecar": "workspace:*",
+    "@joushen-studio/sidecar-proto": "workspace:*",
     "cac": "6.7.14"
   },
   "devDependencies": {
