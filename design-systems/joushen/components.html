@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joushen — reference components</title>
+    <meta
+      name="description"
+      content="Reference fixture for design-systems/joushen. Every visible
+        value comes from tokens.css; the page follows Joushen's rules —
+        Deep Navy structure, a single Joushen Lime signal accent rationed
+        to a few uses per viewport, IBM Plex Sans/Mono, geometric 6-16px
+        radii, cool navy-tinted shadows, and a 3px lime focus ring."
+    />
+
+    <style>
+      /* :root paste — sourced verbatim from design-systems/joushen/tokens.css. */
+      :root {
+        --bg: #f5f7f8;
+        --surface: #ffffff;
+        --surface-warm: #edf0f2;
+
+        --fg: #131d24;
+        --fg-2: #28323a;
+        --muted: #71808a;
+        --meta: #9ba8b0;
+
+        --border: #dde3e6;
+        --border-soft: #edf0f2;
+
+        --accent: #cde812;
+        --accent-on: #171c22;
+        --accent-hover: #b6ce0c;
+        --accent-active: #94a80a;
+
+        --success: #5ba66e;
+        --warn: #e0b23b;
+        --danger: #d9534f;
+
+        --font-display:
+          "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui,
+          -apple-system, "Segoe UI", Roboto, sans-serif;
+        --font-body:
+          "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui,
+          -apple-system, "Segoe UI", Roboto, sans-serif;
+        --font-mono:
+          "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Monaco,
+          Consolas, monospace;
+
+        --text-xs: 12px;
+        --text-sm: 14px;
+        --text-base: 16px;
+        --text-lg: 18px;
+        --text-xl: 22px;
+        --text-2xl: 28px;
+        --text-3xl: 36px;
+        --text-4xl: 48px;
+
+        --leading-body: 1.65;
+        --leading-tight: 1.2;
+        --tracking-display: -0.03em;
+
+        --space-1: 4px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 20px;
+        --space-6: 24px;
+        --space-8: 32px;
+        --space-12: 48px;
+
+        --section-y-desktop: 96px;
+        --section-y-tablet: 64px;
+        --section-y-phone: 48px;
+
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 16px;
+        --radius-pill: 9999px;
+
+        --elev-flat: none;
+        --elev-ring: 0 0 0 1px var(--border);
+        --elev-raised:
+          0 4px 12px rgba(19, 29, 36, 0.1),
+          0 2px 4px rgba(19, 29, 36, 0.06);
+
+        --focus-ring: 0 0 0 3px var(--accent);
+
+        --motion-fast: 120ms;
+        --motion-base: 200ms;
+        --ease-standard: cubic-bezier(0.2, 0, 0.1, 1);
+
+        --container-max: 1320px;
+        --container-gutter-desktop: 32px;
+        --container-gutter-tablet: 24px;
+        --container-gutter-phone: 16px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        line-height: var(--leading-body);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: var(--container-max);
+        margin-inline: auto;
+        padding-inline: var(--container-gutter-desktop);
+        padding-block: var(--space-12);
+      }
+
+      section {
+        margin-block-end: var(--space-12);
+      }
+
+      nav.nav-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-6);
+        padding-block: var(--space-4);
+        border-block-end: 1px solid var(--border);
+        margin-block-end: var(--space-12);
+      }
+
+      .nav-logo {
+        font-family: var(--font-display);
+        font-weight: 700;
+        letter-spacing: var(--tracking-display);
+        font-size: var(--text-xl);
+        color: var(--fg);
+      }
+
+      .nav-logo span {
+        color: var(--accent-active);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: var(--space-6);
+      }
+
+      .link {
+        color: var(--fg-2);
+        text-decoration: none;
+        font-size: var(--text-sm);
+      }
+
+      .link:hover {
+        color: var(--fg);
+        text-decoration: underline;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: var(--text-xs);
+        color: var(--accent-active);
+        margin: 0 0 var(--space-3);
+      }
+
+      h1 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: var(--text-4xl);
+        line-height: var(--leading-tight);
+        letter-spacing: var(--tracking-display);
+        margin: 0 0 var(--space-4);
+      }
+
+      h2 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: var(--text-2xl);
+        line-height: var(--leading-tight);
+        margin: 0 0 var(--space-4);
+      }
+
+      .lead {
+        font-size: var(--text-lg);
+        color: var(--muted);
+        max-width: 60ch;
+        margin: 0 0 var(--space-6);
+      }
+
+      .body-muted {
+        color: var(--muted);
+      }
+
+      .row-cluster {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: var(--text-sm);
+        padding: var(--space-3) var(--space-5);
+        border-radius: var(--radius-sm);
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition:
+          background var(--motion-fast) var(--ease-standard),
+          box-shadow var(--motion-fast) var(--ease-standard),
+          transform var(--motion-fast) var(--ease-standard);
+      }
+
+      .btn:focus-visible {
+        outline: none;
+        box-shadow: var(--focus-ring);
+        outline-offset: var(--space-1);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--accent-on);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+        box-shadow: 0 8px 28px rgba(205, 232, 18, 0.3);
+      }
+
+      .btn-secondary {
+        background: var(--surface);
+        color: var(--fg);
+        border-color: var(--border);
+      }
+
+      .btn-secondary:hover {
+        background: var(--surface-warm);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--fg-2);
+      }
+
+      .btn-ghost:hover {
+        color: var(--fg);
+      }
+
+      .icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: var(--space-6);
+        box-shadow: var(--elev-ring);
+        transition:
+          transform var(--motion-base) var(--ease-standard),
+          box-shadow var(--motion-base) var(--ease-standard);
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--elev-raised);
+      }
+
+      .card-featured {
+        border-block-start: 3px solid var(--accent);
+      }
+
+      .card h2 {
+        font-size: var(--text-xl);
+      }
+
+      .card p {
+        color: var(--muted);
+        font-size: var(--text-sm);
+        margin: 0;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: var(--text-xs);
+        padding: var(--space-1) var(--space-3);
+        border-radius: var(--radius-pill);
+        background: var(--surface-warm);
+        color: var(--fg-2);
+        border: 1px solid var(--border);
+      }
+
+      .badge-accent {
+        background: var(--accent);
+        color: var(--accent-on);
+        border-color: transparent;
+      }
+
+      .badge-status {
+        background: var(--surface);
+      }
+
+      .badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: var(--radius-pill);
+        background: var(--success);
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        max-width: 360px;
+      }
+
+      .field label {
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--fg-2);
+      }
+
+      .field input,
+      .field select {
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        padding: var(--space-3) var(--space-4);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--fg);
+      }
+
+      .field input:focus-visible,
+      .field select:focus-visible {
+        outline: none;
+        box-shadow: var(--focus-ring);
+        border-color: var(--accent);
+      }
+
+      .field .hint {
+        font-size: var(--text-xs);
+        color: var(--meta);
+      }
+
+      .hero-dark {
+        background: var(--accent-on);
+        color: #ffffff;
+        border-radius: var(--radius-lg);
+        padding: var(--space-12);
+        position: relative;
+        overflow: hidden;
+        background-image: radial-gradient(
+          rgba(205, 232, 18, 0.12) 1px,
+          transparent 1px
+        );
+        background-size: 22px 22px;
+      }
+
+      .hero-dark .eyebrow {
+        color: var(--accent);
+      }
+
+      .hero-dark h1 {
+        color: #ffffff;
+        max-width: 18ch;
+      }
+
+      kbd {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        background: var(--surface-warm);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 2px var(--space-2);
+      }
+
+      footer {
+        border-block-start: 1px solid var(--border);
+        padding-block-start: var(--space-6);
+        color: var(--meta);
+        font-size: var(--text-sm);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <!-- NAV — exercises buttons, links, layout groups. -->
+      <nav class="nav-row" aria-label="Primary">
+        <span class="nav-logo">joushen<span>.</span></span>
+        <div class="nav-links">
+          <a class="link" href="#services">Services</a>
+          <a class="link" href="#platform">Platform</a>
+          <a class="link" href="#trust">Trust</a>
+        </div>
+        <div class="row-cluster">
+          <button class="btn btn-ghost" type="button">Sign in</button>
+          <button class="btn btn-primary" type="button">
+            Request a briefing
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- HERO — dark charcoal mode with network/grid dot motif. -->
+      <section class="hero-dark">
+        <p class="eyebrow">Digital trust · digital identity</p>
+        <h1>Identity is the new security perimeter.</h1>
+        <p class="lead" style="color: rgba(255, 255, 255, 0.8)">
+          A Saudi cybersecurity and digital-trust company helping
+          organizations secure identities, strengthen governance, and
+          accelerate digital transformation — aligned with Vision 2030.
+        </p>
+        <div class="row-cluster">
+          <button class="btn btn-primary" type="button">Talk to an advisor</button>
+          <button class="btn btn-secondary" type="button">Explore services</button>
+        </div>
+      </section>
+
+      <!-- SERVICES — cards group, one featured with the lime rule. -->
+      <section id="services">
+        <p class="eyebrow">Service lines</p>
+        <h2>Security embedded from strategy to execution</h2>
+        <div class="grid-3">
+          <article class="card card-featured">
+            <span class="badge badge-accent">Digital identity</span>
+            <h2>Identity &amp; access</h2>
+            <p>
+              Governed identity as the control plane — joiner-mover-leaver,
+              privileged access, and continuous verification.
+            </p>
+          </article>
+          <article class="card">
+            <span class="badge">GRC</span>
+            <h2>Governance &amp; risk</h2>
+            <p>
+              NCA, SAMA CSF, and PDPL alignment with evidence-backed
+              control mapping and board-ready reporting.
+            </p>
+          </article>
+          <article class="card">
+            <span class="badge">OT security</span>
+            <h2>Critical infrastructure</h2>
+            <p>
+              Operational-technology and critical-infrastructure
+              protection for the Kingdom's essential services.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- FORM + status — inputs and badges groups. -->
+      <section id="trust">
+        <p class="eyebrow">Trust console</p>
+        <h2>Request a posture assessment</h2>
+        <div class="row-cluster" style="align-items: flex-start; gap: var(--space-12)">
+          <form class="field">
+            <label for="org">Organization</label>
+            <input id="org" type="text" placeholder="Ministry, bank, or operator" />
+            <label for="framework">Primary framework</label>
+            <select id="framework">
+              <option>NCA Essential Cybersecurity Controls</option>
+              <option>SAMA Cybersecurity Framework</option>
+              <option>PDPL</option>
+            </select>
+            <span class="hint">We respond within one business day.</span>
+            <button class="btn btn-primary" type="submit" style="align-self: flex-start">
+              Submit request
+            </button>
+          </form>
+          <div class="row-cluster" style="flex-direction: column; align-items: flex-start">
+            <span class="badge badge-status">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Controls passing
+            </span>
+            <span class="badge">NCA</span>
+            <span class="badge">SAMA</span>
+            <span class="badge">PDPL</span>
+            <p class="body-muted" style="font-size: var(--text-sm)">
+              Jump to coverage with <kbd>⌘</kbd> <kbd>K</kbd>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Joushen — empowering trust, enabling digital transformation. Built
+        for Saudi regulations, hosted in Saudi Arabia, aligned with Vision
+        2030.
+      </footer>
+    </main>
+  </body>
+</html>

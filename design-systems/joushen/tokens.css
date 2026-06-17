@@ -1,0 +1,215 @@
+/* ─────────────────────────────────────────────────────────────────────────
+ * design-systems/joushen/tokens.css
+ *
+ * Structured token bindings for the Joushen design system — a Saudi
+ * cybersecurity and digital-trust brand. Calm structural Deep Navy
+ * (#345060) carries chrome and text; a single electric Joushen Lime
+ * (#cde812) is the lone signal accent (CTAs, active states, data
+ * emphasis) and is rationed to ~5–10% of any surface. Light cool-gray
+ * surfaces for content/app contexts; a Dark Charcoal (#171c22) mode is
+ * reserved for covers and heroes. Geometric, flat, executive.
+ *
+ * This file pre-compiles the values described in `DESIGN.md` into the
+ * schema shared with every OD design system. Agents should paste the
+ * `:root { … }` block verbatim into the first `<style>` of an artifact,
+ * then resolve every value via `var(--*)` from that point on.
+ *
+ * Schema notes (brand-specific bindings worth flagging — section
+ * references point into `DESIGN.md`):
+ *
+ *   #Bind 1  — --bg is cool gray (#f5f7f8) and --surface is white.
+ *              Joushen's content/app surfaces sit on a faint cool wash
+ *              with white cards stepping forward; the dark charcoal
+ *              cover/hero mode is a separate context layered inline by
+ *              the artifact, not the default page surface (§2 Color).
+ *
+ *   #Bind 2  — --accent-on is Dark Charcoal (#171c22), NOT white. Lime
+ *              is so bright that navy/charcoal text is the only legible
+ *              foreground on a lime fill — the brand's "navy on lime"
+ *              wordmark lockup encodes this exact pairing (§2, §4).
+ *
+ *   #Bind 3  — --accent-hover / --accent-active step DOWN the lime ramp
+ *              (lime-500 #b6ce0c, lime-600 #94a80a) rather than up.
+ *              Lime is already at maximum chroma; pressing darkens it
+ *              toward olive so the state read is unmistakable (§6).
+ *
+ *   #Bind 4  — --focus-ring is a 3px Joushen Lime ring. The brand
+ *              mandates a high-visibility, brand-colored focus indicator
+ *              (3px solid lime, 2px offset). Pair the box-shadow ring
+ *              here with `outline-offset: var(--space-1)` at components
+ *              that need the documented 2px gap (§6 States).
+ *
+ *   #Bind 5  — --elev-raised is a cool, navy-tinted, low-spread stack
+ *              (rgba(19,29,36,…)). The brand forbids warm or heavy
+ *              blurry shadows; depth is a faint structural lift, never
+ *              a glow — except the one reserved lime glow kept inline
+ *              at primary CTAs / hero focal points (§6 Depth).
+ *
+ *   #Bind 6  — --leading-body is 1.65 (open, executive reading rhythm)
+ *              against tight 1.2 display leading. The two-mode rhythm
+ *              is what gives Joushen its board-briefing calm rather
+ *              than a dashboard-cramped feel (§3 Typography).
+ *
+ * Brand-specific extensions: the secondary Sage Green (#699583) and
+ * Digital Blue (#5ab4d2) supporting accents — used for data viz and
+ * "on/positive" states — stay inline at the components that need them
+ * rather than occupying shared accent slots; promoting them would
+ * invite non-data surfaces to reach past the single lime signal.
+ * ─────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ─── Surface (3 levels) ────────────────────────────────────────
+   * Cool gray (#f5f7f8) is the default content/app page; white is the
+   * card surface that steps forward from it. The tertiary tier
+   * (--surface-warm) is a faintly cooler gray used for sunken wells,
+   * table zebra, and inset panels. The Dark Charcoal cover/hero mode
+   * (#171c22) is a separate context the artifact layers in inline,
+   * not the page default. */
+  --bg: #f5f7f8;
+  --surface: #ffffff;
+  --surface-warm: #edf0f2;
+
+  /* ─── Foreground ramp (4 levels) ────────────────────────────────
+   * Near-navy (#131d24) carries headings and primary text — never
+   * true black; the brand's ink is always navy-tinted. Charcoal
+   * (--fg-2) is a one-step-down body tier. Cool gray (--muted) is the
+   * secondary label; the lightest tier (--meta) is reserved for
+   * disabled controls and low-priority metadata. */
+  --fg: #131d24;
+  --fg-2: #28323a;
+  --muted: #71808a;
+  --meta: #9ba8b0;
+
+  /* ─── Border (2 levels) ─────────────────────────────────────────
+   * Hairline cool-gray (#dde3e6) is the workhorse — card edges, table
+   * rules, divider lines. The soft tier is a lighter hairline for
+   * breaking up dense interiors without competing with the primary
+   * edge. On dark surfaces, borders become rgba(255,255,255,0.10),
+   * kept inline at the dark-mode components that need it. */
+  --border: #dde3e6;
+  --border-soft: #edf0f2;
+
+  /* ─── Accent ────────────────────────────────────────────────────
+   * Joushen Lime — the single signature signal color. Reserve for
+   * primary CTAs, the active-tab indicator, key data emphasis, and
+   * the 3px featured-card top rule. Lime is precious: keep it to
+   * ~5–10% of any surface and never flood it behind body text. Navy
+   * carries structure; lime carries attention. */
+  --accent: #cde812;
+  --accent-on: #171c22;          /* charcoal/navy text on lime — never white */
+  --accent-hover: #b6ce0c;       /* lime-500 — hover steps down the ramp */
+  --accent-active: #94a80a;      /* lime-600 — pressed/active */
+
+  /* ─── Semantic ──────────────────────────────────────────────────
+   * Desaturated, navy-compatible status colors that survive the cool
+   * surfaces without competing with lime. Keep total semantic-color
+   * pixels well under five percent of any view — the console renders
+   * status, the marketing site almost never does. */
+  --success: #5ba66e;            /* sage-leaning green — compliant / on */
+  --warn: #e0b23b;               /* muted amber — never tailwind yellow */
+  --danger: #d9534f;             /* desaturated red — risk / breach */
+
+  /* ─── Typography — fonts ────────────────────────────────────────
+   * IBM Plex Sans carries UI and headings (with IBM Plex Sans Arabic
+   * as the bidi-paired fallback for RTL Arabic); IBM Plex Mono carries
+   * eyebrows, IDs, code, and tabular data. Display and body share the
+   * Plex Sans family — the identity comes from weight and tracking,
+   * not typeface mixing. Loaded from Google Fonts CDN (see DESIGN.md
+   * §9). */
+  --font-display:
+    "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body:
+    "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui,
+    -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:
+    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Monaco,
+    Consolas, monospace;
+
+  /* ─── Typography — type scale (px) ──────────────────────────────
+   * Tuned roughly major-third. Body sits at 16px; the scale jumps to
+   * 28px for section headings and 36–48px for hero display. Minimum
+   * body in UI is 14px; never below 24px on 1920-wide slides. */
+  --text-xs: 12px;               /* micro / legal / eyebrow caps */
+  --text-sm: 14px;               /* caption, label, dense UI */
+  --text-base: 16px;             /* body */
+  --text-lg: 18px;               /* lead paragraph, subhead */
+  --text-xl: 22px;               /* card / subsection heading */
+  --text-2xl: 28px;              /* section heading */
+  --text-3xl: 36px;              /* page title */
+  --text-4xl: 48px;              /* hero display */
+
+  /* ─── Typography — leading & tracking ───────────────────────────
+   * Tight for display (1.20 — chiseled, executive headlines),
+   * generous for body (1.65 — board-briefing reading comfort).
+   * Display tracking compresses to -0.03em; eyebrows use wide
+   * positive tracking, kept inline at the eyebrow rule. */
+  --leading-body: 1.65;
+  --leading-tight: 1.2;
+  --tracking-display: -0.03em;
+
+  /* ─── Spacing — base scale ──────────────────────────────────────
+   * 4px base grid. Generous whitespace is a brand signal — executive
+   * density on marketing, tighter on the console. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* ─── Section rhythm ────────────────────────────────────────────
+   * Generous vertical rhythm between marketing sections; tightens on
+   * smaller viewports. The console runs denser and overrides these
+   * inline. */
+  --section-y-desktop: 96px;
+  --section-y-tablet: 64px;
+  --section-y-phone: 48px;
+
+  /* ─── Radius ────────────────────────────────────────────────────
+   * Geometric, not pill-soft. 6px for controls, 10px for cards (the
+   * workhorse), 16px for large panels; pills (9999px) reserved for
+   * badges and avatars only. */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* ─── Elevation ─────────────────────────────────────────────────
+   * Cool, navy-tinted, low-spread shadows — nothing warm, heavy, or
+   * blurry. Cards sit on a hairline ring or a faint --elev-raised
+   * lift. The one reserved lime glow (0 8px 28px rgba(205,232,18,.3))
+   * is kept inline at primary CTAs / hero focal points, never a
+   * default. */
+  --elev-flat: none;
+  --elev-ring: 0 0 0 1px var(--border);
+  --elev-raised:
+    0 4px 12px rgba(19, 29, 36, 0.1),
+    0 2px 4px rgba(19, 29, 36, 0.06);
+
+  /* ─── Focus ring ────────────────────────────────────────────────
+   * 3px solid Joushen Lime — a high-visibility, brand-colored ring.
+   * DESIGN.md §6 mandates lime focus with a 2px offset; pair this
+   * box-shadow ring with `outline-offset: var(--space-1)` where the
+   * documented gap is needed. */
+  --focus-ring: 0 0 0 3px var(--accent);
+
+  /* ─── Motion ────────────────────────────────────────────────────
+   * Purposeful and quick — 120ms for micro-states, 200ms for general
+   * state changes (durations span 120–360ms). Standard easing is the
+   * brand's cubic-bezier(0.2,0,0.1,1); entrances use (0.16,1,0.3,1),
+   * kept inline. No bounces, no infinite decorative loops. */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0.1, 1);
+
+  /* ─── Layout ────────────────────────────────────────────────────
+   * Containers cap at 1320px per DESIGN.md §5. Gutters tighten
+   * progressively across breakpoints. */
+  --container-max: 1320px;
+  --container-gutter-desktop: 32px;
+  --container-gutter-tablet: 24px;
+  --container-gutter-phone: 16px;
+}

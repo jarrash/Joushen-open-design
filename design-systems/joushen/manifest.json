@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "od-design-system-project/v1",
+  "id": "joushen",
+  "name": "Joushen",
+  "category": "Security & Identity",
+  "description": "Saudi cybersecurity and digital-trust design system — Deep Navy structure with a single Joushen Lime signal accent, executive flat geometry, and a dark charcoal cyber-hero mode. Built from the Claude Design brand handoff bundle.",
+  "source": {
+    "type": "bundled",
+    "origin": "Claude Design (claude.ai/design) brand handoff bundle for Joushen"
+  },
+  "files": {
+    "design": "DESIGN.md",
+    "tokens": "tokens.css",
+    "components": "components.html"
+  },
+  "assetsDir": "assets",
+  "usage": "USAGE.md",
+  "componentsManifest": "components.manifest.json",
+  "importMode": "normalized",
+  "craft": {
+    "applies": [],
+    "suggested": [
+      "color",
+      "accessibility-baseline",
+      "rtl-and-bidi"
+    ],
+    "exemptions": []
+  },
+  "preview": {
+    "dir": "preview",
+    "pages": [
+      {
+        "path": "preview/colors.html",
+        "role": "colors",
+        "title": "Colors"
+      },
+      {
+        "path": "preview/typography.html",
+        "role": "typography",
+        "title": "Typography"
+      },
+      {
+        "path": "preview/spacing.html",
+        "role": "spacing",
+        "title": "Spacing"
+      }
+    ]
+  }
+}
