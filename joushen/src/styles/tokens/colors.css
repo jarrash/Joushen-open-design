@@ -1,0 +1,123 @@
+/* ============================================================
+   JOUSHEN · COLOR TOKENS
+   Primary: Deep Navy #345060 · Joushen Lime #CDE812
+   Secondary: Sage Green #699583 · Digital Blue #5AB4D2
+   Surfaces: Dark Charcoal #171C22 · White
+   ============================================================ */
+
+:root {
+  /* ---- Brand: Joushen Lime (signal accent) ---- */
+  --lime-50:  #FBFEE9;
+  --lime-100: #F4FBBE;
+  --lime-200: #E9F77E;
+  --lime-300: #DCF03E;
+  --lime-400: #CDE812;   /* BRAND LIME */
+  --lime-500: #B6CE0C;
+  --lime-600: #94A80A;
+  --lime-700: #6E7E0C;
+  --lime-800: #4C570E;
+
+  /* ---- Brand: Deep Navy (primary structural) ---- */
+  --navy-50:  #EEF2F4;
+  --navy-100: #D6DFE4;
+  --navy-200: #AEC0C8;
+  --navy-300: #7E97A2;
+  --navy-400: #547180;
+  --navy-500: #345060;   /* DEEP NAVY */
+  --navy-600: #2A4250;
+  --navy-700: #21333E;
+  --navy-800: #19262E;
+  --navy-900: #131D24;
+
+  /* ---- Brand: Sage Green (secondary) ---- */
+  --sage-100: #DEE9E5;
+  --sage-300: #A9C4BB;
+  --sage-500: #699583;   /* SAGE GREEN */
+  --sage-700: #4C6F60;
+  --sage-900: #2F4940;
+
+  /* ---- Brand: Digital Blue (secondary / data) ---- */
+  --blue-100: #DCF0F6;
+  --blue-300: #A5DCEA;
+  --blue-500: #5AB4D2;   /* DIGITAL BLUE */
+  --blue-700: #3683A0;
+  --blue-900: #20566B;
+
+  /* ---- Ink: dark charcoal surface family ---- */
+  --ink-950: #0E1216;
+  --ink-900: #12171C;
+  --ink-850: #171C22;    /* DARK CHARCOAL — base dark surface */
+  --ink-800: #1D242B;
+  --ink-700: #283139;
+  --ink-600: #36424C;
+  --ink-500: #4A5862;
+
+  /* ---- Neutral: cool gray (light UI) ---- */
+  --gray-0:   #FFFFFF;
+  --gray-50:  #F5F7F8;
+  --gray-100: #EDF0F2;
+  --gray-200: #DDE3E6;
+  --gray-300: #C4CDD2;
+  --gray-400: #9BA8B0;
+  --gray-500: #71808A;
+  --gray-600: #53626C;
+  --gray-700: #3C4951;
+  --gray-800: #28323A;
+  --gray-900: #171C22;
+
+  /* ---- Semantic status ---- */
+  --success-500: #5BA66E;
+  --success-600: #438354;
+  --warning-500: #E0B23B;
+  --warning-600: #B98C20;
+  --danger-500:  #D9534F;
+  --danger-600:  #B23B37;
+  --info-500:    #5AB4D2;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components
+     ============================================================ */
+
+  /* Brand */
+  --brand-primary:       var(--navy-500);
+  --brand-accent:        var(--lime-400);
+  --brand-accent-press:  var(--lime-500);
+  --brand-secondary:     var(--sage-500);
+  --brand-tertiary:      var(--blue-500);
+
+  /* Light surfaces (default app/web context) */
+  --surface-page:        var(--gray-50);
+  --surface-card:        var(--gray-0);
+  --surface-sunken:      var(--gray-100);
+  --surface-raised:      var(--gray-0);
+  --surface-inverse:     var(--ink-850);
+
+  /* Dark surfaces (cover/hero/cyber context) */
+  --surface-dark:        var(--ink-850);
+  --surface-dark-raised: var(--ink-800);
+  --surface-dark-sunken: var(--ink-900);
+
+  /* Text on light */
+  --text-strong:   var(--navy-900);
+  --text-body:     var(--gray-800);
+  --text-muted:    var(--gray-500);
+  --text-subtle:   var(--gray-400);
+  --text-on-accent: var(--ink-850);   /* navy text on lime */
+  --text-link:     var(--navy-500);
+
+  /* Text on dark */
+  --text-on-dark-strong: var(--gray-0);
+  --text-on-dark-body:   var(--gray-200);
+  --text-on-dark-muted:  var(--navy-300);
+  --text-accent:         var(--lime-400);
+
+  /* Borders & lines */
+  --border-subtle:  var(--gray-200);
+  --border-default: var(--gray-300);
+  --border-strong:  var(--gray-400);
+  --border-dark:    rgba(255,255,255,0.10);
+  --border-accent:  var(--lime-400);
+
+  /* Focus ring */
+  --focus-ring: var(--lime-400);
+}

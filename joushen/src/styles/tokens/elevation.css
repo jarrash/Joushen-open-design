@@ -1,0 +1,42 @@
+/* ============================================================
+   JOUSHEN · RADII, BORDERS, ELEVATION, MOTION
+   Geometric / flat aesthetic — restrained shadows, crisp edges.
+   ============================================================ */
+
+:root {
+  /* ---- Corner radii (geometric, not pill-heavy) ---- */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 999px;
+
+  /* ---- Border widths ---- */
+  --border-hairline: 1px;
+  --border-thick: 2px;
+  --border-accent-w: 3px;   /* lime left/bottom rule accent */
+
+  /* ---- Elevation (cool navy-tinted shadows, low spread) ---- */
+  --shadow-xs: 0 1px 2px rgba(19,29,36,0.06);
+  --shadow-sm: 0 1px 3px rgba(19,29,36,0.08), 0 1px 2px rgba(19,29,36,0.06);
+  --shadow-md: 0 4px 12px rgba(19,29,36,0.10), 0 2px 4px rgba(19,29,36,0.06);
+  --shadow-lg: 0 12px 28px rgba(19,29,36,0.14), 0 4px 8px rgba(19,29,36,0.07);
+  --shadow-xl: 0 24px 56px rgba(19,29,36,0.20);
+  --shadow-accent: 0 8px 28px rgba(205,232,18,0.30);   /* lime glow for CTA/hero */
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.04);
+
+  /* ---- Focus ---- */
+  --focus-width: 3px;
+  --focus-offset: 2px;
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.2, 0, 0.1, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);     /* @kind other */
+  --ease-in: cubic-bezier(0.6, 0, 0.9, 0.2);     /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-base: 200ms; /* @kind other */
+  --dur-slow: 360ms; /* @kind other */
+}

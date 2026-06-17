@@ -1,0 +1,67 @@
+/* ============================================================
+   JOUSHEN · TYPOGRAPHY TOKENS
+   English: IBM Plex Sans  ·  Arabic: IBM Plex Sans Arabic
+   Mono / data: IBM Plex Mono
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "IBM Plex Sans", system-ui, sans-serif;  /* used at heavy weights + tight tracking */
+
+  /* ---- Weights ---- */
+  --fw-light: 300;    /* @kind font */
+  --fw-regular: 400;  /* @kind font */
+  --fw-medium: 500;   /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700;     /* @kind font */
+
+  /* ---- Type scale (1.25 major-third-ish, tuned) ---- */
+  --text-2xs: 0.6875rem;  /* 11px */
+  --text-xs:  0.75rem;    /* 12px */
+  --text-sm:  0.875rem;   /* 14px */
+  --text-md:  1rem;       /* 16px — base body */
+  --text-lg:  1.125rem;   /* 18px */
+  --text-xl:  1.375rem;   /* 22px */
+  --text-2xl: 1.75rem;    /* 28px */
+  --text-3xl: 2.25rem;    /* 36px */
+  --text-4xl: 3rem;       /* 48px */
+  --text-5xl: 3.75rem;    /* 60px */
+  --text-6xl: 4.75rem;    /* 76px */
+
+  /* ---- Line heights ---- */
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* ---- Letter spacing ---- */
+  --tracking-tighter: -0.03em;  /* big display */
+  --tracking-tight: -0.015em;   /* headings */
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.12em;     /* eyebrows / kickers (uppercase) */
+  --tracking-widest: 0.22em;    /* logo-adjacent labels */
+
+  /* ============================================================
+     SEMANTIC ROLES
+     ============================================================ */
+  --display-font: var(--font-display);
+  --display-weight: var(--fw-bold);
+  --display-tracking: var(--tracking-tighter);
+  --display-leading: var(--leading-tight);
+
+  --heading-font: var(--font-sans);
+  --heading-weight: var(--fw-semibold);
+  --heading-tracking: var(--tracking-tight);
+
+  --body-font: var(--font-sans);
+  --body-weight: var(--fw-regular);
+  --body-leading: var(--leading-relaxed);
+
+  --eyebrow-font: var(--font-mono);
+  --eyebrow-weight: var(--fw-medium);
+  --eyebrow-tracking: var(--tracking-wider);
+}

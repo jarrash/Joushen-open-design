@@ -1,0 +1,57 @@
+/* ============================================================
+   JOUSHEN · BASE / RESET
+   Element defaults wired to tokens. Imported by styles.css.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-md);
+  line-height: var(--body-leading);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+[dir="rtl"] { font-family: var(--font-arabic); }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--heading-font);
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-tracking);
+  line-height: var(--leading-snug);
+  color: var(--text-strong);
+}
+
+p { margin: 0; }
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { font-family: inherit; }
+
+code, pre, kbd { font-family: var(--font-mono); }
+
+::selection { background: var(--lime-400); color: var(--ink-850); }
+
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* Utility: monospace eyebrow / kicker */
+.jsn-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-medium);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
