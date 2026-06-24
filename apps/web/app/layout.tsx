@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { I18nProvider } from '../src/i18n';
 import { AnalyticsProvider } from '../src/analytics/provider';
 import '../src/index.css';
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <I18nProvider>
           <AnalyticsProvider>{children}</AnalyticsProvider>
         </I18nProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
